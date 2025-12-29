@@ -104,7 +104,7 @@ return { shipassault = {
         craterMult              = 0,
 
         customParams            = {
-            combatRange = 225,
+            combatRange = 150,
             force_ignore_ground = [[1]],
             slot = [[5]],
             muzzleEffectFire = [[custom:HEAVY_CANNON_MUZZLE]],
@@ -156,7 +156,7 @@ return { shipassault = {
       craterBoost             = 1,
       craterMult              = 2,
       damage                  = {
-        default = 400.01,
+        default = 300.01,
       },
 
       edgeEffectiveness       = 0.5,
@@ -169,7 +169,7 @@ return { shipassault = {
       model                   = [[wep_m_hailstorm.s3o]],
       noSelfDamage            = true,
       range                   = 800,
-      reloadtime              = 16,
+      reloadtime              = 12,
       smokeTrail              = true,
       soundHit                = [[weapon/missile/missile_fire12]],
       soundStart              = [[weapon/missile/missile_fire10]],
@@ -197,8 +197,13 @@ return { shipassault = {
       commandfire             = true,
       craterBoost             = 1,
       craterMult              = 2,
+      
+      customParams            = {
+        burst = Shared.BURST_RELIABLE,
+      },
+      
       damage                  = {
-        default = 400.01,
+        default = 300.01,
       },
 
       edgeEffectiveness       = 0.5,
@@ -211,7 +216,7 @@ return { shipassault = {
       model                   = [[wep_m_hailstorm.s3o]],
       noSelfDamage            = true,
       range                   = 800,
-      reloadtime              = 64,
+      reloadtime              = 48,
       smokeTrail              = true,
       soundHit                = [[weapon/missile/missile_fire12]],
       soundStart              = [[weapon/missile/missile_fire10]],
