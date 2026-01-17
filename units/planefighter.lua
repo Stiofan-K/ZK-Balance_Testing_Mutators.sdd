@@ -81,7 +81,7 @@ return { planefighter = {
     {
       def                = [[SWIFT_GUN]],
       mainDir            = [[0 0 1]],
-      maxAngleDif        = 70, -- angle diff makes it easier to use swifts gun (Mostly an adjustment to make strafing at range easier, but it may have unitended consequence in air? I've not seen it so for but oh well)
+      maxAngleDif        = 70,
       onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
       badTargetCategory  = [[LAND SINK TURRET SHIP SWIM FLOAT HOVER]],
     },
@@ -125,7 +125,7 @@ return { planefighter = {
       impulseFactor           = 0,
       interceptedByShieldType = 1,
       lodDistance             = 10000,
-      range                   = 800, -- was 667, there may be a specific reason (sphere range?), and or a scripting reason for this, but I think id like more range to reward active micro of swift if you can afford the time. Is the same range as raptor
+      range                   = 800, -- was 667, there may be a specific reason, and or a scripting reason for this, but I think id like more range to reward active micro of swift if you can afford the time Is the same range as raptor
       reloadtime              = 0.2,
       rgbColor                = [[1 0 0]],
       soundHit                = [[weapon/laser/lasercannon_hit]],
