@@ -1,8 +1,8 @@
 return {
-	name = 'Zero-K Stiofan Balance Refumble',
-	description = 'Zero-K balance re-fumble',
-	shortname = 'zkbalancerefumble',
-	version = 'v1',
+	name = 'Stiofan Balance Refumble',
+	description = 'Playing around with balance to feel things out!',
+	shortname = 'zkstiofanbalancerefumble',
+	version = 'v1 dev',
 	mutator = '1',
 	game = '',
 	shortGame = '',
