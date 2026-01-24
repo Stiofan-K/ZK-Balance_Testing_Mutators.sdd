@@ -70,7 +70,7 @@ return { planefighter = {
     },
 
   },
-  sightDistance          = 520,
+  sightDistance          = 520, -- this should probably not change, but the difference on range and such makes swift loose track of targets if they go out of vision. Ravens thingy could be adjusted for it?
   speed                  = 390,
   speedToFront           = 0,
   turnRadius             = 150,
