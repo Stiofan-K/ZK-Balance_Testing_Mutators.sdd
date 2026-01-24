@@ -563,12 +563,11 @@ local options = {
     def     = "",
   },
 --[[
-Mod Changes: Felon loses range but gets large shield regen that disables when its shield is hit. Thug gains a second shot and more shieldhealth, regen and radius. Outlaw is faster and slightly more tanky. Swift, Raptor and Trident gain extra hp to survive ground AA. Swift gets extra range and fireangle to allow for more micro. Siren gains a dgun salvo of its missile, which disables its normal missile during reload
-
+Mod Changes: Felon loses range but gets increased regen that disables when its shield is hit. Thug gains more shieldhealth, radius and a little more dps. Outlaw is faster and more tanky. Deals more damage up close and less at its edge. Swift, Raptor and Trident gain extra hp to survive ground AA. Swift gets extra range and fireangle to allow for more micro. Siren gains a dgun salvo of its missile, which disables its normal missile during reload
 
 Mod Changes: 
-Felon loses range but gets larger shield regen that disables when its shield is hit. 
-Thug gains more shieldhealth, regen and radius. 
+Felon loses range but gets increased regen that disables when its shield is hit. 
+Thug gains more shieldhealth, radius and a little more dps. 
 Outlaw is faster and more tanky. Deals more damage up close and less at its edge. 
 Swift, Raptor and Trident gain extra hp to survive ground AA. 
 Swift gets extra range and fireangle to allow for more micro. 
