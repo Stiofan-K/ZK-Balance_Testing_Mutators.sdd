@@ -59,7 +59,7 @@ return { shieldassault = {
   trackStretch        = 1,
   trackType           = [[ComTrack]],
   trackWidth          = 22,
-  turnRate            = 2400,
+  turnRate            = 2200,
   upright             = true,
 
   weapons             = {
@@ -91,7 +91,7 @@ return { shieldassault = {
       shieldGoodColor         = [[0.1 0.1 1 1]],
       shieldInterceptType     = 3,
       shieldPower             = 1400,
-      shieldPowerRegen        = 14,
+      shieldPowerRegen        = 13,
       shieldPowerRegenEnergy  = 0,
       shieldRadius            = 100,
       shieldRepulser          = false,
@@ -119,8 +119,8 @@ return { shieldassault = {
       },
 
       damage                  = {
-        default = 170,
-        planes  = 170,
+        default = 170.01,
+        planes  = 170.01,
       },
 
       explosionGenerator      = [[custom:MARY_SUE]],
@@ -128,7 +128,7 @@ return { shieldassault = {
       impulseFactor           = 0.4,
       interceptedByShieldType = 1,
       range                   = 280,
-      reloadtime              = 4,
+      reloadtime              = 6,
       soundHit                = [[explosion/ex_med5]],
       soundStart              = [[weapon/cannon/cannon_fire5]],
       turret                  = true,

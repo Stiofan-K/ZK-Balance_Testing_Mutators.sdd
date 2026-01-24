@@ -74,7 +74,7 @@ return { shieldfelon = {
       name                    = [[Energy Shield]],
 
       customParams            = {
-        shield_recharge_delay   = 20,
+        shield_recharge_delay   = 1,
       },
       
       damage                  = {
@@ -87,8 +87,8 @@ return { shieldfelon = {
       shieldGoodColor         = [[0.1 0.1 1 1]],
       shieldInterceptType     = 3,
       shieldPower             = 1600,
-      shieldPowerRegen        = 50,
-      shieldPowerRegenEnergy  = 10,
+      shieldPowerRegen        = 30,
+      shieldPowerRegenEnergy  = 5,
       shieldRadius            = 120,
       shieldRepulser          = false,
       shieldStartingPower     = 1600,

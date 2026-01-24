@@ -25,7 +25,7 @@ return { shieldriot = {
   explodeAs              = [[BIG_UNITEX]],
   footprintX             = 3,
   footprintZ             = 3,
-  health                 = 1150,
+  health                 = 1300,
   iconType               = [[walkerriot]],
   leaveTracks            = true,
   maxSlope               = 36,
@@ -91,8 +91,8 @@ return { shieldriot = {
       craterMult              = 0,
 
       damage                  = {
-        default = 30,
-        planes  = 30,
+        default = 40,
+        planes  = 40,
       },
 
       customParams           = {
@@ -103,7 +103,7 @@ return { shieldriot = {
         timeslow_damagefactor = 2.5,
       },
 
-      edgeeffectiveness       = 0.8,
+      edgeeffectiveness       = 0.5,
       explosionGenerator      = [[custom:NONE]],
       explosionSpeed          = 12,
       impulseBoost            = 0,
