@@ -575,7 +575,7 @@ Magpie rearms faster and gains some aoe but loses accurate tracking.
 Siren gains a dgun salvo of its missile, which disables its normal missile during reload
 Badger gains a similar dgun, a burst of mines that puts its main weapon on cooldown.
 Reef's pads repair faster and it becomes a builder. Can now also build some planes and gunships. 
-Scylla gains a long range but slow cruise torpedo. Its missile is a dgun now.
+Scylla gains a high damage, long range but slow siege torpedo. Its tacnuke is moved to a dgun.
 Dante tries to prioritises its dgun over shooting other things.
 Commanders try to prioritise their dgun too.
 ]]  

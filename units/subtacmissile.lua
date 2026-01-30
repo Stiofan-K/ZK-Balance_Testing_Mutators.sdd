@@ -17,7 +17,7 @@ return { subtacmissile = {
   corpse                 = [[DEAD]],
 
   customParams           = {
-    bait_level_default = 3,
+    bait_level_default = 1,
     modelradius    = [[15]],
     stockpiletime  = [[30]],
     stockpilecost  = [[600]],
@@ -56,7 +56,7 @@ return { subtacmissile = {
       def                = [[TORPEDO]],
       badTargetCategory  = [[FIXEDWING]],
       mainDir            = [[0 0 1]],
-      maxAngleDif        = 90,
+      maxAngleDif        = 180,
       onlyTargetCategory = [[SWIM FIXEDWING LAND SUB SINK TURRET FLOAT SHIP GUNSHIP HOVER]],
     },
     {
@@ -68,7 +68,7 @@ return { subtacmissile = {
   
 weaponDefs             = {
   TORPEDO = {
-      name                    = [[Slow Cruise Torpedo]],
+      name                    = [[Heavy Siege Torpedo]],
       alwaysVisible           = true,
       areaOfEffect            = 160,
       avoidFriendly           = false,
@@ -110,7 +110,7 @@ weaponDefs             = {
       soundStart              = [[weapon/torpedo]],
       soundStartVolume        = 4,
       startVelocity           = 1,
-      tolerance               = 100000,
+      tolerance               = 180000,
       tracks                  = true,
       turnRate                = 5000,
       waterWeapon             = true,

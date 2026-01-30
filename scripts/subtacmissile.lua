@@ -16,8 +16,12 @@ function script.QueryWeapon(num)
 	end
 end
 
-function script.AimFromWeapon()
-	return aimpoint
+function script.AimFromWeapon(num)
+	if num == 1 then -- torpedo
+		return base
+	elseif num == 2 then --tacnuke
+		return aimpoint
+	end
 end
 
 local respawning_rocket = false
