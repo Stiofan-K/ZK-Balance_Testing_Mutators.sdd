@@ -1,0 +1,188 @@
+return { subtacmissile = {
+  name                   = [[Scylla]],
+  description            = [[Tactical Nuke Missile Sub, Drains 20 m/s, 30 second stockpile]],
+  acceleration           = 0.223,
+  activateWhenBuilt      = true,
+  brakeRate              = 2.33,
+  builder                = false,
+  buildPic               = [[subtacmissile.png]],
+  canGuard               = true,
+  canMove                = true,
+  canPatrol              = true,
+  canManualFire          = true,
+  category               = [[SUB SINK]],
+  collisionVolumeOffsets = [[0 -5 0]],
+  collisionVolumeScales  = [[30 25 110]],
+  collisionVolumeType    = [[box]],
+  corpse                 = [[DEAD]],
+
+  customParams           = {
+    bait_level_default = 3,
+    modelradius    = [[15]],
+    stockpiletime  = [[30]],
+    stockpilecost  = [[600]],
+    priority_misc  = 1, -- Medium
+
+    outline_x = 160,
+    outline_y = 160,
+    outline_yoff = 12,
+  },
+
+  explodeAs              = [[BIG_UNITEX]],
+  fireState              = 0,
+  footprintX             = 3,
+  footprintZ             = 3,
+  health                 = 3000,
+  iconType               = [[subtacmissile]],
+  metalCost              = 3000,
+  minWaterDepth          = 15,
+  movementClass          = [[UBOAT3]],
+  moveState              = 0,
+  noAutoFire             = false,
+  objectName             = [[subtacmissile.s3o]],
+  selfDestructAs         = [[BIG_UNITEX]],
+  script                 = [[subtacmissile.lua]],
+  sightDistance          = 660,
+  sonarDistance          = 660,
+  speed                  = 83.7,
+  turninplace            = 0,
+  turnRate               = 491,
+  upright                = true,
+  waterline              = 55,
+  workerTime             = 0,
+
+  weapons                = {
+    {
+      def                = [[TORPEDO]],
+      badTargetCategory  = [[FIXEDWING]],
+      mainDir            = [[0 0 1]],
+      maxAngleDif        = 90,
+      onlyTargetCategory = [[SWIM FIXEDWING LAND SUB SINK TURRET FLOAT SHIP GUNSHIP HOVER]],
+    },
+    {
+      def                = [[TACNUKE]],
+      badTargetCategory  = [[SWIM LAND SUB SHIP HOVER]],
+      onlyTargetCategory = [[SWIM LAND SUB SINK TURRET FLOAT SHIP HOVER]],
+    },
+  },
+  
+weaponDefs             = {
+  TORPEDO = {
+      name                    = [[Slow Cruise Torpedo]],
+      alwaysVisible           = true,
+      areaOfEffect            = 160,
+      avoidFriendly           = false,
+      burst                   = 2,
+      burstrate               = 1,
+      burnblow                = false,
+      collideFriendly         = false,
+      craterBoost             = 0,
+      craterMult              = 0,
+      cegTag                  = [[torpedo_trail]],
+
+      customParams = {
+        burst = Shared.BURST_RELIABLE,
+
+        stays_underwater = 1,
+      },
+
+      damage                  = {
+        default = 1000.1,
+      },
+
+      edgeEffectiveness       = 0.4,
+
+      explosionGenerator      = [[custom:xamelimpact]],
+      fixedLauncher           = true,
+      flightTime              = 12,
+      impulseBoost            = 4,
+      impulseFactor           = 0.9,
+      interceptedByShieldType = 1,
+      leadlimit               = 0,
+      model                   = [[wep_merl.s3o]],
+      myGravity               = 0.0,
+      noSelfDamage            = true,
+      range                   = 1000,
+      reloadtime              = 30,
+      rgbColor                = {128, 128, 128},
+      soundHit                = [[TorpedoHitVariable]],
+      soundHitVolume          = 2.8,
+      soundStart              = [[weapon/torpedo]],
+      soundStartVolume        = 4,
+      startVelocity           = 1,
+      tolerance               = 100000,
+      tracks                  = true,
+      turnRate                = 5000,
+      waterWeapon             = true,
+      weaponAcceleration      = 0.1,
+      weaponType              = [[TorpedoLauncher]],
+      weaponVelocity          = 120,
+    },
+
+    TACNUKE        = {
+      name                    = [[Tactical Nuke]],
+      areaOfEffect            = 256,
+      collideFriendly         = false,
+      commandfire             = true,
+      craterBoost             = 4,
+      craterMult              = 3.5,
+
+      customParams = {
+        burst = Shared.BURST_RELIABLE,
+      },
+
+      damage                  = {
+        default = 3502.4,
+      },
+
+      edgeEffectiveness       = 0.4,
+      explosionGenerator      = [[custom:NUKE_150]],
+      fireStarter             = 0,
+      flightTime              = 10,
+      impulseBoost            = 0,
+      impulseFactor           = 0.4,
+      interceptedByShieldType = 1,
+      leadLimit               = 0,
+      model                   = [[wep_tacnuke.s3o]],
+      noSelfDamage            = true,
+      range                   = 3000,
+      reloadtime              = 1,
+      smokeTrail              = true,
+      soundHit                = [[explosion/mini_nuke]],
+      soundStart              = [[weapon/missile/tacnuke_launch]],
+      stockpile               = true,
+      stockpileTime           = 10^5,
+      tolerance               = 4000,
+      turnrate                = 18000,
+      waterWeapon             = true,
+      weaponAcceleration      = 180,
+      weaponTimer             = 4,
+      weaponType              = [[StarburstLauncher]],
+      weaponVelocity          = 1200,
+    },
+
+  },
+
+  featureDefs            = {
+
+    DEAD  = {
+      blocking         = false,
+      featureDead      = [[HEAP]],
+      footprintX       = 3,
+      footprintZ       = 3,
+      object           = [[subtacmissile_dead.s3o]],
+      collisionVolumeOffsets = [[0 -5 0]],
+      collisionVolumeScales  = [[30 25 110]],
+      collisionVolumeType    = [[box]],
+    },
+
+    HEAP  = {
+      blocking         = false,
+      footprintX       = 4,
+      footprintZ       = 4,
+      object           = [[debris4x4c.s3o]],
+    },
+
+  },
+
+} }
