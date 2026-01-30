@@ -563,7 +563,7 @@ local options = {
     def     = "",
   },
 --[[
-Mod Changes: Felon loses range but gets increased regen that disables when its shield is hit. Thug gains more shieldhealth, radius and a little more dps. Outlaw is faster and more tanky. Deals more damage up close and less at its edge. Swift, Raptor and Trident gain extra hp to survive ground AA. Swift gets extra range and fireangle to allow for more micro. Siren gains a dgun salvo of its missile, which disables its normal missile during reload
+Mod Changes: --Felon loses range but gets increased regen that disables when its shield is hit. --Thug gains more shieldhealth, radius and a little more dps. --Outlaw is faster and more tanky. Deals more damage up close and less at its edge.  --Swift, Raptor and Trident gain extra hp to survive ground AA.  --Swift gets extra range and fireangle to allow for more micro. --Magpie rearms faster and gains some aoe but loses accurate tracking. --Siren gains a dgun salvo of its missile, which disables its normal missile during reload. --Badger gains a similar dgun, a burst of mines that puts its main weapon on cooldown. --Reef's pads repair faster and it becomes a builder. Can now also build some planes and gunships.  --Scylla gains a high damage, long range but slow siege torpedo. Its tacnuke is moved to a dgun. --Dante tries to prioritises its dgun over shooting other things. --Commanders try to prioritise their dgun too.
 
 Mod Changes: 
 Felon loses range but gets increased regen that disables when its shield is hit. 
