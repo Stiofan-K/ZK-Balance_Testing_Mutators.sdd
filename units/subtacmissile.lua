@@ -87,7 +87,7 @@ weaponDefs             = {
       },
 
       damage                  = {
-        default = 1000.1,
+        default = 1000.01,
       },
 
       edgeEffectiveness       = 0.4,
@@ -102,15 +102,15 @@ weaponDefs             = {
       model                   = [[wep_merl.s3o]],
       myGravity               = 0.0,
       noSelfDamage            = true,
-      range                   = 1000,
-      reloadtime              = 30,
+      range                   = 800,
+      reloadtime              = 20,
       rgbColor                = {128, 128, 128},
       soundHit                = [[TorpedoHitVariable]],
       soundHitVolume          = 2.8,
       soundStart              = [[weapon/torpedo]],
       soundStartVolume        = 4,
       startVelocity           = 1,
-      tolerance               = 180000,
+      tolerance               = 12000,
       tracks                  = true,
       turnRate                = 5000,
       waterWeapon             = true,
