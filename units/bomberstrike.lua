@@ -67,10 +67,11 @@ return { bomberstrike = {
   
     STORM_ROCKET = {
       name                    = [[Heavy Rocket]],
-      areaOfEffect            = 160,
+      areaOfEffect            = 200,
       cegTag                  = [[rocket_trail_bar_flameboosted]],
       craterBoost             = 1,
       craterMult              = 2,
+      collideFriendly         = false, --Other solution to magpies shooting themselves?
 
       customParams        = {
         burst = Shared.BURST_UNRELIABLE,
@@ -82,7 +83,8 @@ return { bomberstrike = {
         default = 180,
       },
       
-      edgeEffectiveness       = 0.4,
+      dance                   = 40,
+      edgeEffectiveness       = 0.5,
       explosionGenerator      = [[custom:xamelimpact]],
       fireStarter             = 70,
       flightTime              = 1.5,
@@ -102,15 +104,15 @@ return { bomberstrike = {
       soundStart              = [[weapon/missile/missile2_fire_bass]],
       soundStartVolume        = 7,
       startVelocity           = 250,
+      sprayAngle              = 2000,
       tracks                  = false,
-      trajectoryHeight        = 0.1,
+      trajectoryHeight        = 0.3,
       tolerance               = 4000,
-      turnrate                = 1000,
       turret                  = true,
       weaponAcceleration      = 80,
       weaponType              = [[MissileLauncher]],
       maxVelocity             = 400,
-      wobble                  = 6000,
+      wobble                  = 5000,
     },
     
     

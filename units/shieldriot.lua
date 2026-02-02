@@ -103,7 +103,7 @@ return { shieldriot = {
         timeslow_damagefactor = 2.5,
       },
 
-      edgeeffectiveness       = 0.5,
+      edgeeffectiveness       = 0.4,
       explosionGenerator      = [[custom:NONE]],
       explosionSpeed          = 12,
       impulseBoost            = 0,
