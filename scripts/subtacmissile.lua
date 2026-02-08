@@ -3,6 +3,7 @@ local door1 = piece "door1"
 local door2 = piece "door2"
 local missile = piece "missile"
 local aimpoint = piece "aimpoint"
+local torpfirepoint = piece "aimpoint"
 
 include "constants.lua"
 
@@ -10,7 +11,7 @@ local SIG_AIM = 1
 
 function script.QueryWeapon(num)
 	if num == 1 then -- torpedo
-		return base
+		return torpfirepoint
 	elseif num == 2 then --tacnuke
 		return missile
 	end
@@ -18,7 +19,7 @@ end
 
 function script.AimFromWeapon(num)
 	if num == 1 then -- torpedo
-		return base
+		return torpfirepoint
 	elseif num == 2 then --tacnuke
 		return aimpoint
 	end
@@ -66,7 +67,6 @@ end
 
 function script.Shot(num)
 	if num == 2 then --tacnuke
-		respawning_rocket = true
 		Signal (SIG_AIM)
 	end
 end
@@ -88,6 +88,11 @@ function script.EndBurst(num)
 		respawning_rocket = false
 		Show(missile)
 	end
+end
+
+function script.Create()
+	Move(torpfirepoint, y_axis, -17, 0)
+	Move(torpfirepoint, z_axis, 35, 0)
 end
 
 function script.Killed(recentDamage, maxHealth)

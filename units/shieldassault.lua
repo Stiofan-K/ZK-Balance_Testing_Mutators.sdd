@@ -59,7 +59,7 @@ return { shieldassault = {
   trackStretch        = 1,
   trackType           = [[ComTrack]],
   trackWidth          = 22,
-  turnRate            = 2200,
+  turnRate            = 2400,
   upright             = true,
 
   weapons             = {
@@ -119,8 +119,8 @@ return { shieldassault = {
       },
 
       damage                  = {
-        default = 170.01,
-        planes  = 170.01,
+        default = 180,
+        planes  = 180,
       },
 
       explosionGenerator      = [[custom:MARY_SUE]],
@@ -128,7 +128,7 @@ return { shieldassault = {
       impulseFactor           = 0.4,
       interceptedByShieldType = 1,
       range                   = 280,
-      reloadtime              = 6,
+      reloadtime              = 7,
       soundHit                = [[explosion/ex_med5]],
       soundStart              = [[weapon/cannon/cannon_fire5]],
       turret                  = true,

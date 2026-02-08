@@ -36,7 +36,7 @@ return { shipcarrier = {
   },
   
   buildPic               = [[shipcarrier.png]],
-  buildRange3D          = false,
+  buildRange3D           = false,
   canMove                = true,
   canManualFire          = true,
   category               = [[SHIP]],
