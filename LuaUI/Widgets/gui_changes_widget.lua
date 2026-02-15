@@ -224,11 +224,17 @@ TODO
 
 TODO Nanoplague Athena/Engi/Silo/superweapon induced wreck zombie revival.
 
+TODO Mistral rocket -> torp
 
-TODO Merlin Dgun SLAM salvo Maybe disalow reaiming it?
+TODO nimbus gets more accurate when stationary.
+
+TODO what do about navy
 
 TODO Raven -> Tankier but less damage (maybe bring magpie back to 900)
 785 damage is the lowest we can go to still onetap lotus
+
+TODO Merlin Dgun SLAM salvo Maybe disalow reaiming it?
+
 TODO improve by checking dgun reload too?
 TODO check unit commands to prioritise dgun?
 TODO Jump anims for jumpbots?
