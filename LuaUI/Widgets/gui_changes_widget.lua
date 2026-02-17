@@ -84,7 +84,7 @@ function widget:Initialize()
 					"\n \n" ..
 					"Air to ground\n" ..
 					"-- Swift gets extra range and fireangle to allow for more micro.\n" ..
-					"-- Magpie rearms faster and gains some aoe but loses accurate tracking and some health.\n" ..
+					"-- Magpie becomes an attritional glidebomber. It rearms faster and gains some aoe but loses accurate tracking.\n" ..
 					"-- Phoenix has its damage shifted more to afterburn from upfront damage, with the resulting damage being similar, but stacking multiple phoenix being less effective.\n" ..
 					"\n \n" ..
 					"Ships\n" ..
@@ -99,7 +99,7 @@ function widget:Initialize()
 					"\n \n" ..
 					"Merlin\n" ..
 					"-- Merlin gets a lower range alternative Salvo, a SLAM salvo. Imobilises merlin during firing. Reloads are linked.\n" ..
-					"-> Risk it for the biscuit! This is potentially very strong, but also risks Merlin since the barrage is only 700 range.\n" ..
+					"-> Risk it for the biscuit! This is potentially very strong, but also risks Merlin since the barrage is only 800 range.\n" ..
 					"\n \n" ..
 					"Reef\n" ..
 					"-- Reef's pads repair faster and it becomes a builder. Can now also build some planes and gunships.\n" ..
@@ -160,7 +160,7 @@ Air to ground
 -> I want to be able to strafe things, its a fantasy swift tries to promise but doesnt deliver on.
 -> Potentially op especially with the buff to aerial hp. But I think fighters in general being incentivised instead of pure bombers is desireable.
 
--- Magpie rearms faster and gains some aoe but loses accurate tracking and some health.
+-- Magpie becomes an attritional glidebomber. It rearms faster and gains some aoe but loses accurate tracking.
 -> Very experimental, but with Swift doing anti light duties, and ideally raven doing the sniping duties, magpie can lose its tracking to be become a standoff attrition bomber.
 -> An attempt to move magpie out of the frustrating no dodge long range poke role it finds itself in.
 -> With stronger Aerial AA, Magpies can maybe be contested better in the sky.
@@ -191,7 +191,7 @@ Striders
 -> This may be a back and forth thing. I can imagine that dante got its longer range barrage exactly because couldnt get close/was skirmed alot. But I'm curious to try this out.
 
 -- Merlin gets a lower range alternative Salvo, a SLAM salvo. Imobilises merlin during firing. Reloads are linked.
--> Risk it for the biscuit! This is potentially very strong, but also risks Merlin since the barrage is only 700 range.
+-> Risk it for the biscuit! This is potentially very strong, but also risks Merlin since the barrage is only 800 range.
 -> With how wobbly missile projectiles work, the sort of shotgun merlin idea was already present, but it could never be too effective due to its overall damage needing to be weighted for its max range.
 -> The new Salvo currently burnblows (explodes at max range) to stop range extention from firing at terra pillars, but that could be changed.
 -> You can retarget mid salvo, but worse than base merlin can. It may be better to prevent this, but its also something to leave in.
@@ -229,9 +229,12 @@ TODO Mistral rocket -> torp
 TODO nimbus gets more accurate when stationary.
 
 TODO what do about navy
+Cutter buff?
 
 TODO Raven -> Tankier but less damage (maybe bring magpie back to 900)
 785 damage is the lowest we can go to still onetap lotus
+
+TODO Magpie feels a lil off still, can get to 900 hp and maybe a little less wobble/more flight time
 
 TODO Merlin Dgun SLAM salvo Maybe disalow reaiming it?
 
