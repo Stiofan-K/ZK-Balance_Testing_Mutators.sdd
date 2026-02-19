@@ -80,10 +80,12 @@ return { shipskirm = {
       craterMult              = 2,
 
       customParams        = {
-        child_chain_projectile = "shipskirm_torpedo",
-        childKeepTarget      = true,
-        force_ignore_ground = [[1]],
-        light_camera_height = 1800,
+        child_chain_projectile  = "shipskirm_torpedo",
+        child_chain_keep_target = true,
+        child_chain_speed       = 0,
+        child_chain_flight_time = 10,
+        force_ignore_ground     = [[1]],
+        light_camera_height     = 1800,
       },
       
       damage                  = {
@@ -136,11 +138,11 @@ return { shipskirm = {
       },
 
       fireStarter             = 70,
-      flightTime              = 1000,
+      flightTime              = 3.5,
       impulseBoost            = 0,
       impulseFactor           = 0.4,
       interceptedByShieldType = 2,
-      model                   = [[wep_merl.s3o]],
+      model                   = [[wep_m_hailstorm.s3o]],
       noSelfDamage            = true,
       range                   = 610,
       reloadtime              = 7.5,
@@ -153,10 +155,10 @@ return { shipskirm = {
       tracks                  = true,
       turnRate                = 5000,
       waterWeapon             = true,
-      weaponAcceleration      = 0.1,
+      weaponAcceleration      = 50,
       weaponType              = [[TorpedoLauncher]],
-      weaponVelocity          = 130,
-      wobble                  = 4600,
+      weaponVelocity          = 200,
+      wobble                  = 0,
     },
 
   },
