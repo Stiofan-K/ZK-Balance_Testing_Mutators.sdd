@@ -234,7 +234,7 @@ Cutter buff?
 TODO Raven -> Tankier but less damage (maybe bring magpie back to 900)
 785 damage is the lowest we can go to still onetap lotus
 
-TODO Magpie feels a lil off still, can get to 900 hp and maybe a little less wobble/more flight time
+TODO cheaper solars
 
 TODO Merlin Dgun SLAM salvo Maybe disalow reaiming it?
 
@@ -246,6 +246,26 @@ is a kitbash atm
 TODO Better balance for jumpbot jumps?
 Firewalkers jump could be worse
 
+TODO Amphtanks
+Amphib veh fac
+Overheat as a mechanic, water cools them
+
+Con:		amphib tank with long range sonar? Drone? Torpedo launcher?
+Raider:		overheating laser tank, 100 cost?
+Riot: 		Prism tank, laser shotgun, overheats make it a turtle! a tankriot like outlaw sorta
+Riot alt:	Riot scalpel. More missiles, less aoe, overheats
+Skirm: 		Bomb/depthcharge launcher, expensive antiskirm/arty? Veh skirms are difficult 
+Assault: 	Bursty halberd? Overheats. Maybe like an AVRE?
+Arty: 		Large gauss, overheats
+Special: 	rez veh/bp effiecent con
+			Avre
+Spec Raid:	Sub tank, float below water surface
+
+TODO Nebula
+Drop the shield.
+Weapons as standoff guns
+Drones as freely controlable?
+allowed to choose its drones from some gunship and all drones available.
 
 TODO Base zk Github Issueable:
 Dgun prioritisation
