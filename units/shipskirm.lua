@@ -71,7 +71,7 @@ return { shipskirm = {
   weaponDefs             = {
 
      ROCKET = {
-      name                    = [[Rocket Launched Torpedo]],
+      name                    = [[Rocket Launched Anti-Surface Torpedo]],
       areaOfEffect            = 75,
       burst                   = 4,
       burstRate               = 0.2,
@@ -82,8 +82,9 @@ return { shipskirm = {
       customParams        = {
         child_chain_projectile  = "shipskirm_torpedo",
         child_chain_keep_target = true,
-        child_chain_speed       = 0,
-        child_chain_flight_time = 10,
+        child_chain_speed       = 10,
+        child_chain_flight_time = 2,
+        child_max_vertical      = 0.01,
         force_ignore_ground     = [[1]],
         light_camera_height     = 1800,
       },
@@ -108,7 +109,7 @@ return { shipskirm = {
       soundStart              = [[weapon/missile/missile2_fire_bass]],
       soundStartVolume        = 7,
       startVelocity           = 260,
-      tracks                  = true,
+      tracks                  = false,
       trajectoryHeight        = 0.6,
       turnrate                = 0,
       turret                  = true,
@@ -120,9 +121,8 @@ return { shipskirm = {
     
     TORPEDO = {
       name                    = [[Torpedo]],
-      areaOfEffect            = 75,
-      burst                   = 4,
-      burstRate               = 0.2,
+      areaOfEffect            = 35,
+      burnblow                = true,
       cegTag                  = [[torpedo_trail]],
       craterBoost             = 1,
       craterMult              = 2,
@@ -138,7 +138,7 @@ return { shipskirm = {
       },
 
       fireStarter             = 70,
-      flightTime              = 3.5,
+      flightTime              = 1,
       impulseBoost            = 0,
       impulseFactor           = 0.4,
       interceptedByShieldType = 2,
@@ -151,13 +151,13 @@ return { shipskirm = {
       soundHitVolume          = 8,
       soundStart              = [[weapon/missile/missile2_fire_bass]],
       soundStartVolume        = 7,
-      startVelocity           = 10,
+      startVelocity           = 0,
       tracks                  = true,
-      turnRate                = 5000,
+      turnRate                = 500,
       waterWeapon             = true,
       weaponAcceleration      = 50,
       weaponType              = [[TorpedoLauncher]],
-      weaponVelocity          = 200,
+      weaponVelocity          = 100,
       wobble                  = 0,
     },
 

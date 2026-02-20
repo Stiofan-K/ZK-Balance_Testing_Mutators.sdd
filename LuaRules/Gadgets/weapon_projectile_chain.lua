@@ -19,7 +19,7 @@ for i = 1,#WeaponDefs do
 		chainDefs[i] = {
 			childDefID = WeaponDefNames[wcp.child_chain_projectile].id,
 			setSpeed = tonumber(wcp.child_chain_speed) or false,
-			setFlightTime = tonumber(wcp.child_chain_flight_Time) or false, --*30 since ttl is in frames it seems
+			setFlightTime = tonumber(wcp.child_chain_flight_time) or false, --*12 since ttl is in frames it seems
 			maxVerticalFactor = tonumber(wcp.child_max_vertical) or false,
 			childKeepTarget = wcp.child_chain_keep_target or false
 		}
@@ -44,9 +44,6 @@ function gadget:ProjectileDestroyed(proID, proOwnerID)
 	local proSpeed = math.sqrt(vx*vx + vy*vy + vz*vz)
 	if chainDef.setSpeed then
 		local factor = chainDef.setSpeed/proSpeed
-		if factor == 0	then
-			factor = 0.0000001 -- a 0 factor does weird stuff
-		end
 		vx, vy, vz = vx * factor, vy * factor, vz * factor
 		
 		if vx == 0 and vz == 0 then
@@ -77,34 +74,25 @@ function gadget:ProjectileDestroyed(proID, proOwnerID)
 	end
 	projectileParams.team = Spring.GetProjectileTeamID(proID)
 	
+	-- having a tracking target does not play nice with set speed. 
+	-- setspeed 10 seems to be stable, higher or lower values make the projectile go supersonic
 	if chainDef.childKeepTarget then
 		local targetTypeInt,target = Spring.GetProjectileTarget(proID)
 		if targetTypeInt == 117 then -- unit targetTypeInt
-			projectileParams.tracking = 117
+			projectileParams.tracking = 117 
 		end
 	end
 	
 	if chainDef.setFlightTime then
-		projectileParams.ttl = chainDef.setFlightTime
-	end
-	
-	Spring.Echo("projectileParams")
-	    for i,param in ipairs(projectileParams) do
-		Spring.Echo(param)
-	end
-	
+		projectileParams.ttl = chainDef.setFlightTime*12 -- framerate assumption?
+	end -- does not burnblow for some reason
 	
 	local newProID = Spring.SpawnProjectile(chainDef.childDefID, projectileParams)
 	Spring.SetProjectileVelocity(newProID, vx, vy, vz)
 
 	if chainDef.childKeepTarget then
 		local targetTypeInt,target = Spring.GetProjectileTarget(proID)
-		--Spring.Echo("targettype")
-		--Spring.Echo(targetTypeInt)
-		--Spring.Echo("targetparams")
-		--Spring.Echo(target)
 		if targetTypeInt == 117 then -- unit targetTypeInt
-			--Spring.Echo("Attempting to target")
 			Spring.SetProjectileTarget(newProID,target,117)
 		end
 	end	
