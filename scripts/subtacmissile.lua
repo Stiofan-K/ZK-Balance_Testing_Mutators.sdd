@@ -9,22 +9,6 @@ include "constants.lua"
 
 local SIG_AIM = 1
 
-function script.QueryWeapon(num)
-	if num == 1 then -- torpedo
-		return torpfirepoint
-	elseif num == 2 then --tacnuke
-		return missile
-	end
-end
-
-function script.AimFromWeapon(num)
-	if num == 1 then -- torpedo
-		return torpfirepoint
-	elseif num == 2 then --tacnuke
-		return aimpoint
-	end
-end
-
 local respawning_rocket = false
 
 local function RestoreAfterDelay ()
@@ -40,6 +24,22 @@ local function RestoreAfterDelay ()
 
 	Turn (door1, z_axis, 0, math.rad(20))
 	Turn (door2, z_axis, 0, math.rad(20))
+end
+
+function script.QueryWeapon(num)
+	if num == 1 then -- torpedo
+		return torpfirepoint
+	elseif num == 2 then --tacnuke
+		return missile
+	end
+end
+
+function script.AimFromWeapon(num)
+	if num == 1 then -- torpedo
+		return torpfirepoint
+	elseif num == 2 then --tacnuke
+		return aimpoint
+	end
 end
 
 function script.AimWeapon(num, heading, pitch)
