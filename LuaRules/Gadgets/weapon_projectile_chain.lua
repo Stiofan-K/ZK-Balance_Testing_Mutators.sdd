@@ -67,15 +67,12 @@ function gadget:ProjectileDestroyed(proID, proOwnerID)
 	projectileParams.spread = {0, 0, 0}
 	projectileParams.error = projectileParams.spread
 	
-	
 	local ownerID = Spring.GetProjectileOwnerID(proID)
 	if Spring.ValidUnitID(ownerID) then
 		projectileParams.owner = ownerID
 	end
 	projectileParams.team = Spring.GetProjectileTeamID(proID)
 	
-	-- having a tracking target does not play nice with set speed. 
-	-- setspeed 10 seems to be stable, higher or lower values make the projectile go supersonic
 	if chainDef.childKeepTarget then
 		local targetTypeInt,target = Spring.GetProjectileTarget(proID)
 		if targetTypeInt == 117 then -- unit targetTypeInt
