@@ -89,9 +89,10 @@ function widget:Initialize()
 					"\n \n" ..
 					"Ships\n" ..
 					"-- Siren gains a dgun salvo of its missile, which disables its normal missile during reload.\n" ..
+					"Mistrals rockets deploy a torpedo submunition on hit, that tracks the original target. It's original damage is split equally between both projectiles\n \n" ..
 					"\n \n" ..
 					"Rovers\n" ..
-					"-- Badger gains a dgun, a burst of mines that puts its main weapon on cooldown.\n" ..
+					"-- Badger gains a dgun, a burst of mines that puts its main weapon on cooldown. Very unsure of this change.\n" ..
 					"\n \n" ..
 					"Dante\n" ..
 					"-- Dante is speedier, tankier, but has it's missile salvo is replaced with a shorter range grenade barrage.\n" ..
@@ -173,6 +174,10 @@ Ships
 -- Siren gains a dgun salvo of its missile, which disables its normal missile during reload.
 -> Sirens missiles takes alot of work to get value in base zk. This intends to just have the capability be on demand and as such make it useable.
 -> Innital feedback suggest doing away with the autofire missile entirely, but I like having units use their capabilities on their own. Could also have a toggle for the autofire missle.
+
+-- Mistrals rockets deploy a torpedo submunition on hit, that tracks the original target. It's damage is split equally between both projectiles
+-> Not a clean implementation, as Mistral does not shoot at subsurface targets to deploy the torpedo.
+-> The idea is to improve accuracy/damage vs targets that can't dodge well in an interesting way. Mistral was a bit bad at killing Siren fast enough.
 
 Veh
 -- Badger gains a dgun, a burst of mines that puts its main weapon on cooldown.
