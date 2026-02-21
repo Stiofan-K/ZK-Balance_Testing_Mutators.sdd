@@ -1,3 +1,11 @@
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+if not gadgetHandler:IsSyncedCode() then
+	return
+end
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
 local version = "0.0.1"
 
 function gadget:GetInfo()
@@ -345,9 +353,12 @@ function gadget:UnitDamaged(unitID, unitDefID, unitTeam, damage, paralyzer, weap
 	Spring.DestroyUnit(unitID)
 end
 							
-function gadget:FeatureDamaged(featureID, featureID, featureDefID, featureTeam, damage, weaponDefID,
-	projectileID, attackerID, attackerDefID,attackerTeam)
+function gadget:FeatureDamaged(featureID, featureDefID, featureTeam, damage, weaponDefID,
+	projectileID, attackerID, attackerDefID, attackerTeam)
 
+	Spring.Echo("Feature Damaged call")
+	Spring.Echo(featureID)
+	
 	local thisWeaponDef = nanoPlagueWeaponDefs[weaponDefID]
 	
 	if not thisWeaponDef then
@@ -374,6 +385,7 @@ function gadget:FeatureDamaged(featureID, featureID, featureDefID, featureTeam, 
 end
 
 function gadget:FeatureDestroyed(featureID, allyTeam)
+	Spring.Echo("Feature destroyed worked")
 	if (zombies_to_spawn[featureID]) then
 		RemoveZombieToSpawn(featureID)
 	end
@@ -409,14 +421,11 @@ local function ReInit(reinit)
 				gadget:UnitFinished(unitID, spGetUnitDefID(unitID), unitTeam)
 			end
 		end
-		local features = spGetAllFeatures()
-		for i = 1, #features do
-			gadget:FeatureCreated(features[i], 1) -- doesnt matter who is owner of feature
-		end
 	end
 end
 
 function gadget:Initialize()
+	Spring.Echo("Nanoplague init worked")
 	 nanoPlagueWeaponDefs = getNanoPlagueWeapons()
 	--[[
 	if (modOptions and (modOptions.disableresurrect == 1 or modOptions.disableresurrect == "1")) then
@@ -424,6 +433,11 @@ function gadget:Initialize()
 		return
 	end
 	]]
+	
+	if (spGetGameFrame() > 1) then
+		ReInit(true)
+		Spring.Echo("Nanoplague reinit worked")
+	end
 end
 
 function gadget:GameStart()
