@@ -29,7 +29,7 @@ return { subtacmissile = {
   },
 
   explodeAs              = [[BIG_UNITEX]],
-  fireState              = 0,
+  fireState              = 2,
   footprintX             = 3,
   footprintZ             = 3,
   health                 = 3000,
