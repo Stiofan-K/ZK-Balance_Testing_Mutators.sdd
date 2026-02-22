@@ -190,11 +190,15 @@ Striders
 -> The other strider could/should lean stronger into their theme and into closer range combat to make interacting with them more interesting.
 -> A good approach could be to reward but not force the closer range combat.
 
--- Athena gains a Nanoplague canister missile. It causes wrecks in its aoe to resurect into neutral units.
--- The resurection happens at 30 bp per second currently. Behavior is equal that of the Zombies! modoption.
--> The idea was giving athena a use outside of backline cheese. It already has powerful build options, but those usually call for a usecase, that is usually fixed by the time you make the Athena.
--> This gives Athena a unique tool that can always have value on frontlines, while also leaning into the "spec-ops" theme. Reviving a raiding party in the enemy base feels like an interesting thing to do. Stalling out an advancing army with your own dead wrecks.
+-- Athena gains a Nanoplague canister missile and Nanoplague Dart as dgun. It causes wrecks in its aoe to resurect into neutral units. Their behavior is equal that of the Zombies! modoption.
+-- The Canister has a wide aoe and resurrects at a speed of 30 bp per second. Minimum Revive time is 10 seconds.
+-- The Dart has much smaller aoe and resurrects at a speed of 80 bp per second. Their reloads are linked meaning its either or.
+-> The idea was to give athena a use outside of backline cheese. It's buildoptions are powerful, but it has too long a leadtime to be a responsive tool for the frontline.
+-> This gives Athena a unique tool that can always have value on frontlines, while also leaning into the "spec-ops" theme. With a unqiue reason to have an athena around, its buildoptions also become more accessible.
+-> Reviving a raiding party in the enemy base feels like an interesting thing to do. Stalling out an advancing army with your own dead wrecks too.
 -> Theres potential for reclaim farming off of revived units etc. But I think that would be enough effort in setup to be okay.
+
+--> Nanoplague has alot of options to play with, and some questions about how it should work. Maybe resurrect bp could stack, or so. Currently faster rez overrites slower rez, but doesnt take progress into account.
 
 -- Dante is speedier, tankier, but has it's missile salvo is replaced with a shorter range grenade barrage.
 -- It's dgun/missiles/grenades have less afterburn (same as pyro) but set the ground on fire, while its flamer gets the extended duration afterburn its missiles had.
@@ -218,18 +222,19 @@ Sea Striders
 -> The idea is to make it worthwhile risking just a little, and also to add a long range torpedo unit as something we don't have yet. Having it as a sidearm on scylla makes spamming it inefficent.
 -> This implementation of said torpedo does feel interesting enough, by being outrunnable and dodgable by light units, tankable and blockable by tanky units but still being powerfull against squisher targets and if not counteracted correctly. Damage could be weighted further toward single target.
 
--- Quake applies Nanoplague, resurecting wrecks in its aoe as neutral units. An alternative usecase for it. 30 bp resurect speed.
+-- Quake applies Nanoplague, resurecting wrecks in its aoe as neutral units. An alternative usecase for it. 50 bp resurect speed.
 
 QOL/Fix:
 -- Dante tries to prioritises its dgun over shooting other things.
 -- Commanders try to prioritise their dgun too.
 -- New Merlin Salvo too
+->(could do this for pala etc too but theres no aiming conflict)
 -> If theres other things like this feel free to poke. Implementation is more a bandaid however.
 
 
+TODO Fix the changelog widget :c
+HOW DOES IT WORK?!
 
-TODO Athena altfire Nanodart
-Nanoplague dart, revives one unit quickly
 
 TODO Nanoplague com weapons
 Recon and guardian get nanoplague canisters/grenades

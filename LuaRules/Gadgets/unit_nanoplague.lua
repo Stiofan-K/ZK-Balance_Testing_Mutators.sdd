@@ -193,6 +193,7 @@ end
 
 -- reclaiming zombies 'causes delay in rez, basically you have to have about ZOMBIES_REZ_SPEED/2 or bigger BP to reclaim faster than it resurrects...
 -- TODO do more math to figure out how to perform it better?
+-- This might break when I try to overwrite reztime 
 function gadget:AllowFeatureBuildStep(builderID, builderTeam, featureID, featureDefID, part)
 	if (zombies_to_spawn[featureID]) then
 		local base_time = reclaimed_data[featureID]
@@ -375,7 +376,7 @@ function gadget:FeatureDamaged(featureID, featureDefID, featureTeam, damage, wea
 	end
 	
 	local resName, face = myGetFeatureRessurect(featureID)
-	if resName and face and not zombies_to_spawn[featureID] then
+	if resName and face then
 		local ud = resName and UnitDefNames[resName] 
 		if ud and not NonZombies[resName] then
 			local rez_time = ud.metalCost / thisWeaponDef.plagueRezBuildPower --cost is 1 with quickbuild, so very fast rez
@@ -383,12 +384,20 @@ function gadget:FeatureDamaged(featureID, featureDefID, featureTeam, damage, wea
 			if (rez_time < thisWeaponDef.plagueRezMin) then
 				  rez_time = thisWeaponDef.plagueRezMin
 			end
-			reclaimed_data[featureID] = {gameframe, rez_time, 0}
-			zombies_to_spawn[featureID] = gameframe + (rez_time*32)
 			
-			zombiesToSpawnCount = zombiesToSpawnCount + 1
-			zombiesToSpawnList[zombiesToSpawnCount] = featureID
-			zombiesToSpawnMap[featureID] = zombiesToSpawnCount
+			if zombies_to_spawn[featureID] then
+				if rez_time < reclaimed_data[featureID][2]  then
+					reclaimed_data[featureID] = {gameframe, rez_time, reclaimed_data[featureID][3]}
+					zombies_to_spawn[featureID] = gameframe + (rez_time*32)
+				end
+			else
+				reclaimed_data[featureID] = {gameframe, rez_time, 0}
+				zombies_to_spawn[featureID] = gameframe + (rez_time*32)
+				
+				zombiesToSpawnCount = zombiesToSpawnCount + 1
+				zombiesToSpawnList[zombiesToSpawnCount] = featureID
+				zombiesToSpawnMap[featureID] = zombiesToSpawnCount
+			end
 		end
 	end
 end
@@ -428,10 +437,6 @@ local function ReInit(reinit)
 			if (unitTeam == GaiaTeamID) then
 				gadget:UnitFinished(unitID, spGetUnitDefID(unitID), unitTeam)
 			end
-		end
-		local features = spGetAllFeatures()
-		for i = 1, #features do
-			gadget:FeatureCreated(features[i], 1) -- doesnt matter who is owner of feature
 		end
 	end
 end

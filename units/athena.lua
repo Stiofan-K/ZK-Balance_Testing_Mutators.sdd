@@ -36,6 +36,7 @@ return { athena = {
   buildRange3D        = false,
   canFly              = true,
   canGuard            = true,
+  canManualFire       = true,
   canMove             = true,
   canPatrol           = true,
   canResurrect        = true,
@@ -66,7 +67,6 @@ return { athena = {
     outline_y = 90,
     outline_yoff = 12,
   },
-
   explodeAs           = [[GUNSHIPEX]],
   fireState           = 0,
   floater             = true,
@@ -96,28 +96,30 @@ return { athena = {
 
  weapons                = {
     {
-      def                = [[NANO_PLAGUE_MISSILE]],
-      badTargetCategory  = [[SWIM LAND SUB SHIP HOVER GUNSHIP FIXEDWING]],
-      onlyTargetCategory = [[SWIM LAND SUB SINK TURRET FLOAT SHIP HOVER GUNSHIP FIXEDWING]],
+      def                = [[NANO_PLAGUE_CANISTER_MISSILE]],
+      badTargetCategory  = [[GUNSHIP FIXEDWING]],
+      onlyTargetCategory = [[SWIM LAND SUB SINK TURRET FLOAT SHIP HOVER]],
+    },
+    {
+      def                = [[NANO_PLAGUE_DART_MISSILE]],
+      badTargetCategory  = [[GUNSHIP FIXEDWING]],
+      onlyTargetCategory = [[SWIM LAND SUB SINK TURRET FLOAT SHIP HOVER]],
     },
  },
   
  weaponDefs          = {
-
-    NANO_PLAGUE_MISSILE = {
-      name                    = [[Nanoplague Canister]],
-      areaOfEffect            = 280,
+    NANO_PLAGUE_CANISTER_MISSILE = {
+      name                    = [[Nanoplague Canister Missile]],
+      areaOfEffect            = 300,
+      avoidFeature            = false,
+      burnblow                = true,
       cegTag                  = [[seismictrail]],
       craterBoost             = 1,
       craterMult              = 1.4,
       
       customParams        = {
-        apply_nano_plague     = "1",
-        force_ignore_ground = [[1]],
-
-        light_camera_height = 3000,
-        light_color = [[1 0.58 0.17]],
-        light_radius = 200,
+        apply_nano_plague       = "1",
+        plague_rez_build_power  = 30,
       },
       
       damage                  = {
@@ -125,16 +127,16 @@ return { athena = {
       },
       
       edgeEffectiveness       = 1,
-      explosionGenerator      = [[custom:bull_fade]]--[[custom:greencannonimpact]],
+      explosionGenerator      = [[custom:bull_fade]],
       fireStarter             = 70,
-      flightTime              = 3.1,
+      flightTime              = 4,
       impulseBoost            = 0.75,
       impulseFactor           = 0.3,
       interceptedByShieldType = 2,
       leadlimit               = 0,
       model                   = [[wep_merl.s3o]],
       range                   = 440,
-      reloadtime              = 60,
+      reloadtime              = 30,
       smokeTrail              = true,
       soundHit                = [[weapon/aoe_aura2]],
       soundHitVolume          = 15,
@@ -143,13 +145,60 @@ return { athena = {
       startVelocity           = 230,
       texture2                = [[lightsmoketrail]],
       tracks                  = true,
-      trajectoryHeight        = 0.4,
+      trajectoryHeight        = 0.3,
       turnRate                = 21000,
       turret                  = true,
+      waterWeapon             = true,
       weaponType              = [[MissileLauncher]],
       weaponVelocity          = 230,
     },
     
+    NANO_PLAGUE_DART_MISSILE = {
+      name                    = [[Nanoplague Dart]],
+      areaOfEffect            = 60,
+      avoidFeature            = false,
+      burnblow                = true,
+      cegTag                  = [[seismictrail]],
+      commandfire             = true,
+      craterBoost             = 1,
+      craterMult              = 1.4,
+      
+      customParams        = {
+        apply_nano_plague       = "1",
+        plague_rez_build_power  = 80,
+      },
+      
+      damage                  = {
+        default = 20,
+      },
+      
+      edgeEffectiveness       = 1,
+      explosionGenerator      = [[custom:greencannonimpact]],
+      fireStarter             = 70,
+      flightTime              = 3.1,
+      impulseBoost            = 0.75,
+      impulseFactor           = 0.3,
+      interceptedByShieldType = 2,
+      leadlimit               = 0,
+      model                   = [[wep_t_barracuda.s3o]],
+      range                   = 500,
+      reloadtime              = 30,
+      smokeTrail              = true,
+      soundHit                = [[weapon/aoe_aura2]],
+      soundHitVolume          = 15,
+      soundStart              = [[weapon/gauss_fire]],
+      soundStartVolume        = 7,
+      startVelocity           = 1000,
+      texture2                = [[lightsmoketrail]],
+      tracks                  = true,
+      trajectoryHeight        = 0.1,
+      turnRate                = 21000,
+      turret                  = true,
+      waterWeapon             = true,
+      weaponType              = [[MissileLauncher]],
+      weaponVelocity          = 1000,
+    },
+  
   },
   
   featureDefs         = {
