@@ -36,7 +36,6 @@ return { athena = {
   buildRange3D        = false,
   canFly              = true,
   canGuard            = true,
-  canManualFire       = true,
   canMove             = true,
   canPatrol           = true,
   canResurrect        = true,
@@ -69,6 +68,7 @@ return { athena = {
   },
 
   explodeAs           = [[GUNSHIPEX]],
+  fireState           = 0,
   floater             = true,
   footprintX          = 2,
   footprintZ          = 2,
@@ -97,8 +97,8 @@ return { athena = {
  weapons                = {
     {
       def                = [[NANO_PLAGUE_MISSILE]],
-      badTargetCategory  = [[GUNSHIP]],
-      onlyTargetCategory = [[SWIM LAND SINK TURRET FLOAT SHIP HOVER GUNSHIP]],
+      badTargetCategory  = [[SWIM LAND SUB SHIP HOVER GUNSHIP FIXEDWING]],
+      onlyTargetCategory = [[SWIM LAND SUB SINK TURRET FLOAT SHIP HOVER GUNSHIP FIXEDWING]],
     },
  },
   
@@ -106,14 +106,13 @@ return { athena = {
 
     NANO_PLAGUE_MISSILE = {
       name                    = [[Nanoplague Canister]],
-      areaOfEffect            = 80,
-      cegTag                  = [[missiletrailyellow]],
+      areaOfEffect            = 280,
+      cegTag                  = [[seismictrail]],
       craterBoost             = 1,
       craterMult              = 1.4,
-      commandfire             = true,
       
       customParams        = {
-        applyNanoPlague = "1",
+        apply_nano_plague     = "1",
         force_ignore_ground = [[1]],
 
         light_camera_height = 3000,
@@ -122,32 +121,33 @@ return { athena = {
       },
       
       damage                  = {
-        default = 320,
+        default = 20,
       },
-
+      
+      edgeEffectiveness       = 1,
+      explosionGenerator      = [[custom:bull_fade]]--[[custom:greencannonimpact]],
       fireStarter             = 70,
       flightTime              = 3.1,
       impulseBoost            = 0.75,
       impulseFactor           = 0.3,
       interceptedByShieldType = 2,
       leadlimit               = 0,
-      model                   = [[wep_m_dragonsfang.s3o]],
+      model                   = [[wep_merl.s3o]],
       range                   = 440,
       reloadtime              = 60,
       smokeTrail              = true,
-      soundHit                = [[explosion/ex_med5]],
-      soundHitVolume          = 8,
+      soundHit                = [[weapon/aoe_aura2]],
+      soundHitVolume          = 15,
       soundStart              = [[weapon/missile/rapid_rocket_fire2]],
       soundStartVolume        = 7,
-      startVelocity           = 190,
+      startVelocity           = 230,
       texture2                = [[lightsmoketrail]],
       tracks                  = true,
       trajectoryHeight        = 0.4,
       turnRate                = 21000,
       turret                  = true,
-      weaponAcceleration      = 90,
       weaponType              = [[MissileLauncher]],
-      weaponVelocity          = 180,
+      weaponVelocity          = 230,
     },
     
   },

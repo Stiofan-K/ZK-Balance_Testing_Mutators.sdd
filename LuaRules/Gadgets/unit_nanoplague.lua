@@ -11,13 +11,23 @@ local version = "0.0.1"
 function gadget:GetInfo()
 	return {
 		name        = "Nanoplague!",
-		desc        = "Athena and Engi com special weapon! Reuse of Zombie functionality as a fireable weapon/weaponCustomParam.", -- Unsure if I could reuse the zombie gadgets somehow... it is a good bit of duplication but on disabled zombies the gadget removed itself
+		desc        = "Athena special weapon! Reuse of Zombie functionality as a fireable weapon/weaponCustomParam.", -- Unsure if I could reuse the zombie gadgets somehow... it is a good bit of duplication but on disabled zombies the gadget removed itself
 		author      = "Stiofan", -- adapted from Zombies! by Tom Fyuri, he credits banana_Ai and Anarchid. Most comments are from Tom.
 		license     = "GPL v2 or later",
 		layer       = math.huge,
 		enabled     = true
 	}
 end
+
+--SYNCED-------------------------------------------------------------------
+
+-- changelog
+-- 6 august 2014 - 0.1.3. Some magic which might fix crash. (At least it fixed the original zombie gadget)
+-- 7 april 2014 - 0.1.2. Added permaslow option. Default on. 50% is max slow for now.
+-- 5 april 2014 - 0.1.1. Sfx, gfx, factory orders added. Slow down upon reclaim added. Thanks Anarchid.
+-- 5 april 2014 - 0.1.0. Release.
+
+local modOptions = Spring.GetModOptions()
 
 local getMovetype = Spring.Utilities.getMovetype
 
@@ -72,38 +82,39 @@ local ZOMBIE_SOUNDS = {
 }
 local REZ_SOUND = "sounds/misc/resurrect.wav"
 
+local defined = false -- wordaround, because i meet some kind of racing condition, if any gadget spawns gaia BEFORE this gadget can process all the stuff...
+
 local NonZombies = {
 	["asteroid"] = true,
 }
 
-
 local nanoPlagueWeaponDefs
 
-local plagueRezMin = 5		-- minimum rez time
-local plagueRezSpeed = 12	-- Speed in bp for rez
-local plagueRezDelay = 0	-- extra flat delay to rez
-local plagueRezChance = 1 	-- chance an effected feature resurects
-local plagueZombieSlow = 0.5 -- This is a global value huh...
+local defaultplagueRezMin 		= 10    -- minimum rez time
+local defaultplagueRezSpeed 	= 30	-- Speed in bp for rez
+local defaultplagueRezDelay 	= 0		-- extra flat delay to rez
+local defaultplagueRezChance 	= false 	-- chance an effected feature resurects
+local plagueZombieSlow 			= 0.5 	-- 
 
-local function getNanoPlagueWeapons()
-	for i = 1, #WeaponDefs do
-		local wcp = WeaponDefs[i].customParams or {}
-		if (wcp.applyNanoPlague) then -- stupid tdf (idk what that means I assume its a nil check or something)
-			nanoPlagueWeaponDefs[i] = { 
-				plagueRezMin = cpv(wcp.plagueRezMin) or plagueRezMin,
-				plagueRezBuildPower = cpv(wcp.plagueRezBuildPower) or cpv(wcp.plagueRezSpeed) or DEFAULT_PLAGUE_REZ_SPEED,
-				plagueRezDelay = cpv(wcp.plagueRezMin) or plagueRezDelay,	
-				plagueRezChance = cpv(wcp.plagueRezChance) or 1, 			
-				-- Lots of extra options possible. Could have zombies/lose health after a while etc.
-			}
-		end
+local nanoPlagueWeaponDefs = {}
+for i = 1, #WeaponDefs do
+	local wcp = WeaponDefs[i].customParams
+	if wcp and wcp.apply_nano_plague then
+		nanoPlagueWeaponDefs[i] = { 
+			plagueRezMin = tonumber(wcp.plague_rez_min) or defaultplagueRezMin,
+			plagueRezBuildPower = tonumber(wcp.plague_rez_build_power) or tonumber(wcp.plague_rez_speed) or defaultplagueRezSpeed,
+			plagueRezDelay = tonumber(wcp.plague_rez_min) or defaultplagueRezDelay,	
+			plagueRezChance = tonumber(wcp.plague_rez_chance) or defaultplagueRezChance, 			
+			-- Lots of extra options possible. Could have zombies/lose health after a while etc.
+		}
 	end
-	return nanoPlagueWeaponDefs
-end	
-		
-local WARNING_TIME = 5 -- seconds to start being scary before actual reanimation event
+end
 
-local ZOMBIES_PARTIAL_RECLAIM = (tonumber(modOptions.zombies_partial_reclaim) == 1) --won't quite touch this..
+
+local WARNING_TIME_CEG 		= 30 -- seconds to start being scary before actual reanimation event
+local WARNING_TIME_SOUND 	= 5
+local ZOMBIES_PERMA_SLOW 	= -0.5
+local ZOMBIES_PARTIAL_RECLAIM = true
 
 local CMD_REPEAT = CMD.REPEAT
 local CMD_MOVE_STATE = CMD.MOVE_STATE
@@ -163,7 +174,7 @@ local function GetUnitNearestAlly(unitID, range)
 	return best_ally
 end
 
-local function GiveFactoryBuildOrders(unitID, unitDefID) -- give factory something to do
+local function RandomFactoryCommands(unitID, unitDefID) -- give factory something to do
 	local buildopts = UnitDefs[unitDefID].buildOptions
 	if (not buildopts) or #buildopts <= 0 then
 		return
@@ -180,7 +191,7 @@ local function GiveFactoryBuildOrders(unitID, unitDefID) -- give factory somethi
 	end
 end
 
--- reclaiming zombies 'causes delay in rez, basically you have to have about plagueRezMin/2 or bigger BP to reclaim faster than it resurrects...
+-- reclaiming zombies 'causes delay in rez, basically you have to have about ZOMBIES_REZ_SPEED/2 or bigger BP to reclaim faster than it resurrects...
 -- TODO do more math to figure out how to perform it better?
 function gadget:AllowFeatureBuildStep(builderID, builderTeam, featureID, featureDefID, part)
 	if (zombies_to_spawn[featureID]) then
@@ -228,15 +239,15 @@ local function GiveZombiesOrders(unitID)
 		end
 	end
 	if (UnitDefs[unitDefID].isFactory) then
-		GiveFactoryBuildOrders(unitID, unitDefID)
-		zombies[unitID] = nil
+		RandomFactoryCommands(unitID, unitDefID) -- give factory something to do
+		zombies[unitID] = nil -- no need to update factory orders anymore
 	end
 end
 
 local function CheckZombieOrders()	-- i can't rely on Idle because if for example unit is unloaded it doesnt count as idle... weird
 	for unitID, _ in pairs(zombies) do
 		local queueSize = spGetUnitCommandCount(unitID)
-		if not (queueSize) or not (queueSize > 0) then
+		if not (queueSize) or not (queueSize > 0) then -- oh
 			GiveZombiesOrders(unitID)
 		end
 	end
@@ -296,12 +307,12 @@ function gadget:GameFrame(f)
 			else
 				local steps_to_spawn = floor((time_to_spawn - f) / 32)
 				local resName, face = myGetFeatureRessurect(featureID)
-				if steps_to_spawn <= WARNING_TIME then
+				if steps_to_spawn <= WARNING_TIME_CEG then
 					local r = Spring.GetFeatureRadius(featureID)
 
 					spSpawnCEG(CEG_SPAWN, x, y, z, 0, 0, 0, 10 + r, 10 + r)
 
-					if steps_to_spawn == WARNING_TIME then
+					if steps_to_spawn == WARNING_TIME_SOUND then
 						local z_sound = ZOMBIE_SOUNDS[math.random(#ZOMBIE_SOUNDS)]
 						GG.PlayFogHiddenSound(z_sound, 4, x, y, z)
 					end
@@ -330,7 +341,7 @@ function gadget:UnitTaken(unitID, unitDefID, teamID, newTeamID)
 	if zombies[unitID] and newTeamID ~= GaiaTeamID then
 		zombies[unitID] = nil
 		-- taking away zombie from zombie team unpermaslows it
-		if plagueZombieSlow then
+		if ZOMBIES_PERMA_SLOW then
 			SetZombieSlow(unitID, false)
 		end
 	elseif newTeamID == GaiaTeamID then
@@ -348,32 +359,30 @@ function gadget:UnitFinished(unitID, unitDefID, teamID)
 	UnitFinished(unitID, unitDefID, teamID)
 end
 
-function gadget:UnitDamaged(unitID, unitDefID, unitTeam, damage, paralyzer, weaponID,
-                            attackerID, attackerDefID, attackerTeam, projectileID)
-	Spring.DestroyUnit(unitID)
-end
-							
 function gadget:FeatureDamaged(featureID, featureDefID, featureTeam, damage, weaponDefID,
 	projectileID, attackerID, attackerDefID, attackerTeam)
-
-	Spring.Echo("Feature Damaged call")
-	Spring.Echo(featureID)
 	
 	local thisWeaponDef = nanoPlagueWeaponDefs[weaponDefID]
 	
 	if not thisWeaponDef then
 		return
 	end
+		
+	if thisWeaponDef.plagueRezChance then
+		if math.random > thisWeaponDef.plagueRezChance then
+			return
+		end
+	end
 	
 	local resName, face = myGetFeatureRessurect(featureID)
 	if resName and face and not zombies_to_spawn[featureID] then
-		local ud = resName and UnitDefNames[resName]
+		local ud = resName and UnitDefNames[resName] 
 		if ud and not NonZombies[resName] then
-			local rez_time = ud.metalCost / thisWeaponDef.plagueRezMin
+			local rez_time = ud.metalCost / thisWeaponDef.plagueRezBuildPower --cost is 1 with quickbuild, so very fast rez
+			rez_time = rez_time + thisWeaponDef.plagueRezDelay
 			if (rez_time < thisWeaponDef.plagueRezMin) then
 				  rez_time = thisWeaponDef.plagueRezMin
 			end
-			rez_time = rez_time + thisWeaponDef.plagueRezDelay
 			reclaimed_data[featureID] = {gameframe, rez_time, 0}
 			zombies_to_spawn[featureID] = gameframe + (rez_time*32)
 			
@@ -385,7 +394,6 @@ function gadget:FeatureDamaged(featureID, featureDefID, featureTeam, damage, wea
 end
 
 function gadget:FeatureDestroyed(featureID, allyTeam)
-	Spring.Echo("Feature destroyed worked")
 	if (zombies_to_spawn[featureID]) then
 		RemoveZombieToSpawn(featureID)
 	end
@@ -401,7 +409,7 @@ local function ReInit(reinit)
 				spGiveOrderToUnit(unitID, CMD_MOVE_STATE, 2, 0)
 				GiveZombiesOrders(unitID)
 				zombies[unitID] = true
-				if plagueZombieSlow then
+				if ZOMBIES_PERMA_SLOW then
 					local maxHealth = select(2, spGetUnitHealth(unitID))
 					if maxHealth then
 						SetZombieSlow(unitID, true)
@@ -421,25 +429,19 @@ local function ReInit(reinit)
 				gadget:UnitFinished(unitID, spGetUnitDefID(unitID), unitTeam)
 			end
 		end
+		local features = spGetAllFeatures()
+		for i = 1, #features do
+			gadget:FeatureCreated(features[i], 1) -- doesnt matter who is owner of feature
+		end
 	end
 end
 
 function gadget:Initialize()
-	Spring.Echo("Nanoplague init worked")
-	 nanoPlagueWeaponDefs = getNanoPlagueWeapons()
-	--[[
-	if (modOptions and (modOptions.disableresurrect == 1 or modOptions.disableresurrect == "1")) then
-		gadgetHandler:RemoveGadget()
-		return
-	end
-	]]
-	
 	if (spGetGameFrame() > 1) then
 		ReInit(true)
-		Spring.Echo("Nanoplague reinit worked")
 	end
 end
 
 function gadget:GameStart()
-
+	ReInit(true) -- anything it does doesnt mess with existing zombies
 end

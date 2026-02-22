@@ -190,6 +190,12 @@ Striders
 -> The other strider could/should lean stronger into their theme and into closer range combat to make interacting with them more interesting.
 -> A good approach could be to reward but not force the closer range combat.
 
+-- Athena gains a Nanoplague canister missile. It causes wrecks in its aoe to resurect into neutral units.
+-- The resurection happens at 30 bp per second currently. Behavior is equal that of the Zombies! modoption.
+-> The idea was giving athena a use outside of backline cheese. It already has powerful build options, but those usually call for a usecase, that is usually fixed by the time you make the Athena.
+-> This gives Athena a unique tool that can always have value on frontlines, while also leaning into the "spec-ops" theme. Reviving a raiding party in the enemy base feels like an interesting thing to do. Stalling out an advancing army with your own dead wrecks.
+-> Theres potential for reclaim farming off of revived units etc. But I think that would be enough effort in setup to be okay.
+
 -- Dante is speedier, tankier, but has it's missile salvo is replaced with a shorter range grenade barrage.
 -- It's dgun/missiles/grenades have less afterburn (same as pyro) but set the ground on fire, while its flamer gets the extended duration afterburn its missiles had.
 -> Get in there dante! This lad really really really feels like he wants to get close. It's never been allowed because it's too good at flinging missiles downrange. Now it's a bit shorter ranged, so can be allowed to be better at closing the distance.
@@ -212,6 +218,7 @@ Sea Striders
 -> The idea is to make it worthwhile risking just a little, and also to add a long range torpedo unit as something we don't have yet. Having it as a sidearm on scylla makes spamming it inefficent.
 -> This implementation of said torpedo does feel interesting enough, by being outrunnable and dodgable by light units, tankable and blockable by tanky units but still being powerfull against squisher targets and if not counteracted correctly. Damage could be weighted further toward single target.
 
+-- Quake applies Nanoplague, resurecting wrecks in its aoe as neutral units. An alternative usecase for it. 30 bp resurect speed.
 
 QOL/Fix:
 -- Dante tries to prioritises its dgun over shooting other things.
@@ -221,20 +228,28 @@ QOL/Fix:
 
 
 
-TODO
--- Athena gets a Nanoplague Canister Dgun. It revives wrecks hit into neutral zombie units.
--> The idea was giving athena a use outside of backline cheese sort of. It already has powerful build options, but they are rarely used.
--> This gives Athena a unique tool that has can have value on frontlines, while also leaning into the "spec-ops" theme. Reviving a raiding party in the enemy base feels like an interesting thing to do.
--> Theres potential for reclaim farming off of revived units etc. But I think that would be enough effort in setup to
+TODO Athena altfire Nanodart
+Nanoplague dart, revives one unit quickly
 
-TODO Nanoplague Athena/Engi/Silo/superweapon induced wreck zombie revival.
+TODO Nanoplague com weapons
+Recon and guardian get nanoplague canisters/grenades
 
-TODO Mistral rocket -> torp
+Strike and engi get single target nanoplague darts
+
+TODO Nanoplague effects
+
+TODO com buffs?
+I'd like for them to be more viable in general
+second com weapon should be a generally good play
+It's just too interesting to not have be viable/good
+
+TODO Mistral rocket -> torp improvements
+A meh implementation currently, should take another look
 
 TODO nimbus gets more accurate when stationary.
 
 TODO what do about navy
-Cutter buff?
+Cutter buff? Mistral buff could maybe push siren out of the comfort zone enough
 
 TODO Raven -> Tankier but less damage (maybe bring magpie back to 900)
 785 damage is the lowest we can go to still onetap lotus
