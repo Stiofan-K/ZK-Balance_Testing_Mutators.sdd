@@ -158,7 +158,6 @@ weaponDefs             = {
       weaponType              = [[StarburstLauncher]],
       weaponVelocity          = 1200,
     },
-
   },
 
   featureDefs            = {
