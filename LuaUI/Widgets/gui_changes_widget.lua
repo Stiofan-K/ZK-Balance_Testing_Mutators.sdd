@@ -64,50 +64,55 @@ function widget:Initialize()
 	Chili.ScrollPanel:New {
 		x = 4,
 		right = 4,
-		y = 89,
+		y = 80,
 		bottom = 4,
 		parent = window,
 		children = {
 			Chili.TextBox:New { --TODO IDK HOW CHILI WORKS If this text is too long it gets cut off by the parent window? even with scrolling
-				text = "Shield \n" ..
+				text = 
+					"Shield \n" ..
 					"-- Felon loses range but gets increased regen that disables when its shield is hit.\n" ..
 					"-- Thug gains more shieldhealth, radius and a little more dps.\n" ..
 					"-- Outlaw is faster and more tanky. Deals more damage up close and less at its edge.\n" ..
-					"\n \n" ..
+					" \n" ..
 					"Jump\n" ..
 					"-- All jumpbots can jump, but worse than their prime jumpers in speed and recharge. It is primarily a tactical movement, not combat jump.\n" ..
 					"-- All new jumps have a windup before jumping. It is meant to be only very slightly faster than walking on flat ground.\n" ..
 					"-- Puppy has much shorter jump range and I've tried to not make it not skew raider matchups. It doesnt turn midair either, so can't do instant turn shenanigans.\n" ..
-					"\n \n" ..
+					" \n" ..
 					"Aerial AA\n" ..
 					"-- Swift, Raptor and Trident gain extra hp to survive ground AA. About a 2.2x hp buff. \n" ..
-					"\n \n" ..
+					" \n" ..
 					"Air to ground\n" ..
 					"-- Swift gets extra range and fireangle to allow for more micro.\n" ..
 					"-- Magpie becomes an attritional glidebomber. It rearms faster and gains some aoe but loses accurate tracking.\n" ..
 					"-- Phoenix has its damage shifted more to afterburn from upfront damage, with the resulting damage being similar, but stacking multiple phoenix being less effective.\n" ..
-					"\n \n" ..
+					" \n" ..
 					"Ships\n" ..
 					"-- Siren gains a dgun salvo of its missile, which disables its normal missile during reload.\n" ..
-					"Mistrals rockets deploy a torpedo submunition on hit, that tracks the original target. It's original damage is split equally between both projectiles\n \n" ..
-					"\n \n" ..
+					"--Mistrals rockets deploy a torpedo submunition on hit, that tracks the original target. It's original damage is split equally between both projectiles\n" ..
+					" \n" ..
 					"Rovers\n" ..
-					"-- Badger gains a dgun, a burst of mines that puts its main weapon on cooldown. Very unsure of this change.\n" ..
-					"\n \n" ..
-					"Dante\n" ..
-					"-- Dante is speedier, tankier, but has it's missile salvo is replaced with a shorter range grenade barrage.\n" ..
+					"-- Badger gains a dgun, a burst of mines that puts its main weapon on cooldown. Very unsure of this change, but maybe something for the badger enjoyers.\n" ..
+					" \n" ..
+					"Striders\n" ..
+					"-- Athena gains a Nanoplague canister missile and Nanoplague Dart as a dgun. Nanoplague causes wrecks in its aoe to resurect into neutral units. Their behavior is equal that of the Zombies! modoption.\n" ..
+					"-- The Canister has a wide aoe and resurrects at a speed of 30 bp per second. The Dart has much smaller aoe and resurrects at a speed of 80 bp per second.\n" ..
+					"-- Minimum Revive time is 10 seconds. Canister and Dart share a reload.\n" ..
+					" \n" ..
+					"-- Dante is speedier and tankier, but has it's missile salvo replaced with a shorter range napalm grenade barrage.\n" ..
 					"-- It's dgun/missiles/grenades have less afterburn (same as pyro) but set the ground on fire, while its flamer gets the extended duration afterburn its missiles had.\n" ..
-					"\n \n" ..
-					"Merlin\n" ..
+					" \n" ..
 					"-- Merlin gets a lower range alternative Salvo, a SLAM salvo. Imobilises merlin during firing. Reloads are linked.\n" ..
-					"-> Risk it for the biscuit! This is potentially very strong, but also risks Merlin since the barrage is only 800 range.\n" ..
-					"\n \n" ..
-					"Reef\n" ..
+					"-> Risk it for the biscuit! This is potentially strong, but also risks Merlin since the barrage is only 800 range.\n" ..
+					" \n" ..
 					"-- Reef's pads repair faster and it becomes a builder. Can now also build some planes and gunships.\n" ..
-					"\n \n" ..
-					"Scylla\n"..
+					" \n" ..
 					"-- Scylla gains high damage but slow siege torpedoes that track their target beyond Scyllas fire range. Its tacnuke is moved to a dgun.\n" ..
-					"\n \n" ..
+					" \n" ..
+					"Quake \n" ..
+					"-- Quake applies Nanoplague, resurecting wrecks in its aoe as neutral units. An alternative usecase for it. 50 bp resurect speed.\n" ..
+					" \n" ..
 					"QoL/Fix:\n" ..
 					"-- Dante tries to prioritises its dgun over shooting other things.\n" ..
 					"-- Commanders try to prioritise their dgun too.\n" ..
