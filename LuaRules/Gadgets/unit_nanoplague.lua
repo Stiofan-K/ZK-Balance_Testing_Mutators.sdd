@@ -51,6 +51,7 @@ local spGetFeatureResurrect       = Spring.GetFeatureResurrect
 local spGetUnitIsDead             = Spring.GetUnitIsDead
 local spGiveOrderArrayToUnitArray = Spring.GiveOrderArrayToUnitArray
 local spGetUnitsInCylinder        = Spring.GetUnitsInCylinder
+local spAddTeamResource           = Spring.AddTeamResource
 local spSetTeamResource           = Spring.SetTeamResource
 local spGetUnitHealth             = Spring.GetUnitHealth
 local spSetUnitRulesParam         = Spring.SetUnitRulesParam
@@ -297,6 +298,10 @@ function gadget:GameFrame(f)
 					spSpawnCEG("resurrect", x, y, z, 0, 0, 0, size)
 					Spring.GiveOrderToUnit(unitID, CMD.FIRE_STATE, 2, 0)
 					GG.PlayFogHiddenSound(REZ_SOUND, 12, x, y, z)
+					-- Each unit revived adds funds to Gaia
+					-- Farming Gaia becomes possible, but is gated by resurrecting units.
+					spAddTeamResource(GaiaTeamID, "m", UnitDefNames[resName].metalCost) 
+					spAddTeamResource(GaiaTeamID, "e", UnitDefNames[resName].metalCost*2) 
 					if partialReclaim ~= 1 then
 						local health = Spring.GetUnitHealth(unitID)
 						if health then
@@ -326,8 +331,11 @@ function gadget:GameFrame(f)
 		CheckZombieOrders()
 	end
 	if f == 1 then
-		spSetTeamResource(GaiaTeamID, "ms", 500)
-		spSetTeamResource(GaiaTeamID, "es", 10500)
+		spSetTeamResource(GaiaTeamID, "ms", 20000)
+		spSetTeamResource(GaiaTeamID, "es", 20000)
+		spSetTeamResource(GaiaTeamID, "metal", 500) -- some starting metal for gaia
+		spSetTeamResource(GaiaTeamID, "energy", 20000) -- starting energy for gaia for units with upkeep
+		
 	end
 end
 -- settings gaiastorage before frame 1 somehow doesnt work, well i can guess why...

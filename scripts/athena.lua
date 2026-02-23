@@ -101,7 +101,7 @@ end
 
 function script.FireWeapon(num)
 	if num == 2 then --dgun also activates reload of main weapon
-		Spring.SetUnitWeaponState(unitID, 1, 'reloadState', Spring.GetGameFrame()+60*30) --60 seconds
+		Spring.SetUnitWeaponState(unitID, 1, 'reloadState', Spring.GetGameFrame()+30*30) --30 second reload
 		GG.UpdateUnitAttributes(unitID)
 	end
 end
