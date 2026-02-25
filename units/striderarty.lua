@@ -82,6 +82,7 @@ ROCKET = {
         light_camera_height = 2500,
         light_color = [[0.35 0.17 0.04]],
         light_radius = 400,
+        burst = Shared.BURST_UNRELIABLE,
       },
       
       damage                  = {
@@ -123,7 +124,7 @@ ROCKET = {
       avoidFeature            = false,
       avoidGround             = false,
       burst                   = 20,
-      areaOfEffect            = 160,
+      areaOfEffect            = 192,
       burst                   = 20,
       burstrate               = 0.4,
       burnblow                = true,
@@ -138,11 +139,10 @@ ROCKET = {
         light_camera_height = 2500,
         light_color = [[1 0.8 0.2]],
         reaim_time = 1,
-        burst = Shared.BURST_UNRELIABLE,
       },
 
       damage                  = {
-        default = 500,
+        default = 600,
       },
 
       dance                   = 20,
@@ -152,7 +152,7 @@ ROCKET = {
       fixedlauncher           = true,
       flightTime              = 4,
       impulseBoost            = 0,
-      impulseFactor           = 0.2,
+      impulseFactor           = 2,
       interceptedByShieldType = 2,
       model                   = [[wep_m_phoenix_nonhax.s3o]],
       noSelfDamage            = false,

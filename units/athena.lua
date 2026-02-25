@@ -110,7 +110,7 @@ return { athena = {
  weaponDefs          = {
     NANO_PLAGUE_CANISTER_MISSILE = {
       name                    = [[Nanoplague Canister Missile]],
-      areaOfEffect            = 300,
+      areaOfEffect            = 400,
       avoidFeature            = false,
       burnblow                = true,
       cegTag                  = [[seismictrail]],
@@ -154,7 +154,7 @@ return { athena = {
     
     NANO_PLAGUE_DART_MISSILE = {
       name                    = [[Nanoplague Dart]],
-      areaOfEffect            = 60,
+      areaOfEffect            = 80,
       avoidFeature            = false,
       burnblow                = true,
       cegTag                  = [[seismictrail]],

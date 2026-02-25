@@ -71,7 +71,7 @@ function widget:Initialize()
 			Chili.TextBox:New { --TODO IDK HOW CHILI WORKS If this text is too long it gets cut off by the parent window? even with scrolling
 				text = 
 					"Shield \n" ..
-					"-- Felon loses range but gets increased regen that disables when its shield is hit.\n" ..
+					"-- Felon loses range but gets increased shield regen and is speedier\n" ..
 					"-- Thug gains more shieldhealth, radius and fires both cannons, though with a longer reload. Slighlty more dps\n" ..
 					"-- Outlaw is faster and more tanky. Deals more damage up close and slightly less at its edge.\n" ..
 					" \n" ..
@@ -82,6 +82,7 @@ function widget:Initialize()
 					" \n" ..
 					"Aerial AA\n" ..
 					"-- Swift, Raptor and Trident gain extra hp to survive ground AA. About a 2.2x hp buff. \n" ..
+					"-- Raptor's weapon is swapped for a flak gun of same dps.\n" ..
 					" \n" ..
 					"Air to ground\n" ..
 					"-- Swift gets extra range and fireangle to allow for more micro.\n" ..
@@ -103,8 +104,8 @@ function widget:Initialize()
 					"-- Dante is speedier and tankier, but has it's missile salvo replaced with a shorter range napalm grenade barrage.\n" ..
 					"-- It's dgun/missiles/grenades have less afterburn (same as pyro) but set the ground on fire, while its flamer gets the extended duration afterburn its missiles had.\n" ..
 					" \n" ..
-					"-- Merlin gets a lower range alternative Salvo, a SLAM salvo. Imobilises merlin during firing. Reloads are linked.\n" ..
-					"-> Risk it for the biscuit! This is potentially strong, but also risks Merlin since the barrage is only 800 range.\n" ..
+					"-- Merlin gets a lower range alternative Salvo, a SLAM salvo. Immobilizes merlin during firing. Reloads are linked.\n" ..
+					"-> Risk it for the biscuit! This is potentially strong, but also risks Merlin since the barrage is only 800 range. Manual re-aiming is recommended as mobile units can dodge to an extent.\n" ..
 					" \n" ..
 					"-- Reef's pads repair faster and it becomes a builder. Can now also build some planes and gunships.\n" ..
 					" \n" ..
@@ -142,7 +143,7 @@ end
 Mod Changes: 
 
 Shield
--- Felon loses range but gets increased regen that disables when its shield is hit. 
+-- Felon loses range but gets increased regen that disables when its shield is hit and is speedier. 
 -- Thug gains more shieldhealth, radius and fires both cannons, though with a longer reload. Slighlty more dps\n" ..
 -- Outlaw is faster and more tanky. Deals more damage up close and less at its edge. 
 -> Idea is to make shields trade using their shields the norm, instead of having felon as their shield -> damage converter. The more interactable the shields are the better, and felon makes half the factories not interact with it outside of all-ins.
@@ -158,9 +159,12 @@ Jump
 -> Puppy jump range can be reevaluated too. It felt fitting for it is all, but a longer range is maybe better for consitency within the factory.
 
 Aerial AA
--- Swift, Raptor and Trident gain extra hp to survive ground AA. About a 2.2x hp buff. 
+-- Swift, Raptor and Trident gain extra hp to survive ground AA. About a 2.2x hp buff. Raptor's weapon is swapped for a flak gun of same dps.
 -> Aerial AA is generally too squishy to be used actively feel like a worthwhile investment. Making them just more durable allows people to just use these units more.
--> Obvious caveat is swift scouting being much harder to stop. BUt I hope that
+-> Obvious caveat is swift scouting being much harder to stop. But I hope that
+-- Raptor and swift also have an extra maneuver enabled. Looks cool, unsure if effective or good.
+-> Raptor fights ball very quickly now that theyre so tanky, but its still best for dps. With flak its discouraged/more painful, and its a lil better vs balled things.
+-> Could maybe even nerf damage if it becomes good at flak duties :o
 
 Air to ground
 -- Swift gets extra range and fireangle to allow for more micro.
@@ -175,6 +179,7 @@ Air to ground
 -- Phoenix has its damage shifted more to afterburn from upfront damage, with the resulting damage being similar, but stacking multiple phoenix being less effective.
 -> The idea is to make sequencial strikes better than stacking phoenix in one strike. A tradeoff of damage output vs safety of phoenix and time to react.
 -> This idea was already present in phoenix, but I'd like to try and push it further. However it commits the sin of having higher than normal burn damage.
+-> noticed that this makes phoenix much worse vs koda an pyro. something to think about.
 
 Ships
 -- Siren gains a dgun salvo of its missile, which disables its normal missile during reload.
@@ -203,12 +208,13 @@ Striders
 -> This gives Athena a unique tool that can always have value on frontlines, while also leaning into the "spec-ops" theme. With a unqiue reason to have an athena around, its buildoptions also become more accessible.
 -> Reviving a raiding party in the enemy base feels like an interesting thing to do. Stalling out an advancing army with your own dead wrecks too.
 -> Theres potential for reclaim farming off of revived units etc. But I think that would be enough effort in setup to be okay.
+-> Testing shows the nanodart, its aoe is small to where it feels like it can miss to easily. I'll increase both aoe's.
 
 -- Dante is speedier, tankier, but has it's missile salvo is replaced with a shorter range grenade barrage.
 -- It's dgun/missiles/grenades have less afterburn (same as pyro) but set the ground on fire, while its flamer gets the extended duration afterburn its missiles had.
 -> Get in there dante! This lad really really really feels like he wants to get close. It's never been allowed because it's too good at flinging missiles downrange. Now it's a bit shorter ranged, so can be allowed to be better at closing the distance.
 -> This may be a back and forth thing. I can imagine that dante got its longer range barrage exactly because couldnt get close/was skirmed alot. But I'm curious to try this out.
--> After self testing, dante feels more suitedfor running up and killing things.
+-> After self testing, dante feels more suited for running up and killing things.
 
 
 -- Merlin gets a lower range alternative Salvo, a SLAM salvo. Imobilises merlin during firing. Reloads are linked.
@@ -216,6 +222,8 @@ Striders
 -> With how wobbly missile projectiles work, the sort of shotgun merlin idea was already present, but it could never be too effective due to its overall damage needing to be weighted for its max range.
 -> The new Salvo currently burnblows (explodes at max range) to stop range extention from firing at terra pillars, but that could be changed.
 -> You can retarget mid salvo, but worse than base merlin can. It may be better to prevent this, but its also something to leave in.
+-> Feedback suggests people want more omph out of it, so it will get some. Didnt seem gamebreaking yet, but now it may?
+-> I've added impulse to merlin and upped damage and aoe slightly. It can't kill minos from full still which is fine imo. Manual aim is still recomended
 
 Sea Striders
 
@@ -240,10 +248,14 @@ QOL/Fix:
 -> Nanoplague has alot of options to play with, and some questions about how it should work. Maybe resurrect bp could stack, or so. 
 -> Currently faster rez overrites slower rez, but doesnt take progress into account (Only checks if full reztime would be faster than reztime left).
 -> every respawned zombie add its cost in metal to gaia's storage (and double the energy). unsure how this interacts with the zombies modoption
-->	As such gaia can produce without needing to have mex or E, but also doesnt have infinite income to farm. And also can threaten to go out of control.
+-> As such gaia can produce without needing to have mex or E, but also doesnt have infinite income to farm. And also can threaten to go out of control.
 
 TODO Fix the changelog widget :c
 HOW DOES IT WORK?!
+
+TODO Trident torps
+It's called trident, cmon.
+also fills the subsurface niche for gs, and can run double duty sorta
 
 
 TODO Nanoplague com weapons
@@ -251,7 +263,10 @@ Recon and guardian get nanoplague canisters/grenades
 
 Strike and engi get single target nanoplague darts
 
+
 TODO Nanoplague effects
+any rezing wreck needs to display effects
+-> its fun to be unsure about what rezzes, but it needs to be clear
 Could be better
 
 TODO com buffs?
@@ -267,6 +282,9 @@ TODO nimbus gets more accurate when stationary.
 TODO Pavise (Odin drop shields) get to move
 More control, easier to protect a push with
 
+TODO Stardust cost buff?
+It would be nice to see used a lil more?
+
 TODO what do about navy
 Cutter buff? Mistral buff could maybe push siren out of the comfort zone enough
 
@@ -278,6 +296,11 @@ TODO cheaper solars
 TODO make areamex toggle that places wind instead of solar
 
 TODO Merlin Dgun SLAM salvo Maybe disalow reaiming it?
+It could maybe have less lead to be more accurate on jinkin targets
+maybe a tad more edge effectiveness
+OR
+More damage but disable reaiming.
+-> ended up just adding damage, people said it was not stronk enuff. but I may walk back here
 
 TODO improve by checking dgun reload too?
 TODO check unit commands to prioritise dgun?
@@ -287,6 +310,11 @@ is a kitbash atm
 TODO Better balance for jumpbot jumps?
 Firewalkers jump could be worse
 Puppy jump could disable its weapon or set it to reload
+Puppy jump get blocked by terrain sometimes
+
+TODO Dante groundburn
+it may stack and unintentionally do loadsa damage
+	
 
 TODO Amphtanks
 Amphib veh fac

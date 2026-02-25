@@ -313,8 +313,9 @@ function gadget:GameFrame(f)
 			else
 				local steps_to_spawn = floor((time_to_spawn - f) / 32)
 				local resName, face = myGetFeatureRessurect(featureID)
+				local r = Spring.GetFeatureRadius(featureID)
+				spSpawnCEG(CEG_SPAWN, x, y, z, 0, 0, 0, 10 + r, 10 + r)
 				if steps_to_spawn <= WARNING_TIME_CEG then
-					local r = Spring.GetFeatureRadius(featureID)
 
 					spSpawnCEG(CEG_SPAWN, x, y, z, 0, 0, 0, 10 + r, 10 + r)
 

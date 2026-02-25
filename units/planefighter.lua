@@ -6,6 +6,7 @@ return { planefighter = {
   canFly                 = true,
   canGuard               = true,
   canMove                = true,
+  canLoopbackAttack      = true,
   canPatrol              = true,
   canSubmerge            = false,
   category               = [[FIXEDWING]],

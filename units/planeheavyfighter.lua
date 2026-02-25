@@ -5,6 +5,7 @@ return { planeheavyfighter = {
   buildPic               = [[planeheavyfighter.png]],
   canFly                 = true,
   canGuard               = true,
+  canLoopbackAttack      = true,
   canMove                = true,
   canPatrol              = true,
   canSubmerge            = false,
@@ -63,10 +64,10 @@ return { planeheavyfighter = {
   weapons                = {
 
     {
-      def                = [[LASER]],
+      def                = [[FLAK]],
       badTargetCategory  = [[GUNSHIP]],
       mainDir            = [[0 0 1]],
-      maxAngleDif        = 100,
+      maxAngleDif        = 70,
       onlyTargetCategory = [[FIXEDWING GUNSHIP]],
     },
 
@@ -75,47 +76,43 @@ return { planeheavyfighter = {
 
   weaponDefs             = {
 
-    LASER = {
-      name                    = [[Anti-Air Laser Battery]],
-      areaOfEffect            = 12,
-      avoidFriendly           = false,
-      beamDecay               = 0.736,
-      beamTime                = 1/30,
-      beamttl                 = 15,
+    FLAK = {
+      name                    = [[Flak Cannons]],
+      accuracy                = 500,
+      areaOfEffect            = 128,
+      voidFriendly            = false,
+      burnblow                = true,
       canattackground         = false,
-      canAttackGround         = 0,
+      cegTag                  = [[flak_trail]],
       collideFriendly         = false,
-      coreThickness           = 0.5,
       craterBoost             = 0,
       craterMult              = 0,
       cylinderTargeting       = 1,
 
-      customParams            = {
+      customParams              = {
         isaa = [[1]],
+        light_radius = 0,
       },
 
       damage                  = {
-        default = 1.0,
-        planes  = 10,
+        default = 3.0,
+        planes  = 30,
       },
 
-      explosionGenerator      = [[custom:flash_teal7]],
-      fireStarter             = 100,
-      impactOnly              = true,
+      edgeEffectiveness       = 0.5,
+      explosionGenerator      = [[custom:flakplosion]],
+      impulseBoost            = 0,
       impulseFactor           = 0,
       interceptedByShieldType = 1,
-      laserFlareSize          = 2.9,
-      minIntensity            = 1,
+      noSelfDamage            = true,
       range                   = 800,
-      reloadtime              = 0.1,
-      rgbColor                = [[0 1 1]],
-      soundStart              = [[weapon/laser/rapid_laser]],
-      soundStartVolume        = 1.9,
-      thickness               = 1.95,
-      tolerance               = 8192,
+      reloadtime              = 0.3,
+      size                    = 0.01,
+      soundHit                = [[weapon/flak_hit]],
+      soundStart              = [[weapon/flak_fire]],
       turret                  = true,
-      weaponType              = [[BeamLaser]],
-      weaponVelocity          = 2200,
+      weaponType              = [[Cannon]],
+      weaponVelocity          = 2000,
     },
 
   },
