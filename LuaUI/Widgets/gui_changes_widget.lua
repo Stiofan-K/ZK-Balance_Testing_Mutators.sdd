@@ -81,8 +81,8 @@ function widget:Initialize()
 					"-- Puppy has much shorter jump range and I've tried to not make it not skew raider matchups. It doesnt turn midair either, so can't do instant turn shenanigans.\n" ..
 					" \n" ..
 					"Aerial AA\n" ..
-					"-- Swift, Raptor and Trident gain extra hp to survive ground AA. About a 2.2x hp buff. \n" ..
-					"-- Raptor's weapon is swapped for a flak gun of same dps.\n" ..
+					"-- Swift, Raptor and Trident gain extra hp to survive ground AA. About a 2.2x hp buff. Raptor's weapon is swapped for a flak gun of same dps.\n" ..
+					"-- Raptor and swift also have an extra maneuver enabled. Potentially looks cool, unsure if effective or good or if it even activates?.\n" ..
 					" \n" ..
 					"Air to ground\n" ..
 					"-- Swift gets extra range and fireangle to allow for more micro.\n" ..
@@ -91,7 +91,7 @@ function widget:Initialize()
 					" \n" ..
 					"Ships\n" ..
 					"-- Siren gains a dgun salvo of its missile, which disables its normal missile during reload.\n" ..
-					"--Mistrals rockets deploy a torpedo submunition on hit, that tracks the original target. It's original damage is split equally between both projectiles\n" ..
+					"-- Mistrals rockets deploy a torpedo submunition on hit, that tracks the original target. It's original damage is split equally between both projectiles\n" ..
 					" \n" ..
 					"Rovers\n" ..
 					"-- Badger gains a dgun, a burst of mines that puts its main weapon on cooldown. Very unsure of this change, but maybe something for the badger enjoyers.\n" ..
@@ -162,9 +162,11 @@ Aerial AA
 -- Swift, Raptor and Trident gain extra hp to survive ground AA. About a 2.2x hp buff. Raptor's weapon is swapped for a flak gun of same dps.
 -> Aerial AA is generally too squishy to be used actively feel like a worthwhile investment. Making them just more durable allows people to just use these units more.
 -> Obvious caveat is swift scouting being much harder to stop. But I hope that
--- Raptor and swift also have an extra maneuver enabled. Looks cool, unsure if effective or good.
 -> Raptor fights ball very quickly now that theyre so tanky, but its still best for dps. With flak its discouraged/more painful, and its a lil better vs balled things.
 -> Could maybe even nerf damage if it becomes good at flak duties :o
+
+-- Raptor and swift also have an extra maneuver enabled. Looks cool, unsure if effective or good.
+-> looks cool! nimble fighters are fun too
 
 Air to ground
 -- Swift gets extra range and fireangle to allow for more micro.
@@ -202,7 +204,7 @@ Striders
 -> A good approach could be to reward but not force the closer range combat.
 
 -- Athena gains a Nanoplague canister missile and Nanoplague Dart as a dgun. Nanoplague causes wrecks in its aoe to resurect into neutral units. Their behavior is equal that of the Zombies! modoption.
---The Canister has a wide aoe and resurrects at a speed of 30 bp per second. The Dart has much smaller aoe and resurrects at a speed of 80 bp per second.
+-- The Canister has a wide aoe and resurrects at a speed of 30 bp per second. The Dart has much smaller aoe and resurrects at a speed of 80 bp per second.
 -- Minimum Revive time is 10 seconds. Canister and Dart share a reload.
 -> The idea was to give athena a use outside of backline cheese. It's buildoptions are powerful, but it has too long a leadtime to be a responsive tool for the frontline.
 -> This gives Athena a unique tool that can always have value on frontlines, while also leaning into the "spec-ops" theme. With a unqiue reason to have an athena around, its buildoptions also become more accessible.
