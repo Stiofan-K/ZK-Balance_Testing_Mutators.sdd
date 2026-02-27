@@ -259,16 +259,21 @@ TODO Trident torps
 It's called trident, cmon.
 also fills the subsurface niche for gs, and can run double duty sorta
 
+TODO Scythe area cloak
+Smol area cloak, get cloak into cloak earlier, while sidestepping conjurers jankyness
+
+TODO Shogun buff
+It should be maybe better shore bombardment
 
 TODO Nanoplague com weapons
 Recon and guardian get nanoplague canisters/grenades
 
 Strike and engi get single target nanoplague darts
 
-
 TODO Nanoplague effects
 any rezing wreck needs to display effects
 -> its fun to be unsure about what rezzes, but it needs to be clear
+-> done that, now always shows if something is rezing, doubleing effects if close to completion
 Could be better
 
 TODO com buffs?
@@ -338,6 +343,10 @@ Drop the shield.
 Weapons as standoff guns
 Drones as freely controlable?
 allowed to choose its drones from some gunship and all drones available.
+
+TODO Battlecruiser/Flagships
+Expensive omni unit?
+
 
 TODO Support powers
 A building that stockpiles metal for use. There is some base implementation around which is cool
