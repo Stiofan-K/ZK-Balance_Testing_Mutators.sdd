@@ -258,6 +258,19 @@ HOW DOES IT WORK?!
 TODO Trident torps
 It's called trident, cmon.
 also fills the subsurface niche for gs, and can run double duty sorta
+-> on a branch for now. It's definetly possible, but making it not too good, while also worthwile is though
+-> Unit ai is also conflicting, trying to bring a long range unit in line with cqc stuff
+-> dgun is maybe a way, can take advantage of combat range custom param?
+-> Depthcharge trident could be its primary purpose? and have a different unit be AA? or the other way around?
+-> lots of weeeeird, is meh to work with, needs hax for depthcharge  and land varient
+-> lesser claymore like depthcharge is probably prefereable over the spray of smaller ones I had
+-> Maybe pure bomb charge
+-> primary issue is that it would be a harpy speed riot unit. which just annihalates everything.
+-> Maybe a torp implementation is preferable, to lock it to sea use Can take advantage of tridents missile system in place. 
+--> urchin also can only target ships, but claymore sets precedent for depthcharges to be land  fireable
+-> then maybe torp sidearm, depthcharge dgun that needs trident to rearm at an airpad?
+--> that is alot of jank and alot of features for a single unit, and anti atomic units.
+-> probably either or for dgun depthcharge or torps or thermite dgun
 
 TODO Scythe area cloak
 Smol area cloak, get cloak into cloak earlier, while sidestepping conjurers jankyness
