@@ -44,7 +44,8 @@ end
 
 function script.FireWeapon(num)
 	if num == 2 then
-
+		Spring.SetUnitWeaponState(unitID, 1, 'reloadState', Spring.GetGameFrame()+30*6) --30 second reload
+		GG.UpdateUnitAttributes(unitID)
 	end
 end
 function script.BlockShot(num, targetID)

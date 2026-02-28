@@ -21,7 +21,7 @@ return { amphtankcon = {
   corpse                 = [[DEAD]],
 
   customParams           = {
-    aim_lookahead  = 90,
+    aim_lookahead  = 60,
     aimposoffset   = [[0 0 0]],
     midposoffset   = [[0 -4 0]],
     modelradius    = [[30]],
@@ -66,16 +66,16 @@ return { amphtankcon = {
 
   weapons                = {
     
-    --{
-     -- def                = [[DEPTHCHARGE]],
-      --badTargetCategory  = [[FIXEDWING]],
-      --onlyTargetCategory = [[SWIM FIXEDWING LAND SUB SINK TURRET FLOAT SHIP GUNSHIP HOVER]],
-    --},
+    {
+      def                = [[DEPTHCHARGE]],
+      badTargetCategory  = [[FIXEDWING]],
+      onlyTargetCategory = [[SWIM FIXEDWING LAND SUB SINK TURRET FLOAT SHIP GUNSHIP HOVER]],
+    },
     
     {
       def                = [[ROLLED_DEPTHCHARGE]],
       badTargetCategory  = [[FIXEDWING]],
-      onlyTargetCategory = [[FIXEDWING LAND TURRET FLOAT GUNSHIP HOVER]],
+      onlyTargetCategory = [[SWIM FIXEDWING LAND SUB SINK TURRET FLOAT SHIP GUNSHIP HOVER]],
     },
 
   },
@@ -172,13 +172,13 @@ return { amphtankcon = {
       soundHitDry             = [[explosion/mini_nuke]],
       soundHitWet             = [[explosion/wet/ex_underwater]],
       soundStart              = [[weapon/torp_land]],
-      startVelocity           = 125,
+      startVelocity           = 200,
       tracks                  = true,
       trajectoryHeight        = 2,
       turnRate                = 22000,
       turret                  = true,
       weaponType              = [[Cannon]],
-      weaponVelocity          = 125,
+      weaponVelocity          = 200,
     },
 
   },
