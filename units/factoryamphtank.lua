@@ -1,6 +1,6 @@
 return { factoryamphtank = {
-  name                          = [[Hovercraft Platform]],
-  description                   = [[Produces Hovercraft]],
+  name                          = [[Amphtank Foundry]],
+  description                   = [[Produces Amphtanks]],
   buildDistance                 = Shared.FACTORY_PLATE_RANGE,
   builder                       = true,
   buildingGroundDecalDecaySpeed = 30,

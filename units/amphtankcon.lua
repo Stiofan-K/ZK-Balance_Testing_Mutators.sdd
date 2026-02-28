@@ -1,6 +1,6 @@
 return { amphtankcon = {
-  name                   = [[Welder]],
-  description            = [[Armed Construction Tank]],
+  name                   = [[Weldur]],
+  description            = [[Armed Construction (amph)Tank]],
   acceleration           = 0.4,
   brakeRate              = 18.0,
   buildDistance          = 180,
@@ -32,6 +32,7 @@ return { amphtankcon = {
   },
 
   explodeAs              = [[BIG_UNITEX]],
+  floater                = true,
   footprintX             = 2,
   footprintZ             = 2,
   health                 = 1700,
@@ -40,7 +41,7 @@ return { amphtankcon = {
   maxSlope               = 18,
   maxWaterDepth          = 22,
   metalCost              = 185,
-  movementClass          = [[TANK3]],
+  movementClass          = [[HOVER3]],
   moveState              = 0,
   noAutoFire             = false,
   noChaseCategory        = [[TERRAFORM FIXEDWING SATELLITE SUB]],
@@ -66,6 +67,7 @@ return { amphtankcon = {
   trackWidth             = 38,
   turninplace            = 0,
   turnRate               = 1000,
+  waterline              = 12,
   workerTime             = 7.5,
 
   weapons                = {

@@ -69,6 +69,8 @@ end
 -- Misc
 
 function script.Create()
+	Hide(guns)
+	Hide(turret)
 	StartThread(GG.Script.SmokeUnit, unitID, {base})
 	Spring.SetUnitNanoPieces(unitID, nanos)
 end

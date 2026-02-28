@@ -136,7 +136,7 @@ local factoryUnitPosDef = {
 		tankheavyassault  = unitTypes.HEAVY_SOMETHING,
 	},
 	factoryamph = {
-		amphtankcon           = unitTypes.CONSTRUCTOR,
+		amphcon           = unitTypes.CONSTRUCTOR,
 		amphraid          = unitTypes.RAIDER,
 		amphimpulse       = unitTypes.WEIRD_RAIDER,
 		amphriot          = unitTypes.RIOT,
@@ -160,16 +160,16 @@ local factoryUnitPosDef = {
 		-- No Ship HEAVY_SOMETHING (yet)
 		subraider         = unitTypes.SPECIAL,
 	},
-		factoryamphtank = {
+	factoryamphtank = {
 		amphtankcon       = unitTypes.CONSTRUCTOR,
 		--amphtankraid      = unitTypes.RAIDER,
 		--amphtanksubraid   = unitTypes.WEIRD_RAIDER,
 		--amphtankriot      = unitTypes.RIOT,
 		--amphtankskirm     = unitTypes.SKIRMISHER,
-		--amphtankassault	  = unitTypes.ASSAULT,
+		--amphtankassault	= unitTypes.ASSAULT,
 		--amphtankaa        = unitTypes.ANTI_AIR,
 		--amphassault       = unitTypes.HEAVY_SOMETHING,
-		--amphtankarty        = unitTypes.ARTILLERY,
+		--amphtankarty      = unitTypes.ARTILLERY,
 		--amphbomb          = unitTypes.SPECIAL,
 		--amphtele          = unitTypes.UTILITY,
 	},

@@ -20,6 +20,7 @@ local buildOpts = {
 	[[factoryjump]],
 	[[factorytank]],
 	[[factoryship]],
+	[[factoryamphtank]],
 	[[plateshield]],
 	[[platecloak]],
 	[[plateveh]],
