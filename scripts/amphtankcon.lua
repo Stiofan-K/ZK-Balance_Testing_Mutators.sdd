@@ -49,6 +49,11 @@ function script.FireWeapon(num)
 	end
 end
 function script.BlockShot(num, targetID)
+	local x,y,z = Spring.GetUnitPosition(unitID)
+	if num == 1 and y > -8 then
+		return true
+	end
+	
 	local reloadState = Spring.GetUnitWeaponState(unitID, 1, 'reloadState')
 	return not (reloadState and (reloadState < 0 or reloadState < Spring.GetGameFrame()))
 end
@@ -60,11 +65,14 @@ end
 function script.Create()
 	Hide(guns)
 	Hide(turret)
+	--setting up turret as firepoint
 	Turn(turret, x_axis, 90)
 	Turn(turret, y_axis, math.rad(-20))
-	Move(turret, y_axis, -5)
+	
+	Move(turret, y_axis, 0)
 	Move(turret, z_axis, -6)
 	Move(turret, x_axis, 2)
+	
 	StartThread(GG.Script.SmokeUnit, unitID, {base})
 	Spring.SetUnitNanoPieces(unitID, nanos)
 end

@@ -11,7 +11,7 @@ return { factoryamphtank = {
   buildoptions     = {
     [[amphtankcon]],
     --[[amphtankraid]]
-    --[[amphtankriot]]
+    [[amphtankriot]]
     --[[amphtankskirm]]
     --[[amphtankassault]]
     --[[amphtankarty]]

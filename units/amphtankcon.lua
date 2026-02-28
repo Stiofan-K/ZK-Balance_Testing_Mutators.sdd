@@ -41,7 +41,6 @@ return { amphtankcon = {
   iconType               = [[builder]],
   leaveTracks            = true,
   maxSlope               = 18,
-  maxWaterDepth          = 22,
   metalCost              = 185,
   movementClass          = [[HOVER3]],
   moveState              = 0,
@@ -131,7 +130,7 @@ return { amphtankcon = {
       weaponAcceleration      = 22,
       weaponTimer             = 0.5,
       weaponType              = [[TorpedoLauncher]],
-      weaponVelocity          = 100,
+      weaponVelocity          = 300,
     },
     
     ROLLED_DEPTHCHARGE = {
@@ -177,6 +176,7 @@ return { amphtankcon = {
       trajectoryHeight        = 2,
       turnRate                = 22000,
       turret                  = true,
+      waterWeapon             = true,
       weaponType              = [[Cannon]],
       weaponVelocity          = 200,
     },
