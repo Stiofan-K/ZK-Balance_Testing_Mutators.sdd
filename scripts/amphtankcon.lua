@@ -28,17 +28,8 @@ local flares = { piece 'flare1', piece 'flare2' }
 local current_flare = 1
 local SIG_AIM = 2
 
-local function RestoreAfterDelay()
-	SetSignalMask(SIG_AIM)
-
-	Sleep(5000)
-
-	Turn(turret, y_axis, 0, math.rad(15))
-	Turn(guns,   x_axis, 0, math.rad(15))
-end
-
 function script.QueryWeapon(num)
-	return flares[3 - current_flare]
+	return turret
 end
 
 function script.AimFromWeapon(num)
@@ -48,34 +39,36 @@ end
 function script.AimWeapon(num, heading, pitch)
 	Signal(SIG_AIM)
 	SetSignalMask(SIG_AIM)
-
-	Turn(turret, y_axis, heading, math.rad(450))
-	Turn(guns,   x_axis,  -pitch, math.rad(150))
-
-	WaitForTurn(turret, y_axis)
-	WaitForTurn(guns, x_axis)
-	StartThread(RestoreAfterDelay)
-
 	return true
 end
 
 function script.FireWeapon(num)
-	EmitSfx(flares[current_flare], 1024)
-	current_flare = 3 - current_flare
+	if num == 2 then
+
+	end
+end
+function script.BlockShot(num, targetID)
+	local reloadState = Spring.GetUnitWeaponState(unitID, 1, 'reloadState')
+	return not (reloadState and (reloadState < 0 or reloadState < Spring.GetGameFrame()))
 end
 
--- EndBurst doesn't seem to fix friendlyfire on units with high-RoF
+
 
 -- Misc
 
 function script.Create()
 	Hide(guns)
 	Hide(turret)
+	Turn(turret, x_axis, 90)
+	Turn(turret, y_axis, math.rad(-20))
+	Move(turret, y_axis, -5)
+	Move(turret, z_axis, -6)
+	Move(turret, x_axis, 2)
 	StartThread(GG.Script.SmokeUnit, unitID, {base})
 	Spring.SetUnitNanoPieces(unitID, nanos)
 end
 
-local explodables = { turret, guns, shovel }
+local explodables = { shovel }
 function script.Killed(recentDamage, maxHealth)
 	local severity = recentDamage / maxHealth
 	local brutal = (severity > 0.5)

@@ -2,6 +2,7 @@ return { amphtankcon = {
   name                   = [[Weldur]],
   description            = [[Armed Construction (amph)Tank]],
   acceleration           = 0.4,
+  activateWhenBuilt      = true,
   brakeRate              = 18.0,
   buildDistance          = 180,
   builder                = true,
@@ -20,6 +21,7 @@ return { amphtankcon = {
   corpse                 = [[DEAD]],
 
   customParams           = {
+    aim_lookahead  = 90,
     aimposoffset   = [[0 0 0]],
     midposoffset   = [[0 -4 0]],
     modelradius    = [[30]],
@@ -48,17 +50,9 @@ return { amphtankcon = {
   objectName             = [[welder.s3o]],
   script                 = [[amphtankcon.lua]],
   selfDestructAs         = [[BIG_UNITEX]],
-
-  sfxtypes               = {
-
-    explosiongenerators = {
-      [[custom:BEAMWEAPON_MUZZLE_RED]],
-    },
-
-  },
-
-  showNanoSpray          = false,
+  showNanoSprqay          = false,
   sightDistance          = 300,
+  sonarDistance          = 300,
   speed                  = 63,
   trackOffset            = 3,
   trackStrength          = 6,
@@ -71,11 +65,17 @@ return { amphtankcon = {
   workerTime             = 7.5,
 
   weapons                = {
-
+    
+    --{
+     -- def                = [[DEPTHCHARGE]],
+      --badTargetCategory  = [[FIXEDWING]],
+      --onlyTargetCategory = [[SWIM FIXEDWING LAND SUB SINK TURRET FLOAT SHIP GUNSHIP HOVER]],
+    --},
+    
     {
-      def                = [[LASER]],
+      def                = [[ROLLED_DEPTHCHARGE]],
       badTargetCategory  = [[FIXEDWING]],
-      onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
+      onlyTargetCategory = [[FIXEDWING LAND TURRET FLOAT GUNSHIP HOVER]],
     },
 
   },
@@ -83,44 +83,102 @@ return { amphtankcon = {
 
   weaponDefs             = {
 
-    LASER = {
-      name                    = [[Mini Laser]],
-      areaOfEffect            = 8,
-      cegTag                  = [[laser_cannon_trail_thin]],
-      coreThickness           = 0.5,
+    DEPTHCHARGE = {
+      name                    = [[Depth Charge]],
+      accuracy                = 3000,
+      areaOfEffect            = 64,
+      avoidFriendly           = false,
+      bouncerebound           = 0.5,
+      bounceslip              = 0.5,
+      burnblow                = true,
+      collideFriendly         = false,
+      collideFeature          = false,
       craterBoost             = 0,
       craterMult              = 0,
+      cegTag                  = [[torpedo_trail]],
 
-      customParams        = {
-        light_camera_height = 1200,
-        light_radius = 120,
+      customParams = {
+        burst = Shared.BURST_RELIABLE,
+
+        stays_underwater = 1,
       },
 
       damage                  = {
-        default = 8.64,
-        planes  = 8.64,
+        default = 220.1,
       },
 
-      duration                = 0.02,
-      explosionGenerator      = [[custom:BEAMWEAPON_HIT_RED]],
-      fireStarter             = 50,
-      heightMod               = 1,
-      impactOnly              = true,
+      edgeEffectiveness       = 0.6,
+
+      explosionGenerator      = [[custom:TORPEDOHITHUGE]],
+      fixedlauncher           = true,
+      groundbounce            = 1,
+      edgeEffectiveness       = 0.6,
       impulseBoost            = 0,
-      impulseFactor           = 0.4,
+      impulseFactor           = 0.2,
       interceptedByShieldType = 1,
-      noSelfDamage            = true,
-      range                   = 235,
-      reloadtime              = 0.2,
-      rgbColor                = [[1 0 0]],
-      soundHit                = [[weapon/laser/lasercannon_hit]],
-      soundStart              = [[weapon/laser/lasercannon_fire]],
-      soundTrigger            = true,
-      thickness               = 2.5,
-      tolerance               = 10000,
+      model                   = [[depthcharge_big.s3o]],
+      numbounce               = 3,
+      range                   = 240,
+      reloadtime              = 6,
+      soundHitDry             = [[explosion/mini_nuke]],
+      soundHitWet             = [[explosion/wet/ex_underwater]],
+      soundStart              = [[weapon/torp_land]],
+      startVelocity           = 75,
+      tracks                  = true,
+      trajectoryHeight        = 2,
+      turnRate                = 22000,
       turret                  = true,
-      weaponType              = [[LaserCannon]],
-      weaponVelocity          = 880,
+      weaponAcceleration      = 22,
+      weaponTimer             = 0.5,
+      weaponType              = [[TorpedoLauncher]],
+      weaponVelocity          = 100,
+    },
+    
+    ROLLED_DEPTHCHARGE = {
+      name                    = [[Depth Charge]],
+      accuracy                = 3000,
+      areaOfEffect            = 64,
+      avoidFriendly           = false,
+      bouncerebound           = 0.5,
+      bounceslip              = 0.5,
+      burnblow                = false,
+      collideFriendly         = false,
+      collideFeature          = false,
+      craterBoost             = 0,
+      craterMult              = 0,
+      cegTag                  = [[torpedo_trail]],
+
+      customParams = {
+        burst = Shared.BURST_RELIABLE,
+      },
+
+      damage                  = {
+        default = 220.1,
+      },
+
+      edgeEffectiveness       = 0.6,
+
+      explosionGenerator      = [[custom:TORPEDOHITHUGE]],
+      fixedlauncher           = true,
+      groundbounce            = 1,
+      edgeEffectiveness       = 0.6,
+      impulseBoost            = 0,
+      impulseFactor           = 0.2,
+      interceptedByShieldType = 1,
+      model                   = [[depthcharge_big.s3o]],
+      numbounce               = 3,
+      range                   = 235,
+      reloadtime              = 6,
+      soundHitDry             = [[explosion/mini_nuke]],
+      soundHitWet             = [[explosion/wet/ex_underwater]],
+      soundStart              = [[weapon/torp_land]],
+      startVelocity           = 125,
+      tracks                  = true,
+      trajectoryHeight        = 2,
+      turnRate                = 22000,
+      turret                  = true,
+      weaponType              = [[Cannon]],
+      weaponVelocity          = 125,
     },
 
   },
