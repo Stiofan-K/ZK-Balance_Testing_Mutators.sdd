@@ -165,7 +165,7 @@ local factoryUnitPosDef = {
 		--amphtankraid      = unitTypes.RAIDER,
 		--amphtanksubraid   = unitTypes.WEIRD_RAIDER,
 		amphtankriot      = unitTypes.RIOT,
-		--amphtankskirm     = unitTypes.SKIRMISHER,
+		amphtankskirm     = unitTypes.SKIRMISHER,
 		--amphtankassault	= unitTypes.ASSAULT,
 		--amphtankaa        = unitTypes.ANTI_AIR,
 		--amphassault       = unitTypes.HEAVY_SOMETHING,
@@ -197,6 +197,7 @@ factoryUnitPosDef.platejump    = Spring.Utilities.CopyTable(factoryUnitPosDef.fa
 factoryUnitPosDef.platetank    = Spring.Utilities.CopyTable(factoryUnitPosDef.factorytank)
 factoryUnitPosDef.plateamph    = Spring.Utilities.CopyTable(factoryUnitPosDef.factoryamph)
 factoryUnitPosDef.plateship    = Spring.Utilities.CopyTable(factoryUnitPosDef.factoryship)
+factoryUnitPosDef.plateamphtank= Spring.Utilities.CopyTable(factoryUnitPosDef.factoryamphtank)
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------

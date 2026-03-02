@@ -78,6 +78,8 @@ for i = 1, 4 do
 	trackData.tracks[i] = piece ('tracks' .. i)
 end
 
+local OKP_DAMAGE = tonumber(UnitDefs[unitDefID].customParams.okp_damage)
+
 local gunHeading = 0
 
 local disarmed = false
@@ -172,6 +174,7 @@ end
 
 
 function script.BlockShot(num, targetID)
+	return GG.OverkillPrevention_CheckBlock(unitID, targetID, 100.1, 60)
 end
 
 function script.Create()

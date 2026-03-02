@@ -20,14 +20,10 @@ return { amphtankriot = {
     cus_noflashlight  = 1,
     selection_scale   = 0.92,
     set_target_range_buffer = 40,
-    normaltex = [[unittextures/corbanish_normals.dds]],
-
-    heat_per_shot  = 0.035, -- Heat is always a number between 0 and 1
-    heat_decay     = 1/6, -- Per second
-    heat_max_slow  = 0.5,
-    heat_initial   = 0,
+    normaltex = [[unittextures/corbanish_normals.dds]],    
     
-    
+    okp_damage = 90,
+        
     outline_x = 110,
     outline_y = 110,
     outline_yoff = 13.5,
@@ -74,7 +70,7 @@ return { amphtankriot = {
   weaponDefs          = {
     
     MICROMISSILES      = {
-      name                    = [[Wasp Launcher]],
+      name                    = [[Wasp Missile Battery]],
       areaOfEffect            = 48,
       cegTag                  = [[missiletrailyellow]],
       collideFriendly         = false,
@@ -91,21 +87,23 @@ return { amphtankriot = {
       impulseBoost            = 0,
       impulseFactor           = 0.4,
       interceptedByShieldType = 2,
+      leadLimit               = 0,
       model                   = [[wep_m_hailstorm.s3o]],
       noSelfDamage            = true,
-      range                   = 800,
+      range                   = 330,
       reloadtime              = 0.2,
       smokeTrail              = true,
       soundHit                = [[weapon/missile/missile_fire12]],
       soundStart              = [[weapon/missile/missile_fire10]],
+      soundStartVolume        = 2,
       startVelocity           = 100,
-      tracking                = true,
+      tracks                  = true,
       tolerance               = 4000,
       turnrate                = 30000,
       turret                  = true,
       --waterWeapon           = true,
-      weaponAcceleration      = 600,
-      weaponTimer             = 0.2,
+      weaponAcceleration      = 100,
+      weaponTimer             = 0.3,
       weaponType              = [[StarburstLauncher]],
       weaponVelocity          = 1800,
     },

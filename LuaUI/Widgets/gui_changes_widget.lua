@@ -272,6 +272,10 @@ also fills the subsurface niche for gs, and can run double duty sorta
 --> that is alot of jank and alot of features for a single unit, and anti atomic units.
 -> probably either or for dgun depthcharge or torps or thermite dgun
 
+TODO Paladin
+-> cheaper and shorter range?
+--> needs to get out of standoff role
+
 TODO Scythe area cloak
 Smol area cloak, get cloak into cloak earlier, while sidestepping conjurers jankyness
 
@@ -312,6 +316,9 @@ TODO Raven -> Tankier but less damage (maybe bring magpie back to 900)
 785 damage is the lowest we can go to still onetap lotus
 
 TODO cheaper solars
+-> more solar walls!
+-> gridding becomes too cheap? 
+-> Overdrive becomes too cheap?
 
 TODO make areamex toggle that places wind instead of solar
 
@@ -335,21 +342,46 @@ Puppy jump get blocked by terrain sometimes
 TODO Dante groundburn
 it may stack and unintentionally do loadsa damage
 	
+TODO Inferno vfx fix for water hit?
 
 TODO Amphtanks
 Amphib veh fac
 Overheat as a mechanic, water cools them
+-> Need to make overheat gadget
 
 Con:		amphib tank with long range sonar? Drone? Torpedo launcher?
+-> 			Beaver Depth charge welder esque con. Lobs a charge from land. Feels okay.
+
 Raider:		overheating laser tank, 100 cost?
+
 Riot: 		Prism tank, laser shotgun, overheats make it a turtle! a tankriot like outlaw sorta
+
+
 Riot alt:	Riot scalpel. More missiles, less aoe, overheats
+->			Other ogre works :o could maybe
+
 Skirm: 		Bomb/depthcharge launcher, expensive antiskirm/arty? Veh skirms are difficult 
+->			Mangonel! The bigger badger initiative
+			Attempted directfire skirm, but the depthcharge launcher is just much better if high angle
+			TODO see if theres a way to force one weapon to be high angle
+			TODO At max range the land charge is prefered, because it gets extended range form balistics.
+			-> There are probably some hax to fix this, but its good enough atm.
+
 Assault: 	Bursty halberd? Overheats. Maybe like an AVRE?
+
 Arty: 		Large gauss, overheats
+
 Special: 	rez veh/bp effiecent con
 			Avre
+			
 Spec Raid:	Sub tank, float below water surface
+
+TODO All new units need overkill prevention done right
+
+TODO Mangonel Prioritisation of weapons is iffy to say the least
+-> nvm it works!
+
+TODO need a amphtank kplate?
 
 TODO Nebula
 Drop the shield.
