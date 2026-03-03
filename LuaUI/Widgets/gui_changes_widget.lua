@@ -349,37 +349,54 @@ Amphib veh fac
 Overheat as a mechanic, water cools them
 -> Need to make overheat gadget
 
-Con:		amphib tank with long range sonar? Drone? Torpedo launcher?
--> 			Beaver Depth charge welder esque con. Lobs a charge from land. Feels okay.
+Con:			amphib tank with long range sonar? Drone? Torpedo launcher?
+Beaver		Beaver Depth charge welder esque con. Lobs a charge from land. Feels okay.
 
-Raider:		overheating laser tank, 100 cost?
+Raider:			overheating laser tank, 100 cost?
+Springald
+Chu-Ko-Nu
 
-Riot: 		Prism tank, laser shotgun, overheats make it a turtle! a tankriot like outlaw sorta
+Riot: 			Prism tank, laser shotgun, overheats make it a turtle! a tankriot like outlaw sorta
+Obelisk
+
+Riot alt:		Riot scalpel. More missiles, less aoe, overheats
+Maelstrom		TODO needs overheating and overkill prevention to function as a unit
+Hive
+Nest (of bees)
+
+Skirm: 			Bomb/depthcharge launcher, expensive antiskirm/arty? Veh skirms are difficult 
+Mangonel		The bigger badger initiative
+Onager				Directfire veh skirm, thaat also launches depthcharges, and can optionally high angle
+				-> There are probably some hax to fix this, but its good enough atm.
+
+Assault: 		Bursty halberd? Overheats. Maybe like an AVRE?
+Hulk 			-> could be this facs missing unit o.o"
 
 
-Riot alt:	Riot scalpel. More missiles, less aoe, overheats
-->			Other ogre works :o could maybe
+Arty: 			Large gauss, overheats
+Ballista		-> rapdifire medium-long range arty, needs to deploy, overheats
+Springald		
+				scorpion would be so fitting but its used already :cccccc
 
-Skirm: 		Bomb/depthcharge launcher, expensive antiskirm/arty? Veh skirms are difficult 
-->			Mangonel! The bigger badger initiative
-			Attempted directfire skirm, but the depthcharge launcher is just much better if high angle
-			TODO see if theres a way to force one weapon to be high angle
-			TODO At max range the land charge is prefered, because it gets extended range form balistics.
-			-> There are probably some hax to fix this, but its good enough atm.
 
-Assault: 	Bursty halberd? Overheats. Maybe like an AVRE?
-
-Arty: 		Large gauss, overheats
-
-Special: 	rez veh/bp effiecent con
-			Avre
+Special: 		rez veh/bp effiecent con
+				Avre
 			
-Spec Raid:	Sub tank, float below water surface
+Spec Raid:		Sub tank, float below water surface
+Obelisk?
+Turtle?
+Frog?			
+Anura (Frog family)
 
 TODO All new units need overkill prevention done right
 
+TODO all amphtanks need the water wake effects
+
 TODO Mangonel Prioritisation of weapons is iffy to say the least
 -> nvm it works!
+-> nvm its still meh, ballistics cause the cannon to go beyond torp range and fire instead of the torp
+			TODO see if theres a way to force one weapon to be high angle
+			TODO At max range the land charge is prefered, because it gets extended range form balistics.
 
 TODO need a amphtank kplate?
 
