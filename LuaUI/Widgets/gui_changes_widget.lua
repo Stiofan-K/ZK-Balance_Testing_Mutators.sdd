@@ -83,6 +83,7 @@ function widget:Initialize()
 					" \n" ..
 					"-- Missing qol things like Overkill prevention and tactical ai, which especially hurts the Hive and Mangonel\n" ..
 					"-- expect to babysit alot more than other factories for now, aswell as missing polish in how things play and feel.\n" ..
+					"-- very slightly breaks stealing blueprints, since I havent figured out how to designate it a pure factory.\n" ..
 					" \n" ..
 					"Striders\n" ..
 					"-- Athena gains a Nanoplague canister missile and Nanoplague Dart as a dgun.\n" ..
