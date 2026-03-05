@@ -2,7 +2,7 @@ return {
 	name = 'Stiofan Balance Refumble',
 	description = 'Playing around with balance to feel things out!',
 	shortname = 'zkstiofanbalancerefumble',
-	version = 'v1.3.3 dev',
+	version = 'v1.3.4 dev',
 	mutator = '1',
 	game = '',
 	shortGame = '',

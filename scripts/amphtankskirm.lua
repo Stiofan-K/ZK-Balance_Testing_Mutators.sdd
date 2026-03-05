@@ -71,11 +71,7 @@ local function PrioritiseTorpGun()
 	Sleep(500)
 	torpAim = false
 end
-local function AimIsGoodGun()
-	aim = true
-	Sleep(100)
-	aim = false
-end
+
 function script.Create()
 	moving = false
 	StartThread(Wake)
@@ -116,6 +112,7 @@ function script.AimWeapon(num, heading, pitch)
 	if num == 1 then
 		StartThread(PrioritiseTorpGun)
 	else
+		aim = false
 		Signal(SIG_AIM)
 		SetSignalMask(SIG_AIM)
 		Turn(turret, y_axis, heading, math.rad(90))
@@ -125,10 +122,12 @@ function script.AimWeapon(num, heading, pitch)
 		WaitForTurn(turret, y_axis)
 		WaitForTurn(gun   , x_axis)
 		gun_1_yaw = heading
-		StartThread(AimIsGoodGun)
+		aim = true
 	end
 	StartThread(RestoreAfterDelay)
 	if aim then
+		Turn(turret, y_axis, heading, math.rad(90))
+		WaitForTurn(turret, y_axis)
 		return true
 	end
 	return false

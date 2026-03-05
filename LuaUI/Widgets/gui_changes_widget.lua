@@ -437,6 +437,8 @@ Anura 			Anura/blitz has amhibious modelling
 
 TODO All new units need overkill prevention done right
 
+TODO also need to check for blocked shots
+
 TODO all amphtanks need the water wake effects
 Anura/blitz has amhibious modelling
 -> move nose forward and open rear in water, spin fans, have rudders out.
