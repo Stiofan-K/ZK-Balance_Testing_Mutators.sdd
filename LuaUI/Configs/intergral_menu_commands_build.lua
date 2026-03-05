@@ -19,7 +19,7 @@ local factory_commands = {
 	factoryamph       = {order = 10, row = 2, col = 4},
 	factoryship       = {order = 11, row = 2, col = 5},
 	striderhub        = {order = 12, row = 2, col = 6},
-    factoryamphtank   = {order = 13, row = 3, col = 1},
+    factoryamphtank   = {order = 15, row = 3, col = 1},
 	[CMD_BUILD_PLATE] = {order = 14, row = 3, col = 4},
 }
 

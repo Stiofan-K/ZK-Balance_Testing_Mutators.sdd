@@ -9,15 +9,14 @@ return { plateamphtank = {
   buildingGroundDecalType       = [[platehover_aoplane.dds]],
 
   buildoptions     = {
-    [[hovercon]],
-    [[hoverraid]],
-    [[hoverheavyraid]],
-    [[hoverskirm]],
-    [[hoverassault]],
-    [[hoverdepthcharge]],
-    [[hoverriot]],
-    [[hoverarty]],
-    [[hoveraa]],
+    [[amphtankcon]],
+    [[amphtankraid]],
+    [[amphtankriot]],
+    [[amphtankskirm]],
+    --[[amphtankassault]]
+    [[amphtankarty]],
+    [[amphtankaa]],
+    [[amphtanksubraid]],
   },
 
   buildPic         = [[platehover.png]],

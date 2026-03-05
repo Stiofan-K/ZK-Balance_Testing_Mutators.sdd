@@ -114,6 +114,9 @@ function widget:Initialize()
 					"Quake \n" ..
 					"-- Quake applies Nanoplague, resurecting wrecks in its aoe as neutral units. An alternative usecase for it. 50 bp resurect speed.\n" ..
 					" \n" ..
+					"DRP \n" ..
+					"-- It's green shot also applies nanoplague, at 100 bp\n" ..
+					" \n" ..
 					"QoL/Fix:\n" ..
 					"-- Dante tries to prioritises its dgun over shooting other things.\n" ..
 					"-- Commanders try to prioritise their dgun too.\n" ..
@@ -141,6 +144,23 @@ end
 
 --[[
 Mod Changes: 
+
+Amphtanks!!
+-- Yep, its a new factory, though currently not quite complete and kitbashed out of existing models
+
+-- Murderhole:	Depth charge armed constructor. Tosses it on land
+-- Springald: 	Medium weigh light particle burst raider
+-- Hive:		Swarm Missile Riot amphtank. Slow to start dealing damage.
+-- Mangonel: 	Depth Charge Launcher skirm. Tosses them on land, seeking in water
+-- Ballista:	Disarming Flak Tank with short range missile sidearm.
+-- Arbalest:	Rapidfire Gauss Firesupport. Stops to fire.
+-- Anura:		Subsurface Amphtank raider. Uses torpedoes underwater and a plasma repeater on land.
+
+-- Missing qol things like Overkill prevention and tactical ai, which especially hurts the Hive and Mangonel
+-- expect to babysit alot more than other factories for now, aswell as missing polish in how things play and feel.
+--> Overheat mechanic. I'd like for amphtanks to cool down their heat in water faster, while running hot on land
+--> Need gadget implementation of stardust overheat
+
 
 Shield
 -- Felon loses range but gets increased regen that disables when its shield is hit and is speedier. 
@@ -196,6 +216,8 @@ Veh
 -- Badger gains a dgun, a burst of mines that puts its main weapon on cooldown.
 -> Same thing as Siren. This shouldnt lead to any more dps out of badger, but having the on demand capability could be interesting. 
 -> A bit of a questionable change, but I'm curious if we could see interesting active badger use.
+-> Hm! Feedback suggest badger feels better to use, and it seems like a stronger opponent too. It definetly allows for more active use.
+--> Though it may be too strong. tradeoffs could be made in making its dgun reload longer.
 
 Striders
 -> Striders currently deliver on their weightclass and powerful feel, but mostly as standoff weapons. They could lean a bit more into delivering on their themes/powerfantasy while being more interactable.
@@ -239,6 +261,7 @@ Sea Striders
 -> This implementation of said torpedo does feel interesting enough, by being outrunnable and dodgable by light units, tankable and blockable by tanky units but still being powerfull against squisher targets and if not counteracted correctly. Damage could be weighted further toward single target.
 
 -- Quake applies Nanoplague, resurecting wrecks in its aoe as neutral units. An alternative usecase for it. 50 bp resurect speed.
+-- So does DRP's Green shot, at 100 bp
 
 QOL/Fix:
 -- Dante tries to prioritises its dgun over shooting other things.
@@ -297,6 +320,9 @@ TODO com buffs?
 I'd like for them to be more viable in general
 second com weapon should be a generally good play
 It's just too interesting to not have be viable/good
+-> oh a simple ish tradeoff could be limiting a portion of the coms incom to upgrades (2m per second of the 4 base? or 2 extra?)
+-> having a living com is still a metal income advantage, but losing it is less punishing?
+-> Metal in coms is already less efficent, so the advantage is less impactful?
 
 TODO Mistral rocket -> torp improvements
 A meh implementation currently, should take another look
@@ -311,6 +337,9 @@ It would be nice to see used a lil more?
 
 TODO what do about navy
 Cutter buff? Mistral buff could maybe push siren out of the comfort zone enough
+Vanquisher exists!!
+Siren can become a surface focused ship? Hunter and seawolf as only antisub + vanquisher
+-> reweapon vanquisher into shotgun torpedo launchers, avoids corsair shotgun confusion
 
 TODO Raven -> Tankier but less damage (maybe bring magpie back to 900)
 785 damage is the lowest we can go to still onetap lotus
@@ -378,19 +407,24 @@ Ballista		-> rapdifire medium-long range arty, needs to deploy, overheats
 Springald		
 				scorpion would be so fitting but its used already :cccccc
 
+AA:				Disarm Flak with short range missile sidearm
+Birdshot				
+				
 
 Special: 		rez veh/bp effiecent con
 				Avre
 			
-Spec Raid:		Sub tank, float below water surface
-Obelisk?
-Turtle?
-Frog?			
-Anura (Frog family)
+Spec Raid:		Sub tank, float below water surface		
+Anura 			Anura/blitz has amhibious modelling
+(Frog family)	-> move nose forward and open rear in water, spin fans.
+
 
 TODO All new units need overkill prevention done right
 
 TODO all amphtanks need the water wake effects
+
+Anura/blitz has amhibious modelling
+-> move nose forward and open rear in water, spin fans, have rudders out.
 
 TODO Mangonel Prioritisation of weapons is iffy to say the least
 -> nvm it works!
@@ -398,7 +432,6 @@ TODO Mangonel Prioritisation of weapons is iffy to say the least
 			TODO see if theres a way to force one weapon to be high angle
 			TODO At max range the land charge is prefered, because it gets extended range form balistics.
 
-TODO need a amphtank kplate?
 
 TODO Nebula
 Drop the shield.
@@ -408,6 +441,7 @@ allowed to choose its drones from some gunship and all drones available.
 
 TODO Battlecruiser/Flagships
 Expensive omni unit?
+
 
 
 TODO Support powers

@@ -1,5 +1,5 @@
 return { amphtankcon = {
-  name                   = [[Beaver]],
+  name                   = [[Murderhole]],
   description            = [[Amphibious Armed Construction Tank]],
   acceleration           = 0.4,
   activateWhenBuilt      = true,
@@ -14,7 +14,7 @@ return { amphtankcon = {
   canGuard               = true,
   canMove                = true,
   canPatrol              = true,
-  category               = [[LAND SHIP]],
+  category               = [[HOVER]],
   collisionVolumeOffsets = [[0 6 0]],
   collisionVolumeScales  = [[34 18 46]],
   collisionVolumeType    = [[box]],

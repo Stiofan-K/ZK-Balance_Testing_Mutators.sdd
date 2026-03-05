@@ -72,6 +72,7 @@ return { seismic = {
         smoothmult   = [[1]],
         smoothexponent = [[0.45]],
         movestructures = [[1]],
+        
         apply_nano_plague = "1",
         plague_rez_build_power  = 50,
 

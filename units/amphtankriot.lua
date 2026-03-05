@@ -1,5 +1,5 @@
 return { amphtankriot = {
-  name                = [[Maelstrom]],
+  name                = [[Hive]],
   description         = [[Riot Swarm Missile Tank]],
   activateWhenBuilt   = true,
   acceleration        = 0.132,
@@ -9,7 +9,7 @@ return { amphtankriot = {
   canGuard            = true,
   canMove             = true,
   canPatrol           = true,
-  category            = [[LAND SHIP]],
+  category            = [[HOVER]],
   selectionVolumeOffsets = [[0 0 0]],
   selectionVolumeScales  = [[83 83 83]],
   selectionVolumeType    = [[ellipsoid]],

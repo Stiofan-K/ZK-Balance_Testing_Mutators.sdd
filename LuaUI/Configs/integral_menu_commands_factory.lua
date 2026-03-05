@@ -163,12 +163,12 @@ local factoryUnitPosDef = {
 	factoryamphtank = {
 		amphtankcon       = unitTypes.CONSTRUCTOR,
 		amphtankraid      = unitTypes.RAIDER,
-		--amphtanksubraid   = unitTypes.WEIRD_RAIDER,
+		amphtanksubraid   = unitTypes.WEIRD_RAIDER,
 		amphtankriot      = unitTypes.RIOT,
 		amphtankskirm     = unitTypes.SKIRMISHER,
 		--amphtankassault	= unitTypes.ASSAULT,
-		--amphtankaa        = unitTypes.ANTI_AIR,
-		--amphassault       = unitTypes.HEAVY_SOMETHING,
+		amphtankaa        = unitTypes.ANTI_AIR,
+		--amphtankassault2       = unitTypes.HEAVY_SOMETHING,
 		amphtankarty      = unitTypes.ARTILLERY,
 	},
 	pw_bomberfac = {

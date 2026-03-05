@@ -28,7 +28,7 @@ local SIG_TILT = 4
 local SIG_PUSH = 16
 local SIG_STOW = 32
 
-local TURRET_SPEED = math.rad(70)
+local TURRET_SPEED = math.rad(60)
 local TURRET_SPEED_2 = math.rad(40)
 
 -- Gun might need to turn 240 degrees to hit target if the target passes over its rear

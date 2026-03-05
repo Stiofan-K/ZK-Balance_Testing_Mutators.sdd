@@ -1,6 +1,6 @@
 return { amphtankarty = {
-  name                = [[Ballista]],
-  description         = [[Gauss Rapidfire Firesupport]],
+  name                = [[Arbalest]],
+  description         = [[Rapidfire Gauss Firesupport]],
   acceleration        = 0.17,
   activateWhenBuilt   = true,
   brakeRate           = 1.632,
@@ -9,14 +9,13 @@ return { amphtankarty = {
   canGuard            = true,
   canMove             = true,
   canPatrol           = true,
-  category            = [[LAND SHIP]],
+  category            = [[HOVER]],
   selectionVolumeOffsets = [[0 0 0]],
   selectionVolumeScales  = [[63 63 63]],
   selectionVolumeType    = [[ellipsoid]],
   corpse              = [[DEAD]],
 
   customParams        = {
-    bait_level_default = 1,
     unstick_leeway    = 30, -- Don't lose move orders if stuck while packing.
   },
 
@@ -24,7 +23,7 @@ return { amphtankarty = {
   floater             = true,
   footprintX          = 3,
   footprintZ          = 3,
-  health              = 1200,
+  health              = 900,
   iconType            = [[tankarty]],
   leaveTracks         = true,
   maxSlope            = 18,
@@ -48,7 +47,7 @@ return { amphtankarty = {
   trackWidth          = 34,
   turninplace         = 0,
   turnRate            = 512,
-  waterline           = 12,   
+  waterline           = 8,   
   workerTime          = 0,
 
   weapons             = {
@@ -57,7 +56,7 @@ return { amphtankarty = {
       def                = [[GAUSS]],
       --mainDir            = [[0 0 1]],
 --      maxAngleDif        = 180,
-      onlyTargetCategory = [[SWIM LAND SINK TURRET FLOAT SHIP HOVER]],
+      onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
     },
 
   },
@@ -67,39 +66,38 @@ return { amphtankarty = {
 
     GAUSS = {
       name                    = [[Gauss Repeater]],
-      accuracy                = 180,
-      areaOfEffect            = 84,
-      avoidFeature            = false,
-      bouncerebound           = 1,
+      accuracy                = 600,
+      alphaDecay              = 0.12,
+      areaOfEffect            = 16,
+      avoidfeature            = false,
+      bouncerebound           = 0.15,
       bounceslip              = 1,
       cegTag                  = [[gauss_tag_l]],
       craterBoost             = 0,
       craterMult              = 0,
 
-      customParams            = {
-        burst = Shared.BURST_RELIABLE,
+      customParams = {
+        --burst = Shared.BURST_RELIABLE,
 
-        light_color = [[1.4 0.8 0.3]],
-        single_hit = true,
+        --single_hit = true,
       },
 
       damage                  = {
-        default = 200.01,
-        planes  = 200.01,
+        default = 50.1,
+        planes  = 50.1,
       },
-
-      edgeEffectiveness       = 0.5,
+      
       explosionGenerator      = [[custom:gauss_hit_m]],
+      groundbounce            = 1,
+      impactOnly              = true,
       impulseBoost            = 0,
-      impulseFactor           = 0.1,
+      impulseFactor           = 0,
       interceptedByShieldType = 1,
-      --noExplode               = true,
+      noExplode               = true,
       noSelfDamage            = true,
-      numbounce               = 2,
-      myGravity               = 0.090,
-      noSelfDamage            = true,
+      numbounce               = 40,
       range                   = 1000,
-      reloadtime              = 0.5,
+      reloadtime              = 0.4,
       rgbColor                = [[0.5 1 1]],
       separation              = 0.5,
       size                    = 0.8,
@@ -107,10 +105,12 @@ return { amphtankarty = {
       soundHitVolume          = 3,
       soundStart              = [[weapon/gauss_fire]],
       soundStartVolume        = 2.5,
+      stages                  = 32,
+      turret                  = true,
+      waterweapon             = true,
       weaponType              = [[Cannon]],
-      weaponVelocity          = 700,
+      weaponVelocity          = 1200,
     },
-
   },
 
 
