@@ -83,8 +83,8 @@ return { amphtankarty = {
       },
 
       damage                  = {
-        default = 50.1,
-        planes  = 50.1,
+        default = 60.1,
+        planes  = 60.1,
       },
       
       explosionGenerator      = [[custom:gauss_hit_m]],

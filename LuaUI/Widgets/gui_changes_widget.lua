@@ -75,7 +75,7 @@ function widget:Initialize()
 
 					"-- Murderhole:	Depth charge armed constructor. Tosses it on land, seeking in water.\n" ..
 					"-- Springald: 	Medium weight light particle burst fire raider\n" ..
-					"-- Hive:		Swarm Missile Riot amphtank. Slow to start dealing damage, so better vs high hp targets.\n" ..
+					"-- Hive:		Swarm Missile Riot amphtank. Slow to start dealing damage.\n" ..
 					"-- Mangonel: 	Depth Charge Launcher skirm/artillery. Tosses them on land, seeking in water. Has some splash damage.\n" ..
 					"-- Ballista:	Disarming Flak Tank with short range missile sidearm.\n" ..
 					"-- Arbalest:	Rapidfire Gauss Firesupport. Stops to fire. Has very low line of fire.\n" ..
@@ -83,11 +83,11 @@ function widget:Initialize()
 					" \n" ..
 					"-- Missing qol things like Overkill prevention and tactical ai, which especially hurts the Hive and Mangonel\n" ..
 					"-- expect to babysit alot more than other factories for now, aswell as missing polish in how things play and feel.\n" ..
-					"-- very slightly breaks stealing blueprints, since I havent figured out how to designate it a pure factory.\n" ..
+					"-- I havent figured out how to give it a factory tab slot, it appears where engi coms blueprint would be.\n" ..
 					" \n" ..
 					"Striders\n" ..
 					"-- Athena gains a Nanoplague canister missile and Nanoplague Dart as a dgun.\n" ..
-					"-- Nanoplague causes wrecks in its aoe to resurect into neutral units. Their behavior is equal that of the Zombies! modoption. Zombies are 'only' slowed by 0.3.\n" ..
+					"-- Nanoplague causes wrecks in its aoe to resurect into neutral units. Their behavior is equal that of the Zombies! modoption. Zombies are slowed by 0.3.\n" ..
 					"-- The Canister has a wide aoe and resurrects at a speed of 30 bp per second. The Dart has much smaller aoe and resurrects at a speed of 80 bp per second.\n" ..
 					"-- Minimum Revive time is 10 seconds. Canister and Dart share a reload.\n" ..
 					" \n" ..
