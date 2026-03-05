@@ -31,11 +31,11 @@ function widget:Initialize()
 
 	local window =
 		Chili.Window:New {
-		caption = "Hello There!",
+		caption = "Hello There! Changes reordered by relevancy.",
 		x = "20%",
-		y = "20%",
+		y = "5%",
 		right = "20%",
-		bottom = "10%",
+		bottom = "5%",
 		parent = Chili.Screen0,
 		classname = "main_window",
 		children = {
@@ -64,21 +64,41 @@ function widget:Initialize()
 	Chili.ScrollPanel:New {
 		x = 4,
 		right = 4,
-		y = 80,
+		y = 60,
 		bottom = 4,
 		parent = window,
 		children = {
 			Chili.TextBox:New { --TODO IDK HOW CHILI WORKS If this text is too long it gets cut off by the parent window? even with scrolling
 				text = 
-					"Shield \n" ..
-					"-- Felon loses range but gets increased shield regen and is speedier\n" ..
-					"-- Thug gains more shieldhealth, radius and fires both cannons, though with a longer reload. Slighlty more dps\n" ..
-					"-- Outlaw is faster and more tanky. Deals more damage up close and slightly less at its edge.\n" ..
+					"Amphtanks! \n" ..
+					"-- Yep, its a new factory, though currently not quite complete and kitbashed out of existing models\n" ..
+
+					"-- Murderhole:	Depth charge armed constructor. Tosses it on land, seeking in water.\n" ..
+					"-- Springald: 	Medium weight light particle burst fire raider\n" ..
+					"-- Hive:		Swarm Missile Riot amphtank. Slow to start dealing damage, so better vs high hp targets.\n" ..
+					"-- Mangonel: 	Depth Charge Launcher skirm/artillery. Tosses them on land, seeking in water. Has some splash damage.\n" ..
+					"-- Ballista:	Disarming Flak Tank with short range missile sidearm.\n" ..
+					"-- Arbalest:	Rapidfire Gauss Firesupport. Stops to fire. Has very low line of fire.\n" ..
+					"-- Anura:		Subsurface Amphtank raider. Uses torpedoes underwater and a plasma repeater on land.\n" ..
 					" \n" ..
-					"Jump\n" ..
-					"-- All jumpbots can jump, but worse than their prime jumpers in speed and recharge. It is primarily a tactical movement, not combat jump.\n" ..
-					"-- All new jumps have a windup before jumping. It is meant to be only very slightly faster than walking on flat ground.\n" ..
-					"-- Puppy has much shorter jump range and I've tried to not make it not skew raider matchups. It doesnt turn midair either, so can't do instant turn shenanigans.\n" ..
+					"-- Missing qol things like Overkill prevention and tactical ai, which especially hurts the Hive and Mangonel\n" ..
+					"-- expect to babysit alot more than other factories for now, aswell as missing polish in how things play and feel.\n" ..
+					" \n" ..
+					"Striders\n" ..
+					"-- Athena gains a Nanoplague canister missile and Nanoplague Dart as a dgun.\n" ..
+					"-- Nanoplague causes wrecks in its aoe to resurect into neutral units. Their behavior is equal that of the Zombies! modoption. Zombies are 'only' slowed by 0.3.\n" ..
+					"-- The Canister has a wide aoe and resurrects at a speed of 30 bp per second. The Dart has much smaller aoe and resurrects at a speed of 80 bp per second.\n" ..
+					"-- Minimum Revive time is 10 seconds. Canister and Dart share a reload.\n" ..
+					" \n" ..
+					"-- Dante is speedier and tankier, but has it's missile salvo replaced with a shorter range napalm grenade barrage.\n" ..
+					"-- It's dgun/missiles/grenades have less afterburn (same as pyro) but set the ground on fire, while its flamer gets the extended duration afterburn its missiles had.\n" ..
+					" \n" ..
+					"-- Merlin gets a lower range alternative Salvo, a SLAM salvo. Immobilizes merlin during firing. Reloads are linked.\n" ..
+					"-- Risk it for the biscuit! This is potentially strong, but also risks Merlin since the barrage is only 800 range. Manual re-aiming is recommended as mobile units can dodge to an extent.\n" ..
+					" \n" ..
+					"-- Reef's pads repair faster and it becomes a builder. Can now also build some planes and gunships.\n" ..
+					" \n" ..
+					"-- Scylla gains high damage but slow siege torpedoes that track their target beyond Scyllas fire range. Its tacnuke is moved to a dgun.\n" ..
 					" \n" ..
 					"Aerial AA\n" ..
 					"-- Swift, Raptor and Trident gain extra hp to survive ground AA. About a 2.2x hp buff. Raptor's weapon is swapped for a flak gun of same dps.\n" ..
@@ -89,27 +109,22 @@ function widget:Initialize()
 					"-- Magpie becomes an attritional glidebomber. It rearms faster and gains some aoe but loses accurate tracking.\n" ..
 					"-- Phoenix has its damage shifted more to afterburn from upfront damage, with the resulting damage being similar, but stacking multiple phoenix being less effective.\n" ..
 					" \n" ..
+					"Jump\n" ..
+					"-- All jumpbots can jump, but worse than their prime jumpers in speed and recharge. It is primarily a tactical movement, not combat jump.\n" ..
+					"-- All new jumps have a windup before jumping. It is meant to be only very slightly faster than walking on flat ground.\n" ..
+					"-- Puppy has much shorter jump range and I've tried to not make it not skew raider matchups. It doesnt turn midair either, so can't do instant turn shenanigans.\n" ..
+					" \n" ..
 					"Ships\n" ..
 					"-- Siren gains a dgun salvo of its missile, which disables its normal missile during reload.\n" ..
 					"-- Mistrals rockets deploy a torpedo submunition on hit, that tracks the original target. It's original damage is split equally between both projectiles\n" ..
 					" \n" ..
+					"Shield \n" ..
+					"-- Felon loses range but gets increased shield regen and is speedier\n" ..
+					"-- Thug gains more shieldhealth, radius and fires both cannons, though with a longer reload. Slighlty more dps\n" ..
+					"-- Outlaw is faster and more tanky. Deals more damage up close and slightly less at its edge.\n" ..
+					" \n" ..
 					"Rovers\n" ..
 					"-- Badger gains a dgun, a burst of mines that puts its main weapon on cooldown. Very unsure of this change, but maybe something for the badger enjoyers.\n" ..
-					" \n" ..
-					"Striders\n" ..
-					"-- Athena gains a Nanoplague canister missile and Nanoplague Dart as a dgun. Nanoplague causes wrecks in its aoe to resurect into neutral units. Their behavior is equal that of the Zombies! modoption.\n" ..
-					"-- The Canister has a wide aoe and resurrects at a speed of 30 bp per second. The Dart has much smaller aoe and resurrects at a speed of 80 bp per second.\n" ..
-					"-- Minimum Revive time is 10 seconds. Canister and Dart share a reload.\n" ..
-					" \n" ..
-					"-- Dante is speedier and tankier, but has it's missile salvo replaced with a shorter range napalm grenade barrage.\n" ..
-					"-- It's dgun/missiles/grenades have less afterburn (same as pyro) but set the ground on fire, while its flamer gets the extended duration afterburn its missiles had.\n" ..
-					" \n" ..
-					"-- Merlin gets a lower range alternative Salvo, a SLAM salvo. Immobilizes merlin during firing. Reloads are linked.\n" ..
-					"-> Risk it for the biscuit! This is potentially strong, but also risks Merlin since the barrage is only 800 range. Manual re-aiming is recommended as mobile units can dodge to an extent.\n" ..
-					" \n" ..
-					"-- Reef's pads repair faster and it becomes a builder. Can now also build some planes and gunships.\n" ..
-					" \n" ..
-					"-- Scylla gains high damage but slow siege torpedoes that track their target beyond Scyllas fire range. Its tacnuke is moved to a dgun.\n" ..
 					" \n" ..
 					"Quake \n" ..
 					"-- Quake applies Nanoplague, resurecting wrecks in its aoe as neutral units. An alternative usecase for it. 50 bp resurect speed.\n" ..
@@ -121,7 +136,7 @@ function widget:Initialize()
 					"-- Dante tries to prioritises its dgun over shooting other things.\n" ..
 					"-- Commanders try to prioritise their dgun too.\n" ..
 					"-- New Merlin Salvo too\n",
-				fontsize = 15,
+				fontsize = 14,
 				y = 10,
 				autosize = true,
 				textColor = {1, 1, 1, 1}
@@ -131,7 +146,7 @@ function widget:Initialize()
 	
 	Chili.Label:New {
 		x = 0,
-		y = 40,
+		y = 20,
 		right = 0,
 		parent = window,
 		align = "center",
@@ -422,9 +437,10 @@ Anura 			Anura/blitz has amhibious modelling
 TODO All new units need overkill prevention done right
 
 TODO all amphtanks need the water wake effects
-
 Anura/blitz has amhibious modelling
 -> move nose forward and open rear in water, spin fans, have rudders out.
+-> still needs to spin
+-> wake effects attempted for others to medium success.
 
 TODO Mangonel Prioritisation of weapons is iffy to say the least
 -> nvm it works!

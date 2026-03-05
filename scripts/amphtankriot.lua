@@ -127,13 +127,27 @@ function Unstunned(stun_type)
 	end
 end
 
+local function Wake()
+	Signal(SIG_MOVE)
+	SetSignalMask(SIG_MOVE)
+	while true do
+		if not Spring.GetUnitIsCloaked(unitID) and select(2, Spring.GetUnitPosition(unitID)) <= 0 and moving then
+			EmitSfx(base, 2)
+		end
+		Sleep(200)
+	end
+end
+
+
+
 function script.StartMoving()
 	StartThread(TrackControlStartMoving)
-	
+	moving = true
 end
 
 function script.StopMoving()
 	TrackControlStopMoving()
+	moving = false
 end
 
 function script.AimFromWeapon()
@@ -190,6 +204,8 @@ function script.Create()
 	Hide(missiles[1])
 	Hide(missiles[2])
 
+	moving = false
+	StartThread(Wake)
 	StartThread (GG.Script.SmokeUnit, unitID, smokePiece)
 end
 

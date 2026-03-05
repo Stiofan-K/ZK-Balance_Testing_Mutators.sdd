@@ -107,6 +107,28 @@ function Suspension()
 	end
 end
 
+local function Wake()
+	Signal(SIG_MOVE)
+	SetSignalMask(SIG_MOVE)
+	while true do
+		if not Spring.GetUnitIsCloaked(unitID) and select(2, Spring.GetUnitPosition(unitID)) <= 0 and moving then
+			EmitSfx(rwheel1, 2)
+			EmitSfx(rwheel2, 2)
+			EmitSfx(lwheel1, 2)
+			EmitSfx(lwheel2, 2)
+		end
+		Sleep(200)
+	end
+end
+
+function script.StartMoving()
+	moving = true
+end
+
+function script.StopMoving()
+	moving = false
+end
+
 function RestoreAfterDelay()
 	Sleep(RESTORE_DELAY)
 	Turn(turret, y_axis, 0, math.rad(90))
@@ -198,6 +220,7 @@ end
 function script.Create()
 	moving = false
 	StartThread(Suspension)
+	StartThread(Wake)
 	
 	StartThread(GG.Script.SmokeUnit, unitID, smokePiece)
 end

@@ -120,6 +120,43 @@ local function Stopping()
 	StopSpin(wheels7, x_axis, WHEEL_TURN_SPEED1_DECELERATION)
 end
 
+local function Wake()
+	Signal(SIG_MOVE)
+	SetSignalMask(SIG_MOVE)
+	while true do
+		if select(2, Spring.GetUnitPosition(unitID)) <= 0 then
+			-- nose intake
+			Move(nose,z_axis, 	3, 	3)
+			-- rear doors
+			Move(door1,x_axis, 	-4, 3)
+			Move(door1,z_axis, 	0.5,3)
+			Move(door2,x_axis,	4, 	3)
+			Move(door2,z_axis, 	0.5,3)
+			
+			--rear rudders 
+			--TODO  need extra animation that I dont know how to do
+			Move(rud1,z_axis, 	-2, 1)
+			Move(rud2,z_axis, 	-2, 1)
+			
+			if not Spring.GetUnitIsCloaked(unitID) and moving then			
+				EmitSfx(mainfan1, 2)
+				EmitSfx(mainfan2, 2)
+			end
+		else
+			-- nose intake
+			Move(nose,z_axis, 	0, 	3)
+			-- rear doors
+			Move(door1,x_axis, 	0, 	3)
+			Move(door1,z_axis, 	0, 	3)
+			Move(door2,x_axis,	0, 	3)
+			Move(door2,z_axis, 	0, 	3)
+			--rear rudders
+			Move(rud1,z_axis, 	0, 3)
+			Move(rud2,z_axis, 	0, 3)
+		end
+		Sleep(100)
+	end
+end
 
 function script.StartMoving()
 	moving = true
@@ -239,10 +276,13 @@ function script.Create()
 	
 	
 	--TODO 
+	--[[
 	Hide(door1)
 	Hide(rud1)
 	Hide(nosefan1)
 	Hide(nose)
+	]]
+
 	
 
 	
@@ -253,4 +293,5 @@ function script.Create()
 	
 	StartThread(AnimationControl)
 	StartThread(GG.Script.SmokeUnit, unitID, smokePiece)
+	StartThread(Wake)
 end

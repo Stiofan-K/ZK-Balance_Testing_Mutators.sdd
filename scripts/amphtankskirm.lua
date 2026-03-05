@@ -15,6 +15,21 @@ local function RestoreAfterDelay()
 	Turn(wrist , z_axis, 0, math.rad(20))
 end
 
+local function Wake()
+	Signal(SIG_MOVE)
+	SetSignalMask(SIG_MOVE)
+	while true do
+		if not Spring.GetUnitIsCloaked(unitID) and select(2, Spring.GetUnitPosition(unitID)) <= 0 and moving then			
+			EmitSfx(wheel1r, 2)
+			EmitSfx(wheel2r, 2)
+			EmitSfx(wheel1l, 2)
+			EmitSfx(wheel2l, 2)
+			EmitSfx( wheelb, 2)
+		end
+		Sleep(200)
+	end
+end
+
 local function AnimControl()
 	SetSignalMask(SIG_MOVE)
 
@@ -58,6 +73,8 @@ local function PrioritiseTorpGun()
 end
 
 function script.Create()
+	moving = false
+	StartThread(Wake)
 	StartThread(GG.Script.SmokeUnit, unitID, {base, turret, gun})
 end
 
@@ -69,6 +86,7 @@ function script.StartMoving()
 	Spin(wheel2l, x_axis, math.rad(360), math.rad(10))
 	Spin(wheelb , x_axis, math.rad(360), math.rad(10))
 	StartThread(AnimControl)
+	moving = true
 end
 function script.StopMoving()
 	Signal(SIG_MOVE)
@@ -78,6 +96,7 @@ function script.StopMoving()
 	StopSpin(wheel1l, x_axis, math.rad(50))
 	StopSpin(wheel2l, x_axis, math.rad(50))
 	StopSpin(wheelb , x_axis, math.rad(50))
+	moving = false
 end
 
 function script.AimFromWeapon(num)

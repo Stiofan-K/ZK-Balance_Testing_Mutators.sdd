@@ -9,7 +9,7 @@ return { amphtankaa = {
   canGuard               = true,
   canMove                = true,
   canPatrol              = true,
-  category               = [[LAND SHIP]],
+  category               = [[HOVER]],
   collisionVolumeOffsets = [[0 0 0]],
   collisionVolumeScales  = [[38 52 38]],
   collisionVolumeType    = [[cylY]],
@@ -57,7 +57,7 @@ return { amphtankaa = {
   turninplace            = 0,
   turnRate               = 1044,
   upright                = false,
-  waterline              = 12,
+  waterline              = 14,
   workerTime             = 0,
 
   weapons                = {

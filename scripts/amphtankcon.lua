@@ -75,6 +75,18 @@ end
 
 -- Misc
 
+local function Wake()
+	Signal(SIG_MOVE)
+	SetSignalMask(SIG_MOVE)
+	while true do
+		if not Spring.GetUnitIsCloaked(unitID) and select(2, Spring.GetUnitPosition(unitID)) <= 0 and moving then			
+			EmitSfx(base, 2)
+			EmitSfx(shovel, 2)
+		end
+		Sleep(200)
+	end
+end
+
 function script.Create()
 	Hide(guns)
 	Hide(turret)
@@ -88,6 +100,9 @@ function script.Create()
 	
 	StartThread(GG.Script.SmokeUnit, unitID, {base})
 	Spring.SetUnitNanoPieces(unitID, nanos)
+	
+	moving = false
+	StartThread(Wake)
 end
 
 local explodables = { shovel }

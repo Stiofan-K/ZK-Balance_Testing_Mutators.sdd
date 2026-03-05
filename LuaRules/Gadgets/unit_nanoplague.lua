@@ -94,8 +94,8 @@ local nanoPlagueWeaponDefs
 local defaultplagueRezMin 		= 10    -- minimum rez time
 local defaultplagueRezSpeed 	= 30	-- Speed in bp for rez
 local defaultplagueRezDelay 	= 0		-- extra flat delay to rez
-local defaultplagueRezChance 	= false 	-- chance an effected feature resurects
-local plagueZombieSlow 			= 0.5 	-- 
+local defaultplagueRezChance 	= false -- chance an effected feature resurects
+local plagueZombieSlow 			= 0.5 	-- hmm is a global value, so defining per weapon is a lil more difficult?
 
 local nanoPlagueWeaponDefs = {}
 for i = 1, #WeaponDefs do
@@ -114,7 +114,7 @@ end
 
 local WARNING_TIME_CEG 		= 30 -- seconds to start being scary before actual reanimation event
 local WARNING_TIME_SOUND 	= 5
-local ZOMBIES_PERMA_SLOW 	= -0.5
+local ZOMBIES_PERMA_SLOW 	= -0.3 -- -0.5 is the base value, made them a lil speedier
 local ZOMBIES_PARTIAL_RECLAIM = true
 
 local CMD_REPEAT = CMD.REPEAT

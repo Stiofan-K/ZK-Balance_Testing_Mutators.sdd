@@ -45,12 +45,25 @@ function Unstunned(stun_type)
 	end
 end
 
+local function Wake()
+	Signal(SIG_MOVE)
+	SetSignalMask(SIG_MOVE)
+	while true do
+		if not Spring.GetUnitIsCloaked(unitID) and select(2, Spring.GetUnitPosition(unitID)) <= 0 and moving then			
+			EmitSfx(base, 2) -- could be more detailed when linked with track control
+		end
+		Sleep(200)
+	end
+end
+
 function script.StartMoving()
 	StartThread(TrackControlStartMoving)
+	moving = true
 end
 
 function script.StopMoving()
 	TrackControlStopMoving()
+	moving = false
 end
 
 function script.AimFromWeapon()

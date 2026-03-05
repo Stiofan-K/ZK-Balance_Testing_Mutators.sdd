@@ -781,6 +781,72 @@ local sounds = {
 		},
 	},
 	
+	-- Amphtank
+	amphtankcon = {
+		ok = {
+			[1] = "amph_move",
+		},
+		select = {
+			[1] = "amph_select",
+		},
+	},
+	amphtankraid = {
+		ok = {
+			[1] = "light_tank_move2",
+		},
+		select = {
+			[1] = "tank_select",
+		},
+	},
+	amphtanksubraid = {
+		ok = {
+			[1] = "amph_move",
+		},
+		select = {
+			[1] = "amph_select",
+		},
+	},
+	amphtankriot = {
+		ok = {
+			[1] = "tank_move",
+		},
+		select = {
+			[1] = "tank_select",
+		},
+	},
+	amphtankriot = {
+		ok = {
+			[1] = "tank_move",
+		},
+		select = {
+			[1] = "tank_select",
+		},
+	},
+	amphtankskirm = {
+		ok = {
+			[1] = "light_tank_move2",
+		},
+		select = {
+			[1] = "tank_select",
+		},
+	},
+	amphtankarty = {
+		ok = {
+			[1] = "tank_move",
+		},
+		select = {
+			[1] = "tank_select",
+		},
+	},
+	amphtankaa = {
+		ok = {
+			[1] = "tank_move",
+		},
+		select = {
+			[1] = "tank_select",
+		},
+	},
+	
 	-- Hovercraft
 	hovercon = {
 		build = { "builder_start" },

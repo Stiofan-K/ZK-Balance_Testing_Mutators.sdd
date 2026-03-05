@@ -127,6 +127,17 @@ local function StowGun()
 	SetAbleToMove(true)
 end
 
+local function Wake()
+	Signal(SIG_MOVE)
+	SetSignalMask(SIG_MOVE)
+	while true do
+		if not Spring.GetUnitIsCloaked(unitID) and select(2, Spring.GetUnitPosition(unitID)) <= 0 and moving then			
+			EmitSfx(main, 2)
+		end
+		Sleep(200)
+	end
+end
+
 function script.StartMoving()
 	moving = true
 	StartThread(TrackControlStartMoving)
@@ -153,6 +164,7 @@ function script.Create()
 		Sleep (250)
 	end
 	StartThread (GG.Script.SmokeUnit, unitID, smokePiece)
+	StartThread(Wake)
 end
 
 local function RestoreAfterDelay()
