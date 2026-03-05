@@ -75,6 +75,10 @@ return { amphtankskirm = {
       def                = [[LAND_DEPTHCHARGE]],
       onlyTargetCategory = [[SWIM LAND SINK TURRET FLOAT SHIP HOVER]],
     },
+    {
+      def                = [[FAKEWEAPON]],
+      onlyTargetCategory = [[SWIM LAND SINK TURRET FLOAT SHIP HOVER]],
+    },
 
   },
 
@@ -167,6 +171,49 @@ return { amphtankskirm = {
       sprayAngle              = 500,
       startVelocity           = 220,
       turret                  = true,
+      weaponType              = [[Cannon]],
+      weaponVelocity          = 220,
+    },
+    
+    FAKEWEAPON = {
+      name                    = [[Fake Land Charge Launcher]],
+      accuracy                = 2000,
+      areaOfEffect            = 144,
+      bouncerebound           = 0.2,
+      bounceslip              = 0.2,
+      burnblow                = false, 
+      craterBoost             = 0.2,
+      craterMult              = 0.2,
+      cegTag                  = [[torpedo_trail]],
+
+      customParams            = {
+      },
+      
+      damage                  = {
+        default = 0,
+        planes  = 0,
+      },
+
+      explosionGenerator      = [[custom:FLASH64]],
+      groundbounce            = 1,
+      impulseBoost            = 0,
+      impulseFactor           = 0.4,
+      interceptedByShieldType = 1,
+      model                   = [[depthcharge_big.s3o]],
+      myGravity               = 0.090,
+      noSelfDamage            = false,
+      numbounce               = 2,
+      range                   = 565,
+      reloadtime              = 2,
+      smokeTrail              = true,
+      soundHit                = [[weapon/cannon/generic_cannon]],
+      soundStart              = [[weapon/cannon/badger_fire]],
+      soundHitVolume          = 4,
+      soundStartVolume        = 12,
+      sprayAngle              = 500,
+      startVelocity           = 220,
+      turret                  = true,
+      waterweapon             = true,
       weaponType              = [[Cannon]],
       weaponVelocity          = 220,
     },
