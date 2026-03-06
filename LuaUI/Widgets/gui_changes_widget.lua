@@ -71,7 +71,7 @@ function widget:Initialize()
 			Chili.TextBox:New { --TODO IDK HOW CHILI WORKS If this text is too long it gets cut off by the parent window? even with scrolling
 				text = 
 					"Amphtanks! \n" ..
-					"-- Yep, its a new factory, though currently not quite complete and kitbashed out of existing models\n" ..
+					"-- Yep, its a new factory, though currently not quite complete and kitbashed out of existing models.\n" ..
 
 					"-- Murderhole:	Depth charge armed constructor. Tosses it on land, seeking in water.\n" ..
 					"-- Springald: 	Medium weight light particle burst fire raider\n" ..
@@ -165,12 +165,20 @@ Amphtanks!!
 -- Yep, its a new factory, though currently not quite complete and kitbashed out of existing models
 
 -- Murderhole:	Depth charge armed constructor. Tosses it on land
+				-> improve land depthcharge toss, higher speed/gravity?
 -- Springald: 	Medium weigh light particle burst raider
+
 -- Hive:		Swarm Missile Riot amphtank. Slow to start dealing damage.
+				-> needs okp to really exist as a unit, else its too swingy
+				->idk
+
 -- Mangonel: 	Depth Charge Launcher skirm. Tosses them on land, seeking in water
+-> 				could have higher projectile speed and proj gravity, to make it play better.
 -- Ballista:	Disarming Flak Tank with short range missile sidearm.
 -- Arbalest:	Rapidfire Gauss Firesupport. Stops to fire.
+				
 -- Anura:		Subsurface Amphtank raider. Uses torpedoes underwater and a plasma repeater on land.
+->				Feedback suggests its too speedy, could be slower, maybe more range in trade?
 
 -- Missing qol things like Overkill prevention and tactical ai, which especially hurts the Hive and Mangonel
 -- expect to babysit alot more than other factories for now, aswell as missing polish in how things play and feel.
