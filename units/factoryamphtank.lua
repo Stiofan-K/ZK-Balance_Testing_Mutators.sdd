@@ -14,6 +14,7 @@ return { factoryamphtank = {
     [[amphtankriot]],
     [[amphtankskirm]],
     --[[amphtankassault]]
+    [[amphtankheavyassault]],
     [[amphtankarty]],
     [[amphtankaa]],
     [[amphtanksubraid]],

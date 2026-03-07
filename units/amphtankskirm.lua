@@ -1,6 +1,6 @@
 return { amphtankskirm = {
   name                = [[Mangonel]],
-  description         = [[Skirmisher/Artillery Depth Charge Launcher]],
+  description         = [[Skirmisher/Artillery Depth Charge Launcher (Anti-Sub)]],
   acceleration        = 0.168,
   activateWhenBuilt   = true,
   brakeRate           = 0.96,

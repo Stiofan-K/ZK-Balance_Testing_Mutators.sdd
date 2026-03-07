@@ -50,7 +50,7 @@ local function Wake()
 	SetSignalMask(SIG_MOVE)
 	while true do
 		if not Spring.GetUnitIsCloaked(unitID) and select(2, Spring.GetUnitPosition(unitID)) <= 0 and moving then			
-			EmitSfx(base, 2) -- could be more detailed when linked with track control
+			EmitSfx(base, 2)-- could be more detailed when linked with track control
 		end
 		Sleep(200)
 	end
@@ -133,6 +133,7 @@ function script.Create()
 	Hide(barrels[2])
 	
 	StartThread (GG.Script.SmokeUnit, unitID, {base, turret, guns})
+	StartThread(Wake)
 end
 
 local explodables = {a1, a2, neck, turret, barrels[1], barrels[2]}

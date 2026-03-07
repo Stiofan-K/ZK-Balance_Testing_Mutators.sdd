@@ -1,6 +1,6 @@
 return { amphtankcon = {
   name                   = [[Murderhole]],
-  description            = [[Amphibious Armed Construction Tank]],
+  description            = [[Amphibious Armed Construction Tank (Anti-Sub)]],
   acceleration           = 0.4,
   activateWhenBuilt      = true,
   brakeRate              = 18.0,

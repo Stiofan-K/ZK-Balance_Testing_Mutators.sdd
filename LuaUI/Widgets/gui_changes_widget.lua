@@ -80,7 +80,8 @@ function widget:Initialize()
 					"-- Ballista:	Disarming Flak Tank with short range missile sidearm.\n" ..
 					"-- Arbalest:	Rapidfire Gauss Firesupport. Stops to fire. Has very low line of fire.\n" ..
 					"-- Anura:		Subsurface Amphtank raider. Uses torpedoes underwater and a plasma repeater on land.\n" ..
-					" \n" ..
+					"-- Crocodile:	Subsurface Siege Assault Tank. Fires either a rocket on land or Torpedo in water on a 10 second reload.\n" ..
+					" \n"..
 					"-- Missing qol things like Overkill prevention and tactical ai, which especially hurts the Hive and Mangonel\n" ..
 					"-- expect to babysit alot more than other factories for now, aswell as missing polish in how things play and feel.\n" ..
 					"-- I havent figured out how to give it a factory tab slot, it appears where engi coms blueprint would be.\n" ..
@@ -178,7 +179,10 @@ Amphtanks!!
 -- Arbalest:	Rapidfire Gauss Firesupport. Stops to fire.
 				
 -- Anura:		Subsurface Amphtank raider. Uses torpedoes underwater and a plasma repeater on land.
-->				Feedback suggests its too speedy, could be slower, maybe more range in trade?
+->				Feedback suggests its too speedy, could be slower, maybe more range in trade? range feels bad, made it slower
+
+-- Crocodile:	Subsurface Siege Tank. Long Reload Torpedo in water, and Heavy Rocket on Land
+->				Seems balanced, but high aoe is soemthing that may be too good
 
 -- Missing qol things like Overkill prevention and tactical ai, which especially hurts the Hive and Mangonel
 -- expect to babysit alot more than other factories for now, aswell as missing polish in how things play and feel.
@@ -427,12 +431,12 @@ Hulk 			-> could be this facs missing unit o.o"
 
 
 Arty: 			Large gauss, overheats
-Ballista		-> rapdifire medium-long range arty, needs to deploy, overheats
-Springald		
+Arbalest		-> rapdifire medium-long range arty, needs to deploy, overheats
+		
 				scorpion would be so fitting but its used already :cccccc
 
 AA:				Disarm Flak with short range missile sidearm
-Birdshot				
+Ballista				
 				
 
 Special: 		rez veh/bp effiecent con
