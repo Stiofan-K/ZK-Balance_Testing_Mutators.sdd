@@ -131,7 +131,7 @@ function script.BlockShot(num, targetID)
 
 	--blocking torpedo out of water. Could do fake weapon stuff to launch it instead
 	local x,y,z = Spring.GetUnitPosition(unitID)
-	if num == 2 and y > -20 then
+	if num == 2 and y > -30 then
 		return true
 	end
 
@@ -163,6 +163,12 @@ end
 function script.AimWeapon(num, heading, pitch)
 	Signal(SIG_AIM1)
 	SetSignalMask(SIG_AIM1)
+
+	local x,y,z = Spring.GetUnitPosition(unitID)
+
+	if num == 2 and y > -30 then
+		return false
+	end
 
 	if pitch <= math.rad(0) then
 		pitch = math.rad(0) --prevents clipping, shouldnt be too bad?

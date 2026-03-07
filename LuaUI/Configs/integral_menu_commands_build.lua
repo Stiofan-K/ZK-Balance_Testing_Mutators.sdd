@@ -19,12 +19,12 @@ local factory_commands = {
 	factoryamph       = {order = 10, row = 2, col = 4},
 	factoryship       = {order = 11, row = 2, col = 5},
 	striderhub        = {order = 12, row = 2, col = 6},
-    factoryamphtank   = {order = 16, row = 3, col = 1},
+    factoryamphtank   = {order = 16, row = 3, col = 3},
 	[CMD_BUILD_PLATE] = {order = 14, row = 3, col = 4},
 }
 
 local econ_commands = {
-	staticmex         = {order = 1, row = 1, col = 1},
+	staticmex         = {order = 1, row = 1, col = 2},
 	energywind        = {order = 2, row = 2, col = 1},
 	energysolar       = {order = 3, row = 2, col = 2},
 	energygeo         = {order = 4, row = 2, col = 3},

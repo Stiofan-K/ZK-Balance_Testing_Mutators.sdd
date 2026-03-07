@@ -1,4 +1,4 @@
-return { amphtankheavyassault = {
+return { amphtanksubassault = {
   name                = [[Crocodile]],
   description         = [[Amphibious/Subsurface Siege Tank]],
   acceleration        = 0.17,
@@ -38,7 +38,7 @@ return { amphtankheavyassault = {
   noAutoFire          = false,
   noChaseCategory     = [[TERRAFORM FIXEDWING SATELLITE GUNSHIP SUB]],
   objectName          = [[corgol_512.s3o]],
-  script              = [[amphtankheavyassault.lua]],
+  script              = [[amphtanksubassault.lua]],
   selfDestructAs      = [[BIG_UNIT]],
 
   sfxtypes            = {

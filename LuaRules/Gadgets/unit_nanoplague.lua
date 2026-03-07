@@ -451,6 +451,11 @@ local function ReInit(reinit)
 end
 
 function gadget:Initialize()
+
+	if (Spring.GetModOptions().disableresurrect == 1) or (Spring.GetModOptions().disableresurrect == "1") then
+		gadgetHandler:RemoveGadget()
+		return
+	end
 	if (spGetGameFrame() > 1) then
 		ReInit(true)
 	end

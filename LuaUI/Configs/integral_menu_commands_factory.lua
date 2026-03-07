@@ -168,7 +168,7 @@ local factoryUnitPosDef = {
 		amphtankskirm     = unitTypes.SKIRMISHER,
 		--amphtankassault	= unitTypes.ASSAULT,
 		amphtankaa        = unitTypes.ANTI_AIR,
-		amphtankheavyassault = unitTypes.HEAVY_SOMETHING,
+		amphtanksubassault = unitTypes.HEAVY_SOMETHING,
 		amphtankarty      = unitTypes.ARTILLERY,
 	},
 	pw_bomberfac = {

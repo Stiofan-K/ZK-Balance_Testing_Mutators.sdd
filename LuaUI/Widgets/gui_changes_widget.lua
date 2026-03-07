@@ -171,12 +171,18 @@ Amphtanks!!
 
 -- Hive:		Swarm Missile Riot amphtank. Slow to start dealing damage.
 				-> needs okp to really exist as a unit, else its too swingy
-				->idk
+				-> currently to high dps but that was expected. with okp it would work with alot less dps
 
 -- Mangonel: 	Depth Charge Launcher skirm. Tosses them on land, seeking in water
 -> 				could have higher projectile speed and proj gravity, to make it play better.
+->				use mistral tech to split above and below water damage?
+
 -- Ballista:	Disarming Flak Tank with short range missile sidearm.
+
+
 -- Arbalest:	Rapidfire Gauss Firesupport. Stops to fire.
+->				Has Spherical range? Projectile seems to time out
+->				Has not been called out as op yet which is promising, but I'm still uncertain
 				
 -- Anura:		Subsurface Amphtank raider. Uses torpedoes underwater and a plasma repeater on land.
 ->				Feedback suggests its too speedy, could be slower, maybe more range in trade? range feels bad, made it slower
@@ -337,6 +343,7 @@ TODO Nanoplague com weapons
 Recon and guardian get nanoplague canisters/grenades
 
 Strike and engi get single target nanoplague darts
+-> comweapons are messy with circuitAi. XNT was working on a fix
 
 TODO Nanoplague effects
 any rezing wreck needs to display effects
@@ -354,6 +361,8 @@ It's just too interesting to not have be viable/good
 
 TODO Mistral rocket -> torp improvements
 A meh implementation currently, should take another look
+-> fakeweapon shenanigans can give me the result i want
+-> maybe should apply it to mangonel too
 
 TODO nimbus gets more accurate when stationary.
 
@@ -440,7 +449,10 @@ Ballista
 				
 
 Special: 		rez veh/bp effiecent con
-				Avre
+
+
+-- Crocodile:	Subsurface Siege Tank. Long Reload Torpedo in water, and Heavy Rocket on Land
+->				Seems balanced, but high aoe is soemthing that may be too good
 			
 Spec Raid:		Sub tank, float below water surface		
 Anura 			Anura/blitz has amhibious modelling
@@ -472,7 +484,10 @@ allowed to choose its drones from some gunship and all drones available.
 
 TODO Battlecruiser/Flagships
 Expensive omni unit?
-
+->Vanquisher exists and could fill that hole
+True Subsurface Battlesub?
+-> Slow with medium range torps, and water launched missiles?
+Toggleable float/sink state?
 
 
 TODO Support powers

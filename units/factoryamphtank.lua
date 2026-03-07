@@ -1,6 +1,6 @@
 return { factoryamphtank = {
   name                          = [[Amphtank Foundry]],
-  description                   = [[Produces Amphtanks]],
+  description                   = [[Produces Amphibious tanks]],
   buildDistance                 = Shared.FACTORY_PLATE_RANGE,
   builder                       = true,
   buildingGroundDecalDecaySpeed = 30,
@@ -14,7 +14,7 @@ return { factoryamphtank = {
     [[amphtankriot]],
     [[amphtankskirm]],
     --[[amphtankassault]]
-    [[amphtankheavyassault]],
+    [[amphtanksubassault]],
     [[amphtankarty]],
     [[amphtankaa]],
     [[amphtanksubraid]],
