@@ -37,6 +37,7 @@ local handledUnitDefIDs = {
 	[UnitDefNames["amphassault"].id]      = 2,
 	[UnitDefNames["hoverarty"].id]        = 2,
 	[UnitDefNames["turretantiheavy"].id]  = 2,
+	[UnitDefNames["amphtanksubraid"].id]  = 2,
 	[UnitDefNames["amphtankriot"].id]     = 2,
 
 	-- Static only OKP below
@@ -57,6 +58,7 @@ local handledUnitDefIDs = {
 	[UnitDefNames["vehassault"].id]       = 2,
 	[UnitDefNames["tankheavyassault"].id] = 2,
 	[UnitDefNames["spidercrabe"].id]      = 2,
+	[UnitDefNames["amphtanksubassault"].id] = 2,
 }
 
 local blackHoleUnitDefs = {
