@@ -71,16 +71,20 @@ return { amphtankriot = {
     
     MICROMISSILES      = {
       name                    = [[Wasp Missile Battery]],
-      areaOfEffect            = 48,
-      cegTag                  = [[missiletrailyellow]],
-      collideFriendly         = false,
+      areaOfEffect            = 24,
       craterBoost             = 0,
       craterMult              = 0.2,
+      
+      customParams        = {
+        light_camera_height = 2000,
+        light_radius = 200,
+      },
       
       damage                  = {
         default = 100.1,
       },
 
+      dance                = 20,
       edgeEffectiveness       = 0.5,
       fireStarter             = 0.2,
       flightTime              = 4,
@@ -89,23 +93,23 @@ return { amphtankriot = {
       interceptedByShieldType = 2,
       leadLimit               = 0,
       model                   = [[wep_m_hailstorm.s3o]],
-      noSelfDamage            = true,
       range                   = 330,
       reloadtime              = 0.2,
       smokeTrail              = true,
-      soundHit                = [[weapon/missile/missile_fire12]],
+      soundHit                = [[explosion/ex_med17]],
       soundStart              = [[weapon/missile/missile_fire10]],
-      soundStartVolume        = 2,
+      soundStartVolume        = 1,
       startVelocity           = 100,
       tracks                  = true,
       tolerance               = 4000,
-      turnrate                = 30000,
+      turnrate                = 40000,
       turret                  = true,
       --waterWeapon           = true,
       weaponAcceleration      = 100,
-      weaponTimer             = 0.3,
+      weaponTimer             = 0.4,
       weaponType              = [[StarburstLauncher]],
       weaponVelocity          = 1800,
+      wobble                  = 3000
     },
     
     

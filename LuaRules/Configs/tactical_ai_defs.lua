@@ -223,6 +223,7 @@ local shortRangeSkirmieeArray = NameToDefID({
 	"amphbomb",
 	"jumpbomb",
 	"shieldraid",
+	"amphtankraid"
 })
 
 local shortToRiotRangeSkirmieeArray = NameToDefID({

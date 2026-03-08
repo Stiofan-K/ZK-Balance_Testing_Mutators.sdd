@@ -71,7 +71,7 @@ function widget:Initialize()
 			Chili.TextBox:New { --TODO IDK HOW CHILI WORKS If this text is too long it gets cut off by the parent window? even with scrolling
 				text = 
 					"Amphtanks! \n" ..
-					"-- Yep, its a new factory, though currently not quite complete and kitbashed out of existing models.\n" ..
+					"-- Yep, tis a new factory, though currently not quite complete and kitbashed out of existing models.\n" ..
 
 					"-- Murderhole:	Depth charge armed constructor. Tosses it on land, seeking in water.\n" ..
 					"-- Springald: 	Medium weight light particle burst fire raider\n" ..
@@ -80,11 +80,10 @@ function widget:Initialize()
 					"-- Ballista:	Disarming Flak Tank with short range missile sidearm.\n" ..
 					"-- Arbalest:	Rapidfire Gauss Firesupport. Stops to fire. Has very low line of fire.\n" ..
 					"-- Anura:		Subsurface Amphtank raider. Uses torpedoes underwater and a plasma repeater on land.\n" ..
-					"-- Crocodile:	Subsurface Siege Assault Tank. Fires either a rocket on land or Torpedo in water on a 10 second reload.\n" ..
+					"-- Crocodile:	Subsurface Assault Siege Tank. Fires either a Heavy Rocket on land or Torpedo in water on a 10 second reload.\n" ..
 					" \n"..
-					"-- Missing qol things like Overkill prevention and tactical ai, which especially hurts the Hive and Mangonel\n" ..
-					"-- expect to babysit alot more than other factories for now, aswell as missing polish in how things play and feel.\n" ..
-					"-- I havent figured out how to give it a factory tab slot, it appears where engi coms blueprint would be.\n" ..
+					"-- QoL things like overkill prevention and skirmish ai are in a rudimentary state for this fac and would appreciate feedback. \n" ..
+					"-- Is still missing polish in how things play and feel, feedback is welcome here too.\n" ..
 					" \n" ..
 					"Striders\n" ..
 					"-- Athena gains a Nanoplague canister missile and Nanoplague Dart as a dgun.\n" ..
@@ -96,7 +95,7 @@ function widget:Initialize()
 					"-- It's dgun/missiles/grenades have less afterburn (same as pyro) but set the ground on fire, while its flamer gets the extended duration afterburn its missiles had.\n" ..
 					" \n" ..
 					"-- Merlin gets a lower range alternative Salvo, a SLAM salvo. Immobilizes merlin during firing. Reloads are linked.\n" ..
-					"-- Risk it for the biscuit! This is potentially strong, but also risks Merlin since the barrage is only 800 range. Manual re-aiming is recommended as mobile units can dodge to an extent.\n" ..
+					"-- Risk it for the biscuit! This is potentially strong, but also risks Merlin since the barrage is only 800 range. Manual re-aiming is recommended as mobile units can dodge.\n" ..
 					" \n" ..
 					"-- Reef's pads repair faster and it becomes a builder. Can now also build some planes and gunships.\n" ..
 					" \n" ..

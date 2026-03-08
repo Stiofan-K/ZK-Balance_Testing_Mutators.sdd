@@ -1,6 +1,6 @@
 return { amphtanksubassault = {
   name                = [[Crocodile]],
-  description         = [[Amphibious/Subsurface Siege Tank]],
+  description         = [[Amphibious/Subsurface Assault Siege Tank]],
   acceleration        = 0.17,
   activateWhenBuilt   = true,
   brakeRate           = 0.624,

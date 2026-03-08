@@ -188,7 +188,8 @@ end
 
 
 function script.BlockShot(num, targetID)
-	return GG.OverkillPrevention_CheckBlock(unitID, targetID, 100.1, 60)
+	return GG.OverkillPrevention_CheckBlock(unitID, targetID, 90, 60)
+	--return GG.Script.OverkillPreventionCheck(unitID, targetID, OKP_DAMAGE, 610, 30, 0.25)
 end
 
 function script.Create()
@@ -199,7 +200,7 @@ function script.Create()
 		Sleep (250)
 	end
 
-	Turn(sleeve, x_axis,math.rad(-87),math.rad(200))
+	Turn(sleeve, x_axis,math.rad(-90),math.rad(200))
 
 	Hide(missiles[1])
 	Hide(missiles[2])

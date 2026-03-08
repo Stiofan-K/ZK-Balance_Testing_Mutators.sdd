@@ -99,8 +99,8 @@ return { amphtankaa = {
       },
 
       damage                  = {
-        default = 40,
-        planes  = 400,
+        default = 30,
+        planes  = 300,
       },
 
       edgeEffectiveness       = 0.85,
