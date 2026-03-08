@@ -54,7 +54,7 @@ return { amphtankskirm = {
   },
   sightDistance       = 570,
   sonarDistance       = 570,
-  speed               = 45.5,
+  speed               = 47,
   trackOffset         = 6,
   trackStrength       = 5,
   trackStretch        = 1,

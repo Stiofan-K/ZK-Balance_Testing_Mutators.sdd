@@ -74,8 +74,8 @@ function widget:Initialize()
 					"-- Yep, tis a new factory, though currently not quite complete and kitbashed out of existing models.\n" ..
 
 					"-- Murderhole:	Depth charge armed constructor. Tosses it on land, seeking in water.\n" ..
-					"-- Springald: 	Medium weight light particle burst fire raider\n" ..
-					"-- Hive:		Swarm Missile Riot amphtank. Slow to start dealing damage.\n" ..
+					"-- Springald: 	Medium weight light particle burst fire raider.\n" ..
+					"-- Hive:		Swarm Missile Riot amphtank. Slow to start dealing damage but high dps.\n" ..
 					"-- Mangonel: 	Depth Charge Launcher skirm/artillery. Tosses them on land, seeking in water. Has some splash damage.\n" ..
 					"-- Ballista:	Disarming Flak Tank with short range missile sidearm.\n" ..
 					"-- Arbalest:	Rapidfire Gauss Firesupport. Stops to fire. Has very low line of fire.\n" ..

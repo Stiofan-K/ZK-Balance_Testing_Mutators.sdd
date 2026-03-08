@@ -24,7 +24,7 @@ local factory_commands = {
 }
 
 local econ_commands = {
-	staticmex         = {order = 1, row = 1, col = 2},
+	staticmex         = {order = 1, row = 1, col = 1},
 	energywind        = {order = 2, row = 2, col = 1},
 	energysolar       = {order = 3, row = 2, col = 2},
 	energygeo         = {order = 4, row = 2, col = 3},
