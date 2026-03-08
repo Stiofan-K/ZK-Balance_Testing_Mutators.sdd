@@ -188,7 +188,7 @@ end
 
 
 function script.BlockShot(num, targetID)
-	return GG.OverkillPrevention_CheckBlock(unitID, targetID, 90, 60)
+	return GG.OverkillPrevention_CheckBlock(unitID, targetID, 70, 60)
 	--return GG.Script.OverkillPreventionCheck(unitID, targetID, OKP_DAMAGE, 610, 30, 0.25)
 end
 

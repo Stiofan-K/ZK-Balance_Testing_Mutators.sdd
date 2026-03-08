@@ -22,7 +22,7 @@ return { amphtankriot = {
     set_target_range_buffer = 40,
     normaltex = [[unittextures/corbanish_normals.dds]],    
     
-    okp_damage = 90,
+    okp_damage = 70,
         
     outline_x = 110,
     outline_y = 110,
@@ -81,13 +81,13 @@ return { amphtankriot = {
       },
       
       damage                  = {
-        default = 100.1,
+        default = 75.1,
       },
 
       dance                = 20,
       edgeEffectiveness       = 0.5,
       fireStarter             = 0.2,
-      flightTime              = 4,
+      flightTime              = 3,
       impulseBoost            = 0,
       impulseFactor           = 0.4,
       interceptedByShieldType = 2,
