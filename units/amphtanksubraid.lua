@@ -83,7 +83,7 @@ return { amphtanksubraid = {
       TORPEDO = {
 
       name                    = [[Torpedo]],
-      areaOfEffect            = 64,
+      areaOfEffect            = 32,
       avoidFriendly           = false,
       bouncerebound           = 0.5,
       bounceslip              = 0.5,
@@ -103,8 +103,6 @@ return { amphtanksubraid = {
       damage                  = {
         default = 110.1,
       },
-
-      edgeEffectiveness       = 0.6,
 
       explosionGenerator      = [[custom:TORPEDO_HIT]],
       fixedLauncher           = true,

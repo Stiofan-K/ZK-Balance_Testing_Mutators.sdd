@@ -101,15 +101,15 @@ return { amphtanksubassault = {
       },
 
       damage                  = {
-        default = 1500.01,
+        default = 1100.01,
       },
 
-      edgeEffectiveness       = 0.5,
+      edgeEffectiveness       = 0.4,
       explosionGenerator      = [[custom:slam]],
       fireStarter             = 180,
       fixedlauncher           = true,
       flightTime              = 4,
-      impulseBoost            = 0,
+      impulseBoost            = 0.2,
       impulseFactor           = 1,
       interceptedByShieldType = 2,
       model                   = [[wep_m_phoenix_nonhax.s3o]],
@@ -147,7 +147,7 @@ return { amphtanksubassault = {
       },
 
       damage                  = {
-        default = 1500.01,
+        default = 1100.01,
       },
 
       edgeEffectiveness       = 0.4,
