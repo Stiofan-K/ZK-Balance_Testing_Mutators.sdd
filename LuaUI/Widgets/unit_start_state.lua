@@ -1173,7 +1173,7 @@ AddFactoryOfUnits("factoryspider",  "platespider")
 AddFactoryOfUnits("factoryjump",    "platejump")
 AddFactoryOfUnits("factorytank",    "platetank")
 AddFactoryOfUnits("factoryship",    "plateship")
-AddFactoryOfUnits("factoryamphtank","plateshipamphtank")
+AddFactoryOfUnits("factoryamphtank","plateamphtank")
 AddFactoryOfUnits("striderhub")
 AddFactoryOfUnits("staticmissilesilo")
 

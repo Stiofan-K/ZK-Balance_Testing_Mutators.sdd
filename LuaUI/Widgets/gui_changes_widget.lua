@@ -79,8 +79,8 @@ function widget:Initialize()
 					"-- Mangonel: 	Depth Charge Launcher skirm/artillery. Tosses them on land, seeking in water. Has some splash damage.\n" ..
 					"-- Ballista:	Disarming Flak Tank with short range missile sidearm.\n" ..
 					"-- Arbalest:	Rapidfire Gauss Firesupport. Stops to fire. Has very low line of fire.\n" ..
-					"-- Anura:		Subsurface Amphtank raider. Uses torpedoes underwater and a plasma repeater on land.\n" ..
-					"-- Crocodile:	Subsurface Assault Siege Tank. Fires either a Heavy Rocket on land or Torpedo in water on a 10 second reload.\n" ..
+					"-- Anura:		Subsurface Assault Raider. Uses torpedoes underwater and a plasma repeater on land.\n" ..
+					"-- Crocodile:	Subsurface Assault Bombard. Fires either a Heavy Rocket on land or Torpedo in water on a 10 second reload.\n" ..
 					" \n"..
 					"-- QoL things like overkill prevention and skirmish ai are in a rudimentary state for this fac and would appreciate feedback. \n" ..
 					"-- Is still missing polish in how things play and feel, feedback is welcome here too.\n" ..

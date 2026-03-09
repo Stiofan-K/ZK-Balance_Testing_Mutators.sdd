@@ -89,7 +89,7 @@ local firePoints = {
 function RestoreMainGun()
 	Sleep(RESTORE_DELAY)
 	Turn(turret1, y_axis, 0, math.rad(45))
-	Turn(sleeve1, x_axis, 0, math.rad(15))
+	Turn(sleeve1, x_axis,  math.rad(-30), math.rad(15))
 end
 
 function RestoreSideGun()

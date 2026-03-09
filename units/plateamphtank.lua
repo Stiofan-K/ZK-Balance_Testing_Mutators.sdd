@@ -14,7 +14,7 @@ return { plateamphtank = {
     [[amphtankriot]],
     [[amphtankskirm]],
     --[[amphtankassault]]
-    [[amphtankheavyassault]],
+    [[amphtanksubassault]],
     [[amphtankarty]],
     [[amphtankaa]],
     [[amphtanksubraid]],

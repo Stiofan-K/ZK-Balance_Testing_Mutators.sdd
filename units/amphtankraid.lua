@@ -88,12 +88,14 @@ weaponDefs             = {
       craterMult              = 0,
 
       customParams            = {
+        burst = Shared.BURST_RELIABLE,
+        
         light_color = [[0.9 0.22 0.22]],
         light_radius = 80,
       },
 
       damage                  = {
-        default = 40.01,
+        default = 50.01,
       },
 
       explosionGenerator      = [[custom:flash1red]],

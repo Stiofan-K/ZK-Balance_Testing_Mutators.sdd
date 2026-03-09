@@ -86,9 +86,8 @@ return { amphtankskirm = {
   weaponDefs          = {
     DEPTHCHARGE = {
       name                    = [[Depth Charge Launcher]],
-      accuracy                = 2000,
+      accuracy                = 700,
       areaOfEffect            = 144,
-      avoidFriendly           = false,
       avoidFeature            = false,
       avoidGround             = false,
       bouncerebound           = 0.5,
@@ -97,34 +96,36 @@ return { amphtankskirm = {
       cegTag                  = [[torpedo_trail]],
       craterBoost             = 0.2,
       craterMult              = 0.2,
+      collideFriendly         = false,
       
       
       customParams            = {
+        stays_underwater = 1,
       },
       
       damage                  = {
-        default = 150,
-        planes  = 150,
+        default = 220,
+        planes  = 220,
       },
 
       explosionGenerator      = [[custom:FLASH64]],
       fixedLauncher           = true,
-      flightTime              = 3,
+      flightTime              = 2,
       groundbounce            = 1,
       impulseBoost            = 0,
       impulseFactor           = 0.4,
       interceptedByShieldType = 1,
       model                   = [[depthcharge_big.s3o]],
-      myGravity               = 0.3,
+      myGravity               = 0.15,
       noSelfDamage            = false,
-      numbounce               = 2,
+      numbounce               = 4,
       range                   = 570,
       reloadtime              = 2.5,
       soundHit                = [[weapon/cannon/generic_cannon]],
       soundStart              = [[weapon/cannon/badger_fire]],
       soundHitVolume          = 4,
       soundStartVolume        = 12,
-      startVelocity           = 220,
+      startVelocity           = 300,
       tracks                  = true,
       turnRate                = 60000,
       turret                  = true,
@@ -135,7 +136,7 @@ return { amphtankskirm = {
     
     LAND_DEPTHCHARGE = {
       name                    = [[Land Charge Launcher]],
-      accuracy                = 2000,
+      accuracy                = 700,
       areaOfEffect            = 144,
       bouncerebound           = 0.2,
       bounceslip              = 0.2,
@@ -148,8 +149,8 @@ return { amphtankskirm = {
       },
       
       damage                  = {
-        default = 150,
-        planes  = 150,
+        default = 220,
+        planes  = 220,
       },
 
       explosionGenerator      = [[custom:FLASH64]],
@@ -158,7 +159,7 @@ return { amphtankskirm = {
       impulseFactor           = 0.4,
       interceptedByShieldType = 1,
       model                   = [[depthcharge_big.s3o]],
-      myGravity               = 0.090,
+      myGravity               = 0.15,
       noSelfDamage            = false,
       numbounce               = 2,
       range                   = 565,
@@ -172,20 +173,23 @@ return { amphtankskirm = {
       startVelocity           = 220,
       turret                  = true,
       weaponType              = [[Cannon]],
-      weaponVelocity          = 220,
+      weaponVelocity          = 300,
     },
     
     FAKEWEAPON = {
-      name                    = [[Fake Land Charge Launcher]],
-      accuracy                = 2000,
+      name                    = [[Fake Land Charge Launcher that aims the torp]],
+      accuracy                = 700,
       areaOfEffect            = 144,
+      avoidFriendly           = true,
+      avoidFeature            = false,
+      avoidGround             = false,
       bouncerebound           = 0.2,
       bounceslip              = 0.2,
       burnblow                = false, 
       craterBoost             = 0.2,
       craterMult              = 0.2,
       cegTag                  = [[torpedo_trail]],
-
+      
       customParams            = {
       },
       
@@ -196,11 +200,12 @@ return { amphtankskirm = {
 
       explosionGenerator      = [[custom:FLASH64]],
       groundbounce            = 1,
+      heightBoostFactor       = 0.0,
       impulseBoost            = 0,
       impulseFactor           = 0.4,
       interceptedByShieldType = 1,
       model                   = [[depthcharge_big.s3o]],
-      myGravity               = 0.090,
+      myGravity               = 0.15,
       noSelfDamage            = false,
       numbounce               = 2,
       range                   = 565,
@@ -215,7 +220,7 @@ return { amphtankskirm = {
       turret                  = true,
       waterweapon             = true,
       weaponType              = [[Cannon]],
-      weaponVelocity          = 220,
+      weaponVelocity          = 300,
     },
 
   },

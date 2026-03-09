@@ -1,6 +1,6 @@
 return { amphtanksubassault = {
   name                = [[Crocodile]],
-  description         = [[Subsurface Assault Siege Tank]],
+  description         = [[Subsurface Assault Bombard]],
   acceleration        = 0.17,
   activateWhenBuilt   = true,
   brakeRate           = 0.624,
@@ -16,7 +16,7 @@ return { amphtanksubassault = {
   corpse              = [[DEAD]],
 
   customParams        = {
-    bait_level_default = 0,
+    bait_level_default = 1,
     decloak_footprint     = 5,
 
     outline_x = 110,
@@ -28,12 +28,12 @@ return { amphtanksubassault = {
   floater             = true,
   footprintX          = 4,
   footprintZ          = 4,
-  health              = 9000,
+  health              = 7000,
   iconType            = [[tankskirm]],
   leaveTracks         = true,
   maxSlope            = 18,
   maxWaterDepth       = 22,
-  metalCost           = 700,
+  metalCost           = 750,
   movementClass       = [[HOVER4]],
   noAutoFire          = false,
   noChaseCategory     = [[TERRAFORM FIXEDWING SATELLITE GUNSHIP SUB]],
@@ -50,7 +50,7 @@ return { amphtanksubassault = {
   },
   sightDistance       = 540,
   sonarDistance       = 540,
-  speed               = 73.5,
+  speed               = 60,
   trackOffset         = 8,
   trackStrength       = 10,
   trackStretch        = 1,
@@ -66,7 +66,7 @@ return { amphtanksubassault = {
     {
       def                = [[SLAM_ROCKET]],
       badTargetCategory  = [[FIXEDWING GUNSHIP]],
-      onlyTargetCategory = [[SWIM LAND SINK TURRET FLOAT SHIP HOVER GUNSHIP FIXEDWING]],
+      onlyTargetCategory = [[SWIM LAND SINK TURRET FLOAT SHIP HOVER GUNSHIP]],
     },
     {
       def                = [[TORPEDO]],
@@ -81,8 +81,8 @@ return { amphtanksubassault = {
     SLAM_ROCKET = {
       name                    = [[S.L.A.M. Rocket]],
       avoidFeature            = false,
-      avoidGround             = false,
-      areaOfEffect            = 192,
+      --avoidGround             = false,
+      areaOfEffect            = 160,
       burnblow                = true,
       cegTag                  = [[slam_trail]],
       --craterAreaOfEffect      = 106.66667,
@@ -94,10 +94,14 @@ return { amphtanksubassault = {
         light_camera_height = 2500,
         light_color = [[1 0.8 0.2]],
         reaim_time = 1,
+        gatherradius = [[105]],
+        smoothradius = [[70]],
+        smoothmult   = [[0.4]],
+        
       },
 
       damage                  = {
-        default = 1000.01,
+        default = 1500.01,
       },
 
       edgeEffectiveness       = 0.5,
@@ -111,14 +115,14 @@ return { amphtanksubassault = {
       model                   = [[wep_m_phoenix_nonhax.s3o]],
       noSelfDamage            = false,
       range                   = 400,
-      reloadtime              = 8,
+      reloadtime              = 10,
       smokeTrail              = false,
       soundHit                = [[weapon/bomb_hit]],
       soundStart              = [[weapon/missile/missile_fire2]],
       startVelocity           = 100,
       targetBorder            = 1,
       tolerance               = 4000,
-      trajectoryHeight        = 0.9,
+      trajectoryHeight        = 1,
       turnRate                = 2500,
       turret                  = true,
       weaponAcceleration      = 100,
@@ -143,7 +147,7 @@ return { amphtanksubassault = {
       },
 
       damage                  = {
-        default = 1000.01,
+        default = 1500.01,
       },
 
       edgeEffectiveness       = 0.4,
@@ -158,7 +162,7 @@ return { amphtanksubassault = {
       model                   = [[wep_merl.s3o]],
       noSelfDamage            = true,
       range                   = 400,
-      reloadtime              = 8,
+      reloadtime              = 10,
       soundHit                = [[TorpedoHitVariable]],
       soundHitVolume          = 2.8,
       soundStart              = [[weapon/torpedo]],

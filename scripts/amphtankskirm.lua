@@ -115,7 +115,7 @@ function script.AimWeapon(num, heading, pitch)
 		aim = false
 		Signal(SIG_AIM)
 		SetSignalMask(SIG_AIM)
-		Turn(turret, y_axis, heading, math.rad(90))
+		Turn(turret, y_axis, heading, math.rad(180))
 		Turn(gun   , x_axis,  -pitch, math.rad(90))
 		Turn(arm   , z_axis,   pitch, math.rad(90))
 		Turn(wrist , z_axis,  -pitch, math.rad(90))
@@ -126,7 +126,7 @@ function script.AimWeapon(num, heading, pitch)
 	end
 	StartThread(RestoreAfterDelay)
 	if aim then
-		Turn(turret, y_axis, heading, math.rad(90))
+		Turn(turret, y_axis, heading, math.rad(180))
 		WaitForTurn(turret, y_axis)
 		return true
 	end
