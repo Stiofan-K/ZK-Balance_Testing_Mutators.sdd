@@ -174,6 +174,7 @@ local shortRangeRaiderIdleFleeArray = NameToDefID({
 	"amphraid",
 	"shieldraid",
 	"amphtankraid",
+	"amphtanksubraid",
 })
 
 local veryShortRangeRaiderIdleFleeArray = NameToDefID({
@@ -185,6 +186,7 @@ local torpedoIdleFleeArray = NameToDefID({
 	"subraider",
 	"amphraid",
 	"amphriot",
+	"amphtankraid",
 })
 
 medRangeRaiderIdleFleeArray = Union(medRangeRaiderIdleFleeArray, longRangeRaiderIdleFleeArray)
@@ -290,6 +292,7 @@ local medRangeSkirmieeArray = NameToDefID({
 
 	"tankassault",
 	"tankheavyassault",
+	"amphtanksubassault",
 	"tankriot", -- banisher
 	"striderscorpion",
 })
@@ -1571,6 +1574,23 @@ local behaviourConfig = {
 		wardFireLeeway = 10,
 		wardFirePredict = 50,
 		wardFireShield = 450,
+		wardFireDefault = true,
+	},
+		{
+		name = "amphtanksubassault",
+		skirms = medRangeSkirmieeArray,
+		--swarms = {},
+		--flees = {},
+		avoidHeightDiff = explodableFull,
+		fightOnlyUnits = shortRangeExplodables,
+		skirmOrderDis = 220,
+		skirmLeeway = 50,
+		skirmBlockedApproachFrames = 60,
+
+		wardFireTargets = personalShieldUnitsWithSafetyMargin,
+		wardFireLeeway = 10,
+		wardFirePredict = 50,
+		wardFireShield = 1100,
 		wardFireDefault = true,
 	},
 	
