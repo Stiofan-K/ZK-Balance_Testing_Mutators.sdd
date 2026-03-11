@@ -126,7 +126,7 @@ local function Wake()
 	while true do
 		if select(2, Spring.GetUnitPosition(unitID)) <= 0 then
 			-- nose intake
-			Move(nose,z_axis, 	3, 	3)
+			Move(nose,z_axis, 	2.8, 	2)
 			-- rear doors
 			Move(door1,x_axis, 	-4, 3)
 			Move(door1,z_axis, 	0.5,3)
@@ -134,7 +134,7 @@ local function Wake()
 			Move(door2,z_axis, 	0.5,3)
 			
 			--rear rudders 
-			--TODO  need extra animation that I dont know how to do
+			--TODO  needs extra animation that I dont know how to do
 			Move(rud1,z_axis, 	-2, 1)
 			Move(rud2,z_axis, 	-2, 1)
 			
@@ -144,7 +144,7 @@ local function Wake()
 			end
 		else
 			-- nose intake
-			Move(nose,z_axis, 	0, 	3)
+			Move(nose,z_axis, 	0, 	2)
 			-- rear doors
 			Move(door1,x_axis, 	0, 	3)
 			Move(door1,z_axis, 	0, 	3)
@@ -231,9 +231,13 @@ end
 if gun_1 then
 		Move(barrel1, z_axis, -3.5)
 		Move(barrel1, z_axis, 0, 10)
+		EmitSfx(barrel1, 1024)
+		EmitSfx(flare1, 1025)
 	else
 		Move(barrel2, z_axis, -3.5)
 		Move(barrel2, z_axis, 0, 10)
+		EmitSfx(barrel2, 1024)
+		EmitSfx(flare2, 1025)
 	end
 	gun_1 = not gun_1
 end

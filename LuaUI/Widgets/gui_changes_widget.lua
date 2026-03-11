@@ -29,7 +29,7 @@ function widget:Initialize()
 		return
 	end
 
-	local window =
+	window =
 		Chili.Window:New {
 		caption = "Hello There! Changes reordered by relevancy.",
 		x = "20%",
@@ -53,8 +53,8 @@ function widget:Initialize()
 				valign = "center",
 				OnClick = {
 					function()
-						window2:Dispose()
-						window2 = false
+						window:Dispose()
+						window = false
 					end
 				}
 			}
@@ -310,7 +310,9 @@ QOL/Fix:
 
 TODO Fix the changelog widget :c
 HOW DOES IT WORK?!
-
+https://github.com/Helwor/New-Hel-K/blob/main/Widgets/Include/helk_core/widgets/addon_chili.lua
+function ScrollableTextBox()
+	
 TODO Trident torps
 It's called trident, cmon.
 also fills the subsurface niche for gs, and can run double duty sorta
@@ -425,9 +427,9 @@ Riot: 			Prism tank, laser shotgun, overheats make it a turtle! a tankriot like 
 Obelisk
 
 Riot alt:		Riot scalpel. More missiles, less aoe, overheats
-Maelstrom		TODO needs overheating and overkill prevention to function as a unit
 Hive
-Nest (of bees)
+TODO			needs overheating and overkill prevention to function as a unit
+TODO			Could also make it stop to fire to manover around the  weird overkill bug?
 
 Skirm: 			Bomb/depthcharge launcher, expensive antiskirm/arty? Veh skirms are difficult 
 Mangonel		The bigger badger initiative
