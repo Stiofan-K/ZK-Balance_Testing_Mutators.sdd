@@ -29,7 +29,7 @@ return { amphtanksubassault = {
   footprintX          = 4,
   footprintZ          = 4,
   health              = 7000,
-  iconType            = [[tankskirm]],
+  iconType            = [[shipassault_alt]],
   leaveTracks         = true,
   maxSlope            = 18,
   maxWaterDepth       = 22,
@@ -101,7 +101,7 @@ return { amphtanksubassault = {
       },
 
       damage                  = {
-        default = 1100.01,
+        default = 1100.01, -- 1000 damage vs 1100 affects a good few breakpoints. unsure which is better
       },
 
       edgeEffectiveness       = 0.4,
@@ -135,6 +135,7 @@ return { amphtanksubassault = {
       areaOfEffect            = 160,
       avoidFriendly           = false,
       burnblow                = false,
+      canAttackGround         = false,
       collideFriendly         = false,
       craterBoost             = 0,
       craterMult              = 0,

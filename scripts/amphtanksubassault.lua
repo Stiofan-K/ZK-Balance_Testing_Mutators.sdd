@@ -110,6 +110,8 @@ function script.Create()
 	Hide(turret2)
 	Hide(sleeve2)
 	Hide(gun2)
+	
+	Turn(sleeve1, x_axis,  math.rad(-30), math.rad(15))
 
 	while (select(5, Spring.GetUnitHealth(unitID)) < 1) do
 		Sleep (250)
@@ -128,9 +130,14 @@ end
 -- Weapons
 local spGetUnitSeparation = Spring.GetUnitSeparation
 function script.BlockShot(num, targetID)
+	local x,y,z = Spring.GetUnitPosition(unitID)
+	-- blocking rocket if too deep. Using other references to aim from makes it not shoot from water
+	-- Theres probably a better way of doing this I suppose
+	if num == 1 and y < -35 then
+		return true
+	end
 
 	--blocking torpedo out of water. Could do fake weapon stuff to launch it instead
-	local x,y,z = Spring.GetUnitPosition(unitID)
 	if num == 2 and y > -30 then
 		return true
 	end
@@ -153,7 +160,7 @@ function script.BlockShot(num, targetID)
 end
 
 function script.AimFromWeapon(num)
-	return turret1
+	return firepoint1
 end
 
 function script.QueryWeapon(num)

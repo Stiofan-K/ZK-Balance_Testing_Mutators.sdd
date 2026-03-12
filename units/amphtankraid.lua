@@ -31,7 +31,7 @@ return { amphtankraid = {
   footprintX             = 2,
   footprintZ             = 2,
   health                 = 480,
-  iconType               = [[vehicleraider]],
+  iconType               = [[shipscout_alt]],
   leaveTracks            = true,
   maxSlope               = 18,
   maxWaterDepth          = 22,
@@ -95,7 +95,7 @@ weaponDefs             = {
       },
 
       damage                  = {
-        default = 50.01,
+        default = 45.01,
       },
 
       explosionGenerator      = [[custom:flash1red]],

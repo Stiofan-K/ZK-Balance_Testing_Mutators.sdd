@@ -31,7 +31,7 @@ return { amphtanksubraid = {
   footprintX             = 3,
   footprintZ             = 3,
   health                 = 1200,
-  iconType               = [[tankraider]],
+  iconType               = [[shipraider_alt]],
   leaveTracks            = true,
   maxSlope               = 18,
   maxWaterDepth          = 22,
@@ -45,9 +45,12 @@ return { amphtanksubraid = {
 
   sfxtypes               = {
 
+  sfxtypes               = {
     explosiongenerators = {
-      [[custom:PANTHER_SPARK]],
+      [[custom:WARMUZZLE]],
+      [[custom:emg_shells_l]],
     },
+  },
 
   },
   sightDistance          = 560,
@@ -172,7 +175,7 @@ return { amphtanksubraid = {
       stages                  = 10,
       turret                  = true,
       weaponType              = [[Cannon]],
-      weaponVelocity          = 400,
+      weaponVelocity          = 450,
     },
   },
 

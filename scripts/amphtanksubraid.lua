@@ -34,6 +34,8 @@ local WHEEL_TURN_SPEED1_DECELERATION = 200
 
 local smokePiece = {main, turret}
 
+local gun_1 = false
+
 local function RestoreAfterDelay()
 	Signal(SIG_Restore)
 	SetSignalMask(SIG_Restore)
@@ -228,16 +230,19 @@ if num == 1 then
 	return
 end
 	
+-- The animation is ever so slightly off since query weapon switches sides too slow.
+-- Emit SFX don't want to work and I don't know why
 if gun_1 then
-		Move(barrel1, z_axis, -3.5)
-		Move(barrel1, z_axis, 0, 10)
 		EmitSfx(barrel1, 1024)
 		EmitSfx(flare1, 1025)
+		Move(barrel1, z_axis, -3.5)
+		Move(barrel1, z_axis, 0, 10)
+
 	else
-		Move(barrel2, z_axis, -3.5)
-		Move(barrel2, z_axis, 0, 10)
 		EmitSfx(barrel2, 1024)
 		EmitSfx(flare2, 1025)
+		Move(barrel2, z_axis, -3.5)
+		Move(barrel2, z_axis, 0, 10)
 	end
 	gun_1 = not gun_1
 end
@@ -276,20 +281,7 @@ function script.Create()
 	
 	Hide(tracks1)
 	Hide(tracks2)
-	Hide(tracks3)
-	
-	
-	--TODO 
-	--[[
-	Hide(door1)
-	Hide(rud1)
-	Hide(nosefan1)
-	Hide(nose)
-	]]
-
-	
-
-	
+	Hide(tracks3)	
 
 	while select(5, Spring.GetUnitHealth(unitID)) < 1 do
 		Sleep(250)
