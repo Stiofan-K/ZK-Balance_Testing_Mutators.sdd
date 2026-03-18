@@ -18,6 +18,7 @@ return { factoryamphtank = {
     [[amphtankarty]],
     [[amphtankaa]],
     [[amphtanksubraid]],
+    [[amphtankbomb]],
   },
 
   buildPic         = [[factoryhover.png]],

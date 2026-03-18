@@ -24,13 +24,21 @@ return { amphtankraid = {
     set_target_range_buffer = 30,
     set_target_speed_buffer = 8,
     selection_scale = 1.2,
+
+    --[[ Doesnt feel good/necessary
+    heat_per_shot  = 0.5, -- Heat is always a number between 0 and 1
+    heat_decay     = 1/8, -- Per second
+    heat_max_slow  = 1,
+    heat_initial   = 0,
+    heat_water_cool_mult = 2,
+    ]]
   },
 
   explodeAs              = [[BIG_UNITEX]],
   floater                = true,
   footprintX             = 2,
   footprintZ             = 2,
-  health                 = 480,
+  health                 = 460,
   iconType               = [[shipscout_alt]],
   leaveTracks            = true,
   maxSlope               = 18,

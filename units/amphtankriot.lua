@@ -23,6 +23,13 @@ return { amphtankriot = {
     normaltex = [[unittextures/corbanish_normals.dds]],    
     
     okp_damage = 70,
+    
+    heat_per_shot  = 0.08, -- Heat is always a number between 0 and 1
+    heat_decay     = 0.16, -- Per second?
+    heat_max_slow  = 0.5,
+    heat_initial   = 0,
+    heat_water_cool_mult = 2,
+    
         
     outline_x = 110,
     outline_y = 110,
@@ -84,8 +91,7 @@ return { amphtankriot = {
         default = 75.1,
       },
 
-      dance                = 20,
-      edgeEffectiveness       = 0.5,
+      dance                   = 20,
       fireStarter             = 0.2,
       flightTime              = 3,
       impulseBoost            = 0,
@@ -109,7 +115,7 @@ return { amphtankriot = {
       weaponTimer             = 0.4,
       weaponType              = [[StarburstLauncher]],
       weaponVelocity          = 1800,
-      wobble                  = 3000
+      wobble                  = 30000
     },
     
     

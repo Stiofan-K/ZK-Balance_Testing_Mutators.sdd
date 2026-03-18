@@ -18,6 +18,7 @@ return { plateamphtank = {
     [[amphtankarty]],
     [[amphtankaa]],
     [[amphtanksubraid]],
+    [[amphtankbomb]],
   },
 
   buildPic         = [[platehover.png]],

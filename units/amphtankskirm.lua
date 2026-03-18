@@ -1,6 +1,6 @@
 return { amphtankskirm = {
   name                = [[Mangonel]],
-  description         = [[Skirmisher/Artillery Depth Charge Launcher (Anti-Sub)]],
+  description         = [[Skirmish Depth Charge Launcher (Anti-Sub)]],
   acceleration        = 0.168,
   activateWhenBuilt   = true,
   brakeRate           = 0.96,
@@ -28,7 +28,7 @@ return { amphtankskirm = {
   footprintX          = 3,
   footprintZ          = 3,
   floater             = true,
-  health              = 800,
+  health              = 700,
   highTrajectory      = 2,
   iconType            = [[shipskirm_alt]],
   leaveTracks         = true,
@@ -52,9 +52,9 @@ return { amphtankskirm = {
     },
 
   },
-  sightDistance       = 570,
-  sonarDistance       = 570,
-  speed               = 47,
+  sightDistance       = 580,
+  sonarDistance       = 580,
+  speed               = 50,
   trackOffset         = 6,
   trackStrength       = 5,
   trackStretch        = 1,
@@ -86,7 +86,7 @@ return { amphtankskirm = {
   weaponDefs          = {
     DEPTHCHARGE = {
       name                    = [[Depth Charge Launcher]],
-      accuracy                = 700,
+      accuracy                = 400,
       areaOfEffect            = 70,
       avoidFeature            = false,
       avoidGround             = false,
@@ -136,7 +136,7 @@ return { amphtankskirm = {
     
     LAND_DEPTHCHARGE = {
       name                    = [[Land Charge Launcher]],
-      accuracy                = 700,
+      accuracy                = 400,
       areaOfEffect            = 70,
       bouncerebound           = 0.2,
       bounceslip              = 0.2,
@@ -178,7 +178,7 @@ return { amphtankskirm = {
     
     FAKEWEAPON = {
       name                    = [[Fake Land Charge Launcher that aims the torp]],
-      accuracy                = 700,
+      accuracy                = 400,
       areaOfEffect            = 70,
       avoidFriendly           = true,
       avoidFeature            = false,

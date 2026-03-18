@@ -140,10 +140,13 @@ local function Wake()
 			Move(rud1,z_axis, 	-2, 1)
 			Move(rud2,z_axis, 	-2, 1)
 			
+			-- TODO effects display even when invisible to the enemy o,o
+			--[[ 
 			if not Spring.GetUnitIsCloaked(unitID) and moving then			
 				EmitSfx(mainfan1, 2)
 				EmitSfx(mainfan2, 2)
 			end
+			]]
 		else
 			-- nose intake
 			Move(nose,z_axis, 	0, 	2)

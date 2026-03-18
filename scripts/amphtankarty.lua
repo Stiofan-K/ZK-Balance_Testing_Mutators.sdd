@@ -36,8 +36,8 @@ local AIM_BLOCK_TIME = 1000 * (WeaponDefs[UnitDefs[unitDefID].weapons[1].weaponD
 
 local BARREL_DISTANCE = -4
 local BREECH_DISTANCE = -2
-local BARREL_SPEED = 1
-local BREECH_SPEED = 0.5
+local BARREL_SPEED = 3
+local BREECH_SPEED = 1
 
 local smokePiece = {main, smoke}
 

@@ -73,14 +73,15 @@ function widget:Initialize()
 					"Amphtanks! \n" ..
 					"-- Yep, tis a new factory, though currently not quite complete and kitbashed out of existing models.\n" ..
 
-					"-- Murderhole:	Depth charge armed constructor. Tosses it on land, seeking in water.\n" ..
-					"-- Springald: 	Medium weight light particle burst fire raider.\n" ..
-					"-- Hive:		Swarm Missile Riot amphtank. Slow to start dealing damage but high dps.\n" ..
-					"-- Mangonel: 	Depth Charge Launcher skirm/artillery. Tosses them on land, seeking in water. Has some splash damage.\n" ..
-					"-- Ballista:	Disarming Flak Tank with short range missile sidearm.\n" ..
-					"-- Arbalest:	Rapidfire Gauss Firesupport. Stops to fire. Has very low line of fire.\n" ..
-					"-- Anura:		Subsurface Assault Raider. Uses torpedoes underwater and a plasma repeater on land.\n" ..
-					"-- Crocodile:	Subsurface Assault Bombard. Fires either a Heavy Rocket on land or Torpedo in water on a 10 second reload.\n" ..
+					"-- Murderhole:		Depth charge armed constructor. Tosses it on land, seeking in water.\n" ..
+					"-- Springald: 		Medium weight light particle burst fire raider. Overheats, cools faster in water.\n" ..
+					"-- Hive:			Swarm Missile Riot amphtank. Slow to start dealing damage but high dps. Overheats\n" ..
+					"-- Mangonel: 		Depth Charge Launcher skirm/artillery. Tosses them on land, seeking in water. Has some splash damage.\n" ..
+					"-- Ballista:		Disarming Flak Tank with short range missile sidearm.\n" ..
+					"-- Arbalest:		Rapidfire Gauss Firesupport. Stops to fire. Has very low line of fire. Overheats.\n" ..
+					"-- Anura:			Subsurface Assault Raider. Uses torpedoes underwater and a plasma repeater on land.\n" ..
+					"-- Crocodile:		Subsurface Assault Bombard. Fires either a Heavy Rocket on land or Torpedo in water on a 10 second reload.\n" ..
+					"-- Plaguerat:		Amphibious Terrain-flattening and Nanoplague bomb. 10 bp zombie rezspeed.\n"..
 					" \n"..
 					"-- QoL things like overkill prevention and skirmish ai are in a rudimentary state for this fac and would appreciate feedback. \n" ..
 					"-- Is still missing polish in how things play and feel, feedback is welcome here too.\n" ..
@@ -117,7 +118,7 @@ function widget:Initialize()
 					" \n" ..
 					"Ships\n" ..
 					"-- Siren gains a dgun salvo of its missile, which disables its normal missile during reload.\n" ..
-					"-- Mistrals rockets deploy a torpedo submunition on hit, that tracks the original target. It's original damage is split equally between both projectiles\n" ..
+					"-- Mistrals rockets deploy a anti surface torpedo submunition on hit, that tracks it's original target. Only capable of targeting surfaced units. It's original damage is split equally between both projectiles.\n" ..
 					" \n" ..
 					"Shield \n" ..
 					"-- Felon loses range but gets increased shield regen and is speedier\n" ..
@@ -133,10 +134,11 @@ function widget:Initialize()
 					"DRP \n" ..
 					"-- It's green shot also applies nanoplague, at 100 bp\n" ..
 					" \n" ..
-					"QoL/Fix:\n" ..
+					"QoL/Technical/Fix:\n" ..
 					"-- Dante tries to prioritises its dgun over shooting other things.\n" ..
 					"-- Commanders try to prioritise their dgun too.\n" ..
-					"-- New Merlin Salvo too\n",
+					"-- New Merlin Salvo too.\n"..
+					"-- Overheat is handled in a gadget and could be applied to all units",
 				fontsize = 14,
 				y = 10,
 				autosize = true,
@@ -165,30 +167,42 @@ Amphtanks!!
 -- Yep, its a new factory, though currently not quite complete and kitbashed out of existing models
 
 -- Murderhole:	Depth charge armed constructor. Tosses it on land
-				-> improve land depthcharge toss, higher speed/gravity?
--- Springald: 	Medium weigh light particle burst raider
-
+				-> An armed water con. Beats out single raiders or mutliple if they bunch up.
+				
+-- Springald: 	Medium weight light particle burst raider
+				-> A mix of bandit and dagger, a slower more area control focused vehicle raider
+				-> I tried overheat, but I don't think it needs it
+				
 -- Hive:		Swarm Missile Riot amphtank. Slow to start dealing damage.
-				-> needs okp to really exist as a unit, else its too swingy
-				-> currently to high dps but that was expected. with okp it would work with alot less dps
-
+				-> A backloaded riot unit. Areadenial and good dps/hp. Vunerable to being bursted down.
+				-> Now with overheat seems to be settled where I like it.
+				-> Feels counterintuitive to a "dps" riot since it slows itself, but the nature of its weapon being almost gurnateed damage is I think alright
+				
 -- Mangonel: 	Depth Charge Launcher skirm. Tosses them on land, seeking in water
--> 				could have higher projectile speed and proj gravity, to make it play better.
-->				use mistral tech to split above and below water damage?
+				-> Slower vehicle based skirmisher with trajectory settings. Expensive and fills an antiskirmisher role
+				-> Skirmishes vs underwater units too, but amphbots can outregen their damage decently well.
 
 -- Ballista:	Disarming Flak Tank with short range missile sidearm.
-
+				-> Slower area denial AA that can help out in figher combat
 
 -- Arbalest:	Rapidfire Gauss Firesupport. Stops to fire.
-->				Has Spherical range? Projectile seems to time out
-->				Has not been called out as op yet which is promising, but I'm still uncertain
+				-> Lower range artillery that needs to sit still and line of sight to do damage. Inaccuracy reduces effectiveness against raiders.
+				-> Can target subsurface units, but at it's range is still vunerable to countersniping and walling.
+				-> Overheats to be balanced
 				
--- Anura:		Subsurface Amphtank raider. Uses torpedoes underwater and a plasma repeater on land.
-->				Feedback suggests its too speedy, could be slower, maybe more range in trade? range feels bad, made it slower
+-- Anura:		Subsurface assault/raider. Uses torpedoes underwater and a plasma repeater on land.
+				-> A submarine raider that fights well on shores due to its dual weapon nature.
 
--- Crocodile:	Subsurface Siege Tank. Long Reload Torpedo in water, and Heavy Rocket on Land
-->				Seems balanced, but high aoe is soemthing that may be too good
-
+-- Crocodile:	Subsurface Assault Bombard. Fires either a Heavy Rocket on land or Torpedo in water on a 10 second reload.
+				-> Fires dangerous projectiles both on surface and in water. Still vunerable to swarming due to its long reload.
+				-> It's torpedo can be lead and curved back onto allies
+				
+-- Plaguebearer: Subsurface Terraform and Nanoplague bomb. Flattens Terrain and revives wrecks as zombies in its aoe. 10 bp rezspeed.
+				-> cheaper way to access nanoplague
+				-> Also flattens terrain
+				-> Silly high impulse
+				-> This is trying to do too much at once, but tbh, its funny
+				
 -- Missing qol things like Overkill prevention and tactical ai, which especially hurts the Hive and Mangonel
 -- expect to babysit alot more than other factories for now, aswell as missing polish in how things play and feel.
 --> Overheat mechanic. I'd like for amphtanks to cool down their heat in water faster, while running hot on land
@@ -296,12 +310,16 @@ Sea Striders
 -- Quake applies Nanoplague, resurecting wrecks in its aoe as neutral units. An alternative usecase for it. 50 bp resurect speed.
 -- So does DRP's Green shot, at 100 bp
 
-QOL/Fix:
+QOL/Technical/Fix:
 -- Dante tries to prioritises its dgun over shooting other things.
 -- Commanders try to prioritise their dgun too.
 -- New Merlin Salvo too
+-- Overheat is handled in a gadget an applyable to all units
 ->(could do this for pala etc too but theres no aiming conflict)
 -> If theres other things like this feel free to poke. Implementation is more a bandaid however.
+
+-> Overheat is now a gadget that can be applied to all units via custom params
+-> Exponential Overheat could be something :o currently its only linear
 
 -> Nanoplague has alot of options to play with, and some questions about how it should work. Maybe resurrect bp could stack, or so. 
 -> Currently faster rez overrites slower rez, but doesnt take progress into account (Only checks if full reztime would be faster than reztime left).
@@ -313,32 +331,17 @@ HOW DOES IT WORK?!
 https://github.com/Helwor/New-Hel-K/blob/main/Widgets/Include/helk_core/widgets/addon_chili.lua
 function ScrollableTextBox()
 	
-TODO Trident torps
-It's called trident, cmon.
-also fills the subsurface niche for gs, and can run double duty sorta
--> on a branch for now. It's definetly possible, but making it not too good, while also worthwile is though
--> Unit ai is also conflicting, trying to bring a long range unit in line with cqc stuff
--> dgun is maybe a way, can take advantage of combat range custom param?
--> Depthcharge trident could be its primary purpose? and have a different unit be AA? or the other way around?
--> lots of weeeeird, is meh to work with, needs hax for depthcharge  and land varient
--> lesser claymore like depthcharge is probably prefereable over the spray of smaller ones I had
--> Maybe pure bomb charge
--> primary issue is that it would be a harpy speed riot unit. which just annihalates everything.
--> Maybe a torp implementation is preferable, to lock it to sea use Can take advantage of tridents missile system in place. 
---> urchin also can only target ships, but claymore sets precedent for depthcharges to be land  fireable
--> then maybe torp sidearm, depthcharge dgun that needs trident to rearm at an airpad?
---> that is alot of jank and alot of features for a single unit, and anti atomic units.
--> probably either or for dgun depthcharge or torps or thermite dgun
+
 
 TODO Paladin
 -> cheaper and shorter range?
---> needs to get out of standoff role
+--> needs to get out of standoff role, or be more interactive in it.
 
-TODO Scythe area cloak
+TODO Scythe area cloak?
 Smol area cloak, get cloak into cloak earlier, while sidestepping conjurers jankyness
 
 TODO Shogun buff
-It should be maybe better shore bombardment
+It should be maybe better shore bombardment?
 
 TODO Nanoplague com weapons
 Recon and guardian get nanoplague canisters/grenades
@@ -358,29 +361,57 @@ second com weapon should be a generally good play
 It's just too interesting to not have be viable/good
 -> oh a simple ish tradeoff could be limiting a portion of the coms incom to upgrades (2m per second of the 4 base? or 2 extra?)
 -> having a living com is still a metal income advantage, but losing it is less punishing?
--> Metal in coms is already less efficent, so the advantage is less impactful?
+-> Metal in coms is already less efficent, so the advantage is less impactful
+
+TODO what do about navy
+Mistral buff could maybe push siren out of the comfort zone enough
+Vanquisher exists!! could be turned into something
+Siren can become a surface focused ship? Hunter and seawolf as only antisub + vanquisher
+-> reweapon vanquisher into shotgun torpedo launchers, avoids corsair shotgun confusion
+
+--> Accidentally balanced amphtanks around ships in water. But those matchups were fun!
+--> Leads me to believe that it is worthwhile to have amph and hover be on par with ships too, even if that limits ships.
+--> So the idea is to bring hover/amph on par in the raider game with ships, and the give ships better tools for later on
+
+Things that would move things in that direction:
+-> Duck needs to contest hunter better, currently an unfightable matchup, and could be shuffled over a little
+
+-> Ship's tools past raider phase get better (this is already the case but could improve further)
+	-> Vanquisher? big brick unit
+	-> Torp mistral?
+	Siren and Envoy are sort of ship tier 2
+	-> Siren does this quite well.
+	-> Envoy does this quite well.
+-> Ship's antishore tools get better, to give them reasons to be picked over amph/hover
+	-> Envoy does this quite well.
+	-> Siren's missiles could get more range still. (could also become a stockpiled thing)
+		-> Overkill prevention on sirens missiles
+	-> Another arty piece that excells at shore bombardment. Barrage impaler?
+
+
+
 
 TODO Mistral rocket -> torp improvements
 A meh implementation currently, should take another look
 -> fakeweapon shenanigans can give me the result i want
--> maybe should apply it to mangonel too
+-> maybe should apply it to mangonel too?
+-> claymor is another example of other fakeweapon shenanignas
 
 TODO nimbus gets more accurate when stationary.
+-> Nimbus is in a meh ish spot at the moment, so thats maybe an idea to get it into a more interesting state?
 
 TODO Pavise (Odin drop shields) get to move
-More control, easier to protect a push with
+More control, easier to protect a push with.
+-> the shields are good enough when you already have an odin, but hard to coordinate for offensive use, and slow to reach a defensive spot
 
 TODO Stardust cost buff?
 It would be nice to see used a lil more?
+This is more a me change, since i'd like more stable earlygames to get into more diverse midgames
 
-TODO what do about navy
-Cutter buff? Mistral buff could maybe push siren out of the comfort zone enough
-Vanquisher exists!!
-Siren can become a surface focused ship? Hunter and seawolf as only antisub + vanquisher
--> reweapon vanquisher into shotgun torpedo launchers, avoids corsair shotgun confusion
 
 TODO Raven -> Tankier but less damage (maybe bring magpie back to 900)
 785 damage is the lowest we can go to still onetap lotus
+-> bombers are fun to use, it would be nice to be able to use them more.
 
 TODO cheaper solars
 -> more solar walls!
@@ -406,8 +437,9 @@ Firewalkers jump could be worse
 Puppy jump could disable its weapon or set it to reload
 Puppy jump get blocked by terrain sometimes
 
-TODO Dante groundburn
+TODO check Dante groundburn
 it may stack and unintentionally do loadsa damage
+-> though tbh thats fine
 	
 TODO Inferno vfx fix for water hit?
 
@@ -418,7 +450,7 @@ Overheat as a mechanic, water cools them
 
 Con:			amphib tank with long range sonar? Drone? Torpedo launcher?
 Beaver		Beaver Depth charge welder esque con. Lobs a charge from land. Feels okay.
-
+				TODO
 Raider:			overheating laser tank, 100 cost?
 Springald
 Chu-Ko-Nu
@@ -436,12 +468,14 @@ Mangonel		The bigger badger initiative
 Onager				Directfire veh skirm, thaat also launches depthcharges, and can optionally high angle
 				-> There are probably some hax to fix this, but its good enough atm.
 
-Assault: 		Bursty halberd? Overheats. Maybe like an AVRE?
-Hulk 			-> could be this facs missing unit o.o"
+-- Crocodile:	Subsurface Siege Tank. Long Reload Torpedo in water, and Heavy Rocket on Land
+->				Seems balanced, but high aoe is soemthing that may be too good
+				
 
 
 Arty: 			Large gauss, overheats
 Arbalest		-> rapdifire medium-long range arty, needs to deploy, overheats
+				-> has overheat to make it more interesting/less oppressive for continous bombardment
 		
 				scorpion would be so fitting but its used already :cccccc
 
@@ -449,16 +483,18 @@ AA:				Disarm Flak with short range missile sidearm
 Ballista				
 				
 
-Special: 		rez veh/bp effiecent con
+Special: 		rez veh/bp effiecent con?
 
+Assault: 		Bursty halberd? Overheats. Maybe like an AVRE?
+Hulk 			-> could be this facs missing unit o.o"
 
--- Crocodile:	Subsurface Siege Tank. Long Reload Torpedo in water, and Heavy Rocket on Land
-->				Seems balanced, but high aoe is soemthing that may be too good
 			
 Spec Raid:		Sub tank, float below water surface		
 Anura 			Anura/blitz has amhibious modelling
 (Frog family)	-> move nose forward and open rear in water, spin fans.
 
+
+-- Bomb			Nanoplague bomb like limpet?
 
 TODO All new units need overkill prevention done right
 
@@ -475,7 +511,7 @@ TODO Mangonel Prioritisation of weapons is iffy to say the least
 -> nvm its still meh, ballistics cause the cannon to go beyond torp range and fire instead of the torp
 			TODO see if theres a way to force one weapon to be high angle
 			TODO At max range the land charge is prefered, because it gets extended range form balistics.
-
+-> I've managed to get it to work decently
 
 TODO Nebula
 Drop the shield.
@@ -490,6 +526,23 @@ True Subsurface Battlesub?
 -> Slow with medium range torps, and water launched missiles?
 Toggleable float/sink state?
 
+TODO Trident torps
+It's called trident, cmon.
+also fills the subsurface niche for gs, and can run double duty sorta
+-> on a branch for now. It's definetly possible, but making it not too good, while also worthwile is though
+-> Unit ai is also conflicting, trying to bring a long range unit in line with cqc stuff
+-> dgun is maybe a way, can take advantage of combat range custom param?
+-> Depthcharge trident could be its primary purpose? and have a different unit be AA? or the other way around?
+-> lots of weeeeird, is meh to work with, needs hax for depthcharge  and land varient
+-> lesser claymore like depthcharge is probably prefereable over the spray of smaller ones I had
+-> Maybe pure bomb charge
+-> primary issue is that it would be a harpy speed riot unit. which just annihalates everything.
+-> Maybe a torp implementation is preferable, to lock it to sea use Can take advantage of tridents missile system in place. 
+--> urchin also can only target ships, but claymore sets precedent for depthcharges to be land  fireable
+-> then maybe torp sidearm, depthcharge dgun that needs trident to rearm at an airpad?
+--> that is alot of jank and alot of features for a single unit, and anti atomic units.
+-> probably either or for dgun depthcharge or torps or thermite dgun
+--> lets keep away from it for now
 
 TODO Support powers
 A building that stockpiles metal for use. There is some base implementation around which is cool

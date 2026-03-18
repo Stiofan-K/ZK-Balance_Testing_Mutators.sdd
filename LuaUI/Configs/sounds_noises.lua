@@ -830,6 +830,14 @@ local sounds = {
 			[1] = "tank_select",
 		},
 	},
+	amphtanksubassault = {
+			ok = {
+			[1] = "tank_move",
+		},
+		select = {
+			[1] = "tank_select",
+		},
+	},
 	amphtankarty = {
 		ok = {
 			[1] = "tank_move",
@@ -844,6 +852,14 @@ local sounds = {
 		},
 		select = {
 			[1] = "tank_select",
+		},
+	},
+	amphtankbomb = {
+		ok = {
+			[1] = "amph_move",
+		},
+		select = {
+			[1] = "amph_select",
 		},
 	},
 	

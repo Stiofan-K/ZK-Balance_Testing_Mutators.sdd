@@ -170,6 +170,7 @@ local factoryUnitPosDef = {
 		amphtankaa        = unitTypes.ANTI_AIR,
 		--amphtankassault = unitTypes.HEAVY_SOMETHING,
 		amphtankarty      = unitTypes.ARTILLERY,
+		amphtankbomb	  = unitTypes.SPECIAL,
 	},
 	pw_bomberfac = {
 		bomberriot        = unitTypes.RIOT,

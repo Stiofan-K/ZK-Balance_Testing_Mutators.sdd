@@ -85,6 +85,9 @@ local lowRangeSwarmieeArray = NameToDefID({
 	"tankassault",
 	"tankheavyassault",
 	
+	"amphtankcon",			--aoe makes it not as swarmable, but crab is here too
+	"amphtanksubassault", 	--aoe makes it not as swarmable, but crab is here too
+	
 	"spidercrabe",
 	--"hoverarty", -- Always hits small units. Swarm may make it hit more.
 	
@@ -224,6 +227,7 @@ local shortRangeSkirmieeArray = NameToDefID({
 	"jumpsumo",
 	"amphbomb",
 	"jumpbomb",
+	"amphtankbomb",
 	"shieldraid",
 	"amphtankraid"
 })
@@ -635,6 +639,20 @@ local behaviourConfig = {
 	},
 	{
 		name = "amphbomb",
+		defaultAIState = 0,
+		--skirms = {},
+		swarms = lowRangeSwarmieeArray,
+		--flees = {},
+		circleStrafe = ENABLE_OLD_JINK_STRAFE,
+		maxSwarmLeeway = 40,
+		jinkTangentLength = 100,
+		minCircleStrafeDistance = 0,
+		minSwarmLeeway = 100,
+		swarmLeeway = 30,
+		alwaysJinkFight = true,
+	},
+	{
+		name = "amphtankbomb",
 		defaultAIState = 0,
 		--skirms = {},
 		swarms = lowRangeSwarmieeArray,
