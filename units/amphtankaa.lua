@@ -91,7 +91,7 @@ return { amphtankaa = {
       customParams              = {
         disarmDamageMult = 1,
         disarmDamageOnly = 1,
-        disarmTimer      = 1,
+        disarmTimer      = 4,
         
         reaim_time = 1, -- looks silly when rotating otherwise (high turret and body turn rates)
         isaa = [[1]],

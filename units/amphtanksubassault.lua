@@ -1,6 +1,6 @@
 return { amphtanksubassault = {
   name                = [[Crocodile]],
-  description         = [[Subsurface Assault Bombard]],
+  description         = [[Subsurface Assault Bombard (Anti-Sub)]],
   acceleration        = 0.17,
   activateWhenBuilt   = true,
   brakeRate           = 0.624,

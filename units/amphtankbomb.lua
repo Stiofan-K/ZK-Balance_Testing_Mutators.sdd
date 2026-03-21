@@ -34,7 +34,7 @@ return { amphtankbomb = {
   leaveTracks            = true,
   maxSlope               = 36,
   metalCost              = 200,
-  movementClass          = [[HOVER2]],
+  movementClass          = [[AKBOT2]],
   noChaseCategory        = [[FIXEDWING LAND SINK TURRET SHIP SATELLITE SWIM GUNSHIP FLOAT SUB HOVER]],
   objectName             = [[amphbomb.s3o]],
   pushResistant          = 0,
@@ -87,7 +87,7 @@ return { amphtankbomb = {
       craterMult         = 3.5,
       customparams = {
         apply_nano_plague       = "1",
-        plague_rez_build_power  = 10,
+        plague_rez_build_power  = 8,
         
         gatherradius = [[300]],
         smoothradius = [[200]],

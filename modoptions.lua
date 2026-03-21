@@ -444,7 +444,7 @@ local options = {
     section= 'multipliers',
     def    = 1,
     min    = 0,
-    max    = 1.5,
+    max    = 100,
     step   = 0.05,  -- quantization is aligned to the def value
                     -- (step <= 0) means that there is no quantization
   },
@@ -456,7 +456,7 @@ local options = {
     section= 'multipliers',
     def    = 1,
     min    = 0,
-    max    = 1.5,
+    max    = 100,
     step   = 0.05,  -- quantization is aligned to the def value
                     -- (step <= 0) means that there is no quantization
   },

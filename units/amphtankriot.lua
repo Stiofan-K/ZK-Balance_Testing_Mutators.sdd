@@ -1,6 +1,6 @@
 return { amphtankriot = {
   name                = [[Hive]],
-  description         = [[Riot Swarm Missile Tank]],
+  description         = [[Riot Swarm Missile Amphtank]],
   activateWhenBuilt   = true,
   acceleration        = 0.132,
   brakeRate           = 0.516,

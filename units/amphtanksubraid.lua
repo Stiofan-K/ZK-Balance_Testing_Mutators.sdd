@@ -1,6 +1,6 @@
 return { amphtanksubraid = {
   name                   = [[Anura]],
-  description            = [[Subsurface Assault Raider Tank (Anti-Sub)]],
+  description            = [[Subsurface Assault/Raider Amphtank (Anti-Sub)]],
   acceleration           = 0.75,
   activateWhenBuilt      = true,
   brakeRate              = 1.65,

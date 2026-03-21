@@ -76,20 +76,19 @@ function widget:Initialize()
 					"-- Murderhole:		Depth charge armed constructor. Tosses it on land, seeking in water.\n" ..
 					"-- Springald: 		Medium weight light particle burst fire raider. Overheats, cools faster in water.\n" ..
 					"-- Hive:			Swarm Missile Riot amphtank. Slow to start dealing damage but high dps. Overheats\n" ..
-					"-- Mangonel: 		Depth Charge Launcher skirm/artillery. Tosses them on land, seeking in water. Has some splash damage.\n" ..
+					"-- Mangonel: 		Depth Charge Launcher skirmisher. Tosses them on land, seeking in water. Has some splash damage.\n" ..
 					"-- Ballista:		Disarming Flak Tank with short range missile sidearm.\n" ..
 					"-- Arbalest:		Rapidfire Gauss Firesupport. Stops to fire. Has very low line of fire. Overheats.\n" ..
 					"-- Anura:			Subsurface Assault Raider. Uses torpedoes underwater and a plasma repeater on land.\n" ..
 					"-- Crocodile:		Subsurface Assault Bombard. Fires either a Heavy Rocket on land or Torpedo in water on a 10 second reload.\n" ..
-					"-- Plaguerat:		Amphibious Terrain-flattening and Nanoplague bomb. 10 bp zombie rezspeed.\n"..
+					"-- Plaguerat:		Amphibious Terrain-flattening and Nanoplague bomb. 8 bp zombie rezspeed.\n"..
 					" \n"..
-					"-- QoL things like overkill prevention and skirmish ai are in a rudimentary state for this fac and would appreciate feedback. \n" ..
-					"-- Is still missing polish in how things play and feel, feedback is welcome here too.\n" ..
+					"-- Is still missing polish in how things play and feel, feedback is welcome.\n" ..
 					" \n" ..
 					"Striders\n" ..
 					"-- Athena gains a Nanoplague canister missile and Nanoplague Dart as a dgun.\n" ..
 					"-- Nanoplague causes wrecks in its aoe to resurect into neutral units. Their behavior is equal that of the Zombies! modoption. Zombies are slowed by 0.3.\n" ..
-					"-- The Canister has a wide aoe and resurrects at a speed of 30 bp per second. The Dart has much smaller aoe and resurrects at a speed of 80 bp per second.\n" ..
+					"-- The Canister has a wide aoe and resurrects at a speed of 30 bp per second. The Dart has much smaller aoe and resurrects at a speed of 100 bp per second.\n" ..
 					"-- Minimum Revive time is 10 seconds. Canister and Dart share a reload.\n" ..
 					" \n" ..
 					"-- Dante is speedier and tankier, but has it's missile salvo replaced with a shorter range napalm grenade barrage.\n" ..
@@ -126,7 +125,7 @@ function widget:Initialize()
 					"-- Outlaw is faster and more tanky. Deals more damage up close and slightly less at its edge.\n" ..
 					" \n" ..
 					"Rovers\n" ..
-					"-- Badger gains a dgun, a burst of mines that puts its main weapon on cooldown. Very unsure of this change, but maybe something for the badger enjoyers.\n" ..
+					"-- Badger gains a dgun, a burst of mines that puts its main weapon on cooldown. Maybe something for the badger enjoyers.\n" ..
 					" \n" ..
 					"Quake \n" ..
 					"-- Quake applies Nanoplague, resurecting wrecks in its aoe as neutral units. An alternative usecase for it. 50 bp resurect speed.\n" ..
@@ -171,7 +170,7 @@ Amphtanks!!
 				
 -- Springald: 	Medium weight light particle burst raider
 				-> A mix of bandit and dagger, a slower more area control focused vehicle raider
-				-> I tried overheat, but I don't think it needs it
+				-> I tried overheat, but I don't think it needs it. May still be too strong, hp/range/speed nerf
 				
 -- Hive:		Swarm Missile Riot amphtank. Slow to start dealing damage.
 				-> A backloaded riot unit. Areadenial and good dps/hp. Vunerable to being bursted down.
@@ -318,19 +317,29 @@ QOL/Technical/Fix:
 ->(could do this for pala etc too but theres no aiming conflict)
 -> If theres other things like this feel free to poke. Implementation is more a bandaid however.
 
+Overheat
 -> Overheat is now a gadget that can be applied to all units via custom params
 -> Exponential Overheat could be something :o currently its only linear
 
+
+NanoPlague
 -> Nanoplague has alot of options to play with, and some questions about how it should work. Maybe resurrect bp could stack, or so. 
 -> Currently faster rez overrites slower rez, but doesnt take progress into account (Only checks if full reztime would be faster than reztime left).
 -> every respawned zombie add its cost in metal to gaia's storage (and double the energy). unsure how this interacts with the zombies modoption
 -> As such gaia can produce without needing to have mex or E, but also doesnt have infinite income to farm. And also can threaten to go out of control.
+-> Some widget guy will make wrecks farmable though
+
+TODO Have a look on how to prevent wreck farming nanoplague
+-> have nanoplauge be something you can reclaim off wrecks, maybe as excess E or so
+-> no metal drained from the wrecks until the plague is gone.
+
 
 TODO Fix the changelog widget :c
 HOW DOES IT WORK?!
 https://github.com/Helwor/New-Hel-K/blob/main/Widgets/Include/helk_core/widgets/addon_chili.lua
 function ScrollableTextBox()
 	
+
 
 
 TODO Paladin
@@ -443,6 +452,10 @@ it may stack and unintentionally do loadsa damage
 	
 TODO Inferno vfx fix for water hit?
 
+
+TODO Check torps for amphtanks
+Heightmod could allow for torp range to scale underwater too
+
 TODO Amphtanks
 Amphib veh fac
 Overheat as a mechanic, water cools them
@@ -450,7 +463,6 @@ Overheat as a mechanic, water cools them
 
 Con:			amphib tank with long range sonar? Drone? Torpedo launcher?
 Beaver		Beaver Depth charge welder esque con. Lobs a charge from land. Feels okay.
-				TODO
 Raider:			overheating laser tank, 100 cost?
 Springald
 Chu-Ko-Nu
@@ -492,7 +504,7 @@ Hulk 			-> could be this facs missing unit o.o"
 Spec Raid:		Sub tank, float below water surface		
 Anura 			Anura/blitz has amhibious modelling
 (Frog family)	-> move nose forward and open rear in water, spin fans.
-
+TODO Could be better vs other raiders?
 
 -- Bomb			Nanoplague bomb like limpet?
 

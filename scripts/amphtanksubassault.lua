@@ -153,7 +153,7 @@ function script.BlockShot(num, targetID)
 		-- TTL at max range determined to be 50f empirically
 		-- at projectile speed 270 elmo/s and 450 range
 		local framesETA = 50 * (spGetUnitSeparation(unitID, targetID) or 0) / 450
-		return GG.OverkillPrevention_CheckBlock(unitID, targetID, 1000.1, framesETA, false, false, true)
+		return GG.OverkillPrevention_CheckBlock(unitID, targetID, 1100.1, framesETA, false, false, true)
 
 	end
 	return false

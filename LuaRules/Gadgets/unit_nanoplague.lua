@@ -104,7 +104,7 @@ for i = 1, #WeaponDefs do
 		nanoPlagueWeaponDefs[i] = { 
 			plagueRezMin = tonumber(wcp.plague_rez_min) or defaultplagueRezMin,
 			plagueRezBuildPower = tonumber(wcp.plague_rez_build_power) or tonumber(wcp.plague_rez_speed) or defaultplagueRezSpeed,
-			plagueRezDelay = tonumber(wcp.plague_rez_min) or defaultplagueRezDelay,	
+			plagueRezDelay = tonumber(wcp.plague_rez_delay) or defaultplagueRezDelay,	
 			plagueRezChance = tonumber(wcp.plague_rez_chance) or defaultplagueRezChance, 			
 			-- Lots of extra options possible. Could have zombies/lose health after a while etc.
 		}

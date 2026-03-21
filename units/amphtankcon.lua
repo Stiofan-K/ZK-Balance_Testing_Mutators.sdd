@@ -1,6 +1,6 @@
 return { amphtankcon = {
   name                   = [[Murderhole]],
-  description            = [[Amphibious Armed Construction Tank (Anti-Sub)]],
+  description            = [[Floating Armed Construction Tank (Anti-Sub)]],
   acceleration           = 0.4,
   activateWhenBuilt      = true,
   brakeRate              = 18.0,
@@ -160,6 +160,7 @@ return { amphtankcon = {
       explosionGenerator      = [[custom:TORPEDOHITHUGE]],
       fixedlauncher           = true,
       groundbounce            = 1,
+      heightBoostFactor       = 0.0,
       edgeEffectiveness       = 0.6,
       impulseBoost            = 0,
       impulseFactor           = 0.2,
