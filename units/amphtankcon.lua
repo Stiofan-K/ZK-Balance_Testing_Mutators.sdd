@@ -68,13 +68,13 @@ return { amphtankcon = {
     {
       def                = [[DEPTHCHARGE]],
       badTargetCategory  = [[FIXEDWING]],
-      onlyTargetCategory = [[SWIM FIXEDWING LAND SUB SINK TURRET FLOAT SHIP GUNSHIP HOVER]],
+      onlyTargetCategory = [[SWIM FIXEDWING LAND SUB SINK TURRET FLOAT SHIP HOVER]],
     },
     
     {
       def                = [[LAND_DEPTHCHARGE]],
       badTargetCategory  = [[SWIM FIXEDWING SUB SINK FLOAT SHIP HOVER]],
-      onlyTargetCategory = [[FIXEDWING LAND TURRET GUNSHIP]],
+      onlyTargetCategory = [[SWIM FIXEDWING LAND SUB SINK TURRET FLOAT SHIP GUNSHIP HOVER]],
     },
 
   },

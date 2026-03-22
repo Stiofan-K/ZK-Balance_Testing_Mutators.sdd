@@ -102,7 +102,7 @@ function widget:Initialize()
 					"-- Scylla gains high damage but slow siege torpedoes that track their target beyond Scyllas fire range. Its tacnuke is moved to a dgun.\n" ..
 					" \n" ..
 					"Aerial AA\n" ..
-					"-- Swift, Raptor and Trident gain extra hp to survive ground AA. About a 2.2x hp buff. Raptor's weapon is swapped for a flak gun of same dps.\n" ..
+					"-- Swift, Raptor and Trident gain extra hp to survive ground AA. About a 1.6x hp buff. Raptor's weapon is swapped for a flak gun of same dps with slightly more range.\n" ..
 					"-- Raptor and swift also have an extra maneuver enabled. Potentially looks cool, unsure if effective or good or if it even activates?.\n" ..
 					" \n" ..
 					"Air to ground\n" ..
