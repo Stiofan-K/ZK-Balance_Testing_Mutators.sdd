@@ -18,7 +18,7 @@ return { amphtankarty = {
   customParams        = {
     unstick_leeway    = 30, -- Don't lose move orders if stuck while packing.
     
-    heat_per_shot  = 0.05, -- Heat is always a number between 0 and 1
+    heat_per_shot  = 0.045, -- Heat is always a number between 0 and 1
     heat_decay     = 0.05, -- Per second
     heat_max_slow  = 0.7,
     heat_initial   = 0,

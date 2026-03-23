@@ -335,6 +335,8 @@ local artyRangeSkirmieeArray = NameToDefID({
 	"ampharty",
 	
 	"shipskirm",
+	
+	"nebula"
 })
 
 local slasherSkirmieeArray = NameToDefID({
@@ -447,6 +449,7 @@ local skirmableAir = NameToDefID({
 	"gunshipassault",
 	"gunshipheavytrans",
 	"gunshipkrow",
+	"nebula",
 })
 
 -- Brawler, for AA to swarm.
@@ -1826,6 +1829,14 @@ local behaviourConfig = {
 	},
 	{
 		name = "striderarty",
+		skirms = allMobileGround,
+		skirmRadar = true,
+		--swarms = {},
+		--flees = {},
+		skirmLeeway = 100,
+	},
+	{
+		name = "nebula",
 		skirms = allMobileGround,
 		skirmRadar = true,
 		--swarms = {},

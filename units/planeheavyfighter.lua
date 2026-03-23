@@ -95,8 +95,8 @@ return { planeheavyfighter = {
       },
 
       damage                  = {
-        default = 3.0,
-        planes  = 30,
+        default = 2.0,
+        planes  = 20,
       },
 
       edgeEffectiveness       = 0.5,
@@ -106,7 +106,7 @@ return { planeheavyfighter = {
       interceptedByShieldType = 1,
       noSelfDamage            = true,
       range                   = 900,
-      reloadtime              = 0.3,
+      reloadtime              = 0.2,
       size                    = 0.01,
       soundHit                = [[weapon/flak_hit]],
       soundStart              = [[weapon/flak_fire]],

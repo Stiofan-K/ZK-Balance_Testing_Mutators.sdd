@@ -68,9 +68,9 @@ return { subtacmissile = {
   
 weaponDefs             = {
   TORPEDO = {
-      name                    = [[Heavy Siege Torpedo]],
+      name                    = [[Heavy Siege Torpedoes]],
       alwaysVisible           = true,
-      areaOfEffect            = 160,
+      areaOfEffect            = 75,
       avoidFriendly           = false,
       burst                   = 2,
       burstrate               = 1,
@@ -87,10 +87,10 @@ weaponDefs             = {
       },
 
       damage                  = {
-        default = 1000.01,
+        default = 1050.01,
       },
 
-      edgeEffectiveness       = 0.4,
+      edgeEffectiveness       = 0.6,
 
       explosionGenerator      = [[custom:xamelimpact]],
       fixedLauncher           = true,

@@ -24,8 +24,8 @@ return { amphtankriot = {
     
     okp_damage = 70,
     
-    heat_per_shot  = 0.08, -- Heat is always a number between 0 and 1
-    heat_decay     = 0.16, -- Per second?
+    heat_per_shot  = 0.06, -- Heat is always a number between 0 and 1
+    heat_decay     = 0.10, -- Per second?
     heat_max_slow  = 0.5,
     heat_initial   = 0,
     heat_water_cool_mult = 2,
@@ -93,7 +93,7 @@ return { amphtankriot = {
 
       dance                   = 20,
       fireStarter             = 0.2,
-      flightTime              = 3,
+      flightTime              = 5,
       impulseBoost            = 0,
       impulseFactor           = 0.4,
       interceptedByShieldType = 2,
@@ -104,7 +104,7 @@ return { amphtankriot = {
       smokeTrail              = true,
       soundHit                = [[explosion/ex_med17]],
       soundStart              = [[weapon/missile/missile_fire10]],
-      soundStartVolume        = 1,
+      soundStartVolume        = 1.5,
       startVelocity           = 100,
       tracks                  = true,
       tolerance               = 4000,

@@ -76,7 +76,7 @@ local function HeatDecayFunction(unitID,currentHeat,overheatDef)
 			if decayMult > 0 then
 				local x,y,z = Spring.GetUnitPosition(unitID)
 				if heatWaterCoolMult and y < -5  then
-					Spring.Echo("We are getting watercooling!")
+					--Spring.Echo("We are getting watercooling!")
 					currentHeat = currentHeat - heatWaterCoolMult*heatDecay*decayMult
 				else
 					currentHeat = currentHeat - heatDecay*decayMult

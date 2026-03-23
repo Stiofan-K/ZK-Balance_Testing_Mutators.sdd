@@ -198,9 +198,10 @@ function script.AimWeapon(num, heading, pitch)
 	
 	Turn(turret, y_axis, heading, TURRET_TURN_SPEED)
 	Turn(sleeve, x_axis, -pitch, GUN_TURN_SPEED)
-	
-	WaitForTurn(turret, y_axis)
-	WaitForTurn(sleeve, x_axis)
+	if num == 2 then -- we care a little less when aiming the torp, it sometimes conflicts with the main guns
+		WaitForTurn(turret, y_axis)
+		WaitForTurn(sleeve, x_axis)
+	end
 	
 	StartThread(RestoreAfterDelay)
 	

@@ -28,7 +28,7 @@ return { jumpskirm = {
     jump_speed         = 5,
     jump_delay         = 50,
     jump_reload        = 30,
-    jump_from_midair   = 0,
+    jump_from_midair   = 1,
     
     
     selection_scale   = 0.78,

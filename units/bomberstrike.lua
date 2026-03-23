@@ -9,6 +9,7 @@ return { bomberstrike = {
   canMove             = true,
   canPatrol           = true,
   canSubmerge         = false,
+  canLoopbackAttack   = true,
   category            = [[FIXEDWING]],
   collide             = false,
   collisionVolumeOffsets = [[0 2 0]],

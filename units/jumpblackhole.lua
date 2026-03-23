@@ -23,7 +23,7 @@ return { jumpblackhole = {
     jump_speed         = 5,
     jump_delay         = 50,
     jump_reload        = 30,
-    jump_from_midair   = 0,
+    jump_from_midair   = 1,
     
     midposoffset   = [[0 10 0]],
     health_bar_height     = 11,

@@ -85,7 +85,11 @@ function widget:Initialize()
 					" \n"..
 					"-- Is still missing polish in how things play and feel, feedback is welcome.\n" ..
 					" \n" ..
-					"Striders\n" ..
+					"Striders:\n" ..
+					" \n" ..
+					"-- Nebula returns! Drops its shield health and manoverability in favor of more range, cheaper construction and exceptional sight capability.\n"..
+					"-- Functions as a siege and intel platform to cap off an aerial advantage. Best contested by a cloaked AA ambush, or air units.\n"..
+					" \n" ..
 					"-- Athena gains a Nanoplague canister missile and Nanoplague Dart as a dgun.\n" ..
 					"-- Nanoplague causes wrecks in its aoe to resurect into neutral units. Their behavior is equal that of the Zombies! modoption. Zombies are slowed by 0.3.\n" ..
 					"-- The Canister has a wide aoe and resurrects at a speed of 30 bp per second. The Dart has much smaller aoe and resurrects at a speed of 100 bp per second.\n" ..
@@ -127,6 +131,9 @@ function widget:Initialize()
 					"Rovers\n" ..
 					"-- Badger gains a dgun, a burst of mines that puts its main weapon on cooldown. Maybe something for the badger enjoyers.\n" ..
 					" \n" ..
+					"Bertha\n" ..
+					"-- Has lower base reload but overheats. The first few bertha shots will fire significantly faster before returning to normal reload speed.\n" ..
+					" \n" ..
 					"Quake \n" ..
 					"-- Quake applies Nanoplague, resurecting wrecks in its aoe as neutral units. An alternative usecase for it. 50 bp resurect speed.\n" ..
 					" \n" ..
@@ -138,11 +145,11 @@ function widget:Initialize()
 					"-- Commanders try to prioritise their dgun too.\n" ..
 					"-- New Merlin Salvo too.\n"..
 					"-- Overheat is handled in a gadget and could be applied to all units",
-				fontsize = 14,
+				fontsize = 13,
 				y = 10,
 				autosize = true,
 				textColor = {1, 1, 1, 1}
-			}
+			},
 		}
 	}
 	
@@ -226,8 +233,8 @@ Jump
 
 Aerial AA
 -- Swift, Raptor and Trident gain extra hp to survive ground AA. About a 2.2x hp buff. Raptor's weapon is swapped for a flak gun of same dps.
--> Aerial AA is generally too squishy to be used actively feel like a worthwhile investment. Making them just more durable allows people to just use these units more.
--> Obvious caveat is swift scouting being much harder to stop. But I hope that
+-> Aerial AA is generally too squishy to be used actively and feel like a worthwhile investment. Making them just more durable allows people to just use these units more.
+-> Obvious caveat is swift scouting being much harder to stop. But I hope that aerial AA being more available makes things easier
 -> Raptor fights ball very quickly now that theyre so tanky, but its still best for dps. With flak its discouraged/more painful, and its a lil better vs balled things.
 -> Could maybe even nerf damage if it becomes good at flak duties :o
 
@@ -248,6 +255,7 @@ Air to ground
 -> The idea is to make sequencial strikes better than stacking phoenix in one strike. A tradeoff of damage output vs safety of phoenix and time to react.
 -> This idea was already present in phoenix, but I'd like to try and push it further. However it commits the sin of having higher than normal burn damage.
 -> noticed that this makes phoenix much worse vs koda an pyro. something to think about.
+-> would be okay dropping this change
 
 Ships
 -- Siren gains a dgun salvo of its missile, which disables its normal missile during reload.
@@ -257,6 +265,7 @@ Ships
 -- Mistrals rockets deploy a torpedo submunition on hit, that tracks the original target. It's damage is split equally between both projectiles
 -> Not a clean implementation, as Mistral does not shoot at subsurface targets to deploy the torpedo.
 -> The idea is to improve accuracy/damage vs targets that can't dodge well in an interesting way. Mistral was a bit bad at killing Siren fast enough.
+-> the obvious caveate is that it's conflicting messaging
 
 Veh
 -- Badger gains a dgun, a burst of mines that puts its main weapon on cooldown.
@@ -271,6 +280,10 @@ Striders
 -> The other strider could/should lean stronger into their theme and into closer range combat to make interacting with them more interesting.
 -> A good approach could be to reward but not force the closer range combat.
 
+-- Nebula
+-- It returns! Drops its shield and health in favor of more range and cheaper construction.
+-- Functions as a Siege platform to cap off an aerial advantage.
+
 -- Athena gains a Nanoplague canister missile and Nanoplague Dart as a dgun. Nanoplague causes wrecks in its aoe to resurect into neutral units. Their behavior is equal that of the Zombies! modoption.
 -- The Canister has a wide aoe and resurrects at a speed of 30 bp per second. The Dart has much smaller aoe and resurrects at a speed of 80 bp per second.
 -- Minimum Revive time is 10 seconds. Canister and Dart share a reload.
@@ -284,7 +297,7 @@ Striders
 -- It's dgun/missiles/grenades have less afterburn (same as pyro) but set the ground on fire, while its flamer gets the extended duration afterburn its missiles had.
 -> Get in there dante! This lad really really really feels like he wants to get close. It's never been allowed because it's too good at flinging missiles downrange. Now it's a bit shorter ranged, so can be allowed to be better at closing the distance.
 -> This may be a back and forth thing. I can imagine that dante got its longer range barrage exactly because couldnt get close/was skirmed alot. But I'm curious to try this out.
--> After self testing, dante feels more suited for running up and killing things.
+-> After testing, dante feels more suited for running up and killing things.
 
 
 -- Merlin gets a lower range alternative Salvo, a SLAM salvo. Imobilises merlin during firing. Reloads are linked.

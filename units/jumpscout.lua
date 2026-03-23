@@ -33,7 +33,7 @@ return { jumpscout = {
     jump_speed         = 6,
     jump_delay         = 5,
     jump_reload        = 10,
-    jump_from_midair   = 0,
+    jump_from_midair   = 1,
     jump_rotate_midair = 0,
     
     jump_using_weapon = 1, -- Value is weapon number

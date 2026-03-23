@@ -101,7 +101,7 @@ return { amphtanksubassault = {
       },
 
       damage                  = {
-        default = 1100.01, -- 1000 damage vs 1100 affects a good few breakpoints. unsure which is better
+        default = 1050.01, -- 1000 damage vs 1100 affects a good few breakpoints. unsure which is better
       },
 
       edgeEffectiveness       = 0.4,
@@ -130,9 +130,9 @@ return { amphtanksubassault = {
       weaponVelocity          = 250,
     },
     TORPEDO = {
-      name                    = [[Siege Torpedo]],
+      name                    = [[Heavy Siege Torpedo]],
       alwaysVisible           = true,
-      areaOfEffect            = 160,
+      areaOfEffect            = 75,
       avoidFriendly           = false,
       burnblow                = false,
       canAttackGround         = false,
@@ -148,10 +148,10 @@ return { amphtanksubassault = {
       },
 
       damage                  = {
-        default = 1100.01,
+        default = 1050.01,
       },
 
-      edgeEffectiveness       = 0.4,
+      edgeEffectiveness       = 0.6,
 
       explosionGenerator      = [[custom:xamelimpact]],
       fixedLauncher           = true,

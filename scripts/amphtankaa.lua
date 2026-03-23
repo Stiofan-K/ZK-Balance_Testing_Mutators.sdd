@@ -107,6 +107,13 @@ function script.FireWeapon()
 	--currentGun = 3 - currentGun
 end
 
+function script.BlockShot(num, targetID)
+	if num == 1 then
+		return GG.OverkillPrevention_CheckBlockD(unitID, targetID, 290, 15, 200) --250 - disarm damage  1 second - timeout, 4 seconds - disarmTimer
+	end
+end
+
+
 function script.Create()
 	local trax = {piece("tracks1", "tracks2", "tracks3", "tracks4")}
 	Show(trax[1]) -- in case current != 1 before luarules reload
