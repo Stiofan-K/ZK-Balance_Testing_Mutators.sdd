@@ -581,6 +581,14 @@ local sounds = {
 			[1] = "shield_select",
 		},
 	},
+	stridersquire = {
+		ok = {
+			[1] = "turret_heavy_move2",
+		},
+		select = {
+			[1] = "turret_select",
+		},
+	},
 	striderbantha = {
 		ok = {
 			[1] = "turret_heavy_move2",

@@ -115,7 +115,7 @@ end
 local WARNING_TIME_CEG 		= 30 -- seconds to start being scary before actual reanimation event
 local WARNING_TIME_SOUND 	= 5
 local ZOMBIES_PERMA_SLOW 	= -0.3 -- -0.5 is the base value, made them a lil speedier
-local ZOMBIES_PARTIAL_RECLAIM = true
+local ZOMBIES_PARTIAL_RECLAIM = false
 
 local CMD_REPEAT = CMD.REPEAT
 local CMD_MOVE_STATE = CMD.MOVE_STATE

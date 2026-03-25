@@ -21,6 +21,7 @@ return { striderhub = {
     [[shipcarrier]],
     [[subtacmissile]],
     [[nebula]],
+    [[stridersquire]],
   },
 
   buildPic                      = [[striderhub.png]],

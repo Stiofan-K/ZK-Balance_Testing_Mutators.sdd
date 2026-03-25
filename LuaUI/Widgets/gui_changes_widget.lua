@@ -71,7 +71,7 @@ function widget:Initialize()
 			Chili.TextBox:New { --TODO IDK HOW CHILI WORKS If this text is too long it gets cut off by the parent window? even with scrolling
 				text = 
 					"Amphtanks! \n" ..
-					"-- Yep, tis a new factory, though currently not quite complete and kitbashed out of existing models.\n" ..
+					"-- Tis a new factory, though currently not quite complete and kitbashed out of existing models. Is still missing polish in how things play and feel, feedback is welcome.\n" ..
 
 					"-- Murderhole:		Depth charge armed constructor. Tosses it on land, seeking in water.\n" ..
 					"-- Springald: 		Medium weight light particle burst fire raider. Overheats, cools faster in water.\n" ..
@@ -83,27 +83,23 @@ function widget:Initialize()
 					"-- Crocodile:		Subsurface Assault Bombard. Fires either a Heavy Rocket on land or Torpedo in water on a 10 second reload.\n" ..
 					"-- Plaguerat:		Amphibious Terrain-flattening and Nanoplague bomb. 8 bp zombie rezspeed.\n"..
 					" \n"..
-					"-- Is still missing polish in how things play and feel, feedback is welcome.\n" ..
-					" \n" ..
 					"Striders:\n" ..
 					" \n" ..
-					"-- Nebula returns! Drops its shield health and manoverability in favor of more range, cheaper construction and exceptional sight capability.\n"..
+					"--> Squire! A Medium Weight Combat Strider. 5k cost, 18k hp and carries a 800 range Heavy Blaster and Sonic sidearms. Model pilfered from Paladin.\n" ..
+					"--> Nebula returns! Drops its shield health and manoverability in favor of more range, cheaper construction and exceptional sight capability.\n"..
 					"-- Functions as a siege and intel platform to cap off an aerial advantage. Best contested by a cloaked AA ambush, or air units.\n"..
-					" \n" ..
-					"-- Athena gains a Nanoplague canister missile and Nanoplague Dart as a dgun.\n" ..
+					"--> Athena gains a Nanoplague canister missile and Nanoplague Dart as a dgun.\n" ..
 					"-- Nanoplague causes wrecks in its aoe to resurect into neutral units. Their behavior is equal that of the Zombies! modoption. Zombies are slowed by 0.3.\n" ..
 					"-- The Canister has a wide aoe and resurrects at a speed of 30 bp per second. The Dart has much smaller aoe and resurrects at a speed of 100 bp per second.\n" ..
 					"-- Minimum Revive time is 10 seconds. Canister and Dart share a reload.\n" ..
-					" \n" ..
-					"-- Dante is speedier and tankier, but has it's missile salvo replaced with a shorter range napalm grenade barrage.\n" ..
+					"--> Dante is speedier and tankier, but has it's missile salvo replaced with a shorter range napalm grenade barrage.\n" ..
 					"-- It's dgun/missiles/grenades have less afterburn (same as pyro) but set the ground on fire, while its flamer gets the extended duration afterburn its missiles had.\n" ..
-					" \n" ..
-					"-- Merlin gets a lower range alternative Salvo, a SLAM salvo. Immobilizes merlin during firing. Reloads are linked.\n" ..
-					"-- Risk it for the biscuit! This is potentially strong, but also risks Merlin since the barrage is only 800 range. Manual re-aiming is recommended as mobile units can dodge.\n" ..
-					" \n" ..
-					"-- Reef's pads repair faster and it becomes a builder. Can now also build some planes and gunships.\n" ..
-					" \n" ..
-					"-- Scylla gains high damage but slow siege torpedoes that track their target beyond Scyllas fire range. Its tacnuke is moved to a dgun.\n" ..
+					"--> Merlin gets a lower range alternative Salvo, a SLAM salvo. Immobilizes merlin during firing. Reloads are linked.\n" ..
+					"-- Risk it for the biscuit! This is potentially strong, but also risks Merlin since the barrage is only 900 range. Manual re-aiming is recommended as mobile units can dodge.\n" ..
+					"--> Paladin shoots EMP Missiles while its dgun is off cooldown\n" ..
+					"--> Reef's pads repair faster and it becomes a builder. Can now also build some planes and gunships.\n" ..
+					"--> Scylla gains high damage but slow siege torpedoes that track their target beyond Scyllas fire range. Its tacnuke is moved to a dgun.\n" ..
+					"--> Shogun is cheaper, 4k cost.\n" ..
 					" \n" ..
 					"Aerial AA\n" ..
 					"-- Swift, Raptor and Trident gain extra hp to survive ground AA. About a 1.6x hp buff. Raptor's weapon is swapped for a flak gun of same dps with slightly more range.\n" ..
@@ -145,7 +141,7 @@ function widget:Initialize()
 					"-- Commanders try to prioritise their dgun too.\n" ..
 					"-- New Merlin Salvo too.\n"..
 					"-- Overheat is handled in a gadget and could be applied to all units",
-				fontsize = 13,
+				fontsize = 13.5,
 				y = 10,
 				autosize = true,
 				textColor = {1, 1, 1, 1}
@@ -214,6 +210,57 @@ Amphtanks!!
 --> Overheat mechanic. I'd like for amphtanks to cool down their heat in water faster, while running hot on land
 --> Need gadget implementation of stardust overheat
 
+Striders
+-> Striders currently deliver on their weightclass and powerful feel, but mostly as standoff weapons. They could lean a bit more into delivering on their themes/powerfantasy while being more interactable.
+-> Ultimatum, scorpion and detriment feel most fleshed out and fun to interact with. Especially scorp and ultimatum have a very clean space of capability, that feels strong when they are are advantaged and weak when not.
+-> The other strider could/should lean stronger into their theme and into closer range combat to make interacting with them more interesting.
+-> A good approach could be to reward but not force the closer range combat.
+
+-- Squire
+-- A medium weight combat strider. Meant to fill the gap in combat striders between dante n paladin
+
+-- Nebula
+-- It returns! Drops its shield and health in favor of more range and cheaper construction.
+-- Functions as a Siege platform to cap off an aerial advantage.
+
+-- Athena gains a Nanoplague canister missile and Nanoplague Dart as a dgun. Nanoplague causes wrecks in its aoe to resurect into neutral units. Their behavior is equal that of the Zombies! modoption.
+-- The Canister has a wide aoe and resurrects at a speed of 30 bp per second. The Dart has much smaller aoe and resurrects at a speed of 80 bp per second.
+-- Minimum Revive time is 10 seconds. Canister and Dart share a reload.
+-> The idea was to give athena a use outside of backline cheese. It's buildoptions are powerful, but it has too long a leadtime to be a responsive tool for the frontline.
+-> This gives Athena a unique tool that can always have value on frontlines, while also leaning into the "spec-ops" theme. With a unqiue reason to have an athena around, its buildoptions also become more accessible.
+-> Reviving a raiding party in the enemy base feels like an interesting thing to do. Stalling out an advancing army with your own dead wrecks too.
+-> Theres potential for reclaim farming off of revived units etc. But I think that would be enough effort in setup to be okay.
+-> Testing shows the nanodart, its aoe is small to where it feels like it can miss to easily. I'll increase both aoe's.
+
+-- Dante is speedier, tankier, but has it's missile salvo is replaced with a shorter range grenade barrage.
+-- It's dgun/missiles/grenades have less afterburn (same as pyro) but set the ground on fire, while its flamer gets the extended duration afterburn its missiles had.
+-> Get in there dante! This lad really really really feels like he wants to get close. It's never been allowed because it's too good at flinging missiles downrange. Now it's a bit shorter ranged, so can be allowed to be better at closing the distance.
+-> This may be a back and forth thing. I can imagine that dante got its longer range barrage exactly because couldnt get close/was skirmed alot. But I'm curious to try this out.
+-> After testing, dante feels more suited for running up and killing things.
+
+
+-- Merlin gets a lower range alternative Salvo, a SLAM salvo. Imobilises merlin during firing. Reloads are linked.
+-> Risk it for the biscuit! This is potentially very strong, but also risks Merlin since the barrage is only 800 range.
+-> With how wobbly missile projectiles work, the sort of shotgun merlin idea was already present, but it could never be too effective due to its overall damage needing to be weighted for its max range.
+-> The new Salvo currently burnblows (explodes at max range) to stop range extention from firing at terra pillars, but that could be changed.
+-> You can retarget mid salvo, but worse than base merlin can. It may be better to prevent this, but its also something to leave in.
+-> Feedback suggests people want more omph out of it, so it will get some. Didnt seem gamebreaking yet, but now it may?
+-> I've added impulse to merlin and upped damage and aoe slightly. It can't kill minos from full still which is fine imo. Manual aim is still recomended
+
+-- Paladin shoots emp missiles when its dgun is on cooldown
+-> similar behavior to dante etc, so I feel like its cool here too
+
+Sea Striders
+
+-- Reef's pads repair faster and it becomes a builder. Can now also build some planes and gunships.
+-> Giving access to a limited unit pool for Reef to make keeps the value of gs and air plant, but allows reef to be selfsufficent. Lots of room for interesting things depending on what planes you give it too.
+-> With its bp, its also tempting to use as a reclaiming ship, which may put it in danger, which then could lead to interesting gameplay.
+
+-- Scylla gains high damage but slow siege torpedoes that track their target beyond Scyllas fire range. Its tacnuke is moved to a dgun.
+-> Scylla is already a good unit. But you never really want to risk it, and it is most often a purely anti structure unit.
+-> The idea is to make it worthwhile risking just a little, and also to add a long range torpedo unit as something we don't have yet. Having it as a sidearm on scylla makes spamming it inefficent.
+-> This implementation of said torpedo does feel interesting enough, by being outrunnable and dodgable by light units, tankable and blockable by tanky units but still being powerfull against squisher targets and if not counteracted correctly. Damage could be weighted further toward single target.
+
 
 Shield
 -- Felon loses range but gets increased regen that disables when its shield is hit and is speedier. 
@@ -274,50 +321,6 @@ Veh
 -> Hm! Feedback suggest badger feels better to use, and it seems like a stronger opponent too. It definetly allows for more active use.
 --> Though it may be too strong. tradeoffs could be made in making its dgun reload longer.
 
-Striders
--> Striders currently deliver on their weightclass and powerful feel, but mostly as standoff weapons. They could lean a bit more into delivering on their themes/powerfantasy while being more interactable.
--> Ultimatum, scorpion and detriment feel most fleshed out and fun to interact with. Especially scorp and ultimatum have a very clean space of capability, that feels strong when they are are advantaged and weak when not.
--> The other strider could/should lean stronger into their theme and into closer range combat to make interacting with them more interesting.
--> A good approach could be to reward but not force the closer range combat.
-
--- Nebula
--- It returns! Drops its shield and health in favor of more range and cheaper construction.
--- Functions as a Siege platform to cap off an aerial advantage.
-
--- Athena gains a Nanoplague canister missile and Nanoplague Dart as a dgun. Nanoplague causes wrecks in its aoe to resurect into neutral units. Their behavior is equal that of the Zombies! modoption.
--- The Canister has a wide aoe and resurrects at a speed of 30 bp per second. The Dart has much smaller aoe and resurrects at a speed of 80 bp per second.
--- Minimum Revive time is 10 seconds. Canister and Dart share a reload.
--> The idea was to give athena a use outside of backline cheese. It's buildoptions are powerful, but it has too long a leadtime to be a responsive tool for the frontline.
--> This gives Athena a unique tool that can always have value on frontlines, while also leaning into the "spec-ops" theme. With a unqiue reason to have an athena around, its buildoptions also become more accessible.
--> Reviving a raiding party in the enemy base feels like an interesting thing to do. Stalling out an advancing army with your own dead wrecks too.
--> Theres potential for reclaim farming off of revived units etc. But I think that would be enough effort in setup to be okay.
--> Testing shows the nanodart, its aoe is small to where it feels like it can miss to easily. I'll increase both aoe's.
-
--- Dante is speedier, tankier, but has it's missile salvo is replaced with a shorter range grenade barrage.
--- It's dgun/missiles/grenades have less afterburn (same as pyro) but set the ground on fire, while its flamer gets the extended duration afterburn its missiles had.
--> Get in there dante! This lad really really really feels like he wants to get close. It's never been allowed because it's too good at flinging missiles downrange. Now it's a bit shorter ranged, so can be allowed to be better at closing the distance.
--> This may be a back and forth thing. I can imagine that dante got its longer range barrage exactly because couldnt get close/was skirmed alot. But I'm curious to try this out.
--> After testing, dante feels more suited for running up and killing things.
-
-
--- Merlin gets a lower range alternative Salvo, a SLAM salvo. Imobilises merlin during firing. Reloads are linked.
--> Risk it for the biscuit! This is potentially very strong, but also risks Merlin since the barrage is only 800 range.
--> With how wobbly missile projectiles work, the sort of shotgun merlin idea was already present, but it could never be too effective due to its overall damage needing to be weighted for its max range.
--> The new Salvo currently burnblows (explodes at max range) to stop range extention from firing at terra pillars, but that could be changed.
--> You can retarget mid salvo, but worse than base merlin can. It may be better to prevent this, but its also something to leave in.
--> Feedback suggests people want more omph out of it, so it will get some. Didnt seem gamebreaking yet, but now it may?
--> I've added impulse to merlin and upped damage and aoe slightly. It can't kill minos from full still which is fine imo. Manual aim is still recomended
-
-Sea Striders
-
--- Reef's pads repair faster and it becomes a builder. Can now also build some planes and gunships.
--> Giving access to a limited unit pool for Reef to make keeps the value of gs and air plant, but allows reef to be selfsufficent. Lots of room for interesting things depending on what planes you give it too.
--> With its bp, its also tempting to use as a reclaiming ship, which may put it in danger, which then could lead to interesting gameplay.
-
--- Scylla gains high damage but slow siege torpedoes that track their target beyond Scyllas fire range. Its tacnuke is moved to a dgun.
--> Scylla is already a good unit. But you never really want to risk it, and it is most often a purely anti structure unit.
--> The idea is to make it worthwhile risking just a little, and also to add a long range torpedo unit as something we don't have yet. Having it as a sidearm on scylla makes spamming it inefficent.
--> This implementation of said torpedo does feel interesting enough, by being outrunnable and dodgable by light units, tankable and blockable by tanky units but still being powerfull against squisher targets and if not counteracted correctly. Damage could be weighted further toward single target.
 
 -- Quake applies Nanoplague, resurecting wrecks in its aoe as neutral units. An alternative usecase for it. 50 bp resurect speed.
 -- So does DRP's Green shot, at 100 bp

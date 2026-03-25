@@ -44,7 +44,7 @@ return { nebula = {
   noChaseCategory        = [[TERRAFORM FIXEDWING SATELLITE SUB]],
   objectName             = [[nebula.s3o]],
   script                 = [[nebula.lua]],
-  selfDestructAs      = [[ESTOR_BUILDING]],
+  selfDestructAs         = [[ESTOR_BUILDING]],
 
   sfxtypes               = {
 
@@ -56,7 +56,7 @@ return { nebula = {
 
   },
   sightDistance          = 1000,
-  speed                  = 60,
+  speed                  = 55,
   turnRate               = 100,
   upright                = true,
   workerTime             = 0,
@@ -66,28 +66,28 @@ return { nebula = {
       def                = [[CANNON]],
       mainDir            = [[0 1 -1]], -- top
       maxAngleDif        = 250,
-      badTargetCategory  = [[FIXEDWING]],
+      badTargetCategory  = [[MOBILE]],
       onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
     },
     {
       def                = [[CANNON]],
       mainDir            = [[0 -1 0]], -- bottom
       maxAngleDif        = 210,
-      badTargetCategory  = [[FIXEDWING]],
+      badTargetCategory  = [[MOBILE]],
       onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
     },
     {
       def                = [[CANNON]],
       mainDir            = [[-1 0 0]], -- left
       maxAngleDif        = 210,
-      badTargetCategory  = [[FIXEDWING]],
+      badTargetCategory  = [[MOBILE]],
       onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
     },
     {
       def                = [[CANNON]],
       mainDir            = [[1 0 0]], -- right
       maxAngleDif        = 210,
-      badTargetCategory  = [[FIXEDWING]],
+      badTargetCategory  = [[MOBILE]],
       onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
     },
   },
@@ -100,14 +100,14 @@ return { nebula = {
       accuracy                = 100,
       alphaDecay              = 0.1,
       areaOfEffect            = 32,
-      burst                   = 10,
+      burst                   = 4,
       burstrate               = 0.3,
       colormap                = [[1 0.95 0.4 1   1 0.95 0.4 1    0 0 0 0.01    1 0.7 0.2 1]],
       craterBoost             = 0,
       craterMult              = 0,
 
       damage                  = {
-        default = 40,
+        default = 100,
       },
 
       explosionGenerator      = [[custom:plasma_hit_32]],

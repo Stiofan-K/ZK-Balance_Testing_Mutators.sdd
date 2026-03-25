@@ -6,6 +6,7 @@ return { dronefighter = {
   canBeAssisted          = false,
   canFly                 = true,
   canGuard               = true,
+  canLoopbackAttack      = true,
   canMove                = true,
   canPatrol              = true,
   canSubmerge            = false,

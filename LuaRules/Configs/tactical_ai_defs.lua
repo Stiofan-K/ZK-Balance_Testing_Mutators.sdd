@@ -91,6 +91,8 @@ local lowRangeSwarmieeArray = NameToDefID({
 	"spidercrabe",
 	--"hoverarty", -- Always hits small units. Swarm may make it hit more.
 	
+	"stridersquire",
+	
 	"chickenr",
 	"chickenblobber",
 	"cloaksnipe", -- only worth swarming sniper at low range, too accurate otherwise.
@@ -316,6 +318,7 @@ local longRangeSkirmieeArray = NameToDefID({
 	"vehcapture",
 	"chickenc",
 	"striderbantha",
+	"stridersquire",
 	"turretlaser",
 	"turretriot",
 	"turretemp",
@@ -1714,7 +1717,7 @@ local behaviourConfig = {
 	},
 	{
 		name = "amphtankskirm",
-		skirms = allMobileGround,
+		skirms = longRangeSkirmieeArray,
 		skirmRadar = true,
 		--swarms = {},
 		--flees = {},
@@ -1898,6 +1901,15 @@ local behaviourConfig = {
 	},
 	{
 		name = "striderbantha",
+		defaultAIState = 0,
+		skirms = allMobileGround,
+		--swarms = {},
+		--flees = {},
+		skirmRadar = true,
+		skirmLeeway = 120,
+	},
+	{
+		name = "stridersquire",
 		defaultAIState = 0,
 		skirms = allMobileGround,
 		--swarms = {},

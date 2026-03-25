@@ -103,8 +103,13 @@ function script.Shot(num)
 	EmitSfx(weapons[num].flares[index], GG.Script.UNIT_SFX1)
 end
 
-function script.BlockShot(num)
-	return (GetUnitValue(COB.CRASHING) == 1)
+function script.BlockShot(num, targetID)
+	if Spring.ValidUnitID(targetID) then
+		local distMult = (Spring.GetUnitSeparation(unitID, targetID) or 0)/280
+		Spring.Echo(GG.OverkillPrevention_CheckBlock(unitID, targetID, 400, 25 * distMult, false, false, true))
+		return GG.OverkillPrevention_CheckBlock(unitID, targetID, 400, 25 * distMult, false, false, true)
+	end
+	return false
 end
 
 function script.Killed(recentDamage, maxHealth)
