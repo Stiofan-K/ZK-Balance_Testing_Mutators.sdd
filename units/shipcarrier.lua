@@ -95,7 +95,7 @@ return { shipcarrier = {
   turnRate               = 372,
   upright                = true,
   waterline              = 20,
-  workerTime             = 40,
+  workerTime             = 20,
 
   weapons                = {
 

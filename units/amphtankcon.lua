@@ -135,7 +135,7 @@ return { amphtankcon = {
     
     LAND_DEPTHCHARGE = {
       name                    = [[Launched Charge]],
-      accuracy                = 3000,
+      accuracy                = 0,
       areaOfEffect            = 64,
       avoidFriendly           = false,
       bouncerebound           = 0.5,

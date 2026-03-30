@@ -6,7 +6,6 @@ return { dronefighter = {
   canBeAssisted          = false,
   canFly                 = true,
   canGuard               = true,
-  canLoopbackAttack      = true,
   canMove                = true,
   canPatrol              = true,
   canSubmerge            = false,
@@ -73,7 +72,7 @@ return { dronefighter = {
     {
       def                = [[LASER]],
       mainDir            = [[0 0 1]],
-      maxAngleDif        = 70,
+      maxAngleDif        = 90,
       onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
     },
   },

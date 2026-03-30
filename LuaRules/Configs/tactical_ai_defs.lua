@@ -164,6 +164,8 @@ local longRangeRaiderIdleFleeArray = NameToDefID({
 	"amphimpulse",
 	"amphriot",
 	
+	"amphtankriot",
+	
 	"shipriot",
 	"striderdante",
 })
@@ -192,6 +194,7 @@ local torpedoIdleFleeArray = NameToDefID({
 	"amphraid",
 	"amphriot",
 	"amphtankraid",
+	"amphtanksubraid",
 })
 
 medRangeRaiderIdleFleeArray = Union(medRangeRaiderIdleFleeArray, longRangeRaiderIdleFleeArray)
@@ -231,7 +234,8 @@ local shortRangeSkirmieeArray = NameToDefID({
 	"jumpbomb",
 	"amphtankbomb",
 	"shieldraid",
-	"amphtankraid"
+	"amphtankraid",
+	"amphtanksubraid",
 })
 
 local shortToRiotRangeSkirmieeArray = NameToDefID({
@@ -1374,6 +1378,13 @@ local behaviourConfig = {
 			velocityPrediction = 0,
 		},
 	},
+	{
+		name = "amphtankriot",
+		wardFireTargets = personalShieldUnits,
+		wardFireShield = 300,
+		wardFirePredict = 35,
+		wardFireDefault = true,
+	},
 	
 	--assaults
 	{
@@ -1718,25 +1729,23 @@ local behaviourConfig = {
 	{
 		name = "amphtankskirm",
 		skirms = longRangeSkirmieeArray,
+		swarms = longRangeSwarmieeArray,
 		skirmRadar = true,
-		--swarms = {},
 		--flees = {},
-		skirmLeeway = 20,
+		maxSwarmLeeway = 30,
+		minSwarmLeeway = 130,
+		skirmLeeway = 30,
 		skirmOrderDis = 200,
-		skirmOrderDisMin = 100, -- Make it turn around.
-		--[[
-		TODO maybe something it wants?
-		wardFireCmdID = CMD_FIRE_TOWARDS_ENEMY,
-		wardFireEverything = true,
-		wardFireUnboundedRange = true,
-		wardFireLeewayOverride = 80,
-		wardFireEnableLeeway = 10,
-		wardFirePredict = 5,
-		wardFireLeeway = 15,
-		wardFireShield = false,
-		wardFireDefault = false, -- Let people choose this.
-		wardAlternateStateToggle = true,
-		]]
+		skirmOrderDisMin = 0,
+		--skirmBlockedApproachFrames = 5,
+
+		bonusRangeUnits = personalShieldUnits,
+		wardFireTargets = personalShieldUnits,
+		wardFireLeeway = 20,
+		wardFireHeight = 5,
+		wardFirePredict = 50,
+		wardFireShield = 250,
+		wardFireDefault = true,
 	},
 	
 	-- weird stuff

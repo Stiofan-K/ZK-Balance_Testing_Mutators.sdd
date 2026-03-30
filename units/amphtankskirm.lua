@@ -18,10 +18,12 @@ return { amphtankskirm = {
   customParams        = {
     selection_scale   = 0.85,
     bait_level_default = 0,
+    aim_lookahead      = 60,
 
     outline_x = 80,
     outline_y = 80,
     outline_yoff = 12.5,
+    reaim_time = 1,
   },
 
   explodeAs           = [[BIG_UNITEX]],

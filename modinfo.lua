@@ -2,7 +2,7 @@ return {
 	name = 'Stiofan Balance Refumble',
 	description = 'Playing around with balance to feel things out!',
 	shortname = 'zkstiofanbalancerefumble',
-	version = 'v1.3.14 dev',
+	version = 'v1.3.15 dev',
 	mutator = '1',
 	game = '',
 	shortGame = '',
@@ -11,3 +11,11 @@ return {
 		[[rapid://zk:stable]]
 	},
 }
+--[[
+{
+ "shortname" = "zkstiofanbalancerefumbleV1.3.14.sdz",
+ "name" = "Stiofan Balance Refumble v1.3.14",
+ "description" = "Playing around with balance to feel things out!",
+ "game" = "Stiofan Balance Refumble v1.3.14"
+}
+]]
