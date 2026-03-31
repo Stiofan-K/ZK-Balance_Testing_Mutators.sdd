@@ -110,6 +110,9 @@ function widget:Initialize()
 					"-- Magpie becomes an attritional glidebomber. It rearms faster and gains some aoe but loses accurate tracking.\n" ..
 					"-- Phoenix has its damage shifted more to afterburn from upfront damage, with the resulting damage being similar, but stacking multiple phoenix being less effective.\n" ..
 					" \n" ..
+					"Cloak\n" ..
+					"-- Scythe can now areacloak, being a middle step between conjurer and iris. Scythe is slowed when areacloaking, but still slightly faster than iris.\n" ..
+					" \n" ..
 					"Jump\n" ..
 					"-- All jumpbots can jump, but worse than their prime jumpers in speed and recharge. It is primarily a tactical movement, not combat jump.\n" ..
 					"-- All new jumps have a windup before jumping. It is meant to be only very slightly faster than walking on flat ground.\n" ..
@@ -268,6 +271,12 @@ Shield
 -- Outlaw is faster and more tanky. Deals more damage up close and less at its edge. 
 -> Idea is to make shields trade using their shields the norm, instead of having felon as their shield -> damage converter. The more interactable the shields are the better, and felon makes half the factories not interact with it outside of all-ins.
 -> The best idea to come from this is I think extra thug shield range. It was very nice the first time it happend, so I think its a good angle to push.
+
+Cloak
+-- Scythe can now areacloak, being a middle step between conjurer and iris. It is slightly faster.
+-> Scythe being a middle step for cloak, allows them to cloak earlier than other factories.
+-> Conjurer could do this but it sort of clashes by being a con, needing extra micro to use well or in armies.
+
 
 Jump
 -- All jumpbots can jump, but worse than their prime jumpers in speed and recharge. It is primarily a tactical movement, not combat jump.
