@@ -18,7 +18,6 @@ local isLoaded = {
 	true,
 }
 
-local RELOAD_TIME = 2.3 * 30
 
 local SIG_AIM = 1
 local SIG_MOVE = 2
@@ -138,14 +137,31 @@ local function Wake()
 	end
 end
 
+local function SetDeploy(wantDeploy)
+	Signal(SIG_DEPLOY)
+	SetSignalMask(SIG_DEPLOY)
+	if wantDeploy then
+		Move(turret, y_axis, 0, 5)
+		Turn(sleeve, x_axis,math.rad(-90),math.rad(100))
+		WaitForTurn(sleeve, x_axis,math.rad(-90))
+		deployed = true
+	else
+		Move(turret, y_axis, -5, 5)
+		Turn(sleeve, x_axis,math.rad(-180),math.rad(100))
+		deployed = false
+	end
+end
+
 
 
 function script.StartMoving()
+	StartThread(SetDeploy,false)
 	StartThread(TrackControlStartMoving)
 	moving = true
 end
 
 function script.StopMoving()
+	StartThread(SetDeploy,true)
 	TrackControlStopMoving()
 	moving = false
 end
@@ -162,6 +178,9 @@ function script.AimWeapon(num, heading, pitch)
 	Signal (SIG_AIM)
 	SetSignalMask (SIG_AIM)
 
+	if not deployed then
+		return false
+	end
 	isAiming = true
 
 	while disarmed do
@@ -188,7 +207,7 @@ end
 
 
 function script.BlockShot(num, targetID)
-	return GG.OverkillPrevention_CheckBlock(unitID, targetID, 70, 60)
+	return GG.OverkillPrevention_CheckBlock(unitID, targetID, 60, 60)
 	--return GG.Script.OverkillPreventionCheck(unitID, targetID, OKP_DAMAGE, 610, 30, 0.25)
 end
 
@@ -199,8 +218,10 @@ function script.Create()
 	while (select(5, Spring.GetUnitHealth(unitID)) < 1) do
 		Sleep (250)
 	end
-
+	--[[
+	Move(turret, y_axis, -7, 3)
 	Turn(sleeve, x_axis,math.rad(-90),math.rad(200))
+	]]
 
 	Hide(missiles[1])
 	Hide(missiles[2])
