@@ -303,6 +303,8 @@ local medRangeSkirmieeArray = NameToDefID({
 	"tankassault",
 	"tankheavyassault",
 	"amphtanksubassault",
+	"amphtankriot",
+	
 	"tankriot", -- banisher
 	"striderscorpion",
 })
@@ -1919,7 +1921,6 @@ local behaviourConfig = {
 	},
 	{
 		name = "stridersquire",
-		defaultAIState = 0,
 		skirms = allMobileGround,
 		--swarms = {},
 		--flees = {},

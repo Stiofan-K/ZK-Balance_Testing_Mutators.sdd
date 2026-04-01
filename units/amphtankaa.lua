@@ -1,6 +1,6 @@
 return { amphtankaa = {
   name                   = [[Ballista]],
-  description            = [[Disarming Anti-Air Tank]],
+  description            = [[Disarming Anti-Air Amphtank]],
   activateWhenBuilt      = true,
   acceleration           = 0.36,
   brakeRate              = 1.8,
@@ -79,7 +79,7 @@ return { amphtankaa = {
 
     FLAK = {
       name                    = [[Disarming Flak Cannon]],
-      accuracy                = 50,
+      accuracy                = 0,
       areaOfEffect            = 128,
       burnblow                = true,
       canattackground         = false,
@@ -99,8 +99,8 @@ return { amphtankaa = {
       },
 
       damage                  = {
-        default = 30,
-        planes  = 300,
+        default = 40,
+        planes  = 400,
       },
 
       edgeEffectiveness       = 0.85,

@@ -1,6 +1,6 @@
 return { amphtankriot = {
   name                = [[Hive]],
-  description         = [[Riot Swarm Missile Amphtank]],
+  description         = [[Deployable Riot Swarm Missile Amphtank (must stop to fire)]],
   activateWhenBuilt   = true,
   acceleration        = 0.132,
   brakeRate           = 0.516,
@@ -22,15 +22,13 @@ return { amphtankriot = {
     set_target_range_buffer = 40,
     normaltex = [[unittextures/corbanish_normals.dds]],    
     
-    okp_damage = 70,
     
     heat_per_shot  = 0.06, -- Heat is always a number between 0 and 1
     heat_decay     = 0.10, -- Per second?
     heat_max_slow  = 0.5,
     heat_initial   = 0,
     heat_water_cool_mult = 2,
-    
-        
+ 
     outline_x = 110,
     outline_y = 110,
     outline_yoff = 13.5,
@@ -40,19 +38,20 @@ return { amphtankriot = {
   floater             = true,
   footprintX          = 4,
   footprintZ          = 4,
-  health              = 1950,
+  health              = 2500,
   iconType            = [[shipriot_alt]],
   leaveTracks         = true,
   maxSlope            = 18,
   metalCost           = 500,
-  movementClass        = [[HOVER4]],
+  movementClass       = [[HOVER4]],
+  moveState           = 0,
   noAutoFire          = false,
   noChaseCategory     = [[TERRAFORM SATELLITE SUB]],
   objectName          = [[corbanish.s3o]],
   script              = [[amphtankriot.lua]],
   selfDestructAs      = [[BIG_UNITEX]],
-  sightDistance       = 400,
-  sonarDistance       = 400,
+  sightDistance       = 450,
+  sonarDistance       = 450,
   speed               = 69,
   trackOffset         = 8,
   trackStrength       = 10,
@@ -79,28 +78,34 @@ return { amphtankriot = {
     MICROMISSILES      = {
       name                    = [[Wasp Missile Battery]],
       areaOfEffect            = 24,
+      bouncerebound           = 0.5,
+      bounceslip              = 0.5,
       craterBoost             = 0,
       craterMult              = 0.2,
       
       customParams        = {
         light_camera_height = 2000,
         light_radius = 200,
+        
+        target_painted = 1,
       },
       
       damage                  = {
-        default = 75.1,
+        default = 50.1,
       },
 
       dance                   = 20,
       fireStarter             = 0.2,
-      flightTime              = 5,
+      flightTime              = 3.5,
+      groundBounce            = true,
       impulseBoost            = 0,
       impulseFactor           = 0.4,
       interceptedByShieldType = 2,
       leadLimit               = 0,
       model                   = [[wep_m_hailstorm.s3o]],
-      range                   = 330,
-      reloadtime              = 0.2,
+      numbounce               = 4,
+      range                   = 420,
+      reloadtime              = 0.1+1/30,
       smokeTrail              = true,
       soundHit                = [[explosion/ex_med17]],
       soundStart              = [[weapon/missile/missile_fire10]],
@@ -108,13 +113,13 @@ return { amphtankriot = {
       startVelocity           = 100,
       tracks                  = true,
       tolerance               = 4000,
-      turnrate                = 40000,
+      turnrate                = 80000,
       turret                  = true,
       --waterWeapon           = true,
       weaponAcceleration      = 100,
       weaponTimer             = 0.4,
       weaponType              = [[StarburstLauncher]],
-      weaponVelocity          = 1800,
+      weaponVelocity          = 1600,
       wobble                  = 30000
     },
     

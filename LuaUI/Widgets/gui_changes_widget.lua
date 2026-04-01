@@ -72,10 +72,10 @@ function widget:Initialize()
 				text = 
 					"Amphtanks! \n" ..
 					"-- Tis a new factory, though currently not quite complete and kitbashed out of existing models. Is still missing polish in how things play and feel, feedback is welcome.\n" ..
-
+					" \n" ..
 					"-- Murderhole:		Depth charge armed constructor. Tosses it on land, seeking in water.\n" ..
 					"-- Springald: 		Medium weight light particle burst fire raider. Overheats, cools faster in water.\n" ..
-					"-- Hive:			Swarm Missile Riot amphtank. Slow to start dealing damage but high dps. Overheats\n" ..
+					"-- Hive:			Deploying Swarm Missile Riot amphtank. Slow to start dealing damage but high dps. Overheats.\n" ..
 					"-- Mangonel: 		Depth Charge Launcher skirmisher. Tosses them on land, seeking in water. Has some splash damage.\n" ..
 					"-- Ballista:		Disarming Flak Tank with short range missile sidearm.\n" ..
 					"-- Arbalest:		Rapidfire Gauss Firesupport. Stops to fire. Has very low line of fire. Overheats.\n" ..

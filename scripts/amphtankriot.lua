@@ -141,13 +141,13 @@ local function SetDeploy(wantDeploy)
 	Signal(SIG_DEPLOY)
 	SetSignalMask(SIG_DEPLOY)
 	if wantDeploy then
-		Move(turret, y_axis, 0, 5)
-		Turn(sleeve, x_axis,math.rad(-90),math.rad(100))
+		Move(turret, y_axis, 0, 6)
+		Turn(sleeve, x_axis,math.rad(-90),math.rad(120))
 		WaitForTurn(sleeve, x_axis,math.rad(-90))
 		deployed = true
 	else
-		Move(turret, y_axis, -5, 5)
-		Turn(sleeve, x_axis,math.rad(-180),math.rad(100))
+		Move(turret, y_axis, -5, 6)
+		Turn(sleeve, x_axis,math.rad(-180),math.rad(120))
 		deployed = false
 	end
 end
@@ -203,12 +203,6 @@ function script.FireWeapon()
 	StartThread(GG.ScriptRock.Rock, dynamicRockData[z_axis], gunHeading, ROCK_FIRE_FORCE)
 	StartThread(GG.ScriptRock.Rock, dynamicRockData[x_axis], gunHeading - hpi, ROCK_FIRE_FORCE)
 	currentMissile = 3 - currentMissile
-end
-
-
-function script.BlockShot(num, targetID)
-	return GG.OverkillPrevention_CheckBlock(unitID, targetID, 60, 60)
-	--return GG.Script.OverkillPreventionCheck(unitID, targetID, OKP_DAMAGE, 610, 30, 0.25)
 end
 
 function script.Create()
