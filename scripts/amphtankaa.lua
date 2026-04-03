@@ -109,7 +109,7 @@ end
 
 function script.BlockShot(num, targetID)
 	if num == 1 then
-		return GG.OverkillPrevention_CheckBlockD(unitID, targetID, 400, 15, 200) --300 - disarm damage  1 second - timeout, 4 seconds - disarmTimer
+		return GG.OverkillPrevention_CheckBlock(unitID, targetID, 400, 15, 200) --300 - disarm damage  1 second - timeout, 4 seconds - disarmTimer
 	end
 end
 

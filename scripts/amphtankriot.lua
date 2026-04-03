@@ -222,7 +222,7 @@ function script.Create()
 
 	moving = false
 	StartThread(Wake)
-	StartThread (GG.Script.SmokeUnit, unitID, smokePiece)
+	StartThread(GG.Script.SmokeUnit, unitID, smokePiece)
 end
 
 function script.Killed (recentDamage, maxHealth)

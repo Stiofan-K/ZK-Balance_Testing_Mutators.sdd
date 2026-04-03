@@ -84,7 +84,6 @@ function widget:Initialize()
 					"-- Plaguerat:		Amphibious Terrain-flattening and Nanoplague bomb. 8 bp zombie rezspeed.\n"..
 					" \n"..
 					"Striders:\n" ..
-					" \n" ..
 					"--> Squire! A Medium Weight Combat Strider. 5k cost, 18k hp and carries a 800 range Heavy Blaster and Sonic sidearms. Model pilfered from Paladin.\n" ..
 					"--> Nebula returns! Drops its shield health and manoverability in favor of more range, cheaper construction and exceptional sight capability.\n"..
 					"-- Functions as a siege and intel platform to cap off an aerial advantage. Best contested by a cloaked AA ambush, or air units.\n"..
@@ -127,23 +126,18 @@ function widget:Initialize()
 					"-- Thug gains more shieldhealth, radius and fires both cannons, though with a longer reload. Slighlty more dps\n" ..
 					"-- Outlaw is faster and more tanky. Deals more damage up close and slightly less at its edge.\n" ..
 					" \n" ..
-					"Rovers\n" ..
+					"Miscellaneous\n" ..
+					"-- Hercules drops units safely. It applies collision damage immunity to units dropped by ejecting or on death.\n" ..
 					"-- Badger gains a dgun, a burst of mines that puts its main weapon on cooldown. Maybe something for the badger enjoyers.\n" ..
-					" \n" ..
-					"Bertha\n" ..
-					"-- Has lower base reload but overheats. The first few bertha shots will fire significantly faster before returning to normal reload speed.\n" ..
-					" \n" ..
-					"Quake \n" ..
+					"-- Bertha has quicker reload but overheats. The first few bertha shots will fire significantly faster before returning to normal reload speed.\n" ..
 					"-- Quake applies Nanoplague, resurecting wrecks in its aoe as neutral units. An alternative usecase for it. 50 bp resurect speed.\n" ..
-					" \n" ..
-					"DRP \n" ..
-					"-- It's green shot also applies nanoplague, at 100 bp\n" ..
+					"-- DRP's green shot also applies nanoplague, at 100 bp.\n" ..
 					" \n" ..
 					"QoL/Technical/Fix:\n" ..
 					"-- Dante tries to prioritises its dgun over shooting other things.\n" ..
 					"-- Commanders try to prioritise their dgun too.\n" ..
 					"-- New Merlin Salvo too.\n"..
-					"-- Overheat is handled in a gadget and could be applied to all units",
+					"-- Overheat is handled in a gadget and could be applied to any unit.",
 				fontsize = 13.5,
 				y = 10,
 				autosize = true,
