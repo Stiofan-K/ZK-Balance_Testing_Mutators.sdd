@@ -176,6 +176,7 @@ Amphtanks!!
 				-> A backloaded riot unit. Areadenial and good dps/hp. Vunerable to being bursted down.
 				-> Now with overheat seems to be settled where I like it.
 				-> Feels counterintuitive to a "dps" riot since it slows itself, but the nature of its weapon being almost gurnateed damage is I think alright
+				-> Iteration that deploys and retargets it's missiles. Feels more unique now, though the deploy is a 50/50
 				
 -- Mangonel: 	Depth Charge Launcher skirm. Tosses them on land, seeking in water
 				-> Slower vehicle based skirmisher with trajectory settings. Expensive and fills an antiskirmisher role
@@ -183,29 +184,34 @@ Amphtanks!!
 
 -- Ballista:	Disarming Flak Tank with short range missile sidearm.
 				-> Slower area denial AA that can help out in figher combat
+				-> a downside is that it works against bomber ai
 
 -- Arbalest:	Rapidfire Gauss Firesupport. Stops to fire.
 				-> Lower range artillery that needs to sit still and line of sight to do damage. Inaccuracy reduces effectiveness against raiders.
 				-> Can target subsurface units, but at it's range is still vunerable to countersniping and walling.
-				-> Overheats to be balanced
+				-> Overheats to be balanced?
+				-> May need to be turned into more of a bulkhead esque unit. It doesnt seem overpowered, or more powerfull than lance, but it may be more psychologically scary.
+				-> Less range and cost seems like an okay tradeoff.
 				
 -- Anura:		Subsurface assault/raider. Uses torpedoes underwater and a plasma repeater on land.
 				-> A submarine raider that fights well on shores due to its dual weapon nature.
+				-> Steal rangeupdate from duck to accuratly portray the difference
+				-> Was more "fun" when it was more equal to ships? I'll not it separatly
 
 -- Crocodile:	Subsurface Assault Bombard. Fires either a Heavy Rocket on land or Torpedo in water on a 10 second reload.
 				-> Fires dangerous projectiles both on surface and in water. Still vunerable to swarming due to its long reload.
-				-> It's torpedo can be lead and curved back onto allies
+				-> It's torpedo can be lead and curved back onto allies.
+				-> Had to reduce the aoe underwater to make it less monospamable. Though maybe reducing damage and keeping aoe is better to make it countered by large antisup units?
 				
 -- Plaguebearer: Subsurface Terraform and Nanoplague bomb. Flattens Terrain and revives wrecks as zombies in its aoe. 10 bp rezspeed.
 				-> cheaper way to access nanoplague
 				-> Also flattens terrain
-				-> Silly high impulse
-				-> This is trying to do too much at once, but tbh, its funny
+				-> Silly high impulse could be funny
 				
 -- Missing qol things like Overkill prevention and tactical ai, which especially hurts the Hive and Mangonel
 -- expect to babysit alot more than other factories for now, aswell as missing polish in how things play and feel.
 --> Overheat mechanic. I'd like for amphtanks to cool down their heat in water faster, while running hot on land
---> Need gadget implementation of stardust overheat
+--> gadget is done, but ive not applied it to everything there. 
 
 Striders
 -> Striders currently deliver on their weightclass and powerful feel, but mostly as standoff weapons. They could lean a bit more into delivering on their themes/powerfantasy while being more interactable.
@@ -215,6 +221,7 @@ Striders
 
 -- Squire
 -- A medium weight combat strider. Meant to fill the gap in combat striders between dante n paladin
+-> seems conceptually okay. but maybe not a "good" unit
 
 -- Nebula
 -- It returns! Drops its shield and health in favor of more range and cheaper construction.
@@ -364,9 +371,11 @@ function ScrollableTextBox()
 TODO Paladin
 -> cheaper and shorter range?
 --> needs to get out of standoff role, or be more interactive in it.
+--> I ended up making squire. Pala flings its missiles when dgun is off cooldown
 
 TODO Scythe area cloak?
 Smol area cloak, get cloak into cloak earlier, while sidestepping conjurers jankyness
+-> done, but not enough testing. maybe op
 
 TODO Shogun buff
 It should be maybe better shore bombardment?
@@ -381,7 +390,7 @@ TODO Nanoplague effects
 any rezing wreck needs to display effects
 -> its fun to be unsure about what rezzes, but it needs to be clear
 -> done that, now always shows if something is rezing, doubleing effects if close to completion
-Could be better
+Could be better?
 
 TODO com buffs?
 I'd like for them to be more viable in general
@@ -416,6 +425,12 @@ Things that would move things in that direction:
 		-> Overkill prevention on sirens missiles
 	-> Another arty piece that excells at shore bombardment. Barrage impaler?
 
+TODO Battlecruiser/Flagships
+Expensive omni unit?
+->Vanquisher exists and could fill that hole
+True Subsurface Battlesub?
+-> Slow with medium range torps, and water launched missiles?
+Toggleable float/sink state?
 
 
 
@@ -468,6 +483,7 @@ Puppy jump get blocked by terrain sometimes
 TODO check Dante groundburn
 it may stack and unintentionally do loadsa damage
 -> though tbh thats fine
+-> maybe bigger groundburn aoe
 	
 TODO Inferno vfx fix for water hit?
 
@@ -524,12 +540,15 @@ Spec Raid:		Sub tank, float below water surface
 Anura 			Anura/blitz has amhibious modelling
 (Frog family)	-> move nose forward and open rear in water, spin fans.
 TODO Could be better vs other raiders?
+-> is currently the inverse, better vs slower units, gets kited by raiders
 
 -- Bomb			Nanoplague bomb like limpet?
 
-TODO All new units need overkill prevention done right
+TODO All new units need overkill prevention done righ
+sorta done, but not good ig
 
 TODO also need to check for blocked shots
+hive loves to punt its shots into a wall
 
 TODO all amphtanks need the water wake effects
 Anura/blitz has amhibious modelling
@@ -549,13 +568,8 @@ Drop the shield.
 Weapons as standoff guns
 Drones as freely controlable?
 allowed to choose its drones from some gunship and all drones available.
+-> currentl implementation works, but i'd like to still have the drones do their thing
 
-TODO Battlecruiser/Flagships
-Expensive omni unit?
-->Vanquisher exists and could fill that hole
-True Subsurface Battlesub?
--> Slow with medium range torps, and water launched missiles?
-Toggleable float/sink state?
 
 TODO Trident torps
 It's called trident, cmon.
