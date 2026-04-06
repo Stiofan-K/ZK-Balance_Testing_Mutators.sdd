@@ -164,7 +164,7 @@ return { athena = {
       
       customParams        = {
         apply_nano_plague       = "1",
-        plague_rez_build_power  = 100,
+        plague_rez_build_power  = 150,
       },
       
       damage                  = {
