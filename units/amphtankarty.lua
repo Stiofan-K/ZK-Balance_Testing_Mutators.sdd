@@ -18,9 +18,9 @@ return { amphtankarty = {
   customParams        = {
     unstick_leeway    = 30, -- Don't lose move orders if stuck while packing.
     
-    heat_per_shot  = 0.045, -- Heat is always a number between 0 and 1
+    heat_per_shot  = 0.07, -- Heat is always a number between 0 and 1
     heat_decay     = 0.05, -- Per second
-    heat_max_slow  = 0.7,
+    heat_max_slow  = 0.8,
     heat_initial   = 0,
     heat_water_cool_mult = 2,
   },
@@ -29,12 +29,12 @@ return { amphtankarty = {
   floater             = true,
   footprintX          = 3,
   footprintZ          = 3,
-  health              = 1200,
+  health              = 1500,
   iconType            = [[shiparty_alt]],
   leaveTracks         = true,
   maxSlope            = 18,
   maxWaterDepth       = 22,
-  metalCost           = 1200,
+  metalCost           = 900,
   movementClass       = [[HOVER3]],
   moveState           = 0,
   noAutoFire          = false,
@@ -85,7 +85,7 @@ return { amphtankarty = {
       customParams = {
         --burst = Shared.BURST_RELIABLE,
 
-        --single_hit = true, -- maaaybe better to have this on
+        --single_hit = true,
       },
 
       damage                  = {
@@ -102,11 +102,12 @@ return { amphtankarty = {
       noExplode               = true,
       noSelfDamage            = true,
       numbounce               = 40,
-      range                   = 1000,
-      reloadtime              = 0.2,
+      range                   = 675,
+      reloadtime              = 0.1 + 2/30,
       rgbColor                = [[0.5 1 1]],
       separation              = 0.5,
-      size                    = 0.4,
+      size                    = 0.8,
+      sizeDecay               = -0.1,
       soundHit                = [[weapon/gauss_hit]],
       soundHitVolume          = 3,
       soundStart              = [[weapon/gauss_fire]],
@@ -115,7 +116,7 @@ return { amphtankarty = {
       turret                  = true,
       waterweapon             = true,
       weaponType              = [[Cannon]],
-      weaponVelocity          = 1200,
+      weaponVelocity          = 1100,
     },
   },
 

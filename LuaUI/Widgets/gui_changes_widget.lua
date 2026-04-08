@@ -167,6 +167,8 @@ Amphtanks!!
 
 -- Murderhole:	Depth charge armed constructor. Tosses it on land
 				-> An armed water con. Beats out single raiders or mutliple if they bunch up.
+				-> On land it's charge is very dodgeable, but stacks up to be scary enmass.
+				-> In water it's tracking
 				
 -- Springald: 	Medium weight light particle burst raider
 				-> A mix of bandit and dagger, a slower more area control focused vehicle raider
@@ -176,11 +178,12 @@ Amphtanks!!
 				-> A backloaded riot unit. Areadenial and good dps/hp. Vunerable to being bursted down.
 				-> Now with overheat seems to be settled where I like it.
 				-> Feels counterintuitive to a "dps" riot since it slows itself, but the nature of its weapon being almost gurnateed damage is I think alright
-				-> Iteration that deploys and retargets it's missiles. Feels more unique now, though the deploy is a 50/50
+				-> Iteration that deploys and retargets it's missiles. Feels more unique now, though the deploy is a 50/50 on if its good or if it were more interesting without
 				
 -- Mangonel: 	Depth Charge Launcher skirm. Tosses them on land, seeking in water
 				-> Slower vehicle based skirmisher with trajectory settings. Expensive and fills an antiskirmisher role
 				-> Skirmishes vs underwater units too, but amphbots can outregen their damage decently well.
+				-> Depthcharge also doesnt has not alot of flighttime, so doesnt reach raiders that retrat or jink reliably
 
 -- Ballista:	Disarming Flak Tank with short range missile sidearm.
 				-> Slower area denial AA that can help out in figher combat
@@ -192,6 +195,8 @@ Amphtanks!!
 				-> Overheats to be balanced?
 				-> May need to be turned into more of a bulkhead esque unit. It doesnt seem overpowered, or more powerfull than lance, but it may be more psychologically scary.
 				-> Less range and cost seems like an okay tradeoff.
+				-> I've finally gotten around and done that. Made overheat more impactfull too
+				-> There is also an opportunity for it to just be its overheated version constantly.
 				
 -- Anura:		Subsurface assault/raider. Uses torpedoes underwater and a plasma repeater on land.
 				-> A submarine raider that fights well on shores due to its dual weapon nature.

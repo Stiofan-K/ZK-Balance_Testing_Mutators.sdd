@@ -304,6 +304,7 @@ local medRangeSkirmieeArray = NameToDefID({
 	"tankheavyassault",
 	"amphtanksubassault",
 	"amphtankriot",
+	"amphtankcon", -- may be needed here?
 	
 	"tankriot", -- banisher
 	"striderscorpion",
