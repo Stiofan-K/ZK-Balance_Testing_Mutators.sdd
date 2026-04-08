@@ -147,7 +147,7 @@ ROCKET = {
 
       dance                   = 20,
       edgeEffectiveness       = 0.5,
-      explosionGenerator      = [[custom:slam]],
+      explosionGenerator      = [[custom:spidercrabe_EXPLOSION]],
       fireStarter             = 180,
       fixedlauncher           = true,
       flightTime              = 4,

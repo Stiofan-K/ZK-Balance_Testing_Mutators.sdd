@@ -50,7 +50,7 @@ return { amphtanksubassault = {
   },
   sightDistance       = 540,
   sonarDistance       = 540,
-  speed               = 60,
+  speed               = 57,
   trackOffset         = 8,
   trackStrength       = 10,
   trackStretch        = 1,
