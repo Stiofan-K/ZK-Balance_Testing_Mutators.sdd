@@ -84,15 +84,14 @@ function widget:Initialize()
 					"-- Plaguerat:		Amphibious Terrain-flattening and Nanoplague bomb. 8 bp zombie rezspeed.\n"..
 					" \n"..
 					"Striders:\n" ..
-					"--> Squire! A Medium Weight Combat Strider. 5k cost, 18k hp and carries a 800 range Heavy Blaster and Sonic sidearms. Model pilfered from Paladin.\n" ..
+					"--> Squire! A Medium Weight Combat Strider. 5k cost, 20k hp and carries a 800 range Heavy Blaster and Sonic sidearms. Model pilfered from Paladin.\n" ..
 					"--> Nebula returns! Drops its shield health and manoverability in favor of more range, cheaper construction and exceptional sight capability.\n"..
 					"-- Functions as a siege and intel platform to cap off an aerial advantage. Best contested by a cloaked AA ambush, or air units.\n"..
 					"--> Athena gains a Nanoplague canister missile and Nanoplague Dart as a dgun.\n" ..
 					"-- Nanoplague causes wrecks in its aoe to resurect into neutral units. Their behavior is equal that of the Zombies! modoption. Zombies are slowed by 0.3.\n" ..
 					"-- The Canister has a wide aoe and resurrects at a speed of 50 bp per second. The Dart has much smaller aoe and resurrects at a speed of 150 bp per second.\n" ..
 					"-- Minimum Revive time is 10 seconds. Canister and Dart share a reload.\n" ..
-					"--> Dante is speedier and tankier, but has it's missile salvo replaced with a shorter range napalm grenade barrage.\n" ..
-					"-- It's dgun/missiles/grenades have less afterburn (same as pyro) but set the ground on fire, while its flamer gets the extended duration afterburn its missiles had.\n" ..
+					"--> Dante is 3 elmo speedier.\n" ..
 					"--> Merlin gets a lower range alternative Salvo, a SLAM salvo. Immobilizes merlin during firing. Reloads are linked.\n" ..
 					"-- Risk it for the biscuit! This is potentially strong, but also risks Merlin since the barrage is only 900 range. Manual re-aiming is recommended as mobile units can dodge.\n" ..
 					"--> Paladin shoots EMP Missiles while its dgun is off cooldown\n" ..
@@ -241,12 +240,7 @@ Striders
 -> Theres potential for reclaim farming off of revived units etc. But I think that would be enough effort in setup to be okay.
 -> Testing shows the nanodart, its aoe is small to where it feels like it can miss to easily. I'll increase both aoe's.
 
--- Dante is speedier, tankier, but has it's missile salvo is replaced with a shorter range grenade barrage.
--- It's dgun/missiles/grenades have less afterburn (same as pyro) but set the ground on fire, while its flamer gets the extended duration afterburn its missiles had.
--> Get in there dante! This lad really really really feels like he wants to get close. It's never been allowed because it's too good at flinging missiles downrange. Now it's a bit shorter ranged, so can be allowed to be better at closing the distance.
--> This may be a back and forth thing. I can imagine that dante got its longer range barrage exactly because couldnt get close/was skirmed alot. But I'm curious to try this out.
--> After testing, dante feels more suited for running up and killing things.
-
+-- Dante could be a lil faster.
 
 -- Merlin gets a lower range alternative Salvo, a SLAM salvo. Imobilises merlin during firing. Reloads are linked.
 -> Risk it for the biscuit! This is potentially very strong, but also risks Merlin since the barrage is only 800 range.
@@ -496,6 +490,10 @@ TODO Inferno vfx fix for water hit?
 TODO Check torps for amphtanks
 Heightmod could allow for torp range to scale underwater too
 
+TODO Amphtank models
+
+Some quad tread thingy could be fitting
+
 TODO Amphtanks
 Amphib veh fac
 Overheat as a mechanic, water cools them
@@ -600,5 +598,15 @@ A building that stockpiles metal for use. There is some base implementation arou
 TODO Base zk Github Issueable:
 Dgun prioritisation
 Jump command retargetting can leave units stuck out of range of a jump but not moving close to jump.
+
+
+Implemented in base:
+
+-- Dante is speedier, tankier, but has it's missile salvo is replaced with a shorter range grenade barrage.
+-- It's dgun/missiles/grenades have less afterburn (same as pyro) but set the ground on fire, while its flamer gets the extended duration afterburn its missiles had.
+-> Get in there dante! This lad really really really feels like he wants to get close. It's never been allowed because it's too good at flinging missiles downrange. Now it's a bit shorter ranged, so can be allowed to be better at closing the distance.
+-> This may be a back and forth thing. I can imagine that dante got its longer range barrage exactly because couldnt get close/was skirmed alot. But I'm curious to try this out.
+-> After testing, dante feels more suited for running up and killing things.
+
 
 ]]

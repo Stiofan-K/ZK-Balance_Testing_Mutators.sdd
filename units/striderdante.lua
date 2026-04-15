@@ -13,8 +13,9 @@ return { striderdante = {
   corpse              = [[DEAD]],
 
   customParams        = {
-    decloak_footprint     = 5,
-    manualfire_desc = [[Fire Special Weapon: Fire a napalm rocket salvo.]]
+    aim_lookahead      = 120,
+    decloak_footprint  = 5,
+    manualfire_desc    = [[Fire Special Weapon: Fire a napalm rocket salvo.]]
   },
 
   explodeAs           = [[CRAWL_BLASTSML]],
@@ -57,6 +58,7 @@ return { striderdante = {
 
     {
       def                = [[NAPALM_ROCKETS]],
+      accurateLeading    = 1,
       badTargetCategory  = [[FIXEDWING GUNSHIP]],
       onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
     },
@@ -64,6 +66,7 @@ return { striderdante = {
 
     {
       def                = [[HEATRAY]],
+      accurateLeading    = 1,
       badTargetCategory  = [[FIXEDWING]],
       onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
     },
@@ -77,6 +80,7 @@ return { striderdante = {
 
     {
       def                = [[DANTE_FLAMER]],
+      accurateLeading    = 1,
       badTargetCategory  = [[FIREPROOF]],
       onlyTargetCategory = [[SWIM LAND SINK TURRET FLOAT SHIP HOVER GUNSHIP FIXEDWING]],
     },
@@ -107,8 +111,8 @@ return { striderdante = {
 
         light_camera_height = 1800,
         light_color = [[0.6 0.39 0.18]],
-        light_radius = 260,
-        light_fade_time = 13,
+        light_radius = 200,
+        light_fade_time = 8,
         light_beam_mult_frames = 5,
         light_beam_mult = 5,
         reaim_time = 1,
@@ -153,10 +157,10 @@ return { striderdante = {
       craterMult              = 0,
 
       customParams              = {
-        light_camera_height = 2000,
+        light_camera_height = 1500,
         light_color = [[0.9 0.4 0.12]],
-        light_radius = 180,
-        light_fade_time = 35,
+        light_radius = 90,
+        light_fade_time = 25,
         light_fade_offset = 10,
         light_beam_mult_frames = 9,
         light_beam_mult = 8,
@@ -183,7 +187,7 @@ return { striderdante = {
       lodDistance             = 10000,
       projectiles             = 2,
       proximityPriority       = 4,
-      range                   = 420,
+      range                   = 417,
       reloadtime              = 0.1,
       rgbColor                = [[1 0.1 0]],
       rgbColor2               = [[1 1 0.25]],
@@ -196,39 +200,40 @@ return { striderdante = {
     },
 
     NAPALM_ROCKETS       = {
-      name                    = [[Napalm Grenades]],
-      areaOfEffect            = 228,
+      name                    = [[Napalm Rockets]],
+      areaOfEffect            = 168,
       burst                   = 2,
       burstrate               = 0.1,
-      --cegTag                  = [[missiletrailredsmall]],
+      cegTag                  = [[missiletrailredsmall]],
       craterBoost             = 0,
       craterMult              = 0,
 
       customParams              = {
         area_damage = 1,
-        area_damage_radius = 64,
-        area_damage_dps = 15,
+        area_damage_radius = 78,
+        area_damage_dps = 17,
         area_damage_duration = 15,
         
         setunitsonfire = "1",
         burnchance = "1",
-        burntime = [[450]], -- 15 sec / pyro burntime
+        burntime = [[150]],
         reaim_time = 1,
         force_ignore_ground = [[1]],
       },
       
       damage                  = {
-        default = 120.8,
+        default = 150.01,
       },
 
-      edgeEffectiveness       = 0.75,
-      explosionGenerator      = [[custom:napalm_firewalker_small]],
+      edgeEffectiveness       = 0.4,
+      explosionGenerator      = [[custom:napalm_dante_small]],
       fireStarter             = 250,
       fixedlauncher           = true,
       flightTime              = 0.1,
       impulseBoost            = 0,
       impulseFactor           = 0.1,
       interceptedByShieldType = 2,
+      leadLimit               = 200,
       model                   = [[diskball.s3o]],
       range                   = 420,
       reloadtime              = 2,
@@ -249,8 +254,8 @@ return { striderdante = {
 
 
     NAPALM_ROCKETS_SALVO = {
-      name                    = [[Napalm Grenade Salvo]],
-      areaOfEffect            = 228,
+      name                    = [[Napalm Rocket Salvo]],
+      areaOfEffect            = 168,
       avoidFeature            = false,
       avoidFriendly           = false,
       avoidNeutral            = false,
@@ -263,13 +268,13 @@ return { striderdante = {
 
       customParams              = {
         area_damage = 1,
-        area_damage_radius = 64,
-        area_damage_dps = 15,
+        area_damage_radius = 78,
+        area_damage_dps = 17,
         area_damage_duration = 15,
         
         setunitsonfire = "1",
         burnchance = "1",
-        burntime = [[450]], -- 15 sec / pyro burntime
+        burntime = [[150]],
         
         light_color = [[0.8 0.4 0.1]],
         light_radius = 320,
@@ -277,12 +282,12 @@ return { striderdante = {
       },
       
       damage                  = {
-        default = 120.8,
+        default = 150.01,
       },
 
-      dance                   = 15,
-      edgeEffectiveness       = 0.75,
-      explosionGenerator      = [[custom:napalm_firewalker_small]],
+      dance                   = 25,
+      edgeEffectiveness       = 0.4,
+      explosionGenerator      = [[custom:napalm_dante_small]],
       fireStarter             = 250,
       fixedlauncher           = true,
       flightTime              = 0.1,
@@ -299,7 +304,7 @@ return { striderdante = {
       smokeTrail              = true,
       soundHit                = [[weapon/missile/rapid_rocket_hit]],
       soundStart              = [[weapon/missile/rapid_rocket_fire]],
-      sprayAngle              = 12000,
+      sprayAngle              = 9000,
       startVelocity           = 350,
       tolerance               = 6500,
       tracks                  = false,
