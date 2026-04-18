@@ -44,7 +44,7 @@ return { striderdante = {
   },
   sightEmitHeight     = 50,
   sightDistance       = 600,
-  speed               = 60,
+  speed               = 57,
   trackOffset         = 0,
   trackStrength       = 8,
   trackStretch        = 1.66,
