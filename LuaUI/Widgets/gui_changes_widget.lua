@@ -91,8 +91,8 @@ function widget:Initialize()
 					"-- Nanoplague causes wrecks in its aoe to resurect into neutral units. Their behavior is equal that of the Zombies! modoption. Zombies are slowed by 0.3.\n" ..
 					"-- The Canister has a wide aoe and resurrects at a speed of 50 bp per second. The Dart has much smaller aoe and resurrects at a speed of 150 bp per second.\n" ..
 					"-- Minimum Revive time is 10 seconds. Canister and Dart share a reload.\n" ..
-					"--> Merlin gets a lower range alternative Salvo, a SLAM salvo. Immobilizes merlin during firing. Reloads are linked.\n" ..
-					"-- Risk it for the biscuit! This is potentially strong, but also risks Merlin since the barrage is only 900 range. Manual re-aiming is recommended as mobile units can dodge.\n" ..
+					"--> Merlins fires a higher damage, longer reload and longer salvo time salvo. It immobilizes merlin during firing.\n" ..
+					"-- This is a stronger but more vunerable Merlin as it immobilises. Retargeting during the salvo is recommended to cover more area.\n" ..
 					"--> Paladin shoots EMP Missiles while its dgun is off cooldown\n" ..
 					"--> Reef's pads repair faster and it becomes a builder. Can now also build some planes and gunships.\n" ..
 					"--> Scylla gains high damage but slow siege torpedoes that track their target beyond Scyllas fire range. Its tacnuke is moved to a dgun.\n" ..

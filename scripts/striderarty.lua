@@ -29,7 +29,6 @@ end
 local bAiming = false
 local gun_1 = 1
 local gun_1_side = false
-local gunInUse = 0 --weapon num
 
 -- Signal definitions
 local SIG_WALK = 1
@@ -169,17 +168,6 @@ local function salvoMoveControl(ableToMove)
 	GG.UpdateUnitAttributes(unitID)
 end
 
-local function delayWeaponEnable()
-	Sleep(1000)
-	gunInUse = 0
-end
-
-local function PrioritiseDgun()
-	dgunAim = true
-	Sleep(500)
-	dgunAim = false
-end
-
 function script.Create()
 	StartThread(GG.Script.SmokeUnit, unitID, {torso, rlauncher, llauncher})
 	Turn(ltoef1, y_axis, math.rad(45))
@@ -201,38 +189,22 @@ function script.AimFromWeapon(num)
 end
 
 function script.AimWeapon(num, heading, pitch)
-	if num == 1 and dgunAim then
-		return false
-	elseif num == 2 then
-		StartThread(PrioritiseDgun)
-	end
-	
-	if gunInUse == 0 or gunInUse == num then
-		Signal(SIG_AIM)
-		SetSignalMask(SIG_AIM)
-		bAiming = true
-		Turn(torso, y_axis, heading, math.rad(90))
-		Turn(launchers, x_axis, -pitch, math.rad(45))
-		WaitForTurn(torso, y_axis)
-		WaitForTurn(launchers, x_axis)
-		StartThread(RestoreAfterDelay)
-		return true
-	else
-		return false
-	end
+	Signal(SIG_AIM)
+	SetSignalMask(SIG_AIM)
+	bAiming = true
+	Turn(torso, y_axis, heading, math.rad(90))
+	Turn(launchers, x_axis, -pitch, math.rad(45))
+	WaitForTurn(torso, y_axis)
+	WaitForTurn(launchers, x_axis)
+	StartThread(RestoreAfterDelay)
+	return true
 end
 
 function script.FireWeapon(num)
-	gunInUse = num
 	gun_1 = 0
 	gun_1_side = true
 	
-	if num == 1 then
-		Spring.SetUnitWeaponState(unitID, 2, 'reloadState', Spring.GetGameFrame()+30*30) --30 seconds
-		GG.UpdateUnitAttributes(unitID)
-	elseif num == 2 then
-		salvoMoveControl(false) --abletoMove
-	end
+	salvoMoveControl(false) --abletoMove
 end
 
 function script.Shot(num)
@@ -257,21 +229,8 @@ function script.QueryWeapon(num)
 	end
 end
 
-function script.BlockShot(num, targetID)
-	if gunInUse == not num then
-		return true
-	end
-
-	local reloadState = Spring.GetUnitWeaponState(unitID, 2, 'reloadState')
-	return not (reloadState and (reloadState < 0 or reloadState < Spring.GetGameFrame()))
-end
-
 function script.EndBurst(num)
-	if num == 2 then
-		salvoMoveControl(true) --ableToMove
-	end
-	StartThread(delayWeaponEnable)
-	dgunAim = false
+	salvoMoveControl(true) --ableToMove
 end
 
 function script.Killed(recentDamage, maxHealth)
