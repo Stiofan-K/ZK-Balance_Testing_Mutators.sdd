@@ -70,6 +70,8 @@ function widget:Initialize()
 		children = {
 			Chili.TextBox:New { --TODO IDK HOW CHILI WORKS If this text is too long it gets cut off by the parent window? even with scrolling
 				text = 
+					"Current vocal points: Merlin, Amphtanks.\n" ..
+					" \n" ..
 					"Amphtanks! \n" ..
 					"-- Tis a new factory, though currently not quite complete and kitbashed out of existing models. Is still missing polish in how things play and feel, feedback is welcome.\n" ..
 					" \n" ..
@@ -132,9 +134,7 @@ function widget:Initialize()
 					"-- DRP's green shot also applies nanoplague, at 100 bp.\n" ..
 					" \n" ..
 					"QoL/Technical/Fix:\n" ..
-					"-- Dante tries to prioritises its dgun over shooting other things.\n" ..
-					"-- Commanders try to prioritise their dgun too.\n" ..
-					"-- New Merlin Salvo too.\n"..
+					"-- Commanders try to prioritise their dgun.\n" ..
 					"-- Overheat is handled in a gadget and could be applied to any unit.",
 				fontsize = 13.5,
 				y = 10,
