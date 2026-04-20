@@ -89,33 +89,32 @@ local NonZombies = {
 	["asteroid"] = true,
 }
 
-local nanoPlagueWeaponDefs
-
-local defaultplagueRezMin 		= 10    -- minimum rez time
-local defaultplagueRezSpeed 	= 30	-- Speed in bp for rez
-local defaultplagueRezDelay 	= 0		-- extra flat delay to rez
-local defaultplagueRezChance 	= false -- chance an effected feature resurects
-local plagueZombieSlow 			= 0.5 	-- hmm is a global value, so defining per weapon is a lil more difficult?
+local defaultplagueRezMin 			= 10    -- minimum rez time
+local defaultplagueRezSpeed 		= 30	-- Speed in bp for rez
+local defaultplagueRezDelay 		= 0		-- extra flat delay to rez
+local defaultplagueRezChance 		= false -- chance an effected feature resurects
+local defaultplagueCanRezZombies	= false -- if this weapon can rez zombies wrecks.
 
 local nanoPlagueWeaponDefs = {}
 for i = 1, #WeaponDefs do
 	local wcp = WeaponDefs[i].customParams
 	if wcp and wcp.apply_nano_plague then
 		nanoPlagueWeaponDefs[i] = { 
-			plagueRezMin = tonumber(wcp.plague_rez_min) or defaultplagueRezMin,
+			plagueRezMin 		= tonumber(wcp.plague_rez_min) or defaultplagueRezMin,
 			plagueRezBuildPower = tonumber(wcp.plague_rez_build_power) or tonumber(wcp.plague_rez_speed) or defaultplagueRezSpeed,
-			plagueRezDelay = tonumber(wcp.plague_rez_delay) or defaultplagueRezDelay,	
-			plagueRezChance = tonumber(wcp.plague_rez_chance) or defaultplagueRezChance, 			
+			plagueRezDelay 		= tonumber(wcp.plague_rez_delay) or defaultplagueRezDelay,	
+			plagueRezChance 	= tonumber(wcp.plague_rez_chance) or defaultplagueRezChance, 
+			plagueCanRezZombies = wcp.plague_can_rez_zombies or defaultplagueCanRezZombies,			
 			-- Lots of extra options possible. Could have zombies/lose health after a while etc.
 		}
 	end
 end
 
-
 local WARNING_TIME_CEG 		= 30 -- seconds to start being scary before actual reanimation event
 local WARNING_TIME_SOUND 	= 5
-local ZOMBIES_PERMA_SLOW 	= -0.3 -- -0.5 is the base value, made them a lil speedier
-local ZOMBIES_PARTIAL_RECLAIM = false
+local ZOMBIES_PERMA_SLOW 	= -0.3 -- -0.5 is the base value, made them a lil speedier. Innitially wanted per weapon stuff but its a lil iffy
+local ZOMBIES_PARTIAL_RECLAIM = true
+
 
 local CMD_REPEAT = CMD.REPEAT
 local CMD_MOVE_STATE = CMD.MOVE_STATE
@@ -300,7 +299,7 @@ function gadget:GameFrame(f)
 					GG.PlayFogHiddenSound(REZ_SOUND, 12, x, y, z)
 					-- Each unit revived adds funds to Gaia
 					-- Farming Gaia becomes possible, but is gated by resurrecting units.
-					spAddTeamResource(GaiaTeamID, "m", UnitDefNames[resName].metalCost) 
+					spAddTeamResource(GaiaTeamID, "m", UnitDefNames[resName].metalCost/2) 
 					spAddTeamResource(GaiaTeamID, "e", UnitDefNames[resName].metalCost*2) 
 					if partialReclaim ~= 1 then
 						local health = Spring.GetUnitHealth(unitID)
@@ -332,9 +331,9 @@ function gadget:GameFrame(f)
 		CheckZombieOrders()
 	end
 	if f == 1 then
-		spSetTeamResource(GaiaTeamID, "ms", 20000)
-		spSetTeamResource(GaiaTeamID, "es", 20000)
-		spSetTeamResource(GaiaTeamID, "metal", 500) -- some starting metal for gaia
+		spSetTeamResource(GaiaTeamID, "ms", 50000)
+		spSetTeamResource(GaiaTeamID, "es", 50000)
+		spSetTeamResource(GaiaTeamID, "metal", 5000) -- some starting metal for gaia
 		spSetTeamResource(GaiaTeamID, "energy", 20000) -- starting energy for gaia for units with upkeep
 		
 	end
@@ -375,6 +374,10 @@ function gadget:FeatureDamaged(featureID, featureDefID, featureTeam, damage, wea
 	local thisWeaponDef = nanoPlagueWeaponDefs[weaponDefID]
 	
 	if not thisWeaponDef then
+		return
+	end
+
+	if featureTeam == GaiaTeamID and thisWeaponDef.plagueCanRezZombies ==false then
 		return
 	end
 		

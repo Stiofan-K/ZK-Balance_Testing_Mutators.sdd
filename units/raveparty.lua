@@ -250,7 +250,8 @@ return { raveparty = {
         movestructures = [[1]],
 
         apply_nano_plague = "1",
-        plague_rez_build_power  = 100,
+        plague_rez_build_power  = 200,
+        plague_can_rez_zombies = "ItSureCan",
         
         script_reload = [[4]],
         reaim_time = 1,
