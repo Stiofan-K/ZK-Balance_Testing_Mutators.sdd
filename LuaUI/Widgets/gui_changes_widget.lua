@@ -70,7 +70,7 @@ function widget:Initialize()
 		children = {
 			Chili.TextBox:New { --TODO IDK HOW CHILI WORKS If this text is too long it gets cut off by the parent window? even with scrolling
 				text = 
-					"Current vocal points: Merlin, Amphtanks.\n" ..
+					"Current vocal points: Merlin, Nebula, Nanoplague and Amphtanks. Changes listed in order of most interesting.\n" ..
 					" \n" ..
 					"Amphtanks: \n" ..
 					"-- Tis a new factory, though currently not quite complete and kitbashed out of existing models. Is still missing polish in how things play and feel, feedback is welcome.\n" ..
@@ -93,16 +93,16 @@ function widget:Initialize()
 					"\n"..
 					"Striders:\n" ..
 					"-- Squire! A Medium Weight Combat Strider. 5k cost, 20k hp and carries a 800 range Heavy Blaster and Sonic sidearms. Model pilfered from Paladin.\n" ..
-					"-- Nebula returns! Drops its shield health and manoverability in favor of more range, cheaper construction and exceptional sight capability.\n"..
-					"---> Functions as a siege and intel platform to cap off an aerial advantage. Best contested by a cloaked AA ambush, or air units.\n"..
+					"-- Nebula returns! Drops its shield, health and manoverability in favor of more range, cheaper construction and exceptional sight capability.\n"..
+					"---> Functions as a siege and intel platform to cap off an aerial advantage. Best contested by a cloaked AA ambush, or aerial AA units.\n"..
 					"-- Athena gains a Nanoplague canister missile as it's 'regular' weapon and Nanoplague Dart as a dgun.\n" ..
 					"---> The Canister has a wide aoe and resurrects at a speed of 50 bp per second. The Dart has much smaller aoe and resurrects at a speed of 150 bp per second. They share a reload\n" ..
 					"-- Merlins fires a higher damage, longer reload and longer salvo time salvo. It immobilizes merlin during firing.\n" ..
 					"---> This is a stronger but more vunerable Merlin as it immobilises. Retargeting during the salvo is recommended to cover more area.\n" ..
-					"-- Paladin shoots EMP Missiles while its dgun is off cooldown\n" ..
+					"-- Paladin shoots EMP Missiles while its dgun is off cooldown. Makes Paladin a good bit scarier vs normal armies.\n" ..
 					"-- Reef's pads repair faster and it becomes a builder. Can now also build some planes and gunships.\n" ..
 					"-- Scylla gains high damage but slow siege torpedoes that track their target beyond Scyllas fire range. Its tacnuke is moved to a dgun.\n" ..
-					"-- Shogun is cheaper, 4k cost.\n" ..
+					"-- Shogun is cheaper, 4k cost, to see it used more and see whats fun with it..\n" ..
 					" \n" ..
 					"Aerial AA\n" ..
 					"-- Swift, Raptor and Trident gain extra hp to survive ground AA. About a 1.6x hp buff. Raptor's weapon is swapped for a flak gun of same dps with slightly more range.\n" ..
@@ -118,22 +118,22 @@ function widget:Initialize()
 					"-- All new jumps have a windup before jumping. It is meant to be only very slightly faster than walking on flat ground.\n" ..
 					"-- Puppy has much shorter jump range and I've tried to not make it not skew raider matchups. It doesnt turn midair either, so can't do instant turn shenanigans.\n" ..
 					" \n" ..
-					"Ships\n" ..
-					"-- Siren gains a dgun salvo of its missile, which disables its normal missile during reload.\n" ..
-					"-- Mistrals rockets deploy a anti surface torpedo submunition on hit, that tracks it's original target. Only capable of targeting surfaced units. It's original damage is split equally between both projectiles.\n" ..
-					" \n" ..
-					"Shield \n" ..
-					"-- Felon loses range but gets increased shield regen and is speedier\n" ..
-					"-- Thug gains more shieldhealth, radius and fires both cannons, though with a longer reload. Slighlty more dps\n" ..
-					"-- Outlaw is faster and more tanky. Deals more damage up close and slightly less at its edge.\n" ..
-					" \n" ..
-					"Miscellaneous\n" ..
+					"Miscellaneous:\n" ..
 					"-- Scythe can now areacloak similar, being a middle step between conjurer and iris. Scythe is slowed when areacloaking, but still slightly faster than iris.\n" ..
 					"-- Hercules drops units safely. It applies collision damage immunity to units dropped by ejecting or on death.\n" ..
 					"-- Badger gains a dgun, a burst of mines that puts its main weapon on cooldown. Maybe something for the badger enjoyers.\n" ..
 					"-- Bertha has quicker reload but overheats. The first few bertha shots will fire significantly faster before returning to normal reload speed.\n" ..
 					"-- Quake applies Nanoplague as an alternative usecase. 50 bp resurect speed.\n" ..
 					"-- DRP's green shot also applies nanoplague, at 200 bp. It uniquely can resurrect zombie wrecks.\n" ..
+					" \n" ..
+					"Shield \n" ..
+					"-- Felon loses range but gets increased shield regen and is speedier\n" ..
+					"-- Thug gains more shieldhealth, radius and fires both cannons, though with a longer reload. Slighlty more dps\n" ..
+					"-- Outlaw is faster and more tanky. Deals more damage up close and slightly less at its edge.\n" ..
+					" \n" ..
+					"Ships\n" ..
+					"-- Siren gains a dgun salvo of its missile, which disables its normal missile during reload.\n" ..
+					"-- Mistrals rockets deploy a anti surface torpedo submunition on hit, that tracks it's original target. Only capable of targeting surfaced units. It's original damage is split equally between both projectiles.\n" ..
 					" \n" ..
 					"QoL/Technical/Fix:\n" ..
 					"-- Commanders try to prioritise their dgun.\n" ..
