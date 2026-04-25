@@ -31,7 +31,7 @@ factionBuildConfig = {
 		},
 
 		factoryIds = {
-			count = 8,
+			count = 9,
 			[1] = {ID = UnitDefNames['factoryveh'].id},
 			[2] = {ID = UnitDefNames['factorytank'].id},
 			[3] = {ID = UnitDefNames['factoryhover'].id},
@@ -40,6 +40,7 @@ factionBuildConfig = {
 			[6] = {ID = UnitDefNames['factoryspider'].id},
 			[7] = {ID = UnitDefNames['factoryjump'].id},
 			[8] = {ID = UnitDefNames['factoryamph'].id},
+			[9] = {ID = UnitDefNames['factoryamphtank'].id},
 		},
 		factoryByDefId = {
 			[UnitDefNames['factoryveh'].id] = {
@@ -513,6 +514,67 @@ factionBuildConfig = {
 					importanceMult = 1,
 					count = 1,
 					[1] = {ID = UnitDefNames['amphaa'].id, chance = 1},
+				},
+			},
+			[UnitDefNames['factoryamph'].id] = {
+				defenceQuota = {2,0.6,0.3},
+				defenceRange = 400,
+				airDefenceQuota = {2,1,0.1},
+				importance = 0.8,
+				BPQuota = 70,
+				minFacCount = 0,
+				
+				[1] = { -- con
+					importanceMult = 1,
+					count = 1,
+					[1] = {ID = UnitDefNames['amphtankcon'].id, chance = 1},
+				},
+				
+				[2] = { -- scout
+					importanceMult = 1,
+					count = 2,
+					[1] = {ID = UnitDefNames['amphtankraid'].id, chance = 0.8},
+					[2] = {ID = UnitDefNames['amphtanksubraid'].id, chance = 0.2},
+				},
+				
+				[3] = { -- raider
+					importanceMult = 1,
+					count = 2,
+					[1] = {ID = UnitDefNames['amphtankraid'].id, chance = 0.7},
+					[2] = {ID = UnitDefNames['amphtanksubraid'].id, chance = 0.3},
+				},
+				
+				[4] = { -- arty
+					importanceMult = 0.8,
+					count = 1,
+					[1] = {ID = UnitDefNames['amphtankarty'].id, chance = 1},
+				},
+				
+				[5] = { --assault
+					importanceMult = 0.7,
+					count = 1,
+					[1] = {ID = UnitDefNames['amphtanksubassault'].id, chance = 1},
+				},
+				
+				[6] = { -- skirm
+					importanceMult = 1.4,
+					count = 3,
+					[1] = {ID = UnitDefNames['amphtankskirm'].id, chance = 0.75},
+					[2] = {ID = UnitDefNames['amphtankskirm'].id, chance = 0.20},
+					[3] = {ID = UnitDefNames['amphtanksubassault'].id, chance = 0.05},
+				},
+				
+				[7] = { -- riot
+					importanceMult = 0.6,
+					count = 2,
+					[1] = {ID = UnitDefNames['amphtankriot'].id, chance = 0.8},
+					[2] = {ID = UnitDefNames['amphtankskirm'].id, chance = 0.2},
+				},
+				
+				[8] = { -- aa
+					importanceMult = 1,
+					count = 1,
+					[1] = {ID = UnitDefNames['amphtankaa'].id, chance = 1},
 				},
 			},
 			[UnitDefNames['factoryplane'].id] = {

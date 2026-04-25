@@ -48,6 +48,7 @@ local function BuildTasksMod_Pusher(buildConfig)
 	factory[UnitDefNames['factoryhover'].id].importance = 0.9
 	factory[UnitDefNames['factoryspider'].id].importance = 0.9
 	factory[UnitDefNames['factorytank'].id].importance = 1.1
+	factory[UnitDefNames['factorytank'].id].importance = 1.1 -- lets see if this is needed or so?
 	for fac, data in pairs(factory) do
 		if not data.airFactory then
 			data[3].importanceMult = data[3].importanceMult*0.9 -- fewer raiders

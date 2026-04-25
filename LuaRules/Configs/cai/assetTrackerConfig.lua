@@ -9,12 +9,15 @@ local heatmapNames = {
 		["jumpaa"] = {mult = 1},
 		["amphaa"] = {mult = 1},
 		["shipaa"] = {mult = 1},
-		["gunship11"] = {mult = 1},
+		["gunshipaa"] = {mult = 1},
+		["amphtankaa"] = {mult = 1},
 		
 		["tankriot"] = {mult = 0.4},
 		["jumpskirm"] = {mult = 0.4},
 		["cloaksnipe"] = {mult = 0.4},
 		["shieldfelon"] = {mult = 0.4},
+		["amphtankriot"] = {mult = 0.4},
+		["amphtankarty"] = {mult = 0.2},
 	},
 	
 	staticAntiAir = {
@@ -42,6 +45,7 @@ local heatmapNames = {
 		["amphraid"] = {mult = 1},
 		["hoverraid"] = {mult = 1},
 		["hoverheavyraid"] = {mult = 1},
+		["amphtankraid"] = {mult = 1},
 		["chicken"] = {mult = 1},
 		["chicken_leaper"] = {mult = 1},
         
@@ -55,6 +59,7 @@ local heatmapNames = {
 		["tankheavyassault"] = {mult = 1},
 		["amphassault"] = {mult = 1},
 		["hoverassault"] = {mult = 1},
+		["amphtanksubassault"] = {mult = 1},
 		["striderbantha"] = {mult = 1},
 		["striderdetriment"] = {mult = 1},
 		["corkrog"] = {mult = 1},
@@ -69,6 +74,7 @@ local heatmapNames = {
 		["spiderskirm"] = {mult = 1},
 		["cloaksnipe"] = {mult = 1},
 		["jumpskirm"] = {mult = 1},
+		["amphtankskirm"] = {mult = 1},
 		["chickens"] = {mult = 1},
 		["chicken_sporeshooter"] = {mult = 1},
 		["striderscorpion"] = {mult = 1},
@@ -87,6 +93,7 @@ local heatmapNames = {
 		["spideremp"] = {mult = 1},
 		["tankriot"] = {mult = 1},
 		["hoverriot"] = {mult = 1},
+		["amphtankriot"] = {mult = 1},
 		["striderdante"] = {mult = 1},
 		["chickenwurm"] = {mult = 1},
 		
@@ -96,6 +103,7 @@ local heatmapNames = {
 		["hoverarty"] = {mult = 1},
 		["tankarty"] = {mult = 1},
 		["tankheavyarty"] = {mult = 1},
+		["amphtankarty"] = {mult = 1},
 		["striderarty"] = {mult = 1},
 		["chickenr"] = {mult = 1},
 		["chickenblobber"] = {mult = 1},
@@ -158,6 +166,7 @@ local completeUnitListNames = {
 		"factorytank",
 		"striderhub",
 		"factoryship",
+		"factoryamphtank",
 	},
 	
 	constructor = {
@@ -172,6 +181,7 @@ local completeUnitListNames = {
 		"planecon",
 		"gunshipcon",
 		"shipcon",
+		"amphtankcon",
 	},
 }
 
@@ -190,6 +200,8 @@ local ground = {
 		"amphraid",
 		"hoverraid",
 		"hoverheavyraid",
+		"amphtankraid",
+		"amphtanksubraid",
 		"chicken",
 		"chicken_leaper",
 	},
@@ -205,6 +217,7 @@ local ground = {
 		"tankheavyassault",
 		"amphassault",
 		"hoverassault",
+		"amphtanksubassault",
 		"striderbantha",
 		"striderdetriment",
 		"corkrog",
@@ -221,6 +234,7 @@ local ground = {
 		"spiderskirm",
 		"cloaksnipe",
 		"jumpskirm",
+		"amphtankskirm",
 		"chickens",
 		"chicken_sporeshooter",
 		"striderscorpion",
@@ -244,6 +258,7 @@ local ground = {
 		"spideremp",
 		"tankriot",
 		"hoverriot",
+		"amphtankriot",
 		"striderdante",
 		"chickenwurm",
 	},
@@ -256,6 +271,7 @@ local ground = {
 		"tankarty",
 		"tankheavyarty",
 		"striderarty",
+		"amphtankarty",
 		"chickenr",
 		"chickenblobber",
 	},
@@ -273,6 +289,7 @@ local antiAir = {
 		"amphaa",
 		"shipaa",
 		"gunshipaa",
+		"amphtankaa"
 	},
 }
 
@@ -328,6 +345,7 @@ local economyTargetNames =  {
 	["factorytank"] = {mult = 0.2},
 	["striderhub"] = {mult = 0.2},
 	["factoryship"] = {mult = 0.2},
+	["factoryamphtank"] = {mult = 0.2},
 
 	["cloakcon"] = {mult = 1},
 	["shieldcon"] = {mult = 1},
@@ -340,6 +358,7 @@ local economyTargetNames =  {
 	["planecon"] = {mult = 1},
 	["gunshipcon"] = {mult = 1},
 	["shipcon"] = {mult = 1},
+	["amphtankcon"] = {mult = 1},
 }
 
 local function FlattenTableInto(tableToFlatten, category, otherTable)

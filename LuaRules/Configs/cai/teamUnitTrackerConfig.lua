@@ -42,6 +42,7 @@ local completeUnitListNames = {
 		"factorytank",
 		"striderhub",
 		"factoryship",
+		"factoryamphtank",
 	},
 	
 	constructor = {
@@ -56,6 +57,7 @@ local completeUnitListNames = {
 		"planecon",
 		"gunshipcon",
 		"shipcon",
+		"amphtankcon"
 	},
 }
 
@@ -74,6 +76,8 @@ local ground = {
 		"amphraid",
 		"hoverraid",
 		"hoverheavyraid",
+		"amphtankraid",
+		"amphtanksubraid",
 		"chicken",
 		"chicken_leaper",
 	},
@@ -89,6 +93,7 @@ local ground = {
 		"tankheavyassault",
 		"amphassault",
 		"hoverassault",
+		"amptanksubsassault",
 		"striderbantha",
 		"striderdetriment",
 		"corkrog",
@@ -105,6 +110,7 @@ local ground = {
 		"spiderskirm",
 		"cloaksnipe",
 		"jumpskirm",
+		"amphtankskirm",
 		"chickens",
 		"chicken_sporeshooter",
 		"striderscorpion",
@@ -128,6 +134,7 @@ local ground = {
 		"spideremp",
 		"tankriot",
 		"hoverriot",
+		"amphtankriot",
 		"striderdante",
 		"chickenwurm",
 	},
@@ -139,6 +146,7 @@ local ground = {
 		"hoverarty",
 		"tankarty",
 		"tankheavyarty",
+		"amphtankarty",
 		"striderarty",
 		"chickenr",
 		"chickenblobber",
@@ -157,6 +165,7 @@ local antiAir = {
 		"amphaa",
 		"shipaa",
 		"gunshipaa",
+		"amphtankaa",
 	},
 }
 
@@ -212,6 +221,7 @@ local defenseRequirementNames =  {
 	["factorytank"] = {mult = 0.2},
 	["striderhub"] = {mult = 0.2},
 	["factoryship"] = {mult = 0.2},
+	["factoryamphtank"] = {mult = 0.2},
 }
 
 local function FlattenTableInto(tableToFlatten, category, otherTable)

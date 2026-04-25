@@ -13,6 +13,9 @@ local raider = {
 	"hoverraid",
 	"hoverheavyraid",
 	
+	"amphtankraid",
+	"amphtanksubraid",
+	
 	"chicken",
 	"chicken_leaper",
 }
@@ -31,6 +34,8 @@ local assault = {
 	"amphassault",
 	
 	"hoverassault",
+	
+	"amphtanksubassault",
 	
 	--"striderbantha",
 	--"striderdetriment",
@@ -51,6 +56,8 @@ local skirm = {
 	"hoverarty",
 	
 	"hoverskirm",
+	
+	"amphtankskirm",
 	
 	"chickens",
 	"chicken_sporeshooter",
@@ -75,6 +82,7 @@ local riot = {
 	"tankriot",
 	"hoverdepthcharge",
 	"hoverriot",
+	"amphtankriot",
 	
 	"striderdante",
 	
@@ -92,6 +100,7 @@ local arty = {
 	--"hoverarty",
 	"tankarty",
 	"tankheavyarty",
+	"amphtankarty",
 	
 	"striderarty",
 	
@@ -118,6 +127,7 @@ local prioritySos = {
 	"factoryjump",
 	"factorytank",
 	"factoryship",
+	"factoryamphtank",
 	"striderhub",
 	"dyntrainer_recon_base",
 	"dyntrainer_support_base",
