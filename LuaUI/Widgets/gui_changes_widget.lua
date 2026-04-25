@@ -72,7 +72,7 @@ function widget:Initialize()
 				text = 
 					"Current vocal points: Merlin, Amphtanks.\n" ..
 					" \n" ..
-					"Amphtanks! \n" ..
+					"Amphtanks: \n" ..
 					"-- Tis a new factory, though currently not quite complete and kitbashed out of existing models. Is still missing polish in how things play and feel, feedback is welcome.\n" ..
 					" \n" ..
 					"-- Murderhole:		Depth charge armed constructor. Tosses it on land, seeking in water.\n" ..
@@ -85,32 +85,33 @@ function widget:Initialize()
 					"-- Crocodile:		Subsurface Assault Bombard. Fires either a Heavy Rocket on land or Torpedo in water on a 10 second reload.\n" ..
 					"-- Plaguerat:		Amphibious Terrain-flattening and Nanoplague bomb. 8 bp zombie rezspeed.\n"..
 					" \n"..
+					"Nanoplague: \n"..
+					"-- Nanoplague is a new weapon effect that causes wrecks in its aoe to resurect into neutral units. Their behavior is equal that of the Zombies! modoption.\n" .. 
+					"-- Revive times are based on the cost of  the unit and the buildpower of the used nanoplague. Minimum zombie revive time is 10 seconds.\n" ..
+					"-- Zombie wrecks generally cannot be plagued again. Zombies are slowed by 0.3.\n" ..
+					"-- Currently Athena, Quake, Plaguerat and Disco Rave Party have/are weapons that apply nanoplague.\n"..
+					"\n"..
 					"Striders:\n" ..
-					"--> Squire! A Medium Weight Combat Strider. 5k cost, 20k hp and carries a 800 range Heavy Blaster and Sonic sidearms. Model pilfered from Paladin.\n" ..
-					"--> Nebula returns! Drops its shield health and manoverability in favor of more range, cheaper construction and exceptional sight capability.\n"..
-					"-- Functions as a siege and intel platform to cap off an aerial advantage. Best contested by a cloaked AA ambush, or air units.\n"..
-					"--> Athena gains a Nanoplague canister missile and Nanoplague Dart as a dgun.\n" ..
-					"-- Nanoplague causes wrecks in its aoe to resurect into neutral units. Their behavior is equal that of the Zombies! modoption. Zombies are slowed by 0.3.\n" ..
-					"-- The Canister has a wide aoe and resurrects at a speed of 50 bp per second. The Dart has much smaller aoe and resurrects at a speed of 150 bp per second.\n" ..
-					"-- Minimum Revive time is 10 seconds. Canister and Dart share a reload.\n" ..
-					"--> Merlins fires a higher damage, longer reload and longer salvo time salvo. It immobilizes merlin during firing.\n" ..
-					"-- This is a stronger but more vunerable Merlin as it immobilises. Retargeting during the salvo is recommended to cover more area.\n" ..
-					"--> Paladin shoots EMP Missiles while its dgun is off cooldown\n" ..
-					"--> Reef's pads repair faster and it becomes a builder. Can now also build some planes and gunships.\n" ..
-					"--> Scylla gains high damage but slow siege torpedoes that track their target beyond Scyllas fire range. Its tacnuke is moved to a dgun.\n" ..
-					"--> Shogun is cheaper, 4k cost.\n" ..
+					"-- Squire! A Medium Weight Combat Strider. 5k cost, 20k hp and carries a 800 range Heavy Blaster and Sonic sidearms. Model pilfered from Paladin.\n" ..
+					"-- Nebula returns! Drops its shield health and manoverability in favor of more range, cheaper construction and exceptional sight capability.\n"..
+					"---> Functions as a siege and intel platform to cap off an aerial advantage. Best contested by a cloaked AA ambush, or air units.\n"..
+					"-- Athena gains a Nanoplague canister missile as it's 'regular' weapon and Nanoplague Dart as a dgun.\n" ..
+					"---> The Canister has a wide aoe and resurrects at a speed of 50 bp per second. The Dart has much smaller aoe and resurrects at a speed of 150 bp per second. They share a reload\n" ..
+					"-- Merlins fires a higher damage, longer reload and longer salvo time salvo. It immobilizes merlin during firing.\n" ..
+					"---> This is a stronger but more vunerable Merlin as it immobilises. Retargeting during the salvo is recommended to cover more area.\n" ..
+					"-- Paladin shoots EMP Missiles while its dgun is off cooldown\n" ..
+					"-- Reef's pads repair faster and it becomes a builder. Can now also build some planes and gunships.\n" ..
+					"-- Scylla gains high damage but slow siege torpedoes that track their target beyond Scyllas fire range. Its tacnuke is moved to a dgun.\n" ..
+					"-- Shogun is cheaper, 4k cost.\n" ..
 					" \n" ..
 					"Aerial AA\n" ..
 					"-- Swift, Raptor and Trident gain extra hp to survive ground AA. About a 1.6x hp buff. Raptor's weapon is swapped for a flak gun of same dps with slightly more range.\n" ..
-					"-- Raptor and swift also have an extra maneuver enabled. Potentially looks cool, unsure if effective or good or if it even activates?.\n" ..
+					"-- Raptor and swift also have an extra maneuver enabled. Looks cool, unsure if effective or a good addition.\n" ..
 					" \n" ..
 					"Air to ground\n" ..
 					"-- Swift gets extra range and fireangle to allow for more micro.\n" ..
 					"-- Magpie becomes an attritional glidebomber. It rearms faster and gains some aoe but loses accurate tracking.\n" ..
 					"-- Phoenix has its damage shifted more to afterburn from upfront damage, with the resulting damage being similar, but stacking multiple phoenix being less effective.\n" ..
-					" \n" ..
-					"Cloak\n" ..
-					"-- Scythe can now areacloak, being a middle step between conjurer and iris. Scythe is slowed when areacloaking, but still slightly faster than iris.\n" ..
 					" \n" ..
 					"Jump\n" ..
 					"-- All jumpbots can jump, but worse than their prime jumpers in speed and recharge. It is primarily a tactical movement, not combat jump.\n" ..
@@ -127,11 +128,12 @@ function widget:Initialize()
 					"-- Outlaw is faster and more tanky. Deals more damage up close and slightly less at its edge.\n" ..
 					" \n" ..
 					"Miscellaneous\n" ..
+					"-- Scythe can now areacloak similar, being a middle step between conjurer and iris. Scythe is slowed when areacloaking, but still slightly faster than iris.\n" ..
 					"-- Hercules drops units safely. It applies collision damage immunity to units dropped by ejecting or on death.\n" ..
 					"-- Badger gains a dgun, a burst of mines that puts its main weapon on cooldown. Maybe something for the badger enjoyers.\n" ..
 					"-- Bertha has quicker reload but overheats. The first few bertha shots will fire significantly faster before returning to normal reload speed.\n" ..
-					"-- Quake applies Nanoplague, resurecting wrecks in its aoe as neutral units. An alternative usecase for it. 50 bp resurect speed.\n" ..
-					"-- DRP's green shot also applies nanoplague, at 100 bp.\n" ..
+					"-- Quake applies Nanoplague as an alternative usecase. 50 bp resurect speed.\n" ..
+					"-- DRP's green shot also applies nanoplague, at 200 bp. It uniquely can resurrect zombie wrecks.\n" ..
 					" \n" ..
 					"QoL/Technical/Fix:\n" ..
 					"-- Commanders try to prioritise their dgun.\n" ..
@@ -376,7 +378,7 @@ Smol area cloak, get cloak into cloak earlier, while sidestepping conjurers jank
 -> done, but not enough testing. maybe op
 
 TODO Shogun buff
-It should be maybe better shore bombardment?
+It should be maybe better shore bombardment? A little cheaper to figure out if its fun
 
 TODO Nanoplague com weapons
 Recon and guardian get nanoplague canisters/grenades
