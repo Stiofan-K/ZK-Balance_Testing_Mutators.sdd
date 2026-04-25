@@ -1,0 +1,160 @@
+return { shieldassault = {
+  name                = [[Thug]],
+  description         = [[Shielded Assault Bot]],
+  acceleration        = 0.75,
+  activateWhenBuilt   = true,
+  brakeRate           = 1.32,
+  buildPic            = [[shieldassault.png]],
+  canGuard            = true,
+  canMove             = true,
+  canPatrol           = true,
+  category            = [[LAND]],
+  selectionVolumeOffsets = [[0 0 0]],
+  selectionVolumeScales  = [[68 68 68]],
+  selectionVolumeType    = [[ellipsoid]],
+  corpse              = [[DEAD]],
+
+  customParams        = {
+    bait_level_default = 0,
+    shield_emit_height = 17,
+    cus_noflashlight   = 1,
+    selection_scale    = 0.82,
+    normaltex = [[unittextures/Thug_normals.dds]],
+
+    outline_x = 80,
+    outline_y = 80,
+    outline_yoff = 15.5,
+  },
+
+  explodeAs           = [[BIG_UNITEX]],
+  footprintX          = 3,
+  footprintZ          = 3,
+  health              = 960,
+  iconType            = [[walkerassault]],
+  leaveTracks         = true,
+  maxSlope            = 36,
+  maxWaterDepth       = 22,
+  metalCost           = 175,
+  movementClass       = [[KBOT3]],
+  noChaseCategory     = [[TERRAFORM FIXEDWING SUB DRONE]],
+  objectName          = [[thud.s3o]],
+  onoffable           = false,
+  script              = [[shieldassault.lua]],
+  selfDestructAs      = [[BIG_UNITEX]],
+
+  sfxtypes            = {
+
+    explosiongenerators = {
+      [[custom:THUDMUZZLE]],
+      [[custom:THUDSHELLS]],
+      [[custom:THUDDUST]],
+    },
+
+  },
+
+  sightDistance       = 420,
+  speed               = 57,
+  trackOffset         = 0,
+  trackStrength       = 8,
+  trackStretch        = 1,
+  trackType           = [[ComTrack]],
+  trackWidth          = 22,
+  turnRate            = 2400,
+  upright             = true,
+
+  weapons             = {
+
+    {
+      def                = [[THUD_WEAPON]],
+      badTargetCategory  = [[FIXEDWING]],
+      onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
+    },
+
+    {
+      def = [[SHIELD]],
+    },
+
+  },
+
+  weaponDefs          = {
+
+    SHIELD      = {
+      name                    = [[Energy Shield]],
+
+      damage                  = {
+        default = 10,
+      },
+
+      exteriorShield          = true,
+      shieldAlpha             = 0.2,
+      shieldBadColor          = [[1 0.1 0.1 1]],
+      shieldGoodColor         = [[0.1 0.1 1 1]],
+      shieldInterceptType     = 3,
+      shieldPower             = 1400,
+      shieldPowerRegen        = 13,
+      shieldPowerRegenEnergy  = 0,
+      shieldRadius            = 100,
+      shieldRepulser          = false,
+      shieldStartingPower     = 1400,
+      smartShield             = true,
+      visibleShield           = false,
+      visibleShieldRepulse    = false,
+      weaponType              = [[Shield]],
+    },
+
+    THUD_WEAPON = {
+      name                    = [[Light Plasma Cannon]],
+      areaOfEffect            = 36,
+      burst                   = 2,
+      burstrate               = 0.3,
+      cegTag                  = [[light_plasma_trail]],
+      craterBoost             = 0,
+      craterMult              = 0,
+
+      customParams        = {
+        light_camera_height = 1400,
+        light_color = [[0.80 0.54 0.23]],
+        light_radius = 200,
+        burst = Shared.BURST_RELIABLE,
+      },
+
+      damage                  = {
+        default = 180,
+        planes  = 180,
+      },
+
+      explosionGenerator      = [[custom:MARY_SUE]],
+      impulseBoost            = 0,
+      impulseFactor           = 0.4,
+      interceptedByShieldType = 1,
+      range                   = 280,
+      reloadtime              = 7,
+      soundHit                = [[explosion/ex_med5]],
+      soundStart              = [[weapon/cannon/cannon_fire5]],
+      turret                  = true,
+      weaponType              = [[Cannon]],
+      weaponVelocity          = 210,
+    },
+
+  },
+
+  featureDefs         = {
+
+    DEAD  = {
+      blocking         = true,
+      featureDead      = [[HEAP]],
+      footprintX       = 2,
+      footprintZ       = 2,
+      object           = [[thug_d.s3o]],
+    },
+
+    HEAP  = {
+      blocking         = false,
+      footprintX       = 2,
+      footprintZ       = 2,
+      object           = [[debris2x2c.s3o]],
+    },
+
+  },
+
+} }

@@ -28,6 +28,12 @@ local flares = { piece 'flare1', piece 'flare2' }
 local current_flare = 1
 local SIG_AIM = 2
 
+local function PrioritiseTorpGun()
+	torpAim = true
+	Sleep(500)
+	torpAim = false
+end
+
 function script.QueryWeapon(num)
 	return turret
 end
@@ -37,6 +43,11 @@ function script.AimFromWeapon(num)
 end
 
 function script.AimWeapon(num, heading, pitch)
+	if num == 1 then
+		StartThread(PrioritiseTorpGun)
+	elseif num == 2 and torpAim then
+		return false
+	end
 	Signal(SIG_AIM)
 	SetSignalMask(SIG_AIM)
 	return true
@@ -44,16 +55,18 @@ end
 
 function script.FireWeapon(num)
 	if num == 2 then
-		Spring.SetUnitWeaponState(unitID, 1, 'reloadState', Spring.GetGameFrame()+30*6) --30 second reload
+		Spring.SetUnitWeaponState(unitID, 1, 'reloadState', Spring.GetGameFrame()+30*6) --6 second reload
 		GG.UpdateUnitAttributes(unitID)
 	end
 end
 function script.BlockShot(num, targetID)
+	-- Blocking torplauncher shots that are unlikely to get into water
+	-- I just like the astethics, even if firing like the cannon would be more effective
 	local x,y,z = Spring.GetUnitPosition(unitID)
-	if num == 1 and y > -8 then
+	if num == 1 and y > -10 then
+		torpAim = false
 		return true
 	end
-	
 	local reloadState = Spring.GetUnitWeaponState(unitID, 1, 'reloadState')
 	return not (reloadState and (reloadState < 0 or reloadState < Spring.GetGameFrame()))
 end
@@ -61,6 +74,18 @@ end
 
 
 -- Misc
+
+local function Wake()
+	Signal(SIG_MOVE)
+	SetSignalMask(SIG_MOVE)
+	while true do
+		if not Spring.GetUnitIsCloaked(unitID) and select(2, Spring.GetUnitPosition(unitID)) <= 0 and moving then			
+			EmitSfx(base, 2)
+			EmitSfx(shovel, 2)
+		end
+		Sleep(200)
+	end
+end
 
 function script.Create()
 	Hide(guns)
@@ -75,6 +100,9 @@ function script.Create()
 	
 	StartThread(GG.Script.SmokeUnit, unitID, {base})
 	Spring.SetUnitNanoPieces(unitID, nanos)
+	
+	moving = false
+	StartThread(Wake)
 end
 
 local explodables = { shovel }

@@ -50,6 +50,7 @@ local buildoptions = {
 		{ "plateshield",  notSea=true },
 		{ "platejump",  notSea=true },
 		{ "platetank",  notSea=true },
+		{ "plateamphtank" },
 		
 		{ "striderhub" },
 		{CMD_BUILD_PLATE, tech=3 },

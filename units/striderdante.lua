@@ -1,0 +1,343 @@
+return { striderdante = {
+  name                = [[Dante]],
+  description         = [[Assault/Riot Strider]],
+  acceleration        = 0.295,
+  brakeRate           = 1.435,
+  builder             = false,
+  buildPic            = [[striderdante.png]],
+  canGuard            = true,
+  canManualFire       = true,
+  canMove             = true,
+  canPatrol           = true,
+  category            = [[LAND]],
+  corpse              = [[DEAD]],
+
+  customParams        = {
+    aim_lookahead      = 120,
+    decloak_footprint  = 5,
+    manualfire_desc    = [[Fire Special Weapon: Fire a napalm rocket salvo.]]
+  },
+
+  explodeAs           = [[CRAWL_BLASTSML]],
+  footprintX          = 4,
+  footprintZ          = 4,
+  health              = 15000,
+  iconType            = [[t3riot]],
+  leaveTracks         = true,
+  maxSlope            = 36,
+  maxWaterDepth       = 22,
+  metalCost           = 3500,
+  movementClass       = [[KBOT4]],
+  noAutoFire          = false,
+  noChaseCategory     = [[TERRAFORM SATELLITE SUB DRONE]],
+  objectName          = [[dante.s3o]],
+  script              = [[striderdante.lua]],
+  selfDestructAs      = [[CRAWL_BLASTSML]],
+
+  sfxtypes            = {
+
+    explosiongenerators = {
+      [[custom:SLASHMUZZLE]],
+      [[custom:SLASHREARMUZZLE]],
+      [[custom:RAIDMUZZLE]],
+    },
+  },
+  sightEmitHeight     = 50,
+  sightDistance       = 600,
+  speed               = 57,
+  trackOffset         = 0,
+  trackStrength       = 8,
+  trackStretch        = 1.66,
+  trackType           = [[ComTrack]],
+  trackWidth          = 38,
+  turnRate            = 720,
+  upright             = true,
+  workerTime          = 0,
+
+  weapons             = {
+
+    {
+      def                = [[NAPALM_ROCKETS]],
+      accurateLeading    = 1,
+      badTargetCategory  = [[FIXEDWING GUNSHIP]],
+      onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
+    },
+
+
+    {
+      def                = [[HEATRAY]],
+      accurateLeading    = 1,
+      badTargetCategory  = [[FIXEDWING]],
+      onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
+    },
+
+
+    {
+      def                = [[NAPALM_ROCKETS_SALVO]],
+      onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
+    },
+
+
+    {
+      def                = [[DANTE_FLAMER]],
+      accurateLeading    = 1,
+      badTargetCategory  = [[FIREPROOF]],
+      onlyTargetCategory = [[SWIM LAND SINK TURRET FLOAT SHIP HOVER GUNSHIP FIXEDWING]],
+    },
+
+  },
+
+
+  weaponDefs          = {
+
+    DANTE_FLAMER         = {
+      name                    = [[Flamethrower]],
+      areaOfEffect            = 96,
+      avoidGround             = false,
+      avoidFeature            = false,
+      avoidFriendly           = false,
+      collideFeature          = false,
+      collideGround           = false,
+      coreThickness           = 0,
+      craterBoost             = 0,
+      craterMult              = 0,
+      cegTag                  = [[flamer_320_range]],
+
+      customParams              = {
+        flamethrower = [[1]],
+        setunitsonfire = "1",
+        burnchance = "0.4", -- Per-impact
+        burntime = 1125, -- 37.5s
+
+        light_camera_height = 1800,
+        light_color = [[0.6 0.39 0.18]],
+        light_radius = 200,
+        light_fade_time = 8,
+        light_beam_mult_frames = 5,
+        light_beam_mult = 5,
+        reaim_time = 1,
+      },
+      
+      damage                  = {
+        default = 15,
+      },
+
+      duration                  = 0.01,
+      explosionGenerator      = [[custom:SMOKE]],
+      fallOffRate             = 1,
+      fireStarter             = 100,
+      heightMod               = 1,
+      impulseBoost            = 0,
+      impulseFactor           = 0,
+      intensity               = 0.3,
+      interceptedByShieldType = 1,
+      noExplode               = true,
+      noSelfDamage            = true,
+      range                   = 320,
+      reloadtime              = 0.133,
+      rgbColor                = [[1 1 1]],
+      soundStart              = [[weapon/flamethrower]],
+      soundTrigger            = true,
+      texture1                = [[flame]],
+      thickness               = 0,
+      tolerance               = 5000,
+      turret                  = true,
+      weaponType              = [[LaserCannon]],
+      weaponVelocity          = 800,
+    },
+
+
+    HEATRAY              = {
+      name                    = [[Heat Ray]],
+      accuracy                = 512,
+      areaOfEffect            = 20,
+      avoidFeature            = false,
+      coreThickness           = 0.5,
+      craterBoost             = 0,
+      craterMult              = 0,
+
+      customParams              = {
+        light_camera_height = 1500,
+        light_color = [[0.9 0.4 0.12]],
+        light_radius = 90,
+        light_fade_time = 25,
+        light_fade_offset = 10,
+        light_beam_mult_frames = 9,
+        light_beam_mult = 8,
+        reaim_time = 1,
+      },
+      
+      damage                  = {
+        default = 49,
+        planes  = 49,
+      },
+
+      duration                = 0.3,
+      dynDamageExp            = 1,
+      dynDamageInverted       = false,
+      dynDamageRange          = 430,
+      explosionGenerator      = [[custom:HEATRAY_HIT]],
+      fallOffRate             = 1,
+      fireStarter             = 90,
+      heightMod               = 1,
+      impactOnly              = true,
+      impulseBoost            = 0,
+      impulseFactor           = 0.4,
+      interceptedByShieldType = 1,
+      lodDistance             = 10000,
+      projectiles             = 2,
+      proximityPriority       = 4,
+      range                   = 417,
+      reloadtime              = 0.1,
+      rgbColor                = [[1 0.1 0]],
+      rgbColor2               = [[1 1 0.25]],
+      soundStart              = [[weapon/heatray_fire]],
+      thickness               = 3,
+      tolerance               = 5000,
+      turret                  = true,
+      weaponType              = [[LaserCannon]],
+      weaponVelocity          = 500,
+    },
+
+    NAPALM_ROCKETS       = {
+      name                    = [[Napalm Rockets]],
+      areaOfEffect            = 168,
+      burst                   = 2,
+      burstrate               = 0.1,
+      cegTag                  = [[missiletrailredsmall]],
+      craterBoost             = 0,
+      craterMult              = 0,
+
+      customParams              = {
+        area_damage = 1,
+        area_damage_radius = 78,
+        area_damage_dps = 17,
+        area_damage_duration = 15,
+        
+        setunitsonfire = "1",
+        burnchance = "1",
+        burntime = [[150]],
+        reaim_time = 1,
+        force_ignore_ground = [[1]],
+      },
+      
+      damage                  = {
+        default = 150.01,
+      },
+
+      edgeEffectiveness       = 0.4,
+      explosionGenerator      = [[custom:napalm_dante_small]],
+      fireStarter             = 250,
+      fixedlauncher           = true,
+      flightTime              = 0.1,
+      impulseBoost            = 0,
+      impulseFactor           = 0.1,
+      interceptedByShieldType = 2,
+      leadLimit               = 200,
+      model                   = [[diskball.s3o]],
+      range                   = 420,
+      reloadtime              = 2,
+      smokeTrail              = true,
+      soundHit                = [[weapon/missile/rapid_rocket_hit]],
+      soundStart              = [[weapon/missile/rapid_rocket_fire]],
+      sprayAngle              = 2000,
+      startVelocity           = 350,
+      tolerance               = 6500,
+      tracks                  = false,
+      trajectoryHeight        = 0.3,
+      turnRate                = 0,
+      turret                  = true,
+      weaponAcceleration      = 0,
+      weaponType              = [[MissileLauncher]],
+      weaponVelocity          = 200,
+    },
+
+
+    NAPALM_ROCKETS_SALVO = {
+      name                    = [[Napalm Rocket Salvo]],
+      areaOfEffect            = 168,
+      avoidFeature            = false,
+      avoidFriendly           = false,
+      avoidNeutral            = false,
+      burst                   = 10,
+      burstrate               = 0.1,
+      cegTag                  = [[missiletrailredsmall]],
+      commandfire             = true,
+      craterBoost             = 0,
+      craterMult              = 0,
+
+      customParams              = {
+        area_damage = 1,
+        area_damage_radius = 78,
+        area_damage_dps = 17,
+        area_damage_duration = 15,
+        
+        setunitsonfire = "1",
+        burnchance = "1",
+        burntime = [[150]],
+        
+        light_color = [[0.8 0.4 0.1]],
+        light_radius = 320,
+        reaim_time = 1,
+      },
+      
+      damage                  = {
+        default = 150.01,
+      },
+
+      dance                   = 25,
+      edgeEffectiveness       = 0.4,
+      explosionGenerator      = [[custom:napalm_dante_small]],
+      fireStarter             = 250,
+      fixedlauncher           = true,
+      flightTime              = 0.1,
+      groundbounce            = 1,
+      waterbounce             = 1,
+      impulseBoost            = 0,
+      impulseFactor           = 0.1,
+      interceptedByShieldType = 2,
+      model                   = [[diskball.s3o]],
+      numBounce               = 2,
+      projectiles             = 2,
+      range                   = 420,
+      reloadtime              = 20,
+      smokeTrail              = true,
+      soundHit                = [[weapon/missile/rapid_rocket_hit]],
+      soundStart              = [[weapon/missile/rapid_rocket_fire]],
+      sprayAngle              = 9000,
+      startVelocity           = 350,
+      tolerance               = 6500,
+      tracks                  = false,
+      trajectoryHeight        = 0.3,
+      turnRate                = 3000,
+      turret                  = true,
+      weaponAcceleration      = 0,
+      weaponType              = [[MissileLauncher]],
+      weaponVelocity          = 200,
+      wobble                  = 0,
+    },
+
+  },
+
+
+  featureDefs         = {
+
+    DEAD  = {
+      blocking         = true,
+      featureDead      = [[HEAP]],
+      footprintX       = 3,
+      footprintZ       = 3,
+      object           = [[dante_dead.s3o]],
+    },
+
+
+    HEAP  = {
+      blocking         = false,
+      footprintX       = 4,
+      footprintZ       = 4,
+      object           = [[debris4x4c.s3o]],
+    },
+
+  },
+
+} }

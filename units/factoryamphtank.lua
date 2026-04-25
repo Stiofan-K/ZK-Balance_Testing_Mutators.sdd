@@ -1,6 +1,6 @@
 return { factoryamphtank = {
   name                          = [[Amphtank Foundry]],
-  description                   = [[Produces Amphtanks]],
+  description                   = [[Produces Amphibious tanks]],
   buildDistance                 = Shared.FACTORY_PLATE_RANGE,
   builder                       = true,
   buildingGroundDecalDecaySpeed = 30,
@@ -10,12 +10,15 @@ return { factoryamphtank = {
 
   buildoptions     = {
     [[amphtankcon]],
-    --[[amphtankraid]]
-    [[amphtankriot]]
-    --[[amphtankskirm]]
+    [[amphtankraid]],
+    [[amphtankriot]],
+    [[amphtankskirm]],
     --[[amphtankassault]]
-    --[[amphtankarty]]
-    --[[amphtankaa]]
+    [[amphtanksubassault]],
+    [[amphtankarty]],
+    [[amphtankaa]],
+    [[amphtanksubraid]],
+    [[amphtankbomb]],
   },
 
   buildPic         = [[factoryhover.png]],
@@ -42,7 +45,7 @@ return { factoryamphtank = {
     unstick_help_buffer = 0.3,
     factorytab          = 1,
     shared_energy_gen   = 1,
-    parent_of_plate     = [[platehover]],
+    parent_of_plate     = [[plateamphtank]],
     buggeroff_radius   = 40,
     buggeroff_offset   = 5,
     normaltex = [[unittextures/factoryhover_normals.dds]],

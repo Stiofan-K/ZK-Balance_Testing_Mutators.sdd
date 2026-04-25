@@ -18,7 +18,6 @@ local isLoaded = {
 	true,
 }
 
-local RELOAD_TIME = 2.3 * 30
 
 local SIG_AIM = 1
 local SIG_MOVE = 2
@@ -78,6 +77,8 @@ for i = 1, 4 do
 	trackData.tracks[i] = piece ('tracks' .. i)
 end
 
+local OKP_DAMAGE = tonumber(UnitDefs[unitDefID].customParams.okp_damage)
+
 local gunHeading = 0
 
 local disarmed = false
@@ -125,13 +126,44 @@ function Unstunned(stun_type)
 	end
 end
 
+local function Wake()
+	Signal(SIG_MOVE)
+	SetSignalMask(SIG_MOVE)
+	while true do
+		if not Spring.GetUnitIsCloaked(unitID) and select(2, Spring.GetUnitPosition(unitID)) <= 0 and moving then
+			EmitSfx(base, 2)
+		end
+		Sleep(200)
+	end
+end
+
+local function SetDeploy(wantDeploy)
+	Signal(SIG_DEPLOY)
+	SetSignalMask(SIG_DEPLOY)
+	if wantDeploy then
+		Move(turret, y_axis, 0, 6)
+		Turn(sleeve, x_axis,math.rad(-90),math.rad(120))
+		WaitForTurn(sleeve, x_axis,math.rad(-90))
+		deployed = true
+	else
+		Move(turret, y_axis, -5, 6)
+		Turn(sleeve, x_axis,math.rad(-180),math.rad(120))
+		deployed = false
+	end
+end
+
+
+
 function script.StartMoving()
+	StartThread(SetDeploy,false)
 	StartThread(TrackControlStartMoving)
-	
+	moving = true
 end
 
 function script.StopMoving()
+	StartThread(SetDeploy,true)
 	TrackControlStopMoving()
+	moving = false
 end
 
 function script.AimFromWeapon()
@@ -146,6 +178,9 @@ function script.AimWeapon(num, heading, pitch)
 	Signal (SIG_AIM)
 	SetSignalMask (SIG_AIM)
 
+	if not deployed then
+		return false
+	end
 	isAiming = true
 
 	while disarmed do
@@ -170,10 +205,6 @@ function script.FireWeapon()
 	currentMissile = 3 - currentMissile
 end
 
-
-function script.BlockShot(num, targetID)
-end
-
 function script.Create()
 	dynamicRockData = GG.ScriptRock.InitializeRock(rockData)
 	InitiailizeTrackControl(trackData)
@@ -181,13 +212,17 @@ function script.Create()
 	while (select(5, Spring.GetUnitHealth(unitID)) < 1) do
 		Sleep (250)
 	end
-
-	Turn(sleeve, x_axis,math.rad(-87),math.rad(200))
+	--[[
+	Move(turret, y_axis, -7, 3)
+	Turn(sleeve, x_axis,math.rad(-90),math.rad(200))
+	]]
 
 	Hide(missiles[1])
 	Hide(missiles[2])
 
-	StartThread (GG.Script.SmokeUnit, unitID, smokePiece)
+	moving = false
+	StartThread(Wake)
+	StartThread(GG.Script.SmokeUnit, unitID, smokePiece)
 end
 
 function script.Killed (recentDamage, maxHealth)

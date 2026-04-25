@@ -162,16 +162,15 @@ local factoryUnitPosDef = {
 	},
 	factoryamphtank = {
 		amphtankcon       = unitTypes.CONSTRUCTOR,
-		--amphtankraid      = unitTypes.RAIDER,
-		--amphtanksubraid   = unitTypes.WEIRD_RAIDER,
+		amphtankraid      = unitTypes.RAIDER,
+		amphtanksubraid   = unitTypes.WEIRD_RAIDER,
 		amphtankriot      = unitTypes.RIOT,
-		--amphtankskirm     = unitTypes.SKIRMISHER,
-		--amphtankassault	= unitTypes.ASSAULT,
-		--amphtankaa        = unitTypes.ANTI_AIR,
-		--amphassault       = unitTypes.HEAVY_SOMETHING,
-		--amphtankarty      = unitTypes.ARTILLERY,
-		--amphbomb          = unitTypes.SPECIAL,
-		--amphtele          = unitTypes.UTILITY,
+		amphtankskirm     = unitTypes.SKIRMISHER,
+		amphtanksubassault= unitTypes.ASSAULT,
+		amphtankaa        = unitTypes.ANTI_AIR,
+		--amphtankassault = unitTypes.HEAVY_SOMETHING,
+		amphtankarty      = unitTypes.ARTILLERY,
+		amphtankbomb	  = unitTypes.SPECIAL,
 	},
 	pw_bomberfac = {
 		bomberriot        = unitTypes.RIOT,
@@ -197,6 +196,7 @@ factoryUnitPosDef.platejump    = Spring.Utilities.CopyTable(factoryUnitPosDef.fa
 factoryUnitPosDef.platetank    = Spring.Utilities.CopyTable(factoryUnitPosDef.factorytank)
 factoryUnitPosDef.plateamph    = Spring.Utilities.CopyTable(factoryUnitPosDef.factoryamph)
 factoryUnitPosDef.plateship    = Spring.Utilities.CopyTable(factoryUnitPosDef.factoryship)
+factoryUnitPosDef.plateamphtank= Spring.Utilities.CopyTable(factoryUnitPosDef.factoryamphtank)
 
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
