@@ -10,7 +10,7 @@ return { amphtankraid = {
   canMove                = true,
   canPatrol              = true,
   category               = [[HOVER SMALL TOOFAST]],
-  collisionVolumeOffsets = [[0 -5 0]],
+  collisionVolumeOffsets = [[0 0 0]],
   collisionVolumeScales  = [[26 26 36]],
   collisionVolumeType    = [[cylZ]],
   selectionVolumeOffsets = [[0 0 0]],
@@ -47,7 +47,7 @@ return { amphtankraid = {
   movementClass          = [[HOVER2]],
   noAutoFire             = false,
   noChaseCategory        = [[TERRAFORM FIXEDWING SATELLITE SUB]],
-  objectName             = [[corgator_512.s3o]],
+  objectName             = [[springald.dae]],
   script                 = [[amphtankraid.lua]],
   selfDestructAs         = [[BIG_UNITEX]],
 
@@ -75,6 +75,8 @@ return { amphtankraid = {
 
     {
       def                = [[PARTICLEBEAM]],
+      mainDir            = [[0 1 0]], -- top
+      maxAngleDif        = 220,
       badTargetCategory  = [[FIXEDWING]],
       onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
     },
@@ -134,7 +136,7 @@ weaponDefs             = {
       featureDead      = [[HEAP]],
       footprintX       = 2,
       footprintZ       = 2,
-      object           = [[gatorwreck.s3o]],
+      object           = [[springald_wreck.dae]],
     },
 
     HEAP  = {

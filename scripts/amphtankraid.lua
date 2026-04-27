@@ -1,18 +1,16 @@
 include "constants.lua"
 
-local base, body, turret, sleeve, barrel, firepoint,
-	rwheel1, rwheel2,
-	lwheel1, lwheel2,
-	lfender1, lfender2, rfender1, rfender2,
-	gs1r, gs2r,
-	gs1l, gs2l
+local base, body, turret, sleeve, firepoint,
+	rwheel1, rwheel2,rwheel3,
+	lwheel1, lwheel2,lwheel3,
+	rpropeller,
+	lpropeller
 = piece(
-	'base', 'body', 'turret', 'sleeve', 'barrel', 'firepoint',
-	'rwheel1', 'rwheel2',
-	'lwheel1', 'lwheel2',
-	'lfender1', 'lfender2', 'rfender1', 'rfender2',
-	'gs1r', 'gs2r',
-	'gs1l', 'gs2l'
+	'base', 'body', 'turret', 'sleeve', 'firepoint',
+	'rwheel1', 'rwheel2','rwheel3',
+	'lwheel1', 'lwheel2','lwheel3',
+	'rpropeller',
+	'lpropeller'
 )
 
 local moving, reloading, mainHead, wheelTurnSpeed
@@ -114,10 +112,14 @@ local function Wake()
 		if not Spring.GetUnitIsCloaked(unitID) and select(2, Spring.GetUnitPosition(unitID)) <= 0 and moving then
 			EmitSfx(rwheel1, 2)
 			EmitSfx(rwheel2, 2)
+			EmitSfx(rwheel3, 2)
 			EmitSfx(lwheel1, 2)
 			EmitSfx(lwheel2, 2)
+			EmitSfx(lwheel3, 2)
+			EmitSfx(rpropeller, 2)
+			EmitSfx(lpropeller, 2)
 		end
-		Sleep(200)
+		Sleep(100)
 	end
 end
 
@@ -140,12 +142,16 @@ function script.StopMoving()
 end
 
 function Roll()
-	Sleep(500)
+	Sleep(300)
 	if not moving then
 		StopSpin(rwheel1, x_axis)
 		StopSpin(rwheel2, x_axis)
+		StopSpin(rwheel3, x_axis)
 		StopSpin(lwheel1, x_axis)
 		StopSpin(lwheel2, x_axis)
+		StopSpin(lwheel3, x_axis)
+		StopSpin(rpropeller, y_axis)
+		StopSpin(lpropeller, y_axis)
 	end
 end
 
@@ -157,8 +163,15 @@ function script.StartMoving()
 	
 	Spin(rwheel1, x_axis, wheelTurnSpeed)
 	Spin(rwheel2, x_axis, wheelTurnSpeed)
+	Spin(rwheel3, x_axis, wheelTurnSpeed)	
 	Spin(lwheel1, x_axis, wheelTurnSpeed)
 	Spin(lwheel2, x_axis, wheelTurnSpeed)
+	Spin(lwheel3, x_axis, wheelTurnSpeed)
+	
+	if select(2, Spring.GetUnitPosition(unitID)) <= 0 then
+		Spin(rpropeller, y_axis, wheelTurnSpeed*3)
+		Spin(lpropeller, y_axis, -wheelTurnSpeed*3)
+	end
 end
 
 -- Weapons
@@ -174,9 +187,9 @@ function script.AimWeapon(num, heading, pitch)
 	Signal(SIG_AIM)
 	SetSignalMask(SIG_AIM)
 	
-	Turn(turret, y_axis, heading, TURRET_TURN_SPEED)
+	Turn(turret, z_axis, heading, TURRET_TURN_SPEED)
 	Turn(sleeve, x_axis, -pitch, SLEEVE_TURN_SPEED)
-	WaitForTurn(turret, y_axis)
+	WaitForTurn(turret, z_axis)
 	WaitForTurn(sleeve, x_axis)
 	StartThread(RestoreAfterDelay)
 
@@ -191,25 +204,21 @@ end
 function script.Killed(recentDamage, maxHealth)
 	local severity = recentDamage / maxHealth
 	if severity >= 0 and severity < 0.25 then
-		Explode(barrel, SFX.NONE)
 		Explode(sleeve, SFX.NONE)
 		Explode(body, SFX.NONE)
 		Explode(turret, SFX.NONE)
 		return 1
 	elseif severity < 0.50 then
-		Explode(barrel, SFX.FALL)
 		Explode(sleeve, SFX.FALL)
 		Explode(body, SFX.NONE)
 		Explode(turret, SFX.SHATTER)
 		return 1
 	elseif severity < 1 then
-		Explode(barrel, SFX.FALL + SFX.SMOKE + SFX.FIRE + SFX.EXPLODE_ON_HIT)
 		Explode(sleeve, SFX.FALL + SFX.SMOKE + SFX.FIRE + SFX.EXPLODE_ON_HIT)
 		Explode(body, SFX.NONE)
 		Explode(turret, SFX.SHATTER)
 		return 2
 	else
-		Explode(barrel, SFX.FALL + SFX.SMOKE + SFX.FIRE + SFX.EXPLODE_ON_HIT)
 		Explode(sleeve, SFX.FALL + SFX.SMOKE + SFX.FIRE + SFX.EXPLODE_ON_HIT)
 		Explode(body, SFX.SHATTER)
 		Explode(turret, SFX.FALL + SFX.SMOKE + SFX.FIRE + SFX.EXPLODE_ON_HIT)
@@ -219,7 +228,7 @@ end
 
 function script.Create()
 	moving = false
-	StartThread(Suspension)
+	--StartThread(Suspension)
 	StartThread(Wake)
 	
 	StartThread(GG.Script.SmokeUnit, unitID, smokePiece)
