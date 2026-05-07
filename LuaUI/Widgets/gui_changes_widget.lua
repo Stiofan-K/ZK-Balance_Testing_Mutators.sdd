@@ -100,6 +100,7 @@ function widget:Initialize()
 					"-- Merlins fires a higher damage, longer reload and longer salvo time salvo. It immobilizes merlin during firing.\n" ..
 					"---> This is a stronger but more vunerable Merlin as it immobilises. Retargeting during the salvo is recommended to cover more area.\n" ..
 					"-- Paladin shoots EMP Missiles while its dgun is off cooldown. Makes Paladin a good bit scarier vs normal armies.\n" ..
+					"-- Ultimatum is more tanky 2k -> 3.2k hp. drops it's in combat regen for better out of combat regen 5hp -> 20hp (reaver regen)\n" ..
 					"-- Reef's pads repair faster and it becomes a builder. Can now also build some planes and gunships.\n" ..
 					"-- Scylla gains high damage but slow siege torpedoes that track their target beyond Scyllas fire range. Its tacnuke is moved to a dgun.\n" ..
 					"-- Shogun is cheaper, 4k cost, to see it used more and see whats fun with it..\n" ..
@@ -253,6 +254,9 @@ Striders
 
 -- Paladin shoots emp missiles when its dgun is on cooldown
 -> similar behavior to dante etc, so I feel like its cool here too
+
+-- Ulti is tankier and gets reaver regen. It may be okay that is slightly better as a an anti assault/raider/riot tool
+-> Tankfactory is probably most hurt by this. Maybe it's okay that they need/want screens vs ulti though
 
 Sea Striders
 
