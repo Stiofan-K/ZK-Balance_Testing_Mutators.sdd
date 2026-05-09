@@ -75,8 +75,6 @@ return { amphtankraid = {
 
     {
       def                = [[PARTICLEBEAM]],
-      mainDir            = [[0 1 0]], -- top
-      maxAngleDif        = 220,
       badTargetCategory  = [[FIXEDWING]],
       onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
     },
