@@ -359,7 +359,12 @@ NanoPlague
 -> As such gaia can produce without needing to have mex or E, but also doesnt have infinite income to farm. And also can threaten to go out of control.
 -> Some widget guy will make wrecks farmable though
 
-TODO Have a look on how to prevent wreck farming nanoplague
+
+TODO Have a look at locusts wing turning
+-- seems to be missalligned to be pointing upwards on move
+
+TODO Have a look on how to allow multiple revives witout allowing farming
+--> currently only non zombie wrecks can be revived
 -> have nanoplauge be something you can reclaim off wrecks, maybe as excess E or so
 -> no metal drained from the wrecks until the plague is gone.
 
