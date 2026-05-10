@@ -349,14 +349,16 @@ Economy:
 -- Solar becomes tankier to incentivise solar walls?
 --> wind may be left behind in terms of E prodction? but it is probably still the densest energy if you account for exposion radius
 --> factories could produce energy to encourage gridding out the gate?
+
+
 QOL/Technical/Fix:
 -- Dante tries to prioritises its dgun over shooting other things.
 -- Commanders try to prioritise their dgun too.
 -- New Merlin Salvo too
--- Overheat is handled in a gadget an applyable to all units
 ->(could do this for pala etc too but theres no aiming conflict)
 -> If theres other things like this feel free to poke. Implementation is more a bandaid however.
 -- Overheat is handled in a gadget an applyable to all units
+
 
 
 Overheat
@@ -383,6 +385,7 @@ TODO have a look at anura's weapons
 
 TODO Have a look at hive
 --> maybe just drop the overheat :O
+
 TODO Have a look on how to allow multiple revives witout allowing farming
 --> currently only non zombie wrecks can be revived
 -> have nanoplauge be something you can reclaim off wrecks, maybe as excess E or so
@@ -487,7 +490,8 @@ TODO Raven -> Tankier but less damage (maybe bring magpie back to 900)
 TODO cheaper solars
 -> more solar walls!
 -> gridding becomes too cheap? 
--> Overdrive becomes too cheap?
+-> Mini grid Overdrive becomes too cheap?
+-> buildings that die into terraform instead for walls?
 
 TODO make areamex toggle that places wind instead of solar
 
