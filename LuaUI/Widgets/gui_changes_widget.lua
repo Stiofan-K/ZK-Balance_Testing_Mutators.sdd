@@ -105,16 +105,16 @@ function widget:Initialize()
 					"-- Scylla gains high damage but slow siege torpedoes that track their target beyond Scyllas fire range. Its tacnuke is moved to a dgun.\n" ..
 					"-- Shogun is cheaper, 4k cost, to see it used more and see whats fun with it..\n" ..
 					" \n" ..
-					"Aerial AA\n" ..
+					"Aerial AA:\n" ..
 					"-- Swift, Raptor and Trident gain extra hp to survive ground AA. About a 1.6x hp buff. Raptor's weapon is swapped for a flak gun of same dps with slightly more range.\n" ..
 					"-- Raptor and swift also have an extra maneuver enabled. Looks cool, unsure if effective or a good addition.\n" ..
 					" \n" ..
-					"Air to ground\n" ..
+					"Air to ground:\n" ..
 					"-- Swift gets extra range and fireangle to allow for more micro.\n" ..
 					"-- Magpie becomes an attritional glidebomber. It rearms faster and gains some aoe but loses accurate tracking.\n" ..
 					"-- Phoenix has its damage shifted more to afterburn from upfront damage, with the resulting damage being similar, but stacking multiple phoenix being less effective.\n" ..
 					" \n" ..
-					"Jump\n" ..
+					"Jump:\n" ..
 					"-- All jumpbots can jump, but worse than their prime jumpers in speed and recharge. It is primarily a tactical movement, not combat jump.\n" ..
 					"-- All new jumps have a windup before jumping. It is meant to be only very slightly faster than walking on flat ground.\n" ..
 					"-- Puppy has much shorter jump range and I've tried to not make it not skew raider matchups. It doesnt turn midair either, so can't do instant turn shenanigans.\n" ..
@@ -127,15 +127,19 @@ function widget:Initialize()
 					"-- Quake applies Nanoplague as an alternative usecase. 50 bp resurect speed.\n" ..
 					"-- DRP's green shot also applies nanoplague, at 200 bp. It uniquely can resurrect zombie wrecks.\n" ..
 					" \n" ..
-					"Shield \n" ..
+					"Shield: \n" ..
 					"-- Felon loses range but gets increased shield regen and is speedier\n" ..
 					"-- Thug gains more shieldhealth, radius and fires both cannons, though with a longer reload. Slighlty more dps\n" ..
 					"-- Outlaw is faster and more tanky. Deals more damage up close and slightly less at its edge.\n" ..
 					" \n" ..
-					"Ships\n" ..
+					"Ships:\n" ..
 					"-- Siren gains a dgun salvo of its missile, which disables its normal missile during reload.\n" ..
 					"-- Mistrals rockets deploy a anti surface torpedo submunition on hit, that tracks it's original target. Only capable of targeting surfaced units. It's original damage is split equally between both projectiles.\n" ..
 					" \n" ..
+					" Economy:\n"..
+					"-- Fusion, Singularity and Geothermals produce 20% more energy.\n"..
+					"-- Wind/Tidal Grid range is increased to match solars. Energy Pylons are more expensive but tankier.\n"..
+					" \n"..
 					"QoL/Technical/Fix:\n" ..
 					"-- Commanders try to prioritise their dgun.\n" ..
 					"-- Overheat is handled in a gadget and could be applied to any unit.",
@@ -339,6 +343,12 @@ Veh
 -- Quake applies Nanoplague, resurecting wrecks in its aoe as neutral units. An alternative usecase for it. 50 bp resurect speed.
 -- So does DRP's Green shot, at 100 bp
 
+Economy:
+-- Winds become better grid pieces
+-- Fusion, geo, adv geo and singu make 20% more energy
+-- Solar becomes tankier to incentivise solar walls?
+--> wind may be left behind in terms of E prodction? but it is probably still the densest energy if you account for exposion radius
+--> factories could produce energy to encourage gridding out the gate?
 QOL/Technical/Fix:
 -- Dante tries to prioritises its dgun over shooting other things.
 -- Commanders try to prioritise their dgun too.
@@ -346,6 +356,8 @@ QOL/Technical/Fix:
 -- Overheat is handled in a gadget an applyable to all units
 ->(could do this for pala etc too but theres no aiming conflict)
 -> If theres other things like this feel free to poke. Implementation is more a bandaid however.
+-- Overheat is handled in a gadget an applyable to all units
+
 
 Overheat
 -> Overheat is now a gadget that can be applied to all units via custom params
@@ -363,6 +375,14 @@ NanoPlague
 TODO Have a look at locusts wing turning
 -- seems to be missalligned to be pointing upwards on move
 
+TODO have a look at anura's weapons
+-- Needs OKP on torpedo
+-- Reduce projectile speed on gun? with reduced gravity
+-- add anura to auto skirmee array
+--> probably wants a model before it can do anything really
+
+TODO Have a look at hive
+--> maybe just drop the overheat :O
 TODO Have a look on how to allow multiple revives witout allowing farming
 --> currently only non zombie wrecks can be revived
 -> have nanoplauge be something you can reclaim off wrecks, maybe as excess E or so
@@ -374,7 +394,6 @@ HOW DOES IT WORK?!
 https://github.com/Helwor/New-Hel-K/blob/main/Widgets/Include/helk_core/widgets/addon_chili.lua
 function ScrollableTextBox()
 	
-
 
 
 TODO Paladin
