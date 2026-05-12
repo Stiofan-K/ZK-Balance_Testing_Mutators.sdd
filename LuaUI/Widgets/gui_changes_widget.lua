@@ -72,7 +72,7 @@ function widget:Initialize()
 				text = 
 					"Current vocal points: Merlin, Nebula, Nanoplague and Amphtanks. Changes listed in order of most interesting to test things.\n" ..
 					" \n" ..
-					"Amphtanks: \n" ..
+					"Amphtanks: Boat but also car!\n" ..
 					"-- Tis a new factory, though currently not quite complete and kitbashed out of existing models. Is still missing polish in how things play and feel, feedback is welcome.\n" ..
 					" \n" ..
 					"-- Murderhole:		Depth charge armed constructor. Tosses it on land, seeking in water.\n" ..
@@ -85,13 +85,13 @@ function widget:Initialize()
 					"-- Crocodile:		Subsurface Assault Bombard. Fires either a Heavy Rocket on land or Torpedo in water on a 10 second reload.\n" ..
 					"-- Plaguerat:		Amphibious Terrain-flattening and Nanoplague bomb. 8 bp zombie rezspeed.\n"..
 					" \n"..
-					"Nanoplague: \n"..
+					"Nanoplague: Resurect wrecks into neutral Zombies!\n"..
 					"-- Nanoplague is a new weapon effect that causes wrecks in its aoe to resurect into neutral units. Their behavior is equal that of the Zombies! modoption.\n" .. 
 					"-- Revive times are based on the cost of  the unit and the buildpower of the used nanoplague. Minimum zombie revive time is 10 seconds.\n" ..
 					"-- Zombie wrecks generally cannot be plagued again. Zombies are slowed by 0.3.\n" ..
 					"-- Currently Athena, Quake, Plaguerat and Disco Rave Party have/are weapons that apply nanoplague.\n"..
 					"\n"..
-					"Striders:\n" ..
+					"Striders: Some new things some old, generally trying to allow for more interactive strider use.\n" ..
 					"-- Squire! A Medium Weight Combat Strider. 5k cost, 20k hp and carries a 800 range Heavy Blaster and Sonic sidearms. Model pilfered from Paladin.\n" ..
 					"-- Nebula returns! Drops its shield, health and manoverability in favor of more range, cheaper construction and exceptional sight capability.\n"..
 					"---> Functions as a siege and intel platform to cap off an aerial advantage. Best contested by a cloaked AA ambush, or aerial AA units.\n"..
@@ -105,16 +105,16 @@ function widget:Initialize()
 					"-- Scylla gains high damage but slow siege torpedoes that track their target beyond Scyllas fire range. Its tacnuke is moved to a dgun.\n" ..
 					"-- Shogun is cheaper, 4k cost, to see it used more and see whats fun with it..\n" ..
 					" \n" ..
-					"Aerial AA:\n" ..
+					"Aerial AA: Tankier fighters to allow for projection of air superiority even with ground AA presence.\n" ..
 					"-- Swift, Raptor and Trident gain extra hp to survive ground AA. About a 1.6x hp buff. Raptor's weapon is swapped for a flak gun of same dps with slightly more range.\n" ..
 					"-- Raptor and swift also have an extra maneuver enabled. Looks cool, unsure if effective or a good addition.\n" ..
 					" \n" ..
-					"Air to ground:\n" ..
+					"Air to ground: Some experiments to push planes further into distinct niches.\n" ..
 					"-- Swift gets extra range and fireangle to allow for more micro.\n" ..
 					"-- Magpie becomes an attritional glidebomber. It rearms faster and gains some aoe but loses accurate tracking.\n" ..
 					"-- Phoenix has its damage shifted more to afterburn from upfront damage, with the resulting damage being similar, but stacking multiple phoenix being less effective.\n" ..
 					" \n" ..
-					"Jump:\n" ..
+					"Jump: All jump bots can jump\n" ..
 					"-- All jumpbots can jump, but worse than their prime jumpers in speed and recharge. It is primarily a tactical movement, not combat jump.\n" ..
 					"-- All new jumps have a windup before jumping. It is meant to be only very slightly faster than walking on flat ground.\n" ..
 					"-- Puppy has much shorter jump range and I've tried to not make it not skew raider matchups. It doesnt turn midair either, so can't do instant turn shenanigans.\n" ..
@@ -131,12 +131,12 @@ function widget:Initialize()
 					"-- Quake applies Nanoplague as an alternative usecase. 50 bp resurect speed.\n" ..
 					"-- DRP's green shot also applies nanoplague, at 200 bp. It uniquely can resurrect zombie wrecks.\n" ..
 					" \n" ..
-					"Shield: \n" ..
+					"Shield: Some shield changes to make it play more brawly.\n" ..
 					"-- Felon loses range but gets increased shield regen and is speedier\n" ..
 					"-- Thug gains more shieldhealth, radius and fires both cannons, though with a longer reload. Slighlty more dps\n" ..
 					"-- Outlaw is faster and more tanky. Deals more damage up close and slightly less at its edge.\n" ..
 					" \n" ..
-					"Ships:\n" ..
+					"Ships: More easily usable Siren Missiles and experimental Mistral submunition.\n" ..
 					"-- Siren gains a dgun salvo of its missile, which disables its normal missile during reload.\n" ..
 					"-- Mistrals rockets deploy a anti surface torpedo submunition on hit, that tracks it's original target. Only capable of targeting surfaced units. It's original damage is split equally between both projectiles.\n" ..
 					" \n" ..
