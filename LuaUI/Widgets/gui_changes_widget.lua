@@ -119,7 +119,11 @@ function widget:Initialize()
 					"-- All new jumps have a windup before jumping. It is meant to be only very slightly faster than walking on flat ground.\n" ..
 					"-- Puppy has much shorter jump range and I've tried to not make it not skew raider matchups. It doesnt turn midair either, so can't do instant turn shenanigans.\n" ..
 					" \n" ..
-					"Miscellaneous:\n" ..
+					"Economy: Trying to make early gridding easier and more viable. Also Solar walls are encouraged.\n"..
+					"-- Fusion, Singularity and Geothermals produce 20% more energy.\n"..
+					"-- Wind/Tidal Grid range is increased to match solars. Solars are cheaper but produce less E. Energy Pylons are more expensive but tankier.\n"..
+					" \n"..
+					"Miscellaneous: Experimental capabilities to give these units some more depth.\n" ..
 					"-- Scythe can now areacloak similar, being a middle step between conjurer and iris. Scythe is slowed when areacloaking, but still slightly faster than iris.\n" ..
 					"-- Hercules drops units safely. It applies collision damage immunity to units dropped by ejecting or on death.\n" ..
 					"-- Badger gains a dgun, a burst of mines that puts its main weapon on cooldown. Maybe something for the badger enjoyers.\n" ..
@@ -136,10 +140,6 @@ function widget:Initialize()
 					"-- Siren gains a dgun salvo of its missile, which disables its normal missile during reload.\n" ..
 					"-- Mistrals rockets deploy a anti surface torpedo submunition on hit, that tracks it's original target. Only capable of targeting surfaced units. It's original damage is split equally between both projectiles.\n" ..
 					" \n" ..
-					" Economy:\n"..
-					"-- Fusion, Singularity and Geothermals produce 20% more energy.\n"..
-					"-- Wind/Tidal Grid range is increased to match solars. Energy Pylons are more expensive but tankier.\n"..
-					" \n"..
 					"QoL/Technical/Fix:\n" ..
 					"-- Commanders try to prioritise their dgun.\n" ..
 					"-- Overheat is handled in a gadget and could be applied to any unit.",
