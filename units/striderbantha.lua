@@ -86,6 +86,7 @@ return { striderbantha = {
     },
     {
       def                = [[EMP_MISSILE]],
+      badTargetCategory  = [[FIXEDWING]],
       onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
     },
   },
