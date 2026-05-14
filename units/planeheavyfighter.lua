@@ -92,6 +92,7 @@ return { planeheavyfighter = {
       customParams              = {
         isaa = [[1]],
         light_radius = 0,
+        nofriendlyfire = 1,
       },
 
       damage                  = {
