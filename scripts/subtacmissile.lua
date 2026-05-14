@@ -68,6 +68,7 @@ end
 function script.Shot(num)
 	if num == 2 then --tacnuke
 		Signal (SIG_AIM)
+		respawning_rocket = true
 	end
 end
 
@@ -79,8 +80,12 @@ function script.EndBurst(num)
 			actually spawned so the Turn would ruin the spawnpoint, up to
 			clipping it into other units or seaside cliffs. ]]
 		Hide (missile)
+
+		-- the turnrate is a dummy value needed to interrupt other ongoing turns,
+		-- without it an ongoing Turn from Aim() will immediately make it erect again
+		Turn (missile, x_axis, 0, math.rad(90))
+
 		local slowMult = (Spring.GetUnitRulesParam(unitID,"baseSpeedMult") or 1)
-		Turn (missile, x_axis, 0, math.rad(90)*slowMult)
 		Turn (door1, z_axis, 0, math.rad(80)*slowMult)
 		Turn (door2, z_axis, 0, math.rad(80)*slowMult)
 		WaitForTurn (door1, z_axis)
