@@ -102,6 +102,7 @@ function widget:Initialize()
 					"-- Paladin shoots EMP Missiles while its dgun is off cooldown. Makes Paladin a good bit scarier vs normal armies.\n" ..
 					"-- Ultimatum is more tanky 2k -> 3.2k hp. drops it's in combat regen for better out of combat regen 5hp -> 20hp (reaver regen)\n" ..
 					"-- Reef's pads repair faster and it becomes a builder. Can now also build some planes and gunships.\n" ..
+					"--> Reef's disarm missile is better with longer disarm time, better reload and more disarm damage but is more costly and takes longer to stockpile.\n" ..					
 					"-- Scylla gains high damage but slow siege torpedoes that track their target beyond Scyllas fire range. Its tacnuke is moved to a dgun.\n" ..
 					"-- Shogun is cheaper, 4k cost, to see it used more and see whats fun with it..\n" ..
 					" \n" ..
@@ -265,6 +266,7 @@ Striders
 Sea Striders
 
 -- Reef's pads repair faster and it becomes a builder. Can now also build some planes and gunships.
+-- Reef's missile is better but but more costly.
 -> Giving access to a limited unit pool for Reef to make keeps the value of gs and air plant, but allows reef to be selfsufficent. Lots of room for interesting things depending on what planes you give it too.
 -> With its bp, its also tempting to use as a reclaiming ship, which may put it in danger, which then could lead to interesting gameplay.
 

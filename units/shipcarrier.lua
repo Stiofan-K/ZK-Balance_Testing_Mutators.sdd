@@ -32,7 +32,7 @@ return { shipcarrier = {
     [[gunshipraid]],        -- locust
     [[gunshipaa]],          -- trident
     [[gunshipheavyskirm]],  -- Nimbus
-    [[gunshipheavytrans]],  -- Transport
+    [[gunshipheavytrans]],  -- Heavy Transport
   },
   
   buildPic               = [[shipcarrier.png]],
@@ -49,8 +49,8 @@ return { shipcarrier = {
   customParams           = {
     midposoffset   = [[0 -10 0]],
     modelradius    = [[80]],
-    stockpiletime  = [[30]],
-    stockpilecost  = [[150]],
+    stockpiletime  = [[60]],
+    stockpilecost  = [[400]],
     priority_misc = 2, -- High
     extradrawrange = 3000,
     ispad         = 1,
@@ -130,14 +130,14 @@ return { shipcarrier = {
         combatrange = 950,
         disarmDamageMult = 1.0,
         disarmDamageOnly = 1,
-        disarmTimer      = 10, -- seconds
+        disarmTimer      = 15, -- seconds
         radar_homing_distance = 600,
 
         light_color = [[1 1 1]],
       },
       
       damage                  = {
-        default = 15000,
+        default = 20000,
       },
 
       edgeEffectiveness       = 1,
@@ -150,7 +150,7 @@ return { shipcarrier = {
       model                   = [[wep_empmissile.s3o]],
       noSelfDamage            = true,
       range                   = 3000,
-      reloadtime              = 5,
+      reloadtime              = 3,
       smokeTrail              = true,
       soundHit                = [[weapon/missile/emp_missile_hit]],
       soundStart              = [[weapon/missile/tacnuke_launch]],
