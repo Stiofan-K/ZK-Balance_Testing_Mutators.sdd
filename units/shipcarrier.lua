@@ -5,7 +5,7 @@ return { shipcarrier = {
   activateWhenBuilt      = true,
   brakeRate              = 0.56,
   builder                = true,
-  buildDistance          = 600,
+  buildDistance          = 400,
   
   buildoptions           = {
     [[staticradar]],
