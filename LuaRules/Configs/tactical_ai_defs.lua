@@ -87,6 +87,7 @@ local lowRangeSwarmieeArray = NameToDefID({
 	
 	"amphtankcon",			--aoe makes it not as swarmable, but crab is here too
 	"amphtanksubassault", 	--aoe makes it not as swarmable, but crab is here too
+	"amphtanksubraid",
 	
 	"spidercrabe",
 	--"hoverarty", -- Always hits small units. Swarm may make it hit more.
@@ -224,6 +225,7 @@ local veryShortRangeSkirmieeArray = NameToDefID({
 	"spiderscout",
 	"cloakraid",
 	"vehscout",
+	"amphtanksubraid"
 })
 
 local shortRangeSkirmieeArray = NameToDefID({
@@ -235,7 +237,6 @@ local shortRangeSkirmieeArray = NameToDefID({
 	"amphtankbomb",
 	"shieldraid",
 	"amphtankraid",
-	"amphtanksubraid",
 })
 
 local shortToRiotRangeSkirmieeArray = NameToDefID({
@@ -818,7 +819,7 @@ local behaviourConfig = {
 		sea = {
 			weaponNum = 2,
 			skirms = shortRangeSkirmieeArray,
-			swarms = lowRangeSwarmieeArray,
+			swarms = medRangeSwarmieeArray,
 			--flees = {},
 			idleFlee = torpedoIdleFleeArray,
 			avoidHeightDiff = explodableFull,
