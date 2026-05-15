@@ -61,7 +61,7 @@ return { amphtankcon = {
   turninplace            = 0,
   turnRate               = 1000,
   waterline              = 12,
-  workerTime             = 7.5,
+  workerTime             = 5,
 
   weapons                = {
     
