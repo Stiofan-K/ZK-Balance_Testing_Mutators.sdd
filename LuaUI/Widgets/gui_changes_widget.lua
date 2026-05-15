@@ -70,8 +70,6 @@ function widget:Initialize()
 		children = {
 			Chili.TextBox:New { --TODO IDK HOW CHILI WORKS If this text is too long it gets cut off by the parent window? even with scrolling
 				text = 
-					"Current vocal points: Merlin, Nebula, Nanoplague and Amphtanks. Changes listed in order of most interesting to test things.\n" ..
-					" \n" ..
 					"Amphtanks: Boat but also car!\n" ..
 					"-- Tis a new factory, though currently not quite complete and kitbashed out of existing models. Is still missing polish in how things play and feel, feedback is welcome.\n" ..
 					" \n" ..
@@ -90,7 +88,7 @@ function widget:Initialize()
 					"-- Revive times are based on the cost of  the unit and the buildpower of the used nanoplague. Minimum zombie revive time is 10 seconds.\n" ..
 					"-- Zombie wrecks generally cannot be plagued again. Zombies are slowed by 0.3.\n" ..
 					"-- Currently Athena, Quake, Plaguerat and Disco Rave Party have/are weapons that apply nanoplague.\n"..
-					"\n"..
+					" \n" ..
 					"Striders: Some new things some old, generally trying to allow for more interactive strider use.\n" ..
 					"-- Squire! A Medium Weight Combat Strider. 5k cost, 20k hp and carries a 800 range Heavy Blaster and Sonic sidearms. Model pilfered from Paladin.\n" ..
 					"-- Nebula returns! Drops its shield, health and manoverability in favor of more range, cheaper construction and exceptional sight capability.\n"..
@@ -106,11 +104,9 @@ function widget:Initialize()
 					"-- Scylla gains high damage but slow siege torpedoes that track their target beyond Scyllas fire range. Its tacnuke is moved to a dgun.\n" ..
 					"-- Shogun is cheaper, 4k cost, to see it used more and see whats fun with it..\n" ..
 					" \n" ..
-					"Aerial AA: Tankier fighters to allow for projection of air superiority even with ground AA presence.\n" ..
+					"Planes: Tankier fighters to allow for projection of air superiority even with ground AA presence. Some experiments to push planes further into distinct niches.\n" ..
 					"-- Swift, Raptor and Trident gain extra hp to survive ground AA. About a 1.6x hp buff. Raptor's weapon is swapped for a flak gun of same dps with slightly more range.\n" ..
 					"-- Raptor and swift also have an extra maneuver enabled. Looks cool, unsure if effective or a good addition.\n" ..
-					" \n" ..
-					"Air to ground: Some experiments to push planes further into distinct niches.\n" ..
 					"-- Swift gets extra range and fireangle to allow for more micro.\n" ..
 					"-- Magpie becomes an attritional glidebomber. It rearms faster and gains some aoe but loses accurate tracking.\n" ..
 					"-- Phoenix has its damage shifted more to afterburn from upfront damage, with the resulting damage being similar, but stacking multiple phoenix being less effective.\n" ..
@@ -142,8 +138,7 @@ function widget:Initialize()
 					"-- Mistrals rockets deploy a anti surface torpedo submunition on hit, that tracks it's original target. Only capable of targeting surfaced units. It's original damage is split equally between both projectiles.\n" ..
 					" \n" ..
 					"QoL/Technical/Fix:\n" ..
-					"-- Commanders try to prioritise their dgun.\n" ..
-					"-- Overheat is handled in a gadget and could be applied to any unit.",
+					"-- Commanders try to prioritise their dgun.\n",
 				fontsize = 13.5,
 				y = 10,
 				autosize = true,
