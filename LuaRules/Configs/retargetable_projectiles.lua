@@ -33,6 +33,7 @@ local projectileLead = {
 	[WeaponDefNames["hoverraid_gauss"].id] = WeaponDefNames["hoverraid_gauss"].projectilespeed,
 	[WeaponDefNames["shieldraid_laser"].id] = WeaponDefNames["shieldraid_laser"].projectilespeed,
 	[WeaponDefNames["jumpraid_flamethrower"].id] = WeaponDefNames["jumpraid_flamethrower"].projectilespeed,
+	[WeaponDefNames["amphtanksubraid_emg"].id] = WeaponDefNames["amphtanksubraid_emg"].projectilespeed,
 }
 
 local projectileLeadLimit = {
@@ -41,6 +42,7 @@ local projectileLeadLimit = {
 	[WeaponDefNames["hoverraid_gauss"].id] = WeaponDefNames["hoverraid_gauss"].leadLimit,
 	[WeaponDefNames["shieldraid_laser"].id] = WeaponDefNames["shieldraid_laser"].leadLimit,
 	[WeaponDefNames["jumpraid_flamethrower"].id] = WeaponDefNames["jumpraid_flamethrower"].leadLimit,
+	[WeaponDefNames["amphtanksubraid_emg"].id] = WeaponDefNames["amphtanksubraid_emg"].leadLimit,
 }
 
 for key, value in pairs(projectileLeadLimit) do

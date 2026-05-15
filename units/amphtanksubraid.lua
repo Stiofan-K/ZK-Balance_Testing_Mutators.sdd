@@ -74,7 +74,7 @@ return { amphtanksubraid = {
       onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
     },
     {
-      def                = [[PLASMA_REPEATER]],
+      def                = [[EMG]],
       badTargetCategory  = [[FIXEDWING]],
       onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
     },
@@ -136,7 +136,7 @@ return { amphtanksubraid = {
       weaponVelocity          = 200,
     },
     
-     PLASMA_REPEATER = {
+     EMG = {
       name                    = [[Plasma Repeater]],
       accuracy                = 350,
       alphaDecay              = 0.7,
@@ -176,7 +176,7 @@ return { amphtanksubraid = {
       stages                  = 10,
       turret                  = true,
       weaponType              = [[Cannon]],
-      weaponVelocity          = 350,
+      weaponVelocity          = 450,
     },
   },
 
