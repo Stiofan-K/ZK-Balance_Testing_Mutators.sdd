@@ -20,7 +20,7 @@ local factory_commands = {
 	factoryship       = {order = 11, row = 2, col = 5},
 	striderhub        = {order = 12, row = 2, col = 6},
     factoryamphtank   = {order = 16, row = 3, col = 3},
-	[CMD_BUILD_PLATE] = {order = 14, row = 3, col = 4},
+	[CMD_BUILD_PLATE] = {order = 13, row = 3, col = 4},
 }
 
 local econ_commands = {
@@ -74,6 +74,7 @@ local special_commands = {
 	[CMD_RAISE]       = {order = 18, row = 3, col = 3},
 	[CMD_RESTORE]     = {order = 19, row = 3, col = 4},
 	[CMD_SMOOTH]      = {order = 20, row = 3, col = 5},
+	commander_egg     = {order = 21, row = 3, col = 6},
 }
 
 --------------------------------------------------------------------------------

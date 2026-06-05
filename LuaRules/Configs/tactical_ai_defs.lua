@@ -1479,7 +1479,8 @@ local behaviourConfig = {
 		name = "cloakskirm",
 
 		-- LLT isn't outranged, but is on the list for the reload step-back
-		skirms = medRangeAndTurretSkirmieeArray,
+		-- Similarly, a couple long-range units are included for the reload step-back
+		skirms = Union(medRangeAndTurretSkirmieeArray, NameToDefID({"jumpskirm", "hoverskirm"})),
 		swarms = medRangeSwarmieeArray,
 		--flees = {},
 		avoidHeightDiff = explodableFull,
@@ -2258,6 +2259,14 @@ local behaviourConfig = {
 	-- Externally handled units
 	{
 		name = "energysolar",
+		externallyHandled = true,
+	},
+	{
+		name = "gunshiptrans",
+		externallyHandled = true,
+	},
+	{
+		name = "gunshipheavytrans",
 		externallyHandled = true,
 	},
 }

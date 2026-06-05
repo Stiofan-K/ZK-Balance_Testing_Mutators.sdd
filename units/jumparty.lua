@@ -15,6 +15,7 @@ return { jumparty = {
   corpse                 = [[DEAD]],
 
   customParams           = {
+    aim_lookahead      = 100,
     bait_level_default = 1,
     
     canjump            = 1,
@@ -80,6 +81,7 @@ return { jumparty = {
 
     {
       def                = [[NAPALM_SPRAYER]],
+      accurateLeading    = 2,
       onlyTargetCategory = [[SWIM LAND SINK TURRET FLOAT SHIP HOVER]],
     },
 
@@ -121,6 +123,7 @@ return { jumparty = {
       impulseBoost            = 0,
       impulseFactor           = 0.4,
       interceptedByShieldType = 1,
+      leadLimit               = 300,
       myGravity               = 0.1,
       projectiles             = 10,
       range                   = 900,
