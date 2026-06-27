@@ -400,7 +400,7 @@ function script.AimWeapon(num, heading, pitch)
 		bAiming = true
 		return AimRifle(heading, pitch)
 	elseif weaponNum == 2 then
-		if dyncomm.IsManualFire(num) then
+		if dyncomm.IsManualFire(num) and not dgunAim then
 			StartThread(PrioritiseDgun)
 		end
 		Signal(SIG_AIM)

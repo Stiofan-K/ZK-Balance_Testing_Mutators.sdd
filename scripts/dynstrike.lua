@@ -545,14 +545,13 @@ end
 function script.AimWeapon(num, heading, pitch)
 	local weaponNum = dyncomm.GetWeapon(num)
 	walking = false
-	if weaponNum == 1 then
-		if dgunAim then return false end
+	if weaponNum == 1 and not dgunAim then
 		resetRestoreTorso = true
 		resetRestoreLeft = true
 		AimArm(heading, pitch, ArmLeft, Gun, true)
 		return true
 	elseif weaponNum == 2 then
-		if dyncomm.IsManualFire(num) then
+		if dyncomm.IsManualFire(num) and not dgunAim then
 			StartThread(PrioritiseDgun)
 			RESTORE_DELAY_RIGHT = RESTORE_DELAY_DGUN
 		else 

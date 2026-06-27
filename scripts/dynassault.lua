@@ -239,8 +239,7 @@ end
 function script.AimWeapon(num, heading, pitch)
 	local weaponNum = dyncomm.GetWeapon(num)
 
-	if weaponNum == 1 then
-		if dgunAim then return false end
+	if weaponNum == 1 and not dgunAim then
 		Signal(SIG_LASER)
 		SetSignalMask(SIG_LASER)
 		isLasering = true
@@ -257,7 +256,7 @@ function script.AimWeapon(num, heading, pitch)
 		StartThread(RestoreLaser)
 		return true
 	elseif weaponNum == 2 then
-		if dyncomm.IsManualFire(num) then
+		if dyncomm.IsManualFire(num) and not dgunAim then
 			StartThread(PrioritiseDgun)
 		end
 		if starBLaunchers[num] then

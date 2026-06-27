@@ -416,10 +416,13 @@ function script.AimWeapon(num, heading, pitch)
 		return true
 	end
 	
-	if weaponNum == 1 then
+	if weaponNum == 1 and not dgunAim then
 		Signal(SIG_AIM)
 		SetSignalMask(SIG_AIM)
 	elseif weaponNum == 2 then
+		if dyncomm.IsManualFire(num) and not dgunAim then
+			StartThread(PrioritiseDgun)
+		end
 		Signal(SIG_AIM_2)
 		SetSignalMask(SIG_AIM_2)
 	else
@@ -454,6 +457,9 @@ end
 
 function script.Shot(num)
 	dyncomm.EmitWeaponShotSfx(flare, num)
+	if num == 2 then
+		dgunAim = false
+	end
 end
 
 local function JumpExhaust()
