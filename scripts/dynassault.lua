@@ -232,7 +232,7 @@ end
 
 local function PrioritiseDgun()
 	dgunAim = true
-	Sleep(500)
+	Sleep(600)
 	dgunAim = false
 end
 

@@ -59,7 +59,7 @@ return { amphtankriot = {
   trackType           = [[StdTank]],
   trackWidth          = 50,
   turninplace         = 0,
-  turnRate            = 568,
+  turnRate            = 568, -- TODO have a look at this
   waterline           = 10,
   workerTime          = 0,
 
@@ -104,7 +104,7 @@ return { amphtankriot = {
       leadLimit               = 0,
       model                   = [[wep_m_ajax.s3o]],
       numbounce               = 4,
-      range                   = 420,
+      range                   = 420, -- have a look at this vs mod etc.
       reloadtime              = 0.1+1/30,
       smokeTrail              = true,
       soundHit                = [[explosion/ex_med17]],

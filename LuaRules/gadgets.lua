@@ -138,6 +138,7 @@ local callInLists = {
 	-- Feature CallIns
 	"FeatureCreated",
 	"FeatureDestroyed",
+	"FeaturePreDamaged",
 	"FeatureDamaged",
 	--[[ FeatureDamaged and FeaturePreDamaged missing on purpose. Basic damage control
 	     can be achieved via armordefs (use the "default" class, make sure to populate
@@ -2033,6 +2034,72 @@ function gadgetHandler:FeatureCreated(featureID, allyTeam)
 	end
 	tracy.ZoneEnd()
 	return
+end
+
+local FeaturePreDamaged_GadgetMap = {}
+local FeaturePreDamaged_first = true
+local allWeaponDefs = {}
+
+do
+	for i=-7,#WeaponDefs do
+		allWeaponDefs[#allWeaponDefs+1] = i
+	end
+end
+
+function gadgetHandler:FeaturePreDamaged(unitID, unitDefID, unitTeam,
+	damage, paralyzer, weaponDefID,
+	projectileID, attackerID, attackerDefID, attackerTeam)
+	tracy.ZoneBeginN("G:FeaturePreDamaged")
+
+	if FeaturePreDamaged_first then
+		for _,g in r_ipairs(self.FeaturePreDamagedList) do
+			tracy.ZoneBeginN("G:FeaturePreDamaged_GetWantedWeaponDef :" .. g.ghInfo.name)
+			local weaponDefs = (g.FeaturePreDamaged_GetWantedWeaponDef and g:FeatureDamaged_GetWantedWeaponDef()) or allWeaponDefs
+			tracy.ZoneEnd()
+			for _,wdid in ipairs(weaponDefs) do
+				if FeatureDamaged_GadgetMap[wdid] then
+					FeatureDamaged_GadgetMap[wdid].count = FeaturePreDamaged_GadgetMap[wdid].count + 1
+					FeatureDamaged_GadgetMap[wdid].data[FeatureDamaged_GadgetMap[wdid].count] = g
+				else
+					FeaturePreDamaged_GadgetMap[wdid] = {
+						count = 1,
+						data = {g}
+					}
+				end
+			end
+		end
+		FeaturePreDamaged_first = false
+	end
+
+	local rDam = damage
+	local rImp = 1.0
+
+	local gadgets = FeaturePreDamaged_GadgetMap[weaponDefID]
+	if gadgets then
+		if gadgetHandler.GG._AddUnitDamage_teamID then
+			attackerTeam = gadgetHandler.GG._AddUnitDamage_teamID
+		end
+		local data = gadgets.data
+		local g
+		for i = 1, gadgets.count do
+			g = data[i]
+			tracy.ZoneBeginN("G:FeaturePreDamaged:" .. g.ghInfo.name)
+			local dam, imp = g:FeaturePreDamaged(unitID, unitDefID, unitTeam,
+				rDam, paralyzer, weaponDefID,
+				attackerID, attackerDefID, attackerTeam,
+				projectileID)
+			tracy.ZoneEnd()
+			if (dam ~= nil) then
+				rDam = dam
+			end
+			if (imp ~= nil) then
+				rImp = math.min(imp, rImp)
+			end
+		end
+	end
+
+	tracy.ZoneEnd()
+	return rDam, rImp
 end
 
 local FeatureDamaged_first = true

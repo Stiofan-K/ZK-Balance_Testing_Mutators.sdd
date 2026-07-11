@@ -11,7 +11,7 @@ local version = "0.0.1"
 function gadget:GetInfo()
 	return {
 		name        = "Nanoplague!",
-		desc        = "Athena special weapon! Reuse of Zombie functionality as a fireable weapon/weaponCustomParam.", -- Unsure if I could reuse the zombie gadgets somehow... it is a good bit of duplication but on disabled zombies the gadget removed itself
+		desc        = "Reuse of Zombies as firable weapon/weaponCustomParam.", -- Unsure if I could reuse the zombie gadgets somehow... it is a good bit of duplication but on disabled zombies the gadget removed itself
 		author      = "Stiofan", -- adapted from Zombies! by Tom Fyuri, he credits banana_Ai and Anarchid. Most comments are from Tom.
 		license     = "GPL v2 or later",
 		layer       = math.huge,
@@ -73,6 +73,8 @@ local reclaimed_data = {} -- holds initial gameframe, initial time in seconds, %
 local zombies_to_spawn = {}
 local zombiesToSpawnList = {}
 local zombiesToSpawnMap = {}
+local wreckPlagueWeaponDefIDs = {} -- keeps track of which weaponID zombified the wrecks. Faster rez overwrites slower rez.
+local unitPlagueWeaponDefIDs = {} -- keeps track of which weaponID zombified the unit.
 local zombiesToSpawnCount = 0
 local zombies = {}
 
@@ -89,22 +91,39 @@ local NonZombies = {
 	["asteroid"] = true,
 }
 
-local defaultplagueRezMin 			= 10    -- minimum rez time
-local defaultplagueRezSpeed 		= 30	-- Speed in bp for rez
-local defaultplagueRezDelay 		= 0		-- extra flat delay to rez
-local defaultplagueRezChance 		= false -- chance an effected feature resurects
-local defaultplagueCanRezZombies	= false -- if this weapon can rez zombies wrecks.
+local defaultPlagueRezMin 			= 10    -- minimum rez time
+local defaultPlagueRezSpeed 		= 30	-- Resurrection speed in buildpower
+local defaultPlagueRezDelay 		= 0		-- extra flat offset to resurrection time, doesnt override minimum
+local defaultPlaguInfectChance 		= 1 	-- chance an effected feature contracts nanoplague
+local defaultPlagueCanRezZombies	= true  -- if this weapon can rez zombies wrecks.
+local defaultPlagueRezChanceOffset  = 0.5  	-- flat offset on revive chance which is based on reclaim left in wrecks
+local defaultPlaguePartialHealth 	= true  -- if a wreck spawns with health proportional to metal left in its wreck
+local defaultPlaguePropagation		= true  -- if zombie units spread their own plague further when hitting wrecks or producing units.
+local defaultPlagueUnitSpeedMult   	= 0.7  	-- zombie speed multiplier
+
+local defaultPlagueUnitDecay 		= 0		-- TODO if and how fast a plagued unit decays its max health 
+local defaultPlagueUnitRegen		= 0 	-- TODO if and how fast plagued units regen.
+
+--TODO Propageted plague could want it's own set of params? Maybe a default plague?
+
 
 local nanoPlagueWeaponDefs = {}
 for i = 1, #WeaponDefs do
 	local wcp = WeaponDefs[i].customParams
 	if wcp and wcp.apply_nano_plague then
 		nanoPlagueWeaponDefs[i] = { 
-			plagueRezMin 		= tonumber(wcp.plague_rez_min) or defaultplagueRezMin,
-			plagueRezBuildPower = tonumber(wcp.plague_rez_build_power) or tonumber(wcp.plague_rez_speed) or defaultplagueRezSpeed,
-			plagueRezDelay 		= tonumber(wcp.plague_rez_delay) or defaultplagueRezDelay,	
-			plagueRezChance 	= tonumber(wcp.plague_rez_chance) or defaultplagueRezChance, 
-			plagueCanRezZombies = wcp.plague_can_rez_zombies or defaultplagueCanRezZombies,			
+			plagueRezMin 			= tonumber(wcp.plague_rez_min) or defaultPlagueRezMin,
+			plagueRezBuildPower 	= tonumber(wcp.plague_rez_build_power) or tonumber(wcp.plague_rez_speed) or defaultPlagueRezSpeed,
+			plagueRezDelay 			= tonumber(wcp.plague_rez_delay) or defaultPlagueRezDelay,	
+			plagueInfectChance 		= tonumber(wcp.plague_infect_chance) or defaultPlaguInfectChance, 
+			plagueCanRezZombies 	= wcp.plague_can_rez_zombies or defaultPlagueCanRezZombies,			
+			plagueRezChanceOffset 	= tonumber(wcp.plague_rez_chance_offset) or defaultPlagueRezChanceOffset,
+			plaguePartialHealth		= wcp.plague_partial_health or defaultPlaguePartialHealth,
+			plaguePropagation 		= wcp.plague_can_propagate  or defaultPlaguePropagation,
+			plagueUnitSpeedMult		= tonumber(wcp.plague_speed_mult) or defaultPlagueUnitSpeedMult,
+			--plagueUnitDecay
+			--plagueUnitRegen
+
 			-- Lots of extra options possible. Could have zombies/lose health after a while etc.
 		}
 	end
@@ -112,7 +131,7 @@ end
 
 local WARNING_TIME_CEG 		= 30 -- seconds to start being scary before actual reanimation event
 local WARNING_TIME_SOUND 	= 5
-local ZOMBIES_PERMA_SLOW 	= -0.3 -- -0.5 is the base value, made them a lil speedier. Innitially wanted per weapon stuff but its a lil iffy
+local GAIA_SPEED_MULT 		= 1 -- Is the default speed mult for built gaia units. Gaia, because it assumedly applies to not just zombies
 local ZOMBIES_PARTIAL_RECLAIM = true
 
 
@@ -129,8 +148,8 @@ local function disSQ(x1, y1, x2, y2)
 	return (x1 - x2)^2 + (y1 - y2)^2
 end
 
-local function SetZombieSlow(unitID, slowed)
-	spSetUnitRulesParam(unitID, "zombieSpeedMult", (slowed and 0.5) or 1, LOS_ACCESS)
+local function SetZombieSpeedMult(unitID, speedMult)
+	spSetUnitRulesParam(unitID, "zombieSpeedMult", speedMult, LOS_ACCESS)
 	GG.UpdateUnitAttributes(unitID)
 end
 
@@ -148,6 +167,7 @@ local function RemoveZombieToSpawn(featureID)
 	
 	zombiesToSpawnList[zombiesToSpawnCount] = nil
 	zombiesToSpawnMap[featureID] = nil
+	wreckPlagueWeaponDefIDs[featureID] = nil
 	zombiesToSpawnCount = zombiesToSpawnCount - 1
 	
 	return true
@@ -174,7 +194,7 @@ local function GetUnitNearestAlly(unitID, range)
 	return best_ally
 end
 
-local function RandomFactoryCommands(unitID, unitDefID) -- give factory something to do
+local function RandomFactoryOrders(unitID, unitDefID) -- give factory something to do
 	local buildopts = UnitDefs[unitDefID].buildOptions
 	if (not buildopts) or #buildopts <= 0 then
 		return
@@ -193,7 +213,7 @@ end
 
 -- reclaiming zombies 'causes delay in rez, basically you have to have about ZOMBIES_REZ_SPEED/2 or bigger BP to reclaim faster than it resurrects...
 -- TODO do more math to figure out how to perform it better?
--- This might break when I try to overwrite reztime 
+-- Stiofan: This might break when I try to overwrite reztime? 
 function gadget:AllowFeatureBuildStep(builderID, builderTeam, featureID, featureDefID, part)
 	if (zombies_to_spawn[featureID]) then
 		local base_time = reclaimed_data[featureID]
@@ -240,7 +260,7 @@ local function GiveZombiesOrders(unitID)
 		end
 	end
 	if (UnitDefs[unitDefID].isFactory) then
-		RandomFactoryCommands(unitID, unitDefID) -- give factory something to do
+		RandomFactoryOrders(unitID, unitDefID) -- give factory something to do
 		zombies[unitID] = nil -- no need to update factory orders anymore
 	end
 end
@@ -278,29 +298,39 @@ function gadget:GameFrame(f)
 			local x, y, z = spGetFeaturePosition(featureID)
 
 			if time_to_spawn <= f then
+				local wreckWeaponDefID = wreckPlagueWeaponDefIDs[featureID]
+				local zombieWeaponDef = nanoPlagueWeaponDefs[wreckWeaponDefID]
 				if not RemoveZombieToSpawn(featureID) then
 					index = index + 1
 				end
 				local resName, face = myGetFeatureRessurect(featureID)
 				local partialReclaim = 1
-				if ZOMBIES_PARTIAL_RECLAIM then
+				if zombieWeaponDef.plaguePartialHealth then
 					local currentMetal, maxMetal = Spring.GetFeatureResources(featureID)
 					if currentMetal and maxMetal and (maxMetal > 0) then
 						partialReclaim = currentMetal/maxMetal
 					end
 				end
 				spDestroyFeature(featureID)
-				local unitID = spCreateUnit(resName, x, y, z, face, GaiaTeamID)
+			
+				--Stiofan: Resurection chance based on % of metal left in wreck + an offset set by weapon param
+				if(math.random() < partialReclaim + zombieWeaponDef.plagueRezChanceOffset)then
+					unitID = spCreateUnit(resName, x, y, z, face, GaiaTeamID)	
+				else
+					--Stiofan: Disolved/non rezzed units still add to gaia funds
+					spAddTeamResource(GaiaTeamID, "m", UnitDefNames[resName].metalCost/3)
+					spAddTeamResource(GaiaTeamID, "e", UnitDefNames[resName].metalCost*3) 
+				end
+				
 				if (unitID) then
 					gadgetHandler:NotifyUnitCreatedByMechanic(unitID, false, "zombies")
 					local size = UnitDefNames[resName].xsize
 					spSpawnCEG("resurrect", x, y, z, 0, 0, 0, size)
 					Spring.GiveOrderToUnit(unitID, CMD.FIRE_STATE, 2, 0)
 					GG.PlayFogHiddenSound(REZ_SOUND, 12, x, y, z)
-					-- Each unit revived adds funds to Gaia
-					-- Farming Gaia becomes possible, but is gated by resurrecting units.
-					spAddTeamResource(GaiaTeamID, "m", UnitDefNames[resName].metalCost/2) 
-					spAddTeamResource(GaiaTeamID, "e", UnitDefNames[resName].metalCost*2) 
+					-- Stiofan: Each unit revived adds funds to Gaia
+					spAddTeamResource(GaiaTeamID, "m", UnitDefNames[resName].metalCost/3) 
+					spAddTeamResource(GaiaTeamID, "e", UnitDefNames[resName].metalCost*3) 
 					if partialReclaim ~= 1 then
 						local health = Spring.GetUnitHealth(unitID)
 						if health then
@@ -308,6 +338,9 @@ function gadget:GameFrame(f)
 							--spSetUnitRulesParam(unitID, "zombie_partialReclaim", partialReclaim, PRIVATE_ACCESS)
 						end
 					end
+					-- Stiofan: Setting up weapon reference and speed mult
+					unitPlagueWeaponDefIDs[unitID] = wreckWeaponDefID
+					SetZombieSpeedMult(unitID, nanoPlagueWeaponDefs[wreckWeaponDefID].plagueUnitSpeedMult)
 				end
 			else
 				local steps_to_spawn = floor((time_to_spawn - f) / 32)
@@ -333,8 +366,8 @@ function gadget:GameFrame(f)
 	if f == 1 then
 		spSetTeamResource(GaiaTeamID, "ms", 50000)
 		spSetTeamResource(GaiaTeamID, "es", 50000)
-		spSetTeamResource(GaiaTeamID, "metal", 5000) -- some starting metal for gaia
-		spSetTeamResource(GaiaTeamID, "energy", 20000) -- starting energy for gaia for units with upkeep
+		spSetTeamResource(GaiaTeamID, "metal", 5000) -- Stiofan: some starting metal for gaia
+		spSetTeamResource(GaiaTeamID, "energy", 20000) -- Stiofan: starting energy for gaia for units with upkeep
 		
 	end
 end
@@ -343,22 +376,26 @@ end
 function gadget:UnitDestroyed(unitID, unitDefID, unitTeam)
 	if zombies[unitID] then
 		zombies[unitID] = nil
+		unitPlagueWeaponDefIDs[unitID] = nil
 	end
 end
 
 function gadget:UnitTaken(unitID, unitDefID, teamID, newTeamID)
 	if zombies[unitID] and newTeamID ~= GaiaTeamID then
 		zombies[unitID] = nil
-		-- taking away zombie from zombie team unpermaslows it
-		if ZOMBIES_PERMA_SLOW then
-			SetZombieSlow(unitID, false)
-		end
+		-- taking away a zombie from gaia team resets it's speed
+		SetZombieSpeedMult(unitID, 1)
 	elseif newTeamID == GaiaTeamID then
 		gadget:UnitFinished(unitID, unitDefID, newTeamID)
 	end
 end
 
 function gadget:UnitCreated(unitID, unitDefID, teamID, builderID)
+	-- Stiofan: built zombies also inherit the nanoplague of their factory if the plague allows propagation. (otherwise theres no need to assign plague) 
+	-- May need a fallback option for edge cases
+	if zombies[builderID] and nanoPlagueWeaponDefs[unitPlagueWeaponDefIDs[builderID]].plaguePropagation then
+		unitPlagueWeaponDefIDs[unitID] = unitPlagueWeaponDefIDs[builderID]
+	end
 	gadget:UnitFinished(unitID, unitDefID, teamID)
 end
 
@@ -372,19 +409,27 @@ function gadget:FeatureDamaged(featureID, featureDefID, featureTeam, damage, wea
 	projectileID, attackerID, attackerDefID, attackerTeam)
 	
 	local thisWeaponDef = nanoPlagueWeaponDefs[weaponDefID]
+	local propagationWeaponDef = nanoPlagueWeaponDefs[unitPlagueWeaponDefIDs[attackerID]]
 	
+	-- Stiofan: Prioritising a zombiefying weapon over only being hit by a zombie
+	-- Unsure if this is the best way to handle it, or if there should be a default zombie weapon used instead of the parent zombie weapon.
 	if not thisWeaponDef then
-		return
+		if propagationWeaponDef and propagationWeaponDef.plaguePropagation then
+			-- could instead default to some usual one...
+			weaponDefID = unitPlagueWeaponDefIDs[attackerID]
+			thisWeaponDef = propagationWeaponDef
+		else
+			return
+		end
 	end
 
+	-- Check to to see if neutrals should be revivable
 	if featureTeam == GaiaTeamID and thisWeaponDef.plagueCanRezZombies ==false then
 		return
 	end
-		
-	if thisWeaponDef.plagueRezChance then
-		if math.random > thisWeaponDef.plagueRezChance then
-			return
-		end
+	-- Roll the dice on if a wreck should be infected, based on weaponparam
+	if (math.random() > thisWeaponDef.plagueInfectChance) then
+		return
 	end
 	
 	local resName, face = myGetFeatureRessurect(featureID)
@@ -401,6 +446,7 @@ function gadget:FeatureDamaged(featureID, featureDefID, featureTeam, damage, wea
 				if rez_time < reclaimed_data[featureID][2]  then
 					reclaimed_data[featureID] = {gameframe, rez_time, reclaimed_data[featureID][3]}
 					zombies_to_spawn[featureID] = gameframe + (rez_time*32)
+					wreckPlagueWeaponDefIDs[featureID] = weaponDefID
 				end
 			else
 				reclaimed_data[featureID] = {gameframe, rez_time, 0}
@@ -409,6 +455,7 @@ function gadget:FeatureDamaged(featureID, featureDefID, featureTeam, damage, wea
 				zombiesToSpawnCount = zombiesToSpawnCount + 1
 				zombiesToSpawnList[zombiesToSpawnCount] = featureID
 				zombiesToSpawnMap[featureID] = zombiesToSpawnCount
+				wreckPlagueWeaponDefIDs[featureID] = weaponDefID
 			end
 		end
 	end
@@ -430,10 +477,18 @@ local function ReInit(reinit)
 				spGiveOrderToUnit(unitID, CMD_MOVE_STATE, 2, 0)
 				GiveZombiesOrders(unitID)
 				zombies[unitID] = true
-				if ZOMBIES_PERMA_SLOW then
+				if GAIA_SPEED_MULT then
 					local maxHealth = select(2, spGetUnitHealth(unitID))
 					if maxHealth then
-						SetZombieSlow(unitID, true)
+						-- Stiofan: This seems to run before the gameframe can run through and assign the correct values...
+						-- only built units end up without the correct speed from there, and those get their weapon assigned on create before finished
+						if unitPlagueWeaponDefIDs[unitID] then
+							SetZombieSpeedMult(unitID, nanoPlagueWeaponDefs[unitPlagueWeaponDefIDs[unitID]].plagueUnitSpeedMult)
+						else
+							--Stiofan: Fallback, should not be reachable outside of unplagued units spawning
+							SetZombieSpeedMult(unitID, GAIA_SPEED_MULT)
+						end
+						
 					end
 				end
 			end
