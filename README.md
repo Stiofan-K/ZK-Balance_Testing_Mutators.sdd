@@ -16,9 +16,11 @@ Tis a new factory, though currently not quite complete and kitbashed out of exis
     Plaguerat:   Amphibious Terrain-flattening and Nanoplague bomb. 8 bp zombie rezspeed.  
 
 ### Nanoplague: Resurect wrecks into neutral Zombies!
-  Nanoplague is a new weapon effect that causes wrecks in its aoe to resurect into neutral units. Their behavior is equal that of the Zombies! modoption.   
-  Revive times are based on the cost of  the unit and the buildpower of the used nanoplague. Minimum zombie revive time is 10 seconds.  
-  If a Zombie happens to damage another wreck, it propagats the nanoplague to it. Zombies are slowed by 0.3.   
+  Nanoplague is a new weapon effect that causes wrecks hit to resurect into neutral units. Their behavior is equal that of the Zombies! modoption.   
+  Zombies propagate and spread their plague if they damage other wrecks.  
+  Revive times are based on the cost of  the unit and the buildpower of the used nanoplague. 
+  Zombies are slowed by 0.3. Minimum zombie revive time is 10 seconds.
+  Wrecks with lower than 50% reclaim left have an increasing chance of dissolving instead of reviving.  
   Currently Athena, Quake, Plaguerat and Disco Rave Party have/are weapons that apply nanoplague.  
 
 ### Striders: Some new things some old, generally trying to allow for more interactive strider use.

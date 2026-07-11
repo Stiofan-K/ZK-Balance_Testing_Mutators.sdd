@@ -155,7 +155,7 @@ return { amphtanksubassault = {
 
       explosionGenerator      = [[custom:xamelimpact]],
       fixedLauncher           = true,
-      flightTime              = 12,
+      flightTime              = 4,
       impulseBoost            = 4,
       impulseFactor           = 0.9,
       interceptedByShieldType = 1,

@@ -32,7 +32,7 @@ return { energysolar = {
   },
 
   damageModifier                = 0.333,
-  energyMake                    = 1.4,
+  energyMake                    = 1.5,
   explodeAs                     = [[SMALL_BUILDINGEX]],
   footprintX                    = 5,
   footprintZ                    = 5,

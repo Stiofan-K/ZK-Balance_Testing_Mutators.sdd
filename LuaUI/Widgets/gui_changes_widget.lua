@@ -10,19 +10,11 @@ function widget:GetInfo() --all hail Hello Widget! thx Googlefrog for the templa
 	}
 end
 
-local spectating = Spring.GetSpectatingState()
-local allied_teams
-
-local is_RoI = (Spring.GetModOptions().overdrivesharingscheme ~= "0")
-
 local window, fake_window
-local name_labels = {}
-local roi_labels = {}
-local base_labels = {}
-local base_income_labels = {}
-local od_income_labels = {}
 
-function widget:Initialize()
+-- TODO AAAA THIS WIDGET BREAKS STUFF
+-- function widget:Initialize()
+	widgetHandler:RemoveWidget()
 	local Chili = WG.Chili
 	if not Chili then
 		widgetHandler:RemoveWidget()
