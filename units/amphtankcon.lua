@@ -15,8 +15,9 @@ return { amphtankcon = {
   canMove                = true,
   canPatrol              = true,
   category               = [[HOVER]],
-  collisionVolumeOffsets = [[0 6 0]],
+  collisionVolumeOffsets = [[0 18 -11]],
   collisionVolumeScales  = [[34 18 46]],
+  selectionVolumeOffsets = [[0 0 -15]],
   collisionVolumeType    = [[box]],
   corpse                 = [[DEAD]],
 

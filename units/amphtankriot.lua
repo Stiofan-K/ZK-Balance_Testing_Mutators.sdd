@@ -10,7 +10,9 @@ return { amphtankriot = {
   canMove             = true,
   canPatrol           = true,
   category            = [[HOVER]],
-  selectionVolumeOffsets = [[0 0 0]],
+  collisionVolumeOffsets = [[0 3 -3]],
+  collisionVolumeScales  = [[60 60 60]],
+  selectionVolumeOffsets = [[0 0 -3]],
   selectionVolumeScales  = [[83 83 83]],
   selectionVolumeType    = [[ellipsoid]],
   corpse              = [[DEAD]],
@@ -47,7 +49,7 @@ return { amphtankriot = {
   moveState           = 0,
   noAutoFire          = false,
   noChaseCategory     = [[TERRAFORM SATELLITE SUB]],
-  objectName          = [[corbanish.s3o]],
+  objectName          = [[hive.dae]],
   script              = [[amphtankriot.lua]],
   selfDestructAs      = [[BIG_UNITEX]],
   sightDistance       = 450,
@@ -58,8 +60,7 @@ return { amphtankriot = {
   trackStretch        = 1,
   trackType           = [[StdTank]],
   trackWidth          = 50,
-  turninplace         = 0,
-  turnRate            = 568, -- TODO have a look at this
+  turnRate            = 5000, -- TODO have a look at this
   waterline           = 10,
   workerTime          = 0,
 
@@ -134,7 +135,7 @@ return { amphtankriot = {
       featureDead      = [[HEAP]],
       footprintX       = 3,
       footprintZ       = 3,
-      object           = [[corbanish_dead.s3o]],
+      object           = [[hive_wreck.dae]],
     },
 
 

@@ -1,130 +1,10 @@
 include "constants.lua"
-include "rockPiece.lua"
-include "trackControl.lua"
-include "pieceControl.lua"
-local dynamicRockData
 
-local scriptReload = include("scriptReload.lua")
+local base, body, turret, shield_back, shield_front, shield_right, shield_left, wheel_1
+= piece(
+	'base', 'hull', 'turret', 'shield_1','shield_2','shield_3','shield_4', 'wheel_1'
+)
 
-local base, turret, sleeve = piece ('base', 'turret', 'sleeve')
-
-local missiles = {
-	piece ('dummy1'),
-	piece ('dummy2'),
-}
-
-local isLoaded = {
-	true,
-	true,
-}
-
-
-local SIG_AIM = 1
-local SIG_MOVE = 2
-local SIG_ROCK_X = 4
-local SIG_ROCK_Z = 8
-
-local ROCK_FIRE_FORCE = 0.06
-local ROCK_SPEED = 18 --Number of half-cycles per second around x-axis.
-local ROCK_DECAY = -0.25 --Rocking around axis is reduced by this factor each time = piece 'to rock.
-local ROCK_PIECE = base -- should be negative to alternate rocking direction.
-local ROCK_MIN = 0.001 --If around axis rock is not greater than this amount, rocking will stop after returning to center.
-local ROCK_MAX = 1.5
-
-local hpi = math.pi*0.5
-
-local rockData = {
-	[x_axis] = {
-		piece = ROCK_PIECE,
-		speed = ROCK_SPEED,
-		decay = ROCK_DECAY,
-		minPos = ROCK_MIN,
-		maxPos = ROCK_MAX,
-		signal = SIG_ROCK_X,
-		axis = x_axis,
-	},
-	[z_axis] = {
-		piece = ROCK_PIECE,
-		speed = ROCK_SPEED,
-		decay = ROCK_DECAY,
-		minPos = ROCK_MIN,
-		maxPos = ROCK_MAX,
-		signal = SIG_ROCK_Z,
-		axis = z_axis,
-	},
-}
-
-local trackData = {
-	wheels = {
-		large = {piece('wheels1'), piece('wheels8')},
-		small = {},
-	},
-	tracks = {},
-	signal = SIG_MOVE,
-	smallSpeed = math.rad(540),
-	smallAccel = math.rad(15),
-	smallDecel = math.rad(45),
-	largeSpeed = math.rad(360),
-	largeAccel = math.rad(10),
-	largeDecel = math.rad(30),
-	trackPeriod = 66,
-}
-
-for i = 2, 7 do
-	trackData.wheels.small[i-1] = piece('wheels' .. i)
-end
-for i = 1, 4 do
-	trackData.tracks[i] = piece ('tracks' .. i)
-end
-
-local OKP_DAMAGE = tonumber(UnitDefs[unitDefID].customParams.okp_damage)
-
-local gunHeading = 0
-
-local disarmed = false
-local stuns = {false, false, false}
-local isAiming = false
-local currentMissile = 1
-local smokePiece = {base, turret}
-
-local function RestoreAfterDelay()
-	SetSignalMask (SIG_AIM)
-
-	Sleep (5000)
-
-	Turn (turret, y_axis, 0, math.rad (50))
-	
-	WaitForTurn (turret, y_axis)
-	WaitForTurn (sleeve, x_axis)
-	isAiming = false
-end
-
-function StunThread()
-	disarmed = true
-	Signal (SIG_AIM)
-	GG.PieceControl.StopTurn(turret, y_axis)
-	GG.PieceControl.StopTurn(sleeve, x_axis)
-end
-
-function UnstunThread()
-	disarmed = false
-	if isAiming then
-		StartThread(RestoreAfterDelay)
-	end
-end
-
-function Stunned(stun_type)
-	-- since only the turret is animated, treat all types the same since they all disable weaponry
-	stuns[stun_type] = true
-	StartThread (StunThread)
-end
-
-function Unstunned(stun_type)
-	stuns[stun_type] = false
-	if not stuns[1] and not stuns[2] and not stuns[3] then
-		StartThread (UnstunThread)
-	end
-end
 
 local function Wake()
 	Signal(SIG_MOVE)
@@ -138,40 +18,68 @@ local function Wake()
 end
 
 local function SetDeploy(wantDeploy)
-	Signal(SIG_DEPLOY)
-	SetSignalMask(SIG_DEPLOY)
 	if wantDeploy then
-		Move(turret, y_axis, 0, 6)
-		Turn(sleeve, x_axis,math.rad(-90),math.rad(120))
-		WaitForTurn(sleeve, x_axis,math.rad(-90))
+		Move(turret, z_axis, 1.5, 2)
+		
+		Move(shield_front,y_axis, 0, 2)
+		Move(shield_back,y_axis, 0, 2)
+		Move(shield_left,x_axis, 0, 2)
+		Move(shield_right,x_axis, 0, 2)
+		
+		Turn(shield_front,x_axis,math.rad(0),math.rad(70))
+		Turn(shield_back,x_axis,math.rad(0),math.rad(70))
+		Turn(shield_left,y_axis,math.rad(0),math.rad(70))		
+		Turn(shield_right,y_axis,math.rad(0),math.rad(70))
+		
+		local slowMult = (Spring.GetUnitRulesParam (unitID, "baseSpeedMult") or 1)
+		Spin(turret, z_axis, 2*slowMult)
+		
+		WaitForTurn(shield_right, y_axis,math.rad(30))
+		Spin(turret, z_axis, 4*slowMult)
+	
+		WaitForTurn(shield_right, y_axis,math.rad(20))
+		Spin(turret, z_axis, 5*slowMult)
+		
+		WaitForTurn(shield_right, y_axis,math.rad(0))
+
 		deployed = true
 	else
-		Move(turret, y_axis, -5, 6)
-		Turn(sleeve, x_axis,math.rad(-180),math.rad(120))
+
+		StopSpin(turret,z_axis, 20)
+		
+		Move(turret, z_axis, 0, 2)
+	
+		Move(shield_front,y_axis, 0.8,2)
+		Move(shield_back,y_axis, -0.8,2)
+		Move(shield_left,x_axis, -0.8,2)
+		Move(shield_right,x_axis, 0.8,2)
+		
+		Turn(shield_front,x_axis,math.rad(-40),math.rad(70))
+		Turn(shield_back,x_axis,math.rad(40),math.rad(70))
+		Turn(shield_left,y_axis,math.rad(-40),math.rad(70))		
+		Turn(shield_right,y_axis,math.rad(40),math.rad(70))
+		
 		deployed = false
 	end
 end
 
 
-
 function script.StartMoving()
 	StartThread(SetDeploy,false)
-	StartThread(TrackControlStartMoving)
 	moving = true
 end
 
 function script.StopMoving()
 	StartThread(SetDeploy,true)
-	TrackControlStopMoving()
 	moving = false
 end
 
 function script.AimFromWeapon()
-	return sleeve
+	return turret
 end
 
 function script.QueryWeapon()
-	return missiles[currentMissile]
+	return turret
 end
 
 function script.AimWeapon(num, heading, pitch)
@@ -187,38 +95,21 @@ function script.AimWeapon(num, heading, pitch)
 		Sleep (34)
 	end
 
-	local slowMult = (Spring.GetUnitRulesParam (unitID, "baseSpeedMult") or 1)
-	Turn (turret, y_axis, heading, math.rad(200)*slowMult)
 
-	StartThread (RestoreAfterDelay)
-
-	gunHeading = heading
-
+		
 	return true
 end
 
-local SleepAndUpdateReload = scriptReload.SleepAndUpdateReload
-
-function script.FireWeapon()
-	StartThread(GG.ScriptRock.Rock, dynamicRockData[z_axis], gunHeading, ROCK_FIRE_FORCE)
-	StartThread(GG.ScriptRock.Rock, dynamicRockData[x_axis], gunHeading - hpi, ROCK_FIRE_FORCE)
-	currentMissile = 3 - currentMissile
-end
-
 function script.Create()
-	dynamicRockData = GG.ScriptRock.InitializeRock(rockData)
-	InitiailizeTrackControl(trackData)
-
 	while (select(5, Spring.GetUnitHealth(unitID)) < 1) do
 		Sleep (250)
 	end
-	--[[
-	Move(turret, y_axis, -7, 3)
-	Turn(sleeve, x_axis,math.rad(-90),math.rad(200))
-	]]
 
-	Hide(missiles[1])
-	Hide(missiles[2])
+	Turn(shield_front,x_axis,math.rad(-60),math.rad(60))
+	Turn(shield_back,x_axis,math.rad(60),math.rad(60))
+	Turn(shield_left,y_axis,math.rad(-60),math.rad(60))		
+	Turn(shield_right,y_axis,math.rad(60),math.rad(60))
+	
 
 	moving = false
 	StartThread(Wake)
@@ -228,25 +119,25 @@ end
 function script.Killed (recentDamage, maxHealth)
 	local severity = recentDamage / maxHealth
 	if (severity < 0.5) then
-		if (math.random() < 2*severity) then Explode (missiles[1], SFX.FALL + SFX.FIRE) end
-		if (math.random() < 2*severity) then Explode (missiles[2], SFX.FALL + SFX.SMOKE) end
+		if (math.random() < 2*severity) then Explode (shield_back, SFX.FALL + SFX.FIRE) end
+		if (math.random() < 2*severity) then Explode (wheel_1, SFX.FALL + SFX.SMOKE) end
 		return 1
 	elseif (severity < 0.75) then
 		if (math.random() < severity) then
 			Explode (turret, SFX.FALL)
 		end
-		Explode(sleeve, SFX.FALL)
-		Explode(trackData.tracks[1], SFX.SHATTER)
-		Explode(missiles[1], SFX.FALL + SFX.SMOKE)
-		Explode(missiles[2], SFX.FALL + SFX.SMOKE + SFX.FIRE)
+		Explode(turret, SFX.FALL)
+		Explode(wheel_1, SFX.SHATTER)
+		Explode(shield_front, SFX.FALL + SFX.SMOKE)
+		Explode(body, SFX.FALL + SFX.SMOKE + SFX.FIRE)
 		return 2
 	else
-		Explode(base, SFX.SHATTER)
+		Explode(body, SFX.SHATTER)
 		Explode(turret, SFX.FALL + SFX.SMOKE + SFX.FIRE)
-		Explode(sleeve, SFX.FALL + SFX.SMOKE + SFX.FIRE)
-		Explode(trackData.tracks[1], SFX.SHATTER)
-		Explode(missiles[1], SFX.FALL + SFX.SMOKE)
-		Explode(missiles[2], SFX.FALL + SFX.SMOKE + SFX.FIRE)
+		Explode(shield_front, SFX.FALL + SFX.SMOKE + SFX.FIRE)
+		Explode(shield_left, SFX.SHATTER)
+		Explode(turret, SFX.FALL + SFX.SMOKE)
+		Explode(wheel_1, SFX.FALL + SFX.SMOKE + SFX.FIRE)
 		return 2
 	end
 end
