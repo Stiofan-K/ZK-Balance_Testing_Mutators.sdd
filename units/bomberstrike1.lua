@@ -68,11 +68,9 @@ return { bomberstrike = {
   
     STORM_ROCKET = {
       accuracy                = 0000,
-      name                    = [[Toss Bombs]],
-      areaOfEffect            = 150,
-      burst                   = 4,
-      burstrate               = 0.1,
-      --cegTag                  = [[rocket_trail_bar]],
+      name                    = [[Heavy Rocket]],
+      areaOfEffect            = 200,
+      cegTag                  = [[rocket_trail_bar_flameboosted]],
       craterBoost             = 1,
       craterMult              = 2,
       collideFriendly         = false, --Other solution to magpies shooting themselves?
@@ -84,7 +82,7 @@ return { bomberstrike = {
       },
       
       damage                  = {
-        default = 90,
+        default = 180,
       },
       
       dance                   = 0,
@@ -95,9 +93,9 @@ return { bomberstrike = {
       impulseBoost            = 0.75,
       impulseFactor           = 0.4,
       interceptedByShieldType = 2,
-      model                   = [[recluse_missile.s3o]],
+      model                   = [[corbanishrk.s3o]],
       myGravity               = 0.15,
-      projectiles             = 1,
+      projectiles             = 2,
       noSelfDamage            = true,
       predictBoost            = 0.75,
       range                   = 550,
@@ -106,7 +104,7 @@ return { bomberstrike = {
       selfExplode             = true,
       soundHit                = [[weapon/bomb_hit]],
       soundHitVolume          = 8,
-      soundStart              = [[weapon/bomb_drop_short]],
+      soundStart              = [[weapon/missile/missile2_fire_bass]],
       soundStartVolume        = 7,
       startVelocity           = 340,
       sprayAngle              = 2500,
