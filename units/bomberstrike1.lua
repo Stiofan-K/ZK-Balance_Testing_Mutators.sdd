@@ -1,5 +1,5 @@
 return { bomberstrike = {
-  name                = [[Kestrel]],
+  name                = [[Pidgeon]],
   description         = [[Standoff Toss Bomber]],
   brakerate           = 0.4,
   builder             = false,
