@@ -17,6 +17,25 @@ local function Wake()
 	end
 end
 
+local function SpinUp()
+	local slowMult = (Spring.GetUnitRulesParam (unitID, "baseSpeedMult") or 1)
+	Spin(turret, z_axis, 2*slowMult)
+	Sleep(300)
+	Spin(turret, z_axis, 5*slowMult)
+	Sleep(300)
+	Spin(turret, z_axis, 7*slowMult)
+end
+
+local function WindDown()
+	local slowMult = (Spring.GetUnitRulesParam (unitID, "baseSpeedMult") or 1)
+	Spin(turret, z_axis, 4*slowMult)
+	Sleep(300)
+	Spin(turret, z_axis, 2*slowMult)
+	Sleep(400)
+	StopSpin(turret,z_axis, 20)
+end
+
+
 local function SetDeploy(wantDeploy)
 	if wantDeploy then
 		Move(turret, z_axis, 1.5, 2)
@@ -31,21 +50,14 @@ local function SetDeploy(wantDeploy)
 		Turn(shield_left,y_axis,math.rad(0),math.rad(70))		
 		Turn(shield_right,y_axis,math.rad(0),math.rad(70))
 		
-		local slowMult = (Spring.GetUnitRulesParam (unitID, "baseSpeedMult") or 1)
-		Spin(turret, z_axis, 2*slowMult)
-		
-		WaitForTurn(shield_right, y_axis,math.rad(30))
-		Spin(turret, z_axis, 4*slowMult)
-	
-		WaitForTurn(shield_right, y_axis,math.rad(20))
-		Spin(turret, z_axis, 5*slowMult)
+		StartThread(SpinUp)
 		
 		WaitForTurn(shield_right, y_axis,math.rad(0))
 
 		deployed = true
 	else
 
-		StopSpin(turret,z_axis, 20)
+		StartThread(WindDown)
 		
 		Move(turret, z_axis, 0, 2)
 	
