@@ -31,7 +31,7 @@ local function WindDown()
 	Spin(turret, z_axis, 4*slowMult)
 	Sleep(300)
 	Spin(turret, z_axis, 2*slowMult)
-	Sleep(400)
+	Sleep(300)
 	StopSpin(turret,z_axis, 20)
 end
 
@@ -49,14 +49,15 @@ local function SetDeploy(wantDeploy)
 		Turn(shield_back,x_axis,math.rad(0),math.rad(70))
 		Turn(shield_left,y_axis,math.rad(0),math.rad(70))		
 		Turn(shield_right,y_axis,math.rad(0),math.rad(70))
-		
+	
 		StartThread(SpinUp)
+		WaitForTurn(shield_right, y_axis, math.rad(0))
 		
-		WaitForTurn(shield_right, y_axis,math.rad(0))
-
-		deployed = true
+		if not moving then
+			deployed = true
+		end
 	else
-
+		deployed = false	
 		StartThread(WindDown)
 		
 		Move(turret, z_axis, 0, 2)
@@ -71,7 +72,6 @@ local function SetDeploy(wantDeploy)
 		Turn(shield_left,y_axis,math.rad(-40),math.rad(70))		
 		Turn(shield_right,y_axis,math.rad(40),math.rad(70))
 		
-		deployed = false
 	end
 end
 
@@ -79,6 +79,7 @@ end
 function script.StartMoving()
 	StartThread(SetDeploy,false)
 	moving = true
+	deployed = false
 end
 
 function script.StopMoving()
@@ -98,7 +99,7 @@ function script.AimWeapon(num, heading, pitch)
 	Signal (SIG_AIM)
 	SetSignalMask (SIG_AIM)
 
-	if not deployed then
+	if not deployed or moving then
 		return false
 	end
 	isAiming = true
