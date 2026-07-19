@@ -1,6 +1,6 @@
 return { factoryplanenest = {
-  name                          = [[Airplane Nest]],
-  description                   = [[Produces Birdplanes]],
+  name                          = [[Experimental Airplane Nest]],
+  description                   = [[Produces Birdplanes. Variations for the Magpie slot]],
   activateWhenBuilt             = false,
   buildDistance                 = Shared.FACTORY_PLATE_RANGE,
   builder                       = true,
