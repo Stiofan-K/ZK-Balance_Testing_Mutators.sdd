@@ -100,6 +100,21 @@ local factoryUnitPosDef = {
 		bomberassault     = unitTypes.ARTILLERY,
 		bomberdisarm      = unitTypes.SPECIAL,
 	},
+	factoryplanenest = {
+		planecon          = unitTypes.CONSTRUCTOR,
+		planefighter      = unitTypes.RAIDER,
+		planeheavyfighter = unitTypes.ANTI_AIR,
+		bomberpidgeon     = unitTypes.SKIRMISHER,
+		bomberfinch       = unitTypes.RIOT,
+		bomberfalcon      = unitTypes.ASSAULT,
+		--bomberpidgeon     = unitTypes.ARTILLERY,
+		bomberheron   = unitTypes.WEIRD_RAIDER,
+		--bomberheavy       = unitTypes.HEAVY_SOMETHING,
+		bomberbuzzard     = unitTypes.SPECIAL,
+		bomberhawk        = unitTypes.UTILITY,
+		
+		
+	},
 	factoryspider = {
 		spidercon         = unitTypes.CONSTRUCTOR,
 		spiderscout       = unitTypes.RAIDER,
@@ -191,6 +206,7 @@ factoryUnitPosDef.plateveh     = Spring.Utilities.CopyTable(factoryUnitPosDef.fa
 factoryUnitPosDef.platehover   = Spring.Utilities.CopyTable(factoryUnitPosDef.factoryhover)
 factoryUnitPosDef.plategunship = Spring.Utilities.CopyTable(factoryUnitPosDef.factorygunship)
 factoryUnitPosDef.plateplane   = Spring.Utilities.CopyTable(factoryUnitPosDef.factoryplane)
+factoryUnitPosDef.plateplanenest   = Spring.Utilities.CopyTable(factoryUnitPosDef.factoryplanenest)
 factoryUnitPosDef.platespider  = Spring.Utilities.CopyTable(factoryUnitPosDef.factoryspider)
 factoryUnitPosDef.platejump    = Spring.Utilities.CopyTable(factoryUnitPosDef.factoryjump)
 factoryUnitPosDef.platetank    = Spring.Utilities.CopyTable(factoryUnitPosDef.factorytank)

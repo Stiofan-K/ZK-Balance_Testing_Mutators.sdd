@@ -336,6 +336,7 @@ local factoryPlates = {
 	"platehover",
 	"plategunship",
 	"plateplane",
+	"plateplanenest",
 	"platespider",
 	"platejump",
 	"platetank",

@@ -32,6 +32,7 @@ local buildoptions = {
 		{ "factoryhover" },
 		{ "factorygunship" },
 		{ "factoryplane" },
+		{ "factoryplanenest" },
 
 		-- support land-only
 		{ "factoryshield",  notSea=true },
@@ -47,6 +48,7 @@ local buildoptions = {
 		{ "platehover" },
 		{ "plategunship" },
 		{ "plateplane" },
+		{ "plateplanenest" },
 		{ "plateshield",  notSea=true },
 		{ "platejump",  notSea=true },
 		{ "platetank",  notSea=true },

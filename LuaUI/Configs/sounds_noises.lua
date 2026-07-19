@@ -1027,6 +1027,55 @@ local sounds = {
 			[1] = "fighter_select",
 		},
 	},
+	bomberpidgeon = {
+		ok = {
+			[1] = "bomber_move",
+		},
+		select = {
+			[1] = "bomber_select",
+		},
+	},
+	bomberfalcon = {
+		ok = {
+			[1] = "bomber_move",
+		},
+		select = {
+			[1] = "bomber_select",
+		},
+	},
+	bomberfinch = {
+		ok = {
+			[1] = "bomber_move",
+		},
+		select = {
+			[1] = "bomber_select",
+		},
+	},
+	bomberbuzzard = {
+		ok = {
+			[1] = "bomber_move",
+		},
+		select = {
+			[1] = "bomber_select",
+		},
+	},
+	bomberheron = {
+		ok = {
+			[1] = "bomber_move",
+		},
+		select = {
+			[1] = "bomber_select",
+		},
+	},
+	bomberhawk = {
+		ok = {
+			[1] = "gunship_move2",
+		},
+		select = {
+			[1] = "light_gunship_select",
+		},
+	},
+	
 	
 	-- Gunship
 	planecon = {
@@ -1343,6 +1392,12 @@ local sounds = {
 			[1] = "factory_select",
 		},
 	},
+	factoryplanenest = {
+		build = { "builder_start" },
+		select = {
+			[1] = "factory_select",
+		},
+	},
 	factorygunship = {
 		build = { "builder_start" },
 		select = {
@@ -1412,6 +1467,12 @@ local sounds = {
 		},
 	},
 	plateplane = {
+		build = { "builder_start" },
+		select = {
+			[1] = "factory_select",
+		},
+	},
+	plateplanenest = {
 		build = { "builder_start" },
 		select = {
 			[1] = "factory_select",
