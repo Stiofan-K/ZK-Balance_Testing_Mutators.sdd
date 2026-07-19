@@ -3,6 +3,7 @@ local factories = {
 	[[factorycloak]],
 	[[factoryveh]],
 	[[factoryplane]],
+	[[factoryplanenest]],
 	[[factorygunship]],
 	[[factoryhover]],
 	[[factoryamph]],

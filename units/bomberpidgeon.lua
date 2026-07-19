@@ -1,6 +1,6 @@
-return { bomberstrike = {
+return { bomberpidgeon = {
   name                = [[Pidgeon]],
-  description         = [[Standoff Toss Bomber]],
+  description         = [[Toss Bomber]],
   brakerate           = 0.4,
   builder             = false,
   buildPic            = [[bomberstrike.png]],
@@ -67,7 +67,7 @@ return { bomberstrike = {
   
     STORM_ROCKET = {
       accuracy                = 0000,
-      name                    = [[Heavy Rocket]],
+      name                    = [[Medium Toss Bomb]],
       areaOfEffect            = 200,
       cegTag                  = [[rocket_trail_bar_flameboosted]],
       craterBoost             = 1,
