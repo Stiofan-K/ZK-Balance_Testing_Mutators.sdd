@@ -46,9 +46,16 @@ Tis a new factory, though currently not quite complete and kitbashed out of exis
   Swift, Raptor and Trident gain extra hp to survive ground AA. About a 1.6x hp buff. 
   Raptor's weapon is swapped for a flak gun of same dps with slightly more range.  
   Raptor and swift also have an extra maneuver enabled. Looks cool, unsure if effective or a good addition.  
-  Swift gets extra range and fireangle to give more wiggleroom for strafing run micro.  
-  Magpie becomes an attritional glide/tossbomber. It rearms faster and gains some aoe but loses accurate tracking.  
-  Phoenix has its damage shifted more to afterburn from upfront damage, with the resulting damage being similar, but stacking multiple phoenix being less effective.  
+  Swift gets extra range and fireangle to give more wiggleroom for strafing run micro.    
+  Phoenix has its damage shifted more to afterburn from upfront damage, with the resulting damage being similar, but stacking multiple phoenix being less effective.
+  
+## Experimental Second Air factory: Variations on what could take the Magpie slot. 
+  Pidgeon: Large Aoe Toss Bomber.
+  Finch: Cluster Toss Bomber
+  Falcon: Rocket Strike Bomber
+  Heron: Gun Strafing Strikecraft
+  Buzzard: A Magpie variation trading basedamage for slow
+  Hawk: A Magpie variation trading health for radar stealth.
 
 ### Jump: All jump bots can jump
   All jumpbots can jump, but worse than their prime jumpers in speed and recharge. It is primarily a tactical movement, not combat jump.  
