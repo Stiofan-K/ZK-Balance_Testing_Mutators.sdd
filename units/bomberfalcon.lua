@@ -99,7 +99,6 @@ return { bomberfalcon = {
       myGravity               = 0.15,
       projectiles             = 1,
       noSelfDamage            = true,
-      predictBoost            = 0.75,
       range                   = 550,
       reloadtime              = 1,
       smokeTrail              = true,
