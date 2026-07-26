@@ -18,6 +18,7 @@ return { plateplanenest = {
     [[bomberfalcon]],
     [[bomberhawk]],
     [[bomberbuzzard]],
+    [[bomberegret]],
     [[bomberheron]]
   },
 

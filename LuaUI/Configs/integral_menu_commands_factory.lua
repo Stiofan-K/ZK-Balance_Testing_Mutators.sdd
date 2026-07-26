@@ -108,6 +108,7 @@ local factoryUnitPosDef = {
 		bomberfinch       = unitTypes.RIOT,
 		bomberfalcon      = unitTypes.ASSAULT,
 		--bomberpidgeon     = unitTypes.ARTILLERY,
+		bomberegret       = unitTypes.ARTILLERY,
 		bomberheron   = unitTypes.WEIRD_RAIDER,
 		--bomberheavy       = unitTypes.HEAVY_SOMETHING,
 		bomberbuzzard     = unitTypes.SPECIAL,

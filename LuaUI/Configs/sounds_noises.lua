@@ -1075,6 +1075,14 @@ local sounds = {
 			[1] = "light_gunship_select",
 		},
 	},
+	bomberegret = {
+		ok = {
+			[1] = "bomber_move",
+		},
+		select = {
+			[1] = "bomber_select",
+		},
+	},
 	
 	
 	-- Gunship

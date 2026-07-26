@@ -18,6 +18,7 @@ return { factoryplanenest = {
     [[bomberfalcon]],
     [[bomberhawk]],
     [[bomberbuzzard]],
+    [[bomberegret]],
     [[bomberheron]]
   },
 

@@ -67,6 +67,7 @@ local longRangeSwarmieeArray = NameToDefID({
 	"shiparty",
 	"cloakarty",
 	"amphsupport",
+	"amphtankskirm",
 })
 
 local medRangeSwarmieeArray = NameToDefID({
