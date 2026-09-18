@@ -26,7 +26,7 @@ return { bomberheron= {
     can_set_target   = [[1]],
     from_factory     = nil,
     
-    combat_slowdown = 0.6,
+    combat_slowdown = 0.7,
   },
 
   explodeAs           = [[GUNSHIPEX]],
@@ -87,8 +87,8 @@ return { bomberheron= {
       },
 
       damage                  = {
-        default = 30,
-        planes  = 30,
+        default = 24,
+        planes  = 24,
       },
 
       edgeEffectiveness       = 0.5,

@@ -13,13 +13,14 @@ return { factoryplanenest = {
     [[planecon]],
     [[planefighter]],
     [[planeheavyfighter]],
+    [[bomberriot]],
     [[bomberpidgeon]],
     [[bomberfinch]],
     [[bomberfalcon]],
-    [[bomberhawk]],
-    [[bomberbuzzard]],
-    [[bomberegret]],
-    [[bomberheron]]
+    [[bomberheron]],
+		[[planescout]],
+    [[bomberdisarm]],
+    [[bomberheavy]]
   },
 
   buildPic                      = [[factoryplane.png]],

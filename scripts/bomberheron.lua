@@ -102,7 +102,7 @@ function delayedReload()
 	-- Don't ask me why this must be called twice for planes, Spring is crazy
 	GG.UpdateUnitAttributes(unitID)
 	GG.UpdateUnitAttributes(unitID)
-	Sleep(2000)
+	Sleep(2200)
 	Explode(missiler, SFX.FALL + SFX.SMOKE)
 	Explode(missilel, SFX.FALL + SFX.SMOKE)
 	Hide(missiler)

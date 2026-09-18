@@ -103,18 +103,15 @@ local factoryUnitPosDef = {
 	factoryplanenest = {
 		planecon          = unitTypes.CONSTRUCTOR,
 		planefighter      = unitTypes.RAIDER,
+		bomberriot        = unitTypes.RIOT,
+		bomberfalcon      = unitTypes.SKIRMISHER,
 		planeheavyfighter = unitTypes.ANTI_AIR,
-		bomberpidgeon     = unitTypes.SKIRMISHER,
-		bomberfinch       = unitTypes.RIOT,
-		bomberfalcon      = unitTypes.ASSAULT,
-		--bomberpidgeon     = unitTypes.ARTILLERY,
-		bomberegret       = unitTypes.ARTILLERY,
-		bomberheron   = unitTypes.WEIRD_RAIDER,
-		--bomberheavy       = unitTypes.HEAVY_SOMETHING,
-		bomberbuzzard     = unitTypes.SPECIAL,
-		bomberhawk        = unitTypes.UTILITY,
-		
-		
+		bomberfinch       = unitTypes.ASSAULT,
+		bomberheron   	  = unitTypes.WEIRD_RAIDER,
+		bomberpidgeon     = unitTypes.ARTILLERY,
+		bomberdisarm      = unitTypes.SPECIAL,
+		planescout        = unitTypes.UTILITY,
+		bomberheavy       = unitTypes.HEAVY_SOMETHING,
 	},
 	factoryspider = {
 		spidercon         = unitTypes.CONSTRUCTOR,
