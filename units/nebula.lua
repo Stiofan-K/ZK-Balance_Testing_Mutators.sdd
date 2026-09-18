@@ -5,7 +5,7 @@ return { nebula = {
   activateWhenBuilt      = true,
   airStrafe              = 0,
   bankingAllowed         = false,
-  brakeRate              = 0.48,
+  brakeRate              = 0.03,
   builder                = false,
   buildPic               = [[nebula.png]],
   canFly                 = true,
@@ -39,7 +39,7 @@ return { nebula = {
   health                 = 10000,
   hoverAttack            = true,
   iconType               = [[nebula]],
-  metalCost              = 4500,
+  metalCost              = 5000,
   noAutoFire             = false,
   noChaseCategory        = [[TERRAFORM FIXEDWING SATELLITE SUB]],
   objectName             = [[nebula.s3o]],
@@ -64,20 +64,6 @@ return { nebula = {
   weapons                = {
     {
       def                = [[CANNON]],
-      mainDir            = [[0 1 -1]], -- top
-      maxAngleDif        = 250,
-      badTargetCategory  = [[MOBILE]],
-      onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
-    },
-    {
-      def                = [[CANNON]],
-      mainDir            = [[0 -1 0]], -- bottom
-      maxAngleDif        = 210,
-      badTargetCategory  = [[MOBILE]],
-      onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
-    },
-    {
-      def                = [[CANNON]],
       mainDir            = [[-1 0 0]], -- left
       maxAngleDif        = 210,
       badTargetCategory  = [[MOBILE]],
@@ -86,6 +72,20 @@ return { nebula = {
     {
       def                = [[CANNON]],
       mainDir            = [[1 0 0]], -- right
+      maxAngleDif        = 210,
+      badTargetCategory  = [[MOBILE]],
+      onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
+    },
+    {
+      def                = [[CANNON]],
+      mainDir            = [[0 1 -1]], -- top
+      maxAngleDif        = 250,
+      badTargetCategory  = [[MOBILE]],
+      onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
+    },
+    {
+      def                = [[CANNON]],
+      mainDir            = [[0 -1 0]], -- bottom
       maxAngleDif        = 210,
       badTargetCategory  = [[MOBILE]],
       onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
@@ -99,8 +99,8 @@ return { nebula = {
       name                    = [[Kinetic Driver]],
       accuracy                = 100,
       alphaDecay              = 0.1,
-      areaOfEffect            = 32,
-      burst                   = 4,
+      areaOfEffect            = 40,
+      burst                   = 16,
       burstrate               = 0.3,
       colormap                = [[1 0.95 0.4 1   1 0.95 0.4 1    0 0 0 0.01    1 0.7 0.2 1]],
       craterBoost             = 0,
@@ -118,7 +118,7 @@ return { nebula = {
       noGap                   = false,
       noSelfDamage            = true,
       range                   = 800,
-      reloadtime              = 4,
+      reloadtime              = 20,
       rgbColor                = [[1 0.95 0.4]],
       separation              = 2,
       size                    = 2.5,
@@ -130,7 +130,7 @@ return { nebula = {
       tolerance               = 5000,
       turret                  = true,
       weaponType              = [[Cannon]],
-      weaponVelocity          = 400,
+      weaponVelocity          = 450,
     },
   },
 
