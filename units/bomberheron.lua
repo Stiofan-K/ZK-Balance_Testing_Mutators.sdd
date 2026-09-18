@@ -75,6 +75,7 @@ return { bomberheron= {
       burst                   = 2,
       burstrate               = 3/30,
       cegTag                  = [[hmg_trail_light]],
+      collideFriendly         = false, -- lets not kill eachother
       craterBoost             = 0.15,
       craterMult              = 0.3,
 
