@@ -532,7 +532,7 @@ Obelisk
 
 Riot alt:		Riot scalpel. More missiles, less aoe, overheats
 Hive
-TODO			needs overheating and overkill prevention to function as a unit
+TODO			good okp would be good
 TODO			Could also make it stop to fire to manover around the  weird overkill bug?
 
 Skirm: 			Bomb/depthcharge launcher, expensive antiskirm/arty? Veh skirms are difficult 
@@ -620,15 +620,4 @@ A building that stockpiles metal for use. There is some base implementation arou
 TODO Base zk Github Issueable:
 Dgun prioritisation
 Jump command retargetting can leave units stuck out of range of a jump but not moving close to jump.
-
-
-Implemented in base:
-
--- Dante is speedier, tankier, but has it's missile salvo is replaced with a shorter range grenade barrage.
--- It's dgun/missiles/grenades have less afterburn (same as pyro) but set the ground on fire, while its flamer gets the extended duration afterburn its missiles had.
--> Get in there dante! This lad really really really feels like he wants to get close. It's never been allowed because it's too good at flinging missiles downrange. Now it's a bit shorter ranged, so can be allowed to be better at closing the distance.
--> This may be a back and forth thing. I can imagine that dante got its longer range barrage exactly because couldnt get close/was skirmed alot. But I'm curious to try this out.
--> After testing, dante feels more suited for running up and killing things.
-
-
 ]]
