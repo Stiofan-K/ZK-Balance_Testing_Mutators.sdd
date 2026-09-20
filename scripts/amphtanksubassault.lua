@@ -110,7 +110,9 @@ function script.Create()
 	Hide(turret2)
 	Hide(sleeve2)
 	Hide(gun2)
-	
+	--Move(turret2, y_axis, 25, 0)
+
+	--Turn(sleeve2, x_axis, math.rad(-90), 0)
 	Turn(sleeve1, x_axis,  math.rad(-30), math.rad(15))
 
 	while (select(5, Spring.GetUnitHealth(unitID)) < 1) do
@@ -137,9 +139,18 @@ function script.BlockShot(num, targetID)
 		return true
 	end
 
-	--blocking torpedo out of water. Could do fake weapon stuff to launch it instead
-	if num == 2 and y > -30 then
-		return true
+	--blocking VLS out of water. Could do fake weapon stuff to launch it instead
+	if num == 2 then
+		if y >= -35 then
+		return true	
+		end
+		if targetID then
+			x,y,z = Spring.GetUnitPosition(targetID)
+			Spring.Echo(y)
+			if y < -35 then
+				return true
+			end
+		end
 	end
 
 	-- reload check
@@ -147,24 +158,18 @@ function script.BlockShot(num, targetID)
 	if not (reloadState and (reloadState < 0 or reloadState < Spring.GetGameFrame())) then
 		return true
 	end
-
-	if Spring.ValidUnitID(targetID) then
-		--TODO leftover Cyclopse overkill prevention, redo
-		-- TTL at max range determined to be 50f empirically
-		-- at projectile speed 270 elmo/s and 450 range
-		local framesETA = 50 * (spGetUnitSeparation(unitID, targetID) or 0) / 450
-		return GG.OverkillPrevention_CheckBlock(unitID, targetID, 1100.1, framesETA, false, false, true)
-
+	if GG.OverkillPrevention_CheckBlock(unitID, targetID, 900, 150, false, false, true) then
+		return true
 	end
 	return false
 end
 
 function script.AimFromWeapon(num)
-	return firepoint1
+	return aimPoints[1]
 end
 
 function script.QueryWeapon(num)
-	return firepoint1
+	return firePoints[1]
 end
 
 function script.AimWeapon(num, heading, pitch)
@@ -173,17 +178,26 @@ function script.AimWeapon(num, heading, pitch)
 
 	local x,y,z = Spring.GetUnitPosition(unitID)
 
-	if num == 2 and y > -30 then
+	if num == 1 and y < -35 then
 		return false
+	end
+
+	if num == 2 then
+		if y >= -35 then
+			return false
+		end
+		pitch = math.rad(80)
 	end
 
 	if pitch <= math.rad(0) then
 		pitch = math.rad(0) --prevents clipping, shouldnt be too bad?
 	end
-	
+
 	Turn(turret1, y_axis, heading, math.rad(60))
 	Turn(sleeve1, x_axis, -pitch, math.rad(30))
-	WaitForTurn(turret1, y_axis)
+	if num == 1 then
+		WaitForTurn(turret1, y_axis)
+	end
 	WaitForTurn(sleeve1, x_axis)
 	StartThread(RestoreMainGun)
 	gunHeading = heading

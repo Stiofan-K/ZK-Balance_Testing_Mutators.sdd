@@ -1,6 +1,6 @@
 return { amphtankriot = {
   name                = [[Hive]],
-  description         = [[Deployable Riot Swarm Missile Amphtank (must stop to fire)]],
+  description         = [[Deployable Riot Swarm Missile/Torpedo Amphtank (must stop to fire)]],
   activateWhenBuilt   = true,
   acceleration        = 0.132,
   brakeRate           = 0.516,
@@ -49,7 +49,7 @@ return { amphtankriot = {
   moveState           = 0,
   noAutoFire          = false,
   noChaseCategory     = [[TERRAFORM SATELLITE SUB]],
-  objectName          = [[hive.dae]],
+  objectName          = [[Hive.s3o]],
   script              = [[amphtankriot.lua]],
   selfDestructAs      = [[BIG_UNITEX]],
   sightDistance       = 450,
@@ -67,7 +67,7 @@ return { amphtankriot = {
   weapons             = {
 
     {
-      def                = [[MICROMISSILES]],
+      def                = [[MICROMISSILES]], -- Could be split into surface and subsurface :o
       onlyTargetCategory = [[FIXEDWING LAND SINK TURRET SHIP SWIM FLOAT GUNSHIP HOVER]],
     },
 
@@ -97,6 +97,7 @@ return { amphtankriot = {
 
       dance                   = 20,
       fireStarter             = 0.2,
+      fixedLauncher           = true,
       flightTime              = 3.5,
       groundBounce            = true,
       impulseBoost            = 0,
@@ -116,7 +117,7 @@ return { amphtankriot = {
       tolerance               = 4000,
       turnrate                = 80000,
       turret                  = true,
-      --waterWeapon           = true,
+      waterWeapon             = true,
       weaponAcceleration      = 100,
       weaponTimer             = 0.4,
       weaponType              = [[StarburstLauncher]],

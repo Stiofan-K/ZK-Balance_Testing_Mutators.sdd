@@ -1266,13 +1266,13 @@
 	},
 	"amphtankriot" : {
 		"name" : "Hive",
-		"description" : "Deployable Riot Swarm Missile Amphtank (must stop to fire)",
-		"helptext" : "The Hive is a deploying swarm missile tank, that stops to unleash a barrage of small seeking wasp missiles. Missiles who's target has been destroyed attempt to target the Hive's next target. The Hive is more easily rushed down than other riots of it's weightclass, but trades it for range and single target damage output. Overheats, and cools faster in water."
+		"description" : "Deployable Riot Swarm Missile/Torpedo Amphtank (Anti-Sub, must stop to fire)",
+		"helptext" : "The Hive is a deploying swarm missile tank, that stops to unleash a barrage of small seeking wasp missiles. Missiles who's target has been destroyed attempt to target the Hive's next target. The Hive is more easily rushed down than other riots of it's weightclass, but trades movement for range and single target damage output. Overheats, and cools faster in water."
 	},
 	"amphtanksubassault" : {
 		"name" : "Crocodile",
-		"description" : "Subsurface Assault Bombard (Anti-Sub)",
-		"helptext" : "The Crocodile is a heavily armoured heavy rocket bombard and subsurface tank. On land it fires a rocket with a large explosion that can be scary for groups of units if not dodged. Underwater it fires a high damage but slow seeking torpedo to devastate slow and lone surface or subsurface targets."
+		"description" : "Subsurface Assault Bombard",
+		"helptext" : "The Crocodile is a heavily armoured and subsurface heavy rocket bombard tank. It fires a slow unguided rocket at surface and land targer with an large explosion that can be scary for groups of units. In water it sits just below the surface, launching its rockets vertically through its snorkle like barrel."
 	},
 	"amphtankaa" : {
 		"name" : "Ballista",
