@@ -1,18 +1,18 @@
 Hiya! This the Repository for the [Stiofan Balance refumble](https://zero-k.info/Mods/Detail/186). 
 
-Below are the changes listed, for further insight check out the gui_changes_widget.lua.
+Below are the changes listed and some reasoning for them.
 
 ## Amphtanks: Boat but also car! 
 Tis a new factory, though currently not quite complete and kitbashed out of existing models. Is still missing polish in how things play and feel, feedback is welcome.  
 
     Murderhole:  Depth charge armed constructor. Tosses it on land, seeking in water.  
     Springald:   Medium weight light particle burst fire raider. Overheats, cools faster in water.  
-    Hive:        Deploying Swarm Missile Riot amphtank. Slow to start dealing damage but high dps. Overheats.  
+    Hive:        Deploying Swarm Missile/Torpedo Riot amphtank. Overheats but cools faster in water. 
     Mangonel:    Depth Charge Launcher skirmisher. Tosses them on land, seeking in water. Has some splash damage.  
     Ballista:    Disarming Flak Tank with short range missile sidearm.  
     Arbalest:    Rapidfire Gauss Firesupport. Stops to fire. Has very low line of fire. Overheats.  
     Anura:       Subsurface Assault Raider. Uses torpedoes underwater and a plasma repeater on land.  
-    Crocodile:   Subsurface Assault Bombard. Fires either a Heavy Rocket on land or Torpedo in water on a 10 second reload.  
+    Crocodile:   Subsurface Assault Bombard. Fires a Heavy Rocket at surface targets even when submerged on a 10 second reload.  
     Plaguerat:   Amphibious Terrain-flattening and Nanoplague bomb. 8 bp zombie rezspeed.  
 
 ## Nanoplague: Resurect wrecks into neutral Zombies!
@@ -47,18 +47,17 @@ Tis a new factory, though currently not quite complete and kitbashed out of exis
   Raptor's weapon is swapped for a flak gun of same dps with slightly more range.  
   Raptor and swift also have an extra maneuver enabled. Looks cool, unsure if effective or a good addition.  
   Swift gets extra range and fireangle to give more wiggleroom for strafing run micro.    
-  Phoenix has its damage shifted more to afterburn from upfront damage, with the resulting damage being similar, but stacking multiple phoenix being less effective.
+  (Shelved) Phoenix has its damage shifted more to afterburn from upfront damage, with the resulting damage being similar, but stacking multiple phoenix being less effective. 
   
 ### Experimental Second Air factory: Variations on what could take the Magpie slot. 
-
+A secondary Air factory that tests some va
+ 
       Pidgeon: Large Aoe Toss Bomber
       Finch: Cluster Toss Bomber
       Falcon: Rocket Strikebomber
       Heron: Gun Strafing Strikecraft
-      Buzzard: A Magpie variation trading basedamage for slow.
-      Hawk: A Magpie variation trading health for radar stealth.
 
-The Tossbombers are better at grinding down armies, while the Strike and Magpie variants are more strike focused.
+The Tossbombers are better at grinding down armies, while the Strike variants are more well, strike focused.
 ## Jump: All jump bots can jump
   All jumpbots can jump, but worse than their prime jumpers in speed and recharge. It is primarily a tactical movement, not combat jump.  
   All new jumps have a windup before jumping. It is meant to be only very slightly faster than walking on flat ground.  
@@ -66,9 +65,9 @@ The Tossbombers are better at grinding down armies, while the Strike and Magpie 
 
 ## Economy: Trying to make early gridding easier and more viable. Also Solar walls are encouraged.
   Fusion, Singularity and Geothermals produce 20% more energy.  
-  Wind/Tidal Grid range is increased to match solars.  
+  Wind/Tidal Grid range is increased.  
   Solars are cheaper and produce less energy in turn, ending with a slightly better cost to E ratio than before.  
-  Energy Pylons are more expensive but tankier.  
+  Energy Pylons are more expensive but tankier, to incentivise the use of small powerplants for grid.  
 
 ## Miscellaneous: Experimental capabilities to give these units some more utility and depth.
   Scythe can now areacloak, being a middle step between conjurer and iris. Scythe is slowed when areacloaking, but still slightly faster than iris, giving cloakfactory a potential edge in cloaking over morphed iris.  
@@ -83,7 +82,7 @@ The Tossbombers are better at grinding down armies, while the Strike and Magpie 
   
   DRP's green shot also applies nanoplague, at 200 bp.  
 
-## Shield: Some shield changes to make it play more brawly.
+## Shield: Some shield changes to make it play more brawly. (Shelved for now)
   Felon loses range but gets increased shield regen and is speedier.  
   Thug gains slightly more shieldhealth, radius and fires both cannons in a burst with a longer reload. Slighlty more dps.  
   Outlaw is faster and more tanky. Deals more damage up close and slightly less at its edge.  
@@ -95,3 +94,5 @@ The Tossbombers are better at grinding down armies, while the Strike and Magpie 
 
 ## QoL/Technical/Fix:
   Commanders try to prioritise their dgun.  
+
+Check the comments in the gui_changes_widget.lua. for some more unorganised thoughts.
