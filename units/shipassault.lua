@@ -9,6 +9,7 @@ return { shipassault = {
   canGuard               = true,
   canMove                = true,
   canPatrol              = true,
+  canManualFire          = true,
   category               = [[SHIP]],
   collisionVolumeOffsets = [[0 2 -2]],
   collisionVolumeScales  = [[65 70 130]],
