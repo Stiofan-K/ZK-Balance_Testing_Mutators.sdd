@@ -316,6 +316,60 @@ local function Stopping()
 	StartThread(IdleAnim)
 end
 
+local function EmitAllJets(effect)
+	EmitSfx(jet1, effect)
+	EmitSfx(jet2, effect)
+	Move(jet1, y_axis, 12, 0)
+	Move(jet2, y_axis, 12, 0)
+	EmitSfx(jet1, effect)
+	EmitSfx(jet2, effect)
+	Move(jet1, y_axis, -12, 0)
+	Move(jet2, y_axis, -12, 0)
+	
+end
+
+local function EmitFeet(effect)
+	EmitSfx(rfoot, effect)
+	EmitSfx(lfoot, effect)
+end
+
+local rotationRequired
+
+function preJump(turn,distance)
+	StartThread(Stopping)
+	rotationRequired = turn*GG.Script.headingToRad
+	Turn(torso, y_axis, rotationRequired, math.rad(420))
+
+	GG.PokeDecloakUnit(unitID, unitDefID)
+	EmitAllJets(GG.Script.UNIT_SFX5)
+end
+
+function beginJump()
+	GG.PokeDecloakUnit(unitID, unitDefID)
+	EmitFeet(GG.Script.UNIT_SFX5)
+	EmitFeet(GG.Script.UNIT_SFX6)
+	EmitFeet(GG.Script.UNIT_SFX7)
+	EmitFeet(GG.Script.UNIT_SFX8)
+	EmitAllJets(GG.Script.UNIT_SFX6)
+end
+
+function jumping(jumpPercent)
+	if jumpPercent < 50 then
+		EmitAllJets(GG.Script.UNIT_SFX6)
+		EmitFeet(GG.Script.UNIT_SFX6)
+	else
+		EmitFeet(GG.Script.UNIT_SFX7)
+		EmitAllJets(GG.Script.UNIT_SFX7)
+		EmitAllJets(GG.Script.UNIT_SFX4)
+	end
+end
+
+function endJump()
+	StartThread(Stopping)
+	EmitFeet(GG.Script.UNIT_SFX7)
+	EmitFeet(GG.Script.UNIT_SFX8)
+end
+
 function script.StartMoving()
 	StartThread(Walk)
 	Signal(SIG_IDLE)
