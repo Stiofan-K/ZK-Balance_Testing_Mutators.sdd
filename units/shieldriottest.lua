@@ -1,4 +1,4 @@
-return { shieldriot = {
+return { shieldriottest = {
   name                   = [[Outlaw]],
   description            = [[Riot Bot]],
   acceleration           = 0.75,

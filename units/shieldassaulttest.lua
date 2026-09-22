@@ -1,4 +1,4 @@
-return { shieldassault = {
+return { shieldassaulttest = {
   name                = [[Thug]],
   description         = [[Shielded Assault Bot]],
   acceleration        = 0.75,

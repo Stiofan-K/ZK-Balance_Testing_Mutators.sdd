@@ -1,4 +1,4 @@
-return { shieldfelon = {
+return { shieldfelontest = {
   name                = [[Felon]],
   description         = [[Shielded Riot/Skirmisher Bot]],
   acceleration        = 0.75,

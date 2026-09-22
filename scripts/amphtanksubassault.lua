@@ -146,7 +146,6 @@ function script.BlockShot(num, targetID)
 		end
 		if targetID then
 			x,y,z = Spring.GetUnitPosition(targetID)
-			Spring.Echo(y)
 			if y < -35 then
 				return true
 			end
